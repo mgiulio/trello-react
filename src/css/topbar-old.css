@@ -1,0 +1,29 @@
+.toolbar {
+   padding: 10px;
+
+   background-color: #333;
+   color: #aaa;
+}
+
+.toolbar .section.search {
+   float: left;
+}
+
+.toolbar .section.misc {
+   float: right;
+}
+
+.toolbar .section > * {
+   float: left;
+}
+.toolbar .section.search > * {
+   margin-right: 5px;
+}
+.toolbar .section.misc > * {
+   margin-left: 5px;
+}
+
+.toolbar .logo {
+   display: block;
+   text-align: center;
+}
