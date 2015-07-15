@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="author" content="mgiulio">
+	<title>Trello clone</title>
+
+	<script src="js/react/react.js"></script>
+	<script src="js/react/JSXTransformer.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+   <header class="toolbar">
+      <div class="section search">
+			<button>Boards</button>
+			<input type="search" placeholder="Sarch...">
+		</div>
+		<div class="section misc">
+			<div class="create">
+				<button class="add-new">+</button>
+			</div>
+			<div class="user-menu">
+				<button class="">
+					<img class="avatar">
+					<span class="username">mgiulio</span>
+				</button>
+			</div>
+			<div class="notifications">
+				<button>N</button>
+			</div>
+		</div>
+		<a class="logo" href="/">Trello</a>
+   </header>
+
+	<div class="board-info">
+		<h2 class="board-title">Test Board</h2>
+	</div>
+
+   <section class="lists">
+		<div class="lists-container">
+		</div>
+	</section>
+
+	<div class="sidebar">
+   </div>
+
+	<script type="text/jsx">
+		var AddNewListControl = React.createClass({
+				getInitialState: function() {
+					return {
+						open: false
+					};
+				},
+				open: function() {
+					this.setState({open: true});
+				},
+				close: function() {
+					this.setState({open: false});
+				},
+				save: function() {
+					var listName = this.refs.listName.getDOMNode().value.trim();
+
+					if (listName === '')
+						return;
+
+					this.close();
+					this.props.onUserInput(listName);
+				},
+				render: function() {
+					return !this.state.open ? (
+						<div className="add-new-list">
+							<button onClick={this.open}>Add New</button>
+						</div>
+					) : (
+						<div className="add-new-list">
+							<input
+								type="text"
+								placeholder="List title here..."
+								ref="listName"
+							/>
+							<button onClick={this.save}>Save</button>
+							<button onClick={this.close}>Cancel</button>
+						</div>
+					);
+				}
+		});
+
+		var CardList = React.createClass({
+			render: function() {
+				var m = this.props.model;
+				return (
+					<article className="list">
+						<header>
+							<h2 className="name">{m.name}</h2>
+						</header>
+						<ul className="items">
+						</ul>
+						<footer>
+						</footer>
+					</article>
+				);
+			}
+		});
+
+		var CardLists = React.createClass({
+			getInitialState: function() {
+				return {
+					lists: []
+				};
+			},
+			createList: function(listName) {
+				this.setState({lists: this.state.lists.concat({name: listName})});
+			},
+		   render: function() {
+		      var lists = this.state.lists.map(function(list) { return <CardList model={list} /> ;});
+
+				return (
+					<div className="lists-container">
+						{lists}
+						<AddNewListControl onUserInput={this.createList} />
+					</div>
+				);
+		   }
+		});
+
+		React.render(
+			<CardLists />,
+			document.body.querySelector('.lists')
+		);
+
+		// var app = React.createClass({});
+
+	</script>
+</body>
+</html>
