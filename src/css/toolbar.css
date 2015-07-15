@@ -1,0 +1,35 @@
+.toolbar {
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+
+   padding: 5px;
+
+   background-color: #333;
+   color: #aaa;
+}
+
+.toolbar .search {
+   display: flex;
+}
+
+.toolbar .search > * {
+   margin-right: 5px;
+}
+
+.toolbar .misc {
+   display: flex;
+}
+
+.toolbar .misc > * {
+   margin-left: 5px;
+}
+
+.toolbar .logo {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+
+   color: #f0f0f0;
+}
