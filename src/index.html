@@ -50,7 +50,44 @@
    </div>
 
 	<script type="text/jsx">
-		var AddNewListControl = React.createClass({
+		var
+			CardLists = React.createClass({
+				getInitialState: function() {
+					return {
+						lists: []
+					};
+				},
+				createList: function(listName) {
+					this.setState({lists: this.state.lists.concat({name: listName})});
+				},
+			   render: function() {
+			      var lists = this.state.lists.map(function(list) { return <CardList model={list} /> ;});
+
+					return (
+						<div className="lists-container">
+							{lists}
+							<AddNewListControl onUserInput={this.createList} />
+						</div>
+					);
+			   }
+			}),
+			CardList = React.createClass({
+				render: function() {
+					var m = this.props.model;
+					return (
+						<article className="list">
+							<header>
+								<h2 className="name">{m.name}</h2>
+							</header>
+							<ul className="items">
+							</ul>
+							<footer>
+							</footer>
+						</article>
+					);
+				}
+			}),
+			AddNewListControl = React.createClass({
 				getInitialState: function() {
 					return {
 						open: false
@@ -88,53 +125,13 @@
 						</div>
 					);
 				}
-		});
-
-		var CardList = React.createClass({
-			render: function() {
-				var m = this.props.model;
-				return (
-					<article className="list">
-						<header>
-							<h2 className="name">{m.name}</h2>
-						</header>
-						<ul className="items">
-						</ul>
-						<footer>
-						</footer>
-					</article>
-				);
-			}
-		});
-
-		var CardLists = React.createClass({
-			getInitialState: function() {
-				return {
-					lists: []
-				};
-			},
-			createList: function(listName) {
-				this.setState({lists: this.state.lists.concat({name: listName})});
-			},
-		   render: function() {
-		      var lists = this.state.lists.map(function(list) { return <CardList model={list} /> ;});
-
-				return (
-					<div className="lists-container">
-						{lists}
-						<AddNewListControl onUserInput={this.createList} />
-					</div>
-				);
-		   }
-		});
+			})
+		;
 
 		React.render(
 			<CardLists />,
 			document.body.querySelector('.lists')
 		);
-
-		// var app = React.createClass({});
-
 	</script>
 </body>
 </html>
