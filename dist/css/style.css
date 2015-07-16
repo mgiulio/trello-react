@@ -226,7 +226,7 @@ body {
 
    padding: 5px;
 
-   background-color: #333;
+   background-color: #5e5e5e;
    color: #aaa;
 }
 
@@ -250,6 +250,34 @@ body {
 
 .toolbar .misc > * {
    margin-left: 5px;
+}
+
+.toolbar .misc .user .button {
+   padding: 0;
+   padding-right: 5px;
+
+   border-radius: 3px;
+
+   background: rgb(189, 189, 189);
+   border: 1px solid rgb(189, 189, 189);
+}
+
+.toolbar .misc .user .button .avatar {
+   vertical-align: middle;
+}
+
+.toolbar .misc .user .button .username {
+   font-size: 16px;
+   font-weight: bold;
+   position: relative;
+   top: 2px;
+
+   font-family: Verdana;
+   font-size: 14px;
+   position: relative;
+   top: 1px;
+
+   color: rgb(226, 226, 226);
 }
 
 .toolbar .logo {
