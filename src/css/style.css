@@ -12,6 +12,11 @@ body {
    background: #aaa;
 }
 
+.app {
+   height: 100%;
+   overflow: hidden;
+}
+
 @import 'toolbar.css'
 
 .board-info {

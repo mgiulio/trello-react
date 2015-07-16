@@ -1,4 +1,62 @@
 var
+   App = React.createClass({
+         getInitialState: function() {
+            return {
+               user: {
+                  username: 'mgiulio',
+                  avatarUrl: 'img/avatar.png'
+               },
+               lists: []
+            };
+         },
+         render: function() {
+            return (
+               <div className="app">
+                  <Toolbar user={this.state.user} />
+
+               	<div className="board-info">
+               		<h2 className="board-title">Test Board</h2>
+               	</div>
+
+                  <section className="lists">
+               		<CardLists />
+               	</section>
+
+               	<div className="sidebar">
+                  </div>
+               </div>
+            );
+         }
+   }),
+
+   Toolbar = React.createClass({
+      render: function() {
+         return (
+            <header className="toolbar">
+               <div className="section search">
+                  <button>Boards</button>
+                  <input type="search" placeholder="Sarch..." />
+               </div>
+               <div className="section misc">
+                  <div className="create">
+                     <button className="add-new">+</button>
+                  </div>
+                  <div className="user">
+                     <button className="button">
+                        <img className="avatar" src={this.props.user.avatarUrl} alt="" />
+                        <span className="username">{this.props.user.username}</span>
+                     </button>
+                  </div>
+                  <div className="notifications">
+                     <button>N</button>
+                  </div>
+               </div>
+               <a className="logo" href="/">Trello</a>
+            </header>
+         );
+      }
+   }),
+
    CardLists = React.createClass({
       getInitialState: function() {
          return {
@@ -80,6 +138,6 @@ var
 ;
 
 React.render(
-   <CardLists />,
-   document.body.querySelector('.lists')
+   <App />,
+   document.body
 );

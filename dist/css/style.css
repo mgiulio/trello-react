@@ -213,6 +213,11 @@ body {
    background: #aaa;
 }
 
+.app {
+   height: 100%;
+   overflow: hidden;
+}
+
 .toolbar {
    display: -webkit-box;
    display: -webkit-flex;
