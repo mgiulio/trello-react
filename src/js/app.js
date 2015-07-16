@@ -9,7 +9,7 @@ var
          this.setState({lists: this.state.lists.concat({name: listName})});
       },
       render: function() {
-         var lists = this.state.lists.map(function(list) { return <CardList model={list} /> ;});
+         var lists = this.state.lists.map(function(list) { return <CardList data={list} /> ;});
 
          return (
             <div className="lists-container">
@@ -19,13 +19,15 @@ var
          );
       }
    }),
+
    CardList = React.createClass({
       render: function() {
-         var m = this.props.model;
+         var d = this.props.data;
+
          return (
             <article className="list">
                <header>
-                  <h2 className="name">{m.name}</h2>
+                  <h2 className="name">{d.name}</h2>
                </header>
                <ul className="items">
                </ul>
@@ -35,6 +37,7 @@ var
          );
       }
    }),
+
    AddNewListControl = React.createClass({
       getInitialState: function() {
          return {
