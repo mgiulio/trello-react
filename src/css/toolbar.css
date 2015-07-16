@@ -31,7 +31,8 @@
 
    border-radius: 3px;
 
-   background: gray(189);
+   background: linear-gradient(gray(216), gray(189));
+
    border: 1px solid gray(189);
 }
 
@@ -50,7 +51,20 @@
    position: relative;
    top: 1px;
 
-   color: gray(226);
+   color: gray(240);
+}
+
+.toolbar .misc .user .button:hover {
+   cursor: pointer;
+
+   background: linear-gradient(gray(189), gray(216));
+}
+.toolbar .misc .user .button:focus {
+   //outline: 1px solid gray(255);
+}
+
+.toolbar .misc .user .button:hover .username {
+   color: gray(255);
 }
 
 .toolbar .logo {

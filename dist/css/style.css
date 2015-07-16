@@ -258,7 +258,10 @@ body {
 
    border-radius: 3px;
 
-   background: rgb(189, 189, 189);
+   background: -webkit-linear-gradient(rgb(216, 216, 216), rgb(189, 189, 189));
+
+   background: linear-gradient(rgb(216, 216, 216), rgb(189, 189, 189));
+
    border: 1px solid rgb(189, 189, 189);
 }
 
@@ -277,7 +280,22 @@ body {
    position: relative;
    top: 1px;
 
-   color: rgb(226, 226, 226);
+   color: rgb(240, 240, 240);
+}
+
+.toolbar .misc .user .button:hover {
+   cursor: pointer;
+
+   background: -webkit-linear-gradient(rgb(189, 189, 189), rgb(216, 216, 216));
+
+   background: linear-gradient(rgb(189, 189, 189), rgb(216, 216, 216));
+}
+.toolbar .misc .user .button:focus {
+   //outline: 1px solid rgb(255, 255, 255);
+}
+
+.toolbar .misc .user .button:hover .username {
+   color: rgb(255, 255, 255);
 }
 
 .toolbar .logo {
