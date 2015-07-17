@@ -19,9 +19,7 @@ var App = React.createClass({
                <h2 className="board-title">Test Board</h2>
             </div>
 
-            <section className="lists">
-               <CardLists />
-            </section>
+            <CardLists />
 
             <div className="sidebar">
             </div>

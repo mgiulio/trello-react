@@ -359,26 +359,26 @@ body {
    margin: 0;
 }
 
-.lists {
+.lists-container {
    height: calc(100% - 40px * 2);
    overflow-x: auto;
    overflow-y: hidden;
 }
 
-.lists-container {
-   height: 100%;
-   width: 6000px;
-   overflow: hidden;
+.lists {
+   display: table;
+   table-layout: fixed;
+   width: 100%;
+   //height: 100%;
 }
 
 .lists .list {
+   display: table-cell;
    width: 300px;
    box-sizing: border-box;
    max-height: calc(100% - 10px);
    overflow-y: auto;
-
-   float: left;
-   margin-right: 40px;
+   padding: 10px;
 
    background-color: #ccc;
 }
@@ -391,4 +391,14 @@ body {
 
 .lists .list .items .item {
    padding: 10px;
+}
+
+.lists .add-new-list {
+   display: table-cell;
+   width: 300px;
+   box-sizing: border-box;
+
+   padding: 10px;
+
+   background-color: #ccc;
 }
