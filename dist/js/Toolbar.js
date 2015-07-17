@@ -7,7 +7,6 @@ var Toolbar = React.createClass({
    },
 
    handleMenuVisibility: function(e) {
-      console.log(e);
       var buttonClicked = e.target.parentNode.className;
 
       if (this.state.visibleMenu === buttonClicked)
