@@ -46,6 +46,22 @@ var
                         <img className="avatar" src={this.props.user.avatarUrl} alt="" />
                         <span className="username">{this.props.user.username}</span>
                      </button>
+                     <nav className="user__menu">
+                        <ul className="user__menu__items">
+                           <li className="user__menu__items__item"><a href="#">Profile</a></li>
+                           <li className="user__menu__items__item"><a href="#">Cards</a></li>
+                           <li className="user__menu__items__item"><a href="#">Billing</a></li>
+                           <li className="user__menu__items__item last-of-group"><a href="#">Settings</a></li>
+                           <li className="user__menu__items__item"><a href="#">Help</a></li>
+                           <li className="user__menu__items__item"><a href="#">Apps</a></li>
+                           <li className="user__menu__items__item"><a href="#">Shortcuts</a></li>
+                           <li className="user__menu__items__item last-of-group"><a href="#">Share Trello(for free Trello Gold)</a></li>
+                           <li className="user__menu__items__item"><a href="#">Getting Started Guide</a></li>
+                           <li className="user__menu__items__item last-of-group"><a href="#">Trello Blog</a></li>
+                           <li className="user__menu__items__item last-of-group"><a href="#">Change Language</a></li>
+                           <li className="user__menu__items__item"><a href="#">Log Out</a></li>
+                        </ul>
+                     </nav>
                   </div>
                   <div className="notifications">
                      <button>N</button>

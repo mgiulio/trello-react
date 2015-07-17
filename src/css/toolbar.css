@@ -25,6 +25,10 @@
    margin-left: 5px;
 }
 
+.toolbar .misc .user {
+   //position: relative;
+}
+
 .toolbar .misc .user .button {
    padding: 0;
    padding-right: 5px;
@@ -65,6 +69,43 @@
 
 .toolbar .misc .user .button:hover .username {
    color: gray(255);
+}
+
+.toolbar .misc .user .user__menu {
+   position: absolute;
+   top: 100%;
+   right: 0;
+   margin: 5px;
+   min-width: 200px;
+   max-width: 400px;
+
+   border-radius: 3px;
+
+   background-color: #f3f3f3;
+}
+
+.user__menu__items {
+   margin: 0;
+   padding: 0;
+   list-style: none;;
+}
+
+.user__menu__items__item a {
+   display: block;
+
+   text-decoration: none;
+   padding: 5px 10px;
+
+   color: gray(181);
+}
+
+.user__menu__items__item.last-of-group {
+   border-bottom: 1px solid gray(181);
+}
+
+.user__menu__items__item a:hover {
+   background-color: gray(181);
+   color: #f3f3f3;
 }
 
 .toolbar .logo {
