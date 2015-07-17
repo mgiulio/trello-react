@@ -257,14 +257,6 @@ body {
    margin-left: 5px;
 }
 
-.toolbar .misc .user {
-   //position: relative;
-}
-
-.toolbar .misc .user input[type="checkbox"] {
-   position: absolute;
-   visibility: hidden;
-}
 .toolbar .misc .user .button {
    padding: 0;
    padding-right: 5px;
@@ -311,7 +303,7 @@ body {
    color: rgb(255, 255, 255);
 }
 
-.toolbar .misc .user .user__menu {
+.toolbar .misc .menu {
    position: absolute;
    top: 100%;
    right: 0;
@@ -324,17 +316,17 @@ body {
 
    background-color: #f3f3f3;
 }
-.toolbar .misc .user input[type="checkbox"]:checked + .user__menu {
+.toolbar .menu.visible {
    display: block;
 }
 
-.user__menu__items {
+.menu .items {
    margin: 0;
    padding: 0;
    list-style: none;;
 }
 
-.user__menu__items__item a {
+.menu .items .item a {
    display: block;
 
    text-decoration: none;
@@ -343,11 +335,11 @@ body {
    color: rgb(181, 181, 181);
 }
 
-.user__menu__items__item.last-of-group {
+.menu .items .item.last-of-group {
    border-bottom: 1px solid rgb(181, 181, 181);
 }
 
-.user__menu__items__item a:hover {
+.menu .items .item a:hover {
    background-color: rgb(181, 181, 181);
    color: #f3f3f3;
 }
