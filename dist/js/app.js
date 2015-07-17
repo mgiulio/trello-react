@@ -42,10 +42,11 @@ var
                      <button className="add-new">+</button>
                   </div>
                   <div className="user">
-                     <button className="button">
+                     <label htmlFor="toggle-user-menu" className="button">
                         <img className="avatar" src={this.props.user.avatarUrl} alt="" />
                         <span className="username">{this.props.user.username}</span>
-                     </button>
+                     </label>
+                     <input type="checkbox" id="toggle-user-menu" />
                      <nav className="user__menu">
                         <ul className="user__menu__items">
                            <li className="user__menu__items__item"><a href="#">Profile</a></li>

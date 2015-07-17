@@ -29,6 +29,10 @@
    //position: relative;
 }
 
+.toolbar .misc .user input[type="checkbox"] {
+   position: absolute;
+   visibility: hidden;
+}
 .toolbar .misc .user .button {
    padding: 0;
    padding-right: 5px;
@@ -78,10 +82,14 @@
    margin: 5px;
    min-width: 200px;
    max-width: 400px;
+   display: none;
 
    border-radius: 3px;
 
    background-color: #f3f3f3;
+}
+.toolbar .misc .user input[type="checkbox"]:checked + .user__menu {
+   display: block;
 }
 
 .user__menu__items {
