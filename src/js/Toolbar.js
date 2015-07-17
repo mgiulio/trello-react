@@ -1,5 +1,20 @@
 var Toolbar = React.createClass({
 
+   getInitialState: function() {
+      return {
+         visibleMenu: ''
+      };
+   },
+
+   handleMenuVisibility: function(e) {
+      var buttonClicked = e.target.parentNode.className;
+
+      if (this.state.visibleMenu === buttonClicked)
+         this.setState({visibleMenu: ''});
+      else
+         this.setState({visibleMenu: buttonClicked});
+   },
+
    render: function() {
       return (
          <header className="toolbar">
@@ -9,8 +24,8 @@ var Toolbar = React.createClass({
             </div>
             <div className="section misc">
                <div className="create">
-                  <button className="add-new">+</button>
-                  <nav className="menu">
+                  <button className="button" onClick={this.handleMenuVisibility}>+</button>
+                  <nav className={this.state.visibleMenu === 'create' ? 'menu visible' : 'menu'}>
                      <ul className="items">
                         <li className="item"><a href="#">Create Board</a></li>
                         <li className="item"><a href="#">Create Personal Organization</a></li>
@@ -19,11 +34,11 @@ var Toolbar = React.createClass({
                   </nav>
                </div>
                <div className="user">
-                  <button className="button">
+                  <button className="button" onClick={this.handleMenuVisibility}>
                      <img className="avatar" src={this.props.user.avatarUrl} alt="" />
                      <span className="username">{this.props.user.username}</span>
                   </button>
-                  <nav className="menu">
+                  <nav className={this.state.visibleMenu === 'user' ? 'menu visible' : 'menu'}>
                      <ul className="items">
                         <li className="item"><a href="#">Profile</a></li>
                         <li className="item"><a href="#">Cards</a></li>
@@ -41,8 +56,8 @@ var Toolbar = React.createClass({
                   </nav>
                </div>
                <div className="notifications">
-                  <button className="button">+</button>
-                  <nav className="menu">
+                  <button className="button" onClick={this.handleMenuVisibility}>+</button>
+                  <nav className={this.state.visibleMenu === 'notifications' ? 'menu visible' : 'menu'}>
                      <ul className="items">
                         <li className="item"><a href="#">Notification #1</a></li>
                         <li className="item"><a href="#">Notification #2</a></li>
