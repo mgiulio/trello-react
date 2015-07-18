@@ -6,13 +6,10 @@ var Toolbar = React.createClass({
       };
    },
 
-   handleMenuVisibility: function(e) {
-      var buttonClicked = e.target.parentNode.className;
+   handleMenuClick: function(clickedMenu) {
+      var newVisibleMenu = clickedMenu === this.state.visibleMenu ? '' : clickedMenu;
 
-      if (this.state.visibleMenu === buttonClicked)
-         this.setState({visibleMenu: ''});
-      else
-         this.setState({visibleMenu: buttonClicked});
+      this.setState({visibleMenu: newVisibleMenu});
    },
 
    render: function() {
@@ -23,9 +20,9 @@ var Toolbar = React.createClass({
                <input type="search" placeholder="Sarch..." />
             </div>
             <div className="section misc">
-               <div className="create">
-                  <button className="button" onClick={this.handleMenuVisibility}>+</button>
-                  <nav className={this.state.visibleMenu === 'create' ? 'menu visible' : 'menu'}>
+               <div className={this.state.visibleMenu === 'create' ? 'create visible' : 'create'}>
+                  <button className="button" onClick={this.handleMenuClick.bind(this, 'create')}>+</button>
+                  <nav className="menu">
                      <ul className="items">
                         <li className="item"><a href="#">Create Board</a></li>
                         <li className="item"><a href="#">Create Personal Organization</a></li>
@@ -33,12 +30,12 @@ var Toolbar = React.createClass({
                      </ul>
                   </nav>
                </div>
-               <div className="user">
-                  <button className="button" onClick={this.handleMenuVisibility}>
+               <div className={this.state.visibleMenu === 'user' ? 'user visible' : 'user'}>
+                  <button className="button" onClick={this.handleMenuClick.bind(this, 'user')}>
                      <img className="avatar" src={this.props.user.avatarUrl} alt="" />
                      <span className="username">{this.props.user.username}</span>
                   </button>
-                  <nav className={this.state.visibleMenu === 'user' ? 'menu visible' : 'menu'}>
+                  <nav className="menu">
                      <ul className="items">
                         <li className="item"><a href="#">Profile</a></li>
                         <li className="item"><a href="#">Cards</a></li>
@@ -55,9 +52,9 @@ var Toolbar = React.createClass({
                      </ul>
                   </nav>
                </div>
-               <div className="notifications">
-                  <button className="button" onClick={this.handleMenuVisibility}>+</button>
-                  <nav className={this.state.visibleMenu === 'notifications' ? 'menu visible' : 'menu'}>
+               <div className={this.state.visibleMenu === 'notifications' ? 'notifications visible' : 'notifications'}>
+                  <button className="button" onClick={this.handleMenuClick.bind(this, 'notifications')}>+</button>
+                  <nav className="menu">
                      <ul className="items">
                         <li className="item"><a href="#">Notification #1</a></li>
                         <li className="item"><a href="#">Notification #2</a></li>
