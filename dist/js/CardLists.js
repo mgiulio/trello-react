@@ -4,10 +4,10 @@ var CardLists = React.createClass({
       return {
          lists: [
             {name: 'list 1'},
-            {name: 'list 2'},
-            {name: 'list 3'},
-            {name: 'list 4'},
-            {name: 'list 5'},
+            {name: 'list 2'}//,
+            //{name: 'list 3'}//,
+            //{name: 'list 4'},
+            //{name: 'list 5'},
          ]
       };
    },

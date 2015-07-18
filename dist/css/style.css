@@ -420,3 +420,29 @@ body {
    background-color: #ccc;
    border: 1px solid rgb(154, 154, 154);
 }
+
+.lists .add-new-list .button {
+   display: block;
+   border: none;
+   background: none;
+   text-align: center;
+   padding: 0;
+   width: 100%;
+   font-family: verdana;
+   font-size: 18px;
+   color: rgb(170, 170, 170);
+}
+
+.lists .add-new-list .button:hover {
+   cursor: pointer;
+   background: rgb(200, 200, 200);
+   border: 1px solid rgb(180, 180, 180);
+}
+.lists .add-new-list input[type="text"] {
+   display: block;
+   width: 100%;
+   padding: 10px;
+}
+.lists .add-new-list {
+   text-align: center;
+}

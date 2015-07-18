@@ -27,7 +27,7 @@ var AddNewListControl = React.createClass({
    render: function() {
       return !this.state.open ? (
          <div className="add-new-list">
-            <button onClick={this.open}>Add New</button>
+            <button className="button" onClick={this.open}>Add New List Here</button>
          </div>
       ) : (
          <div className="add-new-list">

@@ -59,3 +59,29 @@
    background-color: #ccc;
    border: 1px solid gray(154);
 }
+
+.lists .add-new-list .button {
+   display: block;
+   border: none;
+   background: none;
+   text-align: center;
+   padding: 0;
+   width: 100%;
+   font-family: verdana;
+   font-size: 18px;
+   color: gray(170);
+}
+
+.lists .add-new-list .button:hover {
+   cursor: pointer;
+   background: gray(200);
+   border: 1px solid gray(180);
+}
+.lists .add-new-list input[type="text"] {
+   display: block;
+   width: 100%;
+   padding: 10px;
+}
+.lists .add-new-list {
+   text-align: center;
+}
