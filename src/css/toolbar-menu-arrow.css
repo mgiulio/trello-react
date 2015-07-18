@@ -1,7 +1,7 @@
 .toolbar {
    display: flex;
    justify-content: space-between;
-   position: relative;
+   //position: relative;
 
    padding: 5px;
 
@@ -23,6 +23,24 @@
 
 .toolbar .misc > * {
    margin-left: 5px;
+   position: relative;
+}
+.toolbar .misc > *:before {
+   position: absolute;
+   content: '';
+   top: 100%;
+   right: 0;
+   margin-right: 5px;
+   margin-top: -3px;
+   z-index: 99;
+
+   border: 7px solid transparent;
+   border-bottom-color: gray(243);
+
+   display: none;
+}
+.toolbar .misc > *.visible:before {
+   display: block;
 }
 
 .toolbar .misc .user .button {
@@ -72,6 +90,7 @@
    top: 100%;
    right: 0;
    margin: 5px;
+   margin-top: 10px;
    min-width: 200px;
    max-width: 400px;
    display: none;

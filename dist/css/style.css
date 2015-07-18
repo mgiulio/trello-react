@@ -316,7 +316,7 @@ body {
 
    background-color: #f3f3f3;
 }
-.toolbar .menu.visible {
+.toolbar .misc > *.visible .menu {
    display: block;
 }
 
