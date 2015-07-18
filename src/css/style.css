@@ -19,10 +19,10 @@ body {
 
 @import 'toolbar.css'
 
-.board-info {
+.boardbar {
    height: 40px;
 }
-.board-info .board-title {
+.boardbar .board-name {
    display: inline-block;
    margin: 0;
 }

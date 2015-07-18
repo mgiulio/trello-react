@@ -354,7 +354,7 @@ body {
 
    color: #f0f0f0;
 }
-.board-info .board-title {
+.boardbar .board-name {
    display: inline-block;
    margin: 0;
 }

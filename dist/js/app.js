@@ -14,15 +14,9 @@ var App = React.createClass({
       return (
          <div className="app">
             <Toolbar user={this.state.user} />
-
-            <div className="board-info">
-               <h2 className="board-title">Test Board</h2>
-            </div>
-
+            <BoardBar board={{name: 'Test Board'}} />
             <CardLists />
-
-            <div className="sidebar">
-            </div>
+            <Sidebar />
          </div>
       );
    }
