@@ -1,10 +1,10 @@
 .lists-container {
-   height: calc(100% - 40px * 2);
+   flex: auto;
    overflow-x: auto;
    overflow-y: hidden;
 }
 
-.lists {
+.lists-container .lists {
    /*
    display: table;
    table-layout: fixed;
