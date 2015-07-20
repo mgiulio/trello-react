@@ -60,28 +60,7 @@
    padding: 10px;
 }
 
-.lists .add-new-list {
-   float:left;
-   width: 300px;
-   box-sizing: border-box;
-   margin: 0 10px;
-
-   /*
-   display: table-cell;
-   width: 300px;
-   box-sizing: border-box;
-   vertical-align: top;
-   */
-
-   padding: 10px;
-
-   border-radius: 5px;
-
-   background-color: #ccc;
-   border: 1px solid gray(154);
-}
-
-.lists .add-new-list .button {
+.lists .list.placeholder .button {
    display: block;
    border: none;
    background: none;
@@ -93,16 +72,16 @@
    color: gray(170);
 }
 
-.lists .add-new-list .button:hover {
+.lists .list.placeholder .button:hover {
    cursor: pointer;
    background: gray(200);
    border: 1px solid gray(180);
 }
-.lists .add-new-list input[type="text"] {
+.lists .list.placeholder input[type="text"] {
    display: block;
    width: 100%;
    padding: 10px;
 }
-.lists .add-new-list {
+.lists .list.placeholder {
    text-align: center;
 }

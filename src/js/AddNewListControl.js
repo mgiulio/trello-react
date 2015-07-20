@@ -26,11 +26,11 @@ var AddNewListControl = React.createClass({
 
    render: function() {
       return !this.state.open ? (
-         <div className="add-new-list">
+         <div className="list placeholder">
             <button className="button" onClick={this.open}>Add New List Here</button>
          </div>
       ) : (
-         <div className="add-new-list">
+         <div className="list placeholder open">
             <input
                type="text"
                placeholder="List title here..."
