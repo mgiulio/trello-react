@@ -14,7 +14,7 @@ var App = React.createClass({
       console.log('start activity indicator');
 
       trelloAPI.getBoard(boardId)
-         .then(function(processedBoard) { return {board: processedBoard}; })
+         .then(function(processedBoard) { console.log(processedBoard); return {board: processedBoard}; })
          .then(this.setState.bind(this))
          .catch(function() { console.log(arguments); })
       ;
