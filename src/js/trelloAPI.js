@@ -35,7 +35,11 @@ var trelloAPI = (function() {
          id: b.id,
          name: b.name,
          url: b.url,
-         shortUrl: b.shortUrl
+         shortUrl: b.shortUrl,
+         backgroundImage: {
+            full: b.prefs.backgroundImage,
+            scaled: b.prefs.backgroundImageScaled
+         }
       };
    }
 
