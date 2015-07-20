@@ -2,10 +2,6 @@ var App = React.createClass({
 
    getInitialState: function() {
       return {
-         user: {
-            username: 'mgiulio',
-            avatarUrl: 'img/avatar.png'
-         },
          board: {}
       };
    },
@@ -47,7 +43,7 @@ var App = React.createClass({
    render: function() {
       return (
          <div className="app">
-            <Toolbar user={this.state.user} />
+            <Toolbar />
             <BoardBar board={this.state.board} />
             <CardLists />
             <Sidebar />

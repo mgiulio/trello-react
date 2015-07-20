@@ -2,18 +2,13 @@ var App = React.createClass({
 
    getInitialState: function() {
       return {
-         user: {
-            username: 'mgiulio',
-            avatarUrl: 'img/avatar.png'
-         },
          board: {}
       };
    },
 
    componentDidMount: function() {
       console.log('start activity indicator');
-
-      console.log(this.props);
+      
       var
          url = 'https://api.trello.com/1/boards/' + this.props.boardId + '/?key=' + this.props.appKey
       ;
@@ -47,7 +42,7 @@ var App = React.createClass({
    render: function() {
       return (
          <div className="app">
-            <Toolbar user={this.state.user} />
+            <Toolbar />
             <BoardBar board={this.state.board} />
             <CardLists />
             <Sidebar />
