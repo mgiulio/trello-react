@@ -1,9 +1,6 @@
 var App = React.createClass({
 
    getInitialState: function() {
-      this.key = '87cfab06a03de3e5d87a6fa9273c4ab4';
-      this.secret = '98c5231e7ef24465b02b6d20eb378280ea4b1b1fb5ffc5078a463630610c284c';
-
       return {
          user: {
             username: 'mgiulio',
@@ -16,9 +13,9 @@ var App = React.createClass({
    componentDidMount: function() {
       console.log('start activity indicator');
 
+      console.log(this.props);
       var
-         boardId = '4d5ea62fd76aa1136000000c',
-         url = 'https://api.trello.com/1/boards/' + boardId + '/?key=' + this.key
+         url = 'https://api.trello.com/1/boards/' + this.props.boardId + '/?key=' + this.props.appKey
       ;
 
       fetch(url)
