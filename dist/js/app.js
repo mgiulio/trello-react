@@ -9,7 +9,6 @@ var App = React.createClass({
    componentDidMount: function() {
       console.log('start activity indicator');
 
-      console.log(this.props);
       var
          url = 'https://api.trello.com/1/boards/' + this.props.boardId + '/?key=' + this.props.appKey
       ;
@@ -20,13 +19,18 @@ var App = React.createClass({
                if (response.status != 200)
                   throw new Error('Status error code: ' + response.status );
 
-               response.json().then(function(boardJSON) {
-                  this.setState({board: this.processBoardJSON(boardJSON)});
-               }.bind(this));
+               response.json()
+                  .then(this.processBoardJSON)
+                  .then(function(processedBoard) { return {board: processedBoard}; })
+                  .then(this.setState.bind(this))
+                  .catch(function() {
+                     throw new Error('Cannot parse the board JSON');
+                  })
+               ;
             }.bind(this),
             function() {
-               console.log('error');
-            }.bind(this)
+               throw new Error('Connection error');
+            }
       );
       console.log('stop activity indicator');
    },
