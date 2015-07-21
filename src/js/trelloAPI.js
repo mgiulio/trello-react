@@ -31,6 +31,8 @@ var trelloAPI = (function() {
    }
 
    function processBoardJSON(b) {
+      console.log(b);
+
       var board = {
          id: b.id,
          name: b.name,
@@ -43,24 +45,33 @@ var trelloAPI = (function() {
          lists: []
       };
 
+      var listHash = {};
       board.lists = b.lists.map(function(l) {
-         return {
+         var l1 =  {
             id: l.id,
             name: l.name,
-            closed: l.closed
+            closed: l.closed,
+            cards: []
          };
+
+         listHash[l.id] = l1;
+
+         return l1;
       });
 
-      /*
-      var listHash = {};
-      b.lists.forEach(function(l) {
-         listHash[l.id] = {
-            name: l.name,
-            closed: l.closed
+      b.cards.forEach(function(c) {
+         var c1 = {
+            name: c.name,
+            desc: c.desc,
+            closed: c.closed,
+            shortLink: c.shortLink,
+            shortUrl: c.shortUrl,
+            url: c.url,
+            subscribed: c.subscribed
          };
+
+         listHash[c.idList].cards.push(c1);
       });
-      foraech b.cards
-      */
 
       return board;
    }
