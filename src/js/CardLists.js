@@ -28,7 +28,7 @@ var CardLists = React.createClass({
          <section className="lists-container">
             <div className="lists" style={{width: scrollableWidth + 'px'}}>
                {lists}
-               <AddNewListControl onUserInput={this.createList} />
+               { /* <AddNewListControl onUserInput={this.createList} /> */ } 
             </div>
          </section>
       );
