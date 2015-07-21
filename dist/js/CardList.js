@@ -9,17 +9,6 @@ var CardList = React.createClass({
                <h2 className="name">{d.name}</h2>
             </header>
             <ul className="items">
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
-               <li>foo</li>
             </ul>
             <footer>
             </footer>

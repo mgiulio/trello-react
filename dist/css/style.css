@@ -225,6 +225,9 @@ body {
            flex-direction: column;
    height: 100%;
    overflow: hidden;
+
+   background-position: 50% 50%;
+   background-size: cover;
 }
 
 .toolbar {
@@ -244,6 +247,7 @@ body {
 
    background-color: #5e5e5e;
    color: #aaa;
+   opacity: 0.5;
 }
 
 .toolbar .logo {
@@ -270,7 +274,7 @@ body {
    overflow-y: hidden;
 }
 
-.lists {
+.lists-container .lists {
    /*
    display: table;
    table-layout: fixed;
