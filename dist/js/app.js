@@ -34,7 +34,6 @@ var App = React.createClass({
             <Toolbar />
             <BoardBar board={this.state.board} />
             <CardLists />
-            <Sidebar />
          </div>
       ) : (
          <div className="app loading">
