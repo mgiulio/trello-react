@@ -16,6 +16,7 @@ var App = React.createClass({
 
       trelloAPI.getBoard(boardId)
          .then(function(board) {
+            console.log(board);
             this.setState({loading: false, board: board});
          }.bind(this))
          .catch(function(reason) {
@@ -33,7 +34,7 @@ var App = React.createClass({
          <div className="app" style={{backgroundImage: 'url(' + this.state.board.backgroundImage.scaled[0].url + ')'}}>
             <Toolbar />
             <BoardBar board={this.state.board} />
-            <CardLists />
+            <CardLists lists={this.state.board.lists} />
          </div>
       ) : (
          <div className="app loading">

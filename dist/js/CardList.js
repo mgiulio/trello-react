@@ -1,12 +1,12 @@
 var CardList = React.createClass({
 
    render: function() {
-      var d = this.props.data;
+      var l = this.props.list;
 
       return (
          <article className="list">
             <header>
-               <h2 className="name">{d.name}</h2>
+               <h2 className="name">{l.name}</h2>
             </header>
             <ul className="items">
             </ul>

@@ -6,7 +6,7 @@ var trelloAPI = (function() {
 
    function getBoard(id) {
       var
-         url = 'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&cards=all&lists=all'
+         url = 'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&cards=all&lists=open'
       ;
 
       return new Promise(function(resolve, reject) {
@@ -40,17 +40,27 @@ var trelloAPI = (function() {
             full: b.prefs.backgroundImage,
             scaled: b.prefs.backgroundImageScaled
          },
-         lists: {}
+         lists: []
       };
 
-      b.lists.forEach(function(l) {
-         board.lists[l.id] = {
+      board.lists = b.lists.map(function(l) {
+         return {
+            id: l.id,
             name: l.name,
             closed: l.closed
          };
       });
 
-      //foraech b.cards
+      /*
+      var listHash = {};
+      b.lists.forEach(function(l) {
+         listHash[l.id] = {
+            name: l.name,
+            closed: l.closed
+         };
+      });
+      foraech b.cards
+      */
 
       return board;
    }
