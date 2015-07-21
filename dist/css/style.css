@@ -355,3 +355,93 @@ body {
 .lists .list.placeholder {
    text-align: center;
 }
+.activity-indicator {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+
+   background-color: rgba(0,0,0, 0.5);
+   color: rgb(255, 255, 255);
+}
+
+.activity-indicator .fg {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translate(-50%);
+       -ms-transform: translate(-50%);
+           transform: translate(-50%);
+}
+
+/*
+ * A CSS-only 'hola-wave' spinner parameterized with CSS variables.
+ *
+ * Can be post-processed with the [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties) [PostCSS](https://github.com/postcss/postcss) plugin.
+ *
+ * Ported and adapted from http://tobiasahlin.com/spinkit/ , the third spinner.
+ */
+
+.hola-bars {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+
+	font-size: 0px;
+ }
+
+.hola-bars > * {
+	display: inline-block;
+	width: 5px;
+	height: 25px;
+	margin-right: 5px;
+
+	background-color: #fff;
+
+	-webkit-animation: stretch 1.2s infinite ease-in-out;
+
+	        animation: stretch 1.2s infinite ease-in-out;
+}
+.hola-bars > *:last-child {
+	margin-right: 0;
+}
+
+.hola-bars > *:nth-child(2) {
+	-webkit-animation-delay: 0.05s;
+	        animation-delay: 0.05s;
+}
+.hola-bars > *:nth-child(3) {
+	-webkit-animation-delay: 0.1s;
+	        animation-delay: 0.1s;
+}
+.hola-bars> *:nth-child(4) {
+	-webkit-animation-delay: 0.15s;
+	        animation-delay: 0.15s;
+}
+.hola-bars > *:nth-child(5) {
+	-webkit-animation-delay: 0.2s;
+	        animation-delay: 0.2s;
+}
+
+@-webkit-keyframes stretch {
+	0%, 40% {
+		-webkit-transform: scaleY(1.0);
+		        transform: scaleY(1.0);
+	}
+	20% {
+		-webkit-transform: scaleY(2.0);
+		        transform: scaleY(2.0);
+	}
+}
+
+@keyframes stretch {
+	0%, 40% {
+		-webkit-transform: scaleY(1.0);
+		        transform: scaleY(1.0);
+	}
+	20% {
+		-webkit-transform: scaleY(2.0);
+		        transform: scaleY(2.0);
+	}
+}

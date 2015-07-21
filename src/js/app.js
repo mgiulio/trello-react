@@ -2,7 +2,8 @@ var App = React.createClass({
 
    getInitialState: function() {
       return {
-         board: null
+         board: null,
+         loading: true
       };
    },
 
@@ -11,19 +12,24 @@ var App = React.createClass({
    },
 
    loadBoard: function(boardId) {
-      console.log('start activity indicator');
+      this.setState({loading: true});
 
       trelloAPI.getBoard(boardId)
-         .then(function(processedBoard) { console.log(processedBoard); return {board: processedBoard}; })
-         .then(this.setState.bind(this))
-         .catch(function() { console.log(arguments); })
+         .then(function(board) {
+            this.setState({loading: false, board: board});
+         }.bind(this))
+         .catch(function(reason) {
+            // Notify user
+            console.log(reason);
+            alert('Board loading failed(see console)...retrying...')
+            // Retry
+            this.loadBoard(this.props.boardId);
+         }.bind(this))
       ;
-
-      console.log('stop activity indicator');
    },
 
    render: function() {
-      return this.state.board !== null ? (
+      return !this.state.loading ? (
          <div className="app" style={{backgroundImage: 'url(' + this.state.board.backgroundImage.scaled[0].url + ')'}}>
             <Toolbar />
             <BoardBar board={this.state.board} />
@@ -31,8 +37,8 @@ var App = React.createClass({
             <Sidebar />
          </div>
       ) : (
-         <div className="app">
-            <h1>activity idicator mask</h1>
+         <div className="app loading">
+            <ActivityIndicator />
          </div>
       );
    }
