@@ -68,16 +68,17 @@
    font-size: 20px;
 }
 
-.list .items {
+.list .cards {
    list-style: none;
    padding: 0;
    margin: 0;
 }
 
-.list .items .item {
+.list .cards .card {
    padding: 10px;
 }
 
+/*
 .list.placeholder .button {
    display: block;
    border: none;
@@ -103,3 +104,4 @@
 .list.placeholder {
    text-align: center;
 }
+*/

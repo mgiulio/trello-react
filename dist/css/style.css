@@ -356,16 +356,17 @@ body {
    font-size: 20px;
 }
 
-.list .items {
+.list .cards {
    list-style: none;
    padding: 0;
    margin: 0;
 }
 
-.list .items .item {
+.list .cards .card {
    padding: 10px;
 }
 
+/*
 .list.placeholder .button {
    display: block;
    border: none;
@@ -375,13 +376,13 @@ body {
    width: 100%;
    font-family: verdana;
    font-size: 18px;
-   color: rgb(170, 170, 170);
+   color: gray(170);
 }
 
 .list.placeholder .button:hover {
    cursor: pointer;
-   background: rgb(200, 200, 200);
-   border: 1px solid rgb(180, 180, 180);
+   background: gray(200);
+   border: 1px solid gray(180);
 }
 .list.placeholder input[type="text"] {
    display: block;
@@ -391,6 +392,7 @@ body {
 .list.placeholder {
    text-align: center;
 }
+*/
 .activity-indicator {
    position: fixed;
    top: 0;

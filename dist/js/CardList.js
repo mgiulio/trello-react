@@ -9,7 +9,7 @@ var CardList = React.createClass({
             <header>
                <h2 className="name">{l.name}</h2>
             </header>
-            <ul className="items">
+            <ul className="cards">
                {cardComponents}
             </ul>
             <footer>
