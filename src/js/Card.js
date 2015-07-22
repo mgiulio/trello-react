@@ -19,7 +19,7 @@ var Card = React.createClass({
       meta.push(<span className="latestActivity">{c.dateLastActivity}</span>);
 
       return (
-         <li className="card">
+         <li className="card" onClick={this.showCardDetails}>
             {cover}
             <h2 className="card__name">{c.name}</h2>
             <p className="card__meta">
@@ -27,6 +27,11 @@ var Card = React.createClass({
             </p>
          </li>
       );
+   },
+
+   showCardDetails: function() {
+      window.open(this.props.card.url);
    }
+
 
 });
