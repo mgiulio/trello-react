@@ -270,6 +270,27 @@ body {
    -webkit-flex: auto;
        -ms-flex: auto;
            flex: auto;
+
+   display: -webkit-box;
+
+   display: -webkit-flex;
+
+   display: -ms-flexbox;
+
+   display: flex;
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: row;
+       -ms-flex-direction: row;
+           flex-direction: row;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
+   -webkit-box-align: start;
+   -webkit-align-items: flex-start;
+       -ms-flex-align: start;
+           align-items: flex-start;
+
    overflow-x: auto;
    overflow-y: hidden;
 }
@@ -287,6 +308,21 @@ body {
    content: '';
    display: table;
    clear: both;
+}
+
+.list {
+   width: 300px;
+   -webkit-box-flex: 0;
+   -webkit-flex: none;
+       -ms-flex: none;
+           flex: none;
+
+   margin: 0 10px;
+
+   max-height: 300px;
+   overflow: auto;
+
+   background-color: #aaa;
 }
 
 .lists .list {
@@ -313,24 +349,24 @@ body {
    color: rgb(133, 133, 133);
 }
 
-.lists .list .name {
+.list .name {
    margin-top: 0;
    text-align: center;
    font-family: verdana;
    font-size: 20px;
 }
 
-.lists .list .items {
+.list .items {
    list-style: none;
    padding: 0;
    margin: 0;
 }
 
-.lists .list .items .item {
+.list .items .item {
    padding: 10px;
 }
 
-.lists .list.placeholder .button {
+.list.placeholder .button {
    display: block;
    border: none;
    background: none;
@@ -342,17 +378,17 @@ body {
    color: rgb(170, 170, 170);
 }
 
-.lists .list.placeholder .button:hover {
+.list.placeholder .button:hover {
    cursor: pointer;
    background: rgb(200, 200, 200);
    border: 1px solid rgb(180, 180, 180);
 }
-.lists .list.placeholder input[type="text"] {
+.list.placeholder input[type="text"] {
    display: block;
    width: 100%;
    padding: 10px;
 }
-.lists .list.placeholder {
+.list.placeholder {
    text-align: center;
 }
 .activity-indicator {
