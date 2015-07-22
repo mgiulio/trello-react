@@ -355,6 +355,8 @@ body {
 .card__name {
    text-align: center;
 
+   margin: 40px 0 20px;
+
    font-family: sans-serif;
    font-size: 16px;
 }
@@ -372,6 +374,8 @@ body {
    -webkit-flex-wrap: nowrap;
        -ms-flex-wrap: nowrap;
            flex-wrap: nowrap;
+
+   margin: 0;
 
    font-style: italic;
    font-size: 14px;
