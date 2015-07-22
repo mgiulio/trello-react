@@ -1,14 +1,27 @@
 var Card = React.createClass({
 
    render: function() {
-         return (
-            <li className="item">
-               <h2 className="title">{this.props.card.name}</h2>
-               <div className="meta">
-                  some meta here...
-               </div>
-            </li>
-         );
+      var c = this.props.card;
+
+      var meta = [];
+      if (c.desc !== '')
+         meta.push(<span className="desc">D</span>);
+      if (c.attachmentCount !== 0)
+            meta.push(<span className="attachments">{c.attachmentCount}</span>);
+      if (c.commentCount !== 0)
+         meta.push(<span className="comments">{c.commentCount}</span>);
+      if (c.voteCount !== 0)
+            meta.push(<span className="votes">{c.voteCount}</span>);
+
+      return (
+         <li className="card">
+            <img className="cover" src="" alt="" />
+            <h2 className="name">{c.name}</h2>
+            <p className="meta">
+               {meta}
+            </p>
+         </li>
+      );
    }
 
 });

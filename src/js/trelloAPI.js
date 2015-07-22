@@ -63,11 +63,12 @@ var trelloAPI = (function() {
          var c1 = {
             name: c.name,
             desc: c.desc,
-            closed: c.closed,
-            shortLink: c.shortLink,
-            shortUrl: c.shortUrl,
-            url: c.url,
-            subscribed: c.subscribed
+
+            attachmentCount: c.badges.attachments,
+            commentCount: c.badges.comments,
+            voteCount: c.badges.votes,
+
+            url: c.url
          };
 
          listHash[c.idList].cards.push(c1);
