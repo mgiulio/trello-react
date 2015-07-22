@@ -6,7 +6,7 @@ var trelloAPI = (function() {
 
    function getBoard(id) {
       var
-         url = 'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&cards=all&lists=open'
+         url = 'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover'
       ;
 
       return new Promise(function(resolve, reject) {
@@ -67,6 +67,8 @@ var trelloAPI = (function() {
             attachmentCount: c.badges.attachments,
             commentCount: c.badges.comments,
             voteCount: c.badges.votes,
+
+            dateLastActivity: c.dateLastActivity,
 
             url: c.url
          };

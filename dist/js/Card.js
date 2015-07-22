@@ -12,6 +12,7 @@ var Card = React.createClass({
          meta.push(<span className="comments">{c.commentCount}</span>);
       if (c.voteCount !== 0)
             meta.push(<span className="votes">{c.voteCount}</span>);
+      meta.push(<span className="latestActivity">{c.dateLastActivity}</span>);
 
       return (
          <li className="card">

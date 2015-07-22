@@ -16,7 +16,6 @@ var App = React.createClass({
 
       trelloAPI.getBoard(boardId)
          .then(function(board) {
-            console.log(board);
             this.setState({loading: false, board: board});
          }.bind(this))
          .catch(function(reason) {
