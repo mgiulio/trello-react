@@ -30,7 +30,7 @@ var Card = React.createClass({
    },
 
    showCardDetails: function() {
-      window.open(this.props.card.url);
+      window.open(this.props.card.url  );
    }
 
 
