@@ -68,7 +68,7 @@ var trelloAPI = (function() {
             commentCount: c.badges.comments,
             voteCount: c.badges.votes,
 
-            dateLastActivity: c.dateLastActivity,
+            dateLastActivity: formatDate(c.dateLastActivity),
 
             url: c.url
          };
@@ -81,6 +81,20 @@ var trelloAPI = (function() {
 
    function setKeys(k) {
       appKey = k.appKey;
+   }
+
+   function formatDate(str) {
+      var d = new Date(str);
+
+		var day = d.getDate();
+		var month = d.getMonth();
+		var year = d.getFullYear();
+
+		month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'][month];
+		year = String(year).substr(-2);
+
+		//return `${day} ${month} ${year}`;
+      return day + ' ' + month + ' ' + year;
    }
 
    return {
