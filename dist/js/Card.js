@@ -3,6 +3,10 @@ var Card = React.createClass({
    render: function() {
       var c = this.props.card;
 
+      var cover;
+      if (false)
+         cover = <img className="cover" src="" alt="" />
+
       var meta = [];
       if (c.desc !== '')
          meta.push(<span className="desc">D</span>);
@@ -16,7 +20,7 @@ var Card = React.createClass({
 
       return (
          <li className="card">
-            <img className="cover" src="" alt="" />
+            {cover}
             <h2 className="name">{c.name}</h2>
             <p className="meta">
                {meta}
