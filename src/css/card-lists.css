@@ -10,60 +10,26 @@
    overflow-y: hidden;
 }
 
-.lists-container .lists {
-   /*
-   display: table;
-   table-layout: fixed;
-   width: 100%;
-   //height: 100%;
-   border-spacing: 10px;
-   */
-}
-.lists:after {
-   content: '';
-   display: table;
-   clear: both;
-}
-
 .list {
    flex: none;
 
    box-sizing: border-box;
    width: 300px;
    padding: 10px;
-   margin: 0;
-
-   max-height: 300px;
-   overflow: auto;
-
-   background-color: #e5e5e5;
-}
-
-.lists .list {
-   float:left;
-   width: 300px;
-   box-sizing: border-box;
    margin: 0 10px;
+   //max-height: 300px;
 
-   /*
-   display: table-cell;
-   width: 300px;
-   box-sizing: border-box;
-   vertical-align: top;
-   */
-
-   max-height: calc(100% - 10px);
+   overflow-x: hidden;
    overflow-y: auto;
-   padding: 10px;
 
    border-radius: 5px;
 
-   background-color: #ccc;
+   background-color: #e5e5e5;
    border: 1px solid gray(154);
    color: gray(133);
 }
 
-.list .name {
+.list__name {
    margin: 0;
    padding: 10px 0;
 
@@ -79,41 +45,37 @@
    margin: 0;
 }
 
-.list .cards .card {
+.card {
    padding: 10px;
    margin-bottom: 10px;
 
    border-radius: 5px;
 
    background-color: gray(250);
-   color: gray(128);
+   color: gray(160);
    box-shadow: 0 1px 2px 0px rgba(0,0,0, 0.2);
-}
 
-/*
-.list.placeholder .button {
-   display: block;
-   border: none;
-   background: none;
-   text-align: center;
-   padding: 0;
-   width: 100%;
-   font-family: verdana;
-   font-size: 18px;
-   color: gray(170);
+   transition: box-shadow;
 }
-
-.list.placeholder .button:hover {
+.card:hover {
    cursor: pointer;
-   background: gray(200);
-   border: 1px solid gray(180);
+   box-shadow: 0 1px 8px 0 rgba(0,0,0, 0.2);
 }
-.list.placeholder input[type="text"] {
-   display: block;
-   width: 100%;
-   padding: 10px;
-}
-.list.placeholder {
+
+.card__name {
    text-align: center;
+
+   font-family: sans-serif;
+   font-size: 16px;
 }
-*/
+
+.card__meta {
+   font-style: italic;
+   font-size: 14px;
+
+   color: gray(200);
+}
+
+.card__meta > * {
+   margin-right: 10px;
+}

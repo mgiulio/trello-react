@@ -7,7 +7,7 @@ var CardList = React.createClass({
       return (
          <article className="list">
             <header>
-               <h2 className="name">{l.name}</h2>
+               <h2 className="list__name">{l.name}</h2>
             </header>
             <ul className="cards">
                {cardComponents}

@@ -21,8 +21,8 @@ var Card = React.createClass({
       return (
          <li className="card">
             {cover}
-            <h2 className="name">{c.name}</h2>
-            <p className="meta">
+            <h2 className="card__name">{c.name}</h2>
+            <p className="card__meta">
                {meta}
             </p>
          </li>

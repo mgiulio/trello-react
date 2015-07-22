@@ -30,7 +30,7 @@ var App = React.createClass({
 
    render: function() {
       return !this.state.loading ? (
-         <div className="app" style={{backgroundImage: 'url(' + this.state.board.backgroundImage.scaled[0].url + ')'}}>
+         <div className="app"> {/*<div className="app" style={{backgroundImage: 'url(' + this.state.board.backgroundImage.scaled[0].url + ')'}}>*/}
             <Toolbar />
             <BoardBar board={this.state.board} />
             <CardLists lists={this.state.board.lists} />
