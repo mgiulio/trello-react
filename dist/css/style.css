@@ -328,7 +328,7 @@ body {
    padding: 0;
    margin: 0;
 
-   max-height: 300px;
+   max-height: 450px;
    overflow-x: hidden;
    overflow-y: auto;
 }
@@ -360,6 +360,19 @@ body {
 }
 
 .card__meta {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: row;
+       -ms-flex-direction: row;
+           flex-direction: row;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
+
    font-style: italic;
    font-size: 14px;
 
@@ -367,7 +380,16 @@ body {
 }
 
 .card__meta > * {
+   -webkit-box-flex: 0;
+   -webkit-flex: none;
+       -ms-flex: none;
+           flex: none;
    margin-right: 10px;
+}
+
+.card__meta > *.latestActivity {
+   margin-right: 0;
+   margin-left: auto;
 }
 .activity-indicator {
    position: fixed;

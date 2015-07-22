@@ -70,6 +70,10 @@
 }
 
 .card__meta {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+
    font-style: italic;
    font-size: 14px;
 
@@ -77,5 +81,11 @@
 }
 
 .card__meta > * {
+   flex: none;
    margin-right: 10px;
+}
+
+.card__meta > *.latestActivity {
+   margin-right: 0;
+   margin-left: auto;
 }
