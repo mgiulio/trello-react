@@ -377,7 +377,6 @@ body {
 
    margin: 0;
 
-   font-style: italic;
    font-size: 14px;
 
    color: rgb(200, 200, 200);
@@ -391,9 +390,25 @@ body {
    margin-right: 10px;
 }
 
-.card__meta > *.latestActivity {
+.card__meta > *.latest-activity {
    margin-right: 0;
    margin-left: auto;
+}
+
+.meta-item__icon {
+   width: 18px;
+   height: 18px;
+
+   fill: rgb(206, 206, 206);
+
+   vertical-align: middle;
+   position: relative;
+}
+.meta-item__label {
+   color: rgb(206, 206, 206);
+}
+.meta-item__icon.standard {
+   top: -2px;
 }
 .activity-indicator {
    position: fixed;
