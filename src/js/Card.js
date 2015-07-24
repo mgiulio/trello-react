@@ -5,18 +5,18 @@ var Card = React.createClass({
 
       var cover;
       if ('coverUrl' in c)
-         cover = <img className="cover" src={c.coverUrl} alt="" />
+         cover = <img className="cover" src={c.coverUrl} alt="" />;
 
       var meta = [];
       if ('description' in c)
          meta.push(<MetaItem className="description" icon="standard" key="desc" />);
       if (c.attachmentCount !== 0)
-         meta.push(<MetaItem className="attachment" icon="link" label={c.attachmentCount} key="attachment" />);
+         meta.push(<MetaItem className="attachment" icon="link" key="attachment">{c.attachmentCount}</MetaItem>);
       if (c.commentCount !== 0)
-         meta.push(<MetaItem className="comment" icon="comment" label={c.commentCount} key="comment" />);
+         meta.push(<MetaItem className="comment" icon="comment" key="comment">{c.commentCount}</MetaItem>);
       if (c.voteCount !== 0)
-            meta.push(<MetaItem className="votes" icon="digg" label={c.voteCount} key="votes" />);
-      meta.push(<MetaItem className="latest-activity" icon="clock" label={c.dateLastActivity} key="latest-activity" />);
+         meta.push(<MetaItem className="votes" icon="digg" key="votes">{c.voteCount}</MetaItem>);
+      meta.push(<MetaItem className="latest-activity" icon="clock" key="latest-activity">{c.dateLastActivity}</MetaItem>);
 
       return (
          <li className="card" onClick={this.showCardDetails}>
