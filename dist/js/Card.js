@@ -9,14 +9,14 @@ var Card = React.createClass({
 
       var meta = [];
       if ('description' in c)
-         meta.push(<MetaItem className="description" icon="standard" />);
+         meta.push(<MetaItem className="description" icon="standard" key="desc" />);
       if (c.attachmentCount !== 0)
-         meta.push(<MetaItem className="attachment" icon="link" label={c.attachmentCount} />);
+         meta.push(<MetaItem className="attachment" icon="link" label={c.attachmentCount} key="attachment" />);
       if (c.commentCount !== 0)
-         meta.push(<MetaItem className="comment" icon="comment" label={c.commentCount} />);
+         meta.push(<MetaItem className="comment" icon="comment" label={c.commentCount} key="comment" />);
       if (c.voteCount !== 0)
-            meta.push(<MetaItem className="votes" icon="digg" label={c.voteCount} />);
-      meta.push(<MetaItem className="latest-activity" icon="clock" label={c.dateLastActivity} />);
+            meta.push(<MetaItem className="votes" icon="digg" label={c.voteCount} key="votes" />);
+      meta.push(<MetaItem className="latest-activity" icon="clock" label={c.dateLastActivity} key="latest-activity" />);
 
       return (
          <li className="card" onClick={this.showCardDetails}>

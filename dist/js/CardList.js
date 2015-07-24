@@ -2,7 +2,7 @@ var CardList = React.createClass({
 
    render: function() {
       var l = this.props.list;
-      var cards = l.cards.map(function(c) { return <Card card={c} />;});
+      var cards = l.cards.map(function(c) { return <Card card={c} key={c.id} />;});
 
       var props = {className: 'cards'};
       if ('maxHeight' in this.props)

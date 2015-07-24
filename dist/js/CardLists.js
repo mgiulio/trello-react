@@ -35,7 +35,7 @@ var CardLists = React.createClass({
          if (this.state.listMaxHeight != null)
             props.maxHeight = this.state.listMaxHeight;
 
-         return <CardList {...props} /> ;
+         return <CardList {...props} key={list.id} /> ;
       }.bind(this));
 
       return (

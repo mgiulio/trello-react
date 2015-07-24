@@ -61,6 +61,7 @@ var trelloAPI = (function() {
 
       b.cards.forEach(function(c) {
          var c1 = {
+            id: c.id,
             name: c.name,
 
             attachmentCount: c.badges.attachments,
