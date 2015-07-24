@@ -5,10 +5,7 @@ var MetaItem = React.createClass({
 
          return (
             <span className={ this.props.className ? 'meta-item ' + this.props.className : 'meta-item' }>
-               <svg
-                  className={'meta-item__icon ' + this.props.icon}
-                  dangerouslySetInnerHTML={{ __html: '<use xlink:href="img/sprite.svg#' + this.props.icon + '" />' }}
-               />
+               <Icon which={this.props.icon} />
                {label}
             </span>
          );
