@@ -8,7 +8,7 @@ var Card = React.createClass({
          cover = <img className="cover" src={c.coverUrl} alt="" />
 
       var meta = [];
-      if (c.desc !== '')
+      if ('description' in c)
          meta.push(<MetaItem className="description" icon="standard" />);
       if (c.attachmentCount !== 0)
          meta.push(<MetaItem className="attachment" icon="link" label={c.attachmentCount} />);

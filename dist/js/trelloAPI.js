@@ -31,7 +31,7 @@ var trelloAPI = (function() {
    }
 
    function processBoardJSON(b) {
-      //console.log(b);
+      console.log(b);
 
       var board = {
          id: b.id,
@@ -62,7 +62,6 @@ var trelloAPI = (function() {
       b.cards.forEach(function(c) {
          var c1 = {
             name: c.name,
-            desc: c.desc,
 
             attachmentCount: c.badges.attachments,
             commentCount: c.badges.comments,
@@ -72,6 +71,10 @@ var trelloAPI = (function() {
 
             url: c.url
          };
+
+         if (c.badges.description)
+            c1.description =  c.desc;
+
 
          if (c.idAttachmentCover) {
             var i, l, atts = c.attachments, att;
