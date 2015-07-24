@@ -108,3 +108,10 @@
 .meta-item__icon.standard {
    top: -2px;
 }
+
+.card .cover {
+   display: block;
+   width: 100%;
+   height: auto;
+   margin-bottom: 20px;
+}

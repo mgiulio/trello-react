@@ -4,8 +4,8 @@ var Card = React.createClass({
       var c = this.props.card;
 
       var cover;
-      if (false)
-         cover = <img className="cover" src="" alt="" />
+      if ('coverUrl' in c)
+         cover = <img className="cover" src={c.coverUrl} alt="" />
 
       var meta = [];
       if (c.desc !== '')

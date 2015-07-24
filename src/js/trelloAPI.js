@@ -73,6 +73,17 @@ var trelloAPI = (function() {
             url: c.url
          };
 
+         if (c.idAttachmentCover) {
+            var i, l, atts = c.attachments, att;
+            for (i = 0, l = atts.length; i < l; ++i) {
+               att = atts[i];
+               if (att.id === c.idAttachmentCover) {
+                  c1.coverUrl = att.previews[1].url;
+                  break;
+               }
+            }
+         }
+
          listHash[c.idList].cards.push(c1);
       });
 
