@@ -31,7 +31,7 @@ var trelloAPI = (function() {
    }
 
    function processBoardJSON(b) {
-      console.log(b);
+      //console.log(b);
 
       var board = {
          id: b.id,

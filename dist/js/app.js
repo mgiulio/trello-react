@@ -23,7 +23,7 @@ var App = React.createClass({
             console.log(reason);
             alert('Board loading failed(see console)...retrying...')
             // Retry
-            this.loadBoard(this.props.boardId);
+            //this.loadBoard(this.props.boardId);
          }.bind(this))
       ;
    },
@@ -33,7 +33,7 @@ var App = React.createClass({
          <div className="app"> {/*<div className="app" style={{backgroundImage: 'url(' + this.state.board.backgroundImage.scaled[0].url + ')'}}>*/}
             <Toolbar />
             <BoardBar board={this.state.board} />
-            <CardLists lists={this.state.board.lists} />
+            <CardLists ref="cardLists" lists={this.state.board.lists} />
          </div>
       ) : (
          <div className="app loading">

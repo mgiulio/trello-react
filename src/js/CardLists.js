@@ -1,27 +1,46 @@
 var CardLists = React.createClass({
 
-   /*
-   createList: function(listName) {
-      this.setState({lists: this.state.lists.concat({name: listName})});
+   getInitialState: function() {
+      return {
+         listMaxHeight: null
+      };
    },
-   */
+
+   componentDidMount: function() {
+      window.addEventListener('resize', debounce(function() {
+         this.setState({listMaxHeight: this.computeListMaxHeight()});
+      }.bind(this), 100));
+
+      this.setState({listMaxHeight: this.computeListMaxHeight()});
+   },
+
+   computeListMaxHeight: function() {
+      var
+         cardListsHeight = this.getDOMNode().offsetHeight,
+         scrollbarSize = 17,
+         gap = 20,
+         listHeaderHeight = this.getDOMNode().querySelector('header').offsetHeight,
+         listVPadding = 10 + 10
+      ;
+
+      return  cardListsHeight - scrollbarSize - gap - listHeaderHeight - listVPadding;
+   },
 
    render: function() {
       var lists = this.props.lists;
 
-      var listComponents = lists.map(function(list) { return <CardList list={list} /> ;});
+      var listComponents = lists.map(function(list) {
+         var props = {list: list};
 
-      var
-         listWidth = 300,
-         margin = 20,
-         scrollableWidth = (lists.length /*+ 1*/ ) * (listWidth + margin);
+         if (this.state.listMaxHeight != null)
+            props.maxHeight = this.state.listMaxHeight;
+
+         return <CardList {...props} /> ;
+      }.bind(this));
 
       return (
          <section className="lists-container">
-            {/* <div className="lists" style={{width: scrollableWidth + 'px'}}> */}
                {listComponents}
-               { /* <AddNewListControl onUserInput={this.createList} /> */ }
-            {/* </div> */}
          </section>
       );
    }
