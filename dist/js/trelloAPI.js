@@ -6,7 +6,7 @@ var trelloAPI = (function() {
 
    function getBoard(id) {
       var
-         url = 'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover'
+         url = 'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
       ;
 
       return new Promise(function(resolve, reject) {
@@ -42,7 +42,12 @@ var trelloAPI = (function() {
             full: b.prefs.backgroundImage,
             scaled: b.prefs.backgroundImageScaled
          },
-         lists: []
+         lists: [],
+         organization: {
+            name: b.organization.displayName,
+            url: b.organization.url
+         },
+         permissionLevel: b.prefs.permissionLevel
       };
 
       var listHash = {};
