@@ -6,6 +6,7 @@ var BoardBar = React.createClass({
       return (
          <div className="boardbar">
             <h2 className="board-name"><a href={b.shortUrl}>{b.name}</a></h2>
+            
          </div>
       );
    }
