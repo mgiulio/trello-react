@@ -1,0 +1,19 @@
+.boardbar {
+}
+
+.boardbar > * {
+   display: inline-block;
+   margin: 0;
+   margin-right: 20px;
+   padding: 10px;
+}
+.boardbar > *:last-child {
+   margin-right: 0;
+}
+
+.boardbar a {
+   color: gray(221);
+}
+.boardbar a:hover {
+   color: gray(255);
+}

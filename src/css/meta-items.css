@@ -1,0 +1,15 @@
+.meta-item__icon {
+   width: 18px;
+   height: 18px;
+
+   fill: gray(206);
+
+   vertical-align: middle;
+   position: relative;
+}
+.meta-item__label {
+   color: gray(206);
+}
+.meta-item__icon.standard {
+   top: -2px;
+}

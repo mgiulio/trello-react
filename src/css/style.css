@@ -12,6 +12,10 @@ body {
    background: #aaa;
 }
 
+a {
+   text-decoration: none;
+}
+
 .app {
    display: flex;
    flex-direction: column;
@@ -22,15 +26,8 @@ body {
    background-size: cover;
 }
 
-@import 'toolbar.css'
-
-.boardbar {
-   height: 40px;
-}
-.boardbar .board-name {
-   display: inline-block;
-   margin: 0;
-}
-
+@import 'meta-items.css';
+@import 'toolbar.css';
+@import 'boardbar.css';
 @import 'card-lists.css';
 @import 'activity-indicator.css';
