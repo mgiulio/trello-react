@@ -16,9 +16,11 @@ var BoardBar = React.createClass({
       return (
          <div className="boardbar">
             <h2 className="board-name"><a href={b.shortUrl}>{b.name}</a></h2>
-            {organization}
-            <MetaItem icon="lock" className="permission-level">{b.permissionLevel}</MetaItem>
-            <MetaItem icon="summary" className="list-count">{b.lists.length}</MetaItem>
+            <div className="board-meta">
+               {organization}
+               <MetaItem icon="lock" className="permission-level">{b.permissionLevel}</MetaItem>
+               <MetaItem icon="summary" className="list-count">{b.lists.length}</MetaItem>
+            </div>
          </div>
       );
    }

@@ -1,9 +1,14 @@
-.boardbar {
+.board-name {
+   margin: 0;
+   padding: 10px;
 }
 
-.boardbar > * {
+.board-name, .board-meta {
+   text-align: center;
+}
+
+.board-meta > * {
    display: inline-block;
-   margin: 0;
    padding: 10px;
 }
 
@@ -12,4 +17,10 @@
 }
 .boardbar a:hover {
    color: gray(255);
+}
+
+@media screen and (min-width: 490px) {
+   .board-name, .board-meta {
+      display: inline-block;
+   }
 }
