@@ -20,10 +20,9 @@ var App = React.createClass({
          }.bind(this))
          .catch(function(reason) {
             // Notify user
-            console.log(reason);
-            alert('Board loading failed(see console)...retrying...')
+            console.log('Failed to load the board: ', reason);
             // Retry
-            //this.loadBoard(this.props.boardId);
+            this.loadBoard(this.props.boardId);
          }.bind(this))
       ;
    },

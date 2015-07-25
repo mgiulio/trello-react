@@ -11,27 +11,25 @@ var trelloAPI = (function() {
 
       return new Promise(function(resolve, reject) {
          fetch(url)
-            .then(
-               function(response) {
-                  if (response.status != 200)
-                     reject('Status error code: ' + response.status );
+            .then(function(response) {
+               if (response.status != 200)
+                  reject('Status error code: ' + response.status );
 
-                  response.json()
-                     .then(
-                        function(boardJSON) { resolve(processBoardJSON(boardJSON)); },
-                        function() { reject('Cannot parse the board JSON'); }
-                     );
-               },
-               function() {
-                  reject('Connection error');
-               }
-         );
+               response.json()
+                  .then(
+                     function(boardJSON) { resolve(processBoardJSON(boardJSON)); },
+                     function() { reject('Cannot parse the board JSON'); }
+                  );
+            })
+            .catch(function(reason) {
+               reject(reason);
+            })
+         ;
       });
-
    }
 
    function processBoardJSON(b) {
-      console.log(b);
+      //console.log(b);
 
       var board = {
          id: b.id,
