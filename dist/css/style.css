@@ -384,6 +384,9 @@ a {
 
            transition: box-shadow;
 }
+.card:last-child {
+   margin-bottom: 0;
+}
 .card:hover {
    cursor: pointer;
    box-shadow: 0 1px 8px 0 rgba(0,0,0, 0.2);
