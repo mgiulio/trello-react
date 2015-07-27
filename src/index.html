@@ -7,38 +7,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="author" content="mgiulio">
 	<title>Trello clone</title>
-
-	<script src="js/react/react.js"></script>
-	<script src="js/react/JSXTransformer.js"></script>
-
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-	<script type="text/jsx" src="js/util.js"></script>
-	<script type="text/jsx" src="js/trelloAPI.js"></script>
-	<script type="text/jsx" src="js/Toolbar.js"></script>
-	<script type="text/jsx" src="js/BoardBar.js"></script>
-	<script type="text/jsx" src="js/CardLists.js"></script>
-	<script type="text/jsx" src="js/CardList.js"></script>
-	<script type="text/jsx" src="js/Card.js"></script>
-	<script type="text/jsx" src="js/MetaItem.js"></script>
-	<script type="text/jsx" src="js/Icon.js"></script>
-	<!--<script type="text/jsx" src="js/AddNewListControl.js"></script>-->
-	<script type="text/jsx" src="js/App.js"></script>
-	<script type="text/jsx" src="js/ActivityIndicator.js"></script>
-	<script type="text/jsx">
-		trelloAPI.setKeys({
-			appKey: '87cfab06a03de3e5d87a6fa9273c4ab4',
-			appSecret: '98c5231e7ef24465b02b6d20eb378280ea4b1b1fb5ffc5078a463630610c284c'
-		});
-
-		React.render(
-			<App
-				boardId="4d5ea62fd76aa1136000000c"
-			/>,
-			document.body
-		);
-	</script>
+	<script src="js/bundle.js"></script>
 </body>
 </html>

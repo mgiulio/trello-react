@@ -1,3 +1,7 @@
+var
+   React = require('../lib/react/react')
+;
+
 var Toolbar = React.createClass({
 
    render: function() {
@@ -9,3 +13,5 @@ var Toolbar = React.createClass({
    }
 
 });
+
+module.exports = Toolbar;

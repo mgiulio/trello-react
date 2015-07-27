@@ -1,3 +1,7 @@
+var
+   React = require('../lib/react/react')
+;
+
 var Icon = React.createClass({
 
    render: function() {
@@ -10,3 +14,5 @@ var Icon = React.createClass({
    }
 
 });
+
+module.exports = Icon;

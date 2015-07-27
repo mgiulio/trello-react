@@ -1,3 +1,9 @@
+var
+   React = require('../lib/react/react'),
+   MetaItem = require('./MetaItem')
+;
+
+
 var BoardBar = React.createClass({
 
    render: function() {
@@ -26,3 +32,5 @@ var BoardBar = React.createClass({
    }
 
 });
+
+module.exports = BoardBar;

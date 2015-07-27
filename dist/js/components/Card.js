@@ -1,3 +1,8 @@
+var
+   React = require('../lib/react/react'),
+   MetaItem = require('./MetaItem')
+;
+
 var Card = React.createClass({
 
    render: function() {
@@ -33,5 +38,6 @@ var Card = React.createClass({
       window.open(this.props.card.url  );
    }
 
-
 });
+
+module.exports = Card;

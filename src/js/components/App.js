@@ -1,3 +1,12 @@
+var
+   React = require('../lib/react/react'),
+   trelloAPI = require('../api/trelloAPI'),
+   ActivityIndicator = require('./ActivityIndicator'),
+   Toolbar = require('./Toolbar'),
+   BoardBar = require('./BoardBar'),
+   CardLists = require('./CardLists')
+;
+
 var App = React.createClass({
 
    getInitialState: function() {
@@ -42,3 +51,5 @@ var App = React.createClass({
    }
 
 });
+
+module.exports = App;

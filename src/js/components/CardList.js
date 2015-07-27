@@ -1,3 +1,8 @@
+var
+   React = require('../lib/react/react'),
+   Card = require('./Card')
+;
+
 var CardList = React.createClass({
 
    render: function() {
@@ -23,3 +28,5 @@ var CardList = React.createClass({
    }
 
 });
+
+module.exports = CardList;

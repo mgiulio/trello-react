@@ -1,3 +1,9 @@
+var
+   React = require('../lib/react/react'),
+   CardList = require('./CardList'),
+   util = require('../lib/util')
+;
+
 var CardLists = React.createClass({
 
    getInitialState: function() {
@@ -7,7 +13,7 @@ var CardLists = React.createClass({
    },
 
    componentDidMount: function() {
-      window.addEventListener('resize', debounce(function() {
+      window.addEventListener('resize', util.debounce(function() {
          this.setState({listMaxHeight: this.computeListMaxHeight()});
       }.bind(this), 100));
 
@@ -46,3 +52,5 @@ var CardLists = React.createClass({
    }
 
 });
+
+module.exports = CardLists;

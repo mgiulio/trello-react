@@ -1,3 +1,8 @@
+var
+   React = require('../lib/react/react'),
+   Icon = require('./Icon')
+;
+
 var MetaItem = React.createClass({
 
    render: function() {
@@ -14,3 +19,5 @@ var MetaItem = React.createClass({
    }
 
 });
+
+module.exports = MetaItem;

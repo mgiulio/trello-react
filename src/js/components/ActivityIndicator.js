@@ -1,3 +1,5 @@
+var React = require('../lib/react/react');
+
 var ActivityIndicator = React.createClass({
 
    render: function() {
@@ -15,3 +17,5 @@ var ActivityIndicator = React.createClass({
    }
 
 });
+
+module.exports = ActivityIndicator;
