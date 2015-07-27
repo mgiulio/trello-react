@@ -24,15 +24,15 @@ var App = React.createClass({
       this.setState({loading: true});
 
       trelloAPI.getBoard(boardId)
-         .then(function(board) {
+         .then(board => {
             this.setState({loading: false, board: board});
-         }.bind(this))
-         .catch(function(reason) {
+         })
+         .catch(reason => {
             // Notify user
             console.log('Failed to load the board: ', reason);
             // Retry
             this.loadBoard(this.props.boardId);
-         }.bind(this))
+         })
       ;
    },
 

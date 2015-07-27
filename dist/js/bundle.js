@@ -185,10 +185,10 @@ var App = React.createClass({displayName: "App",
       this.setState({loading: true});
 
       trelloAPI.getBoard(boardId)
-         .then(function(board) {
+         .then(function(board)  {
             this.setState({loading: false, board: board});
          }.bind(this))
-         .catch(function(reason) {
+         .catch(function(reason)  {
             // Notify user
             console.log('Failed to load the board: ', reason);
             // Retry
@@ -305,7 +305,7 @@ var CardList = React.createClass({displayName: "CardList",
 
    render: function() {
       var l = this.props.list;
-      var cards = l.cards.map(function(c) { return React.createElement(Card, {card: c, key: c.id});});
+      var cards = l.cards.map(function(c)  {return React.createElement(Card, {card: c, key: c.id});});
 
       var props = {className: 'cards'};
       if ('maxHeight' in this.props)
@@ -366,7 +366,7 @@ var CardLists = React.createClass({displayName: "CardLists",
    render: function() {
       var lists = this.props.lists;
 
-      var listComponents = lists.map(function(list) {
+      var listComponents = lists.map(function(list)  {
          var props = {list: list};
 
          if (this.state.listMaxHeight != null)

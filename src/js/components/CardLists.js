@@ -35,14 +35,14 @@ var CardLists = React.createClass({
    render: function() {
       var lists = this.props.lists;
 
-      var listComponents = lists.map(function(list) {
+      var listComponents = lists.map(list => {
          var props = {list: list};
 
          if (this.state.listMaxHeight != null)
             props.maxHeight = this.state.listMaxHeight;
 
          return <CardList {...props} key={list.id} /> ;
-      }.bind(this));
+      });
 
       return (
          <section className="lists-container">
