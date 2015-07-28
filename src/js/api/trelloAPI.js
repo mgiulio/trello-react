@@ -4,31 +4,27 @@ var
 
 function getBoard(id) {
    var
-      url = 'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
+      url =
+         //'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
+         '../board.json'
    ;
 
-   return new Promise(function(resolve, reject) {
-      fetch(url)
-         .then(function(response) {
-            if (response.status != 200)
-               reject('Status error code: ' + response.status );
+   return fetch(url)
+      .then(checkResponse)
+      .then(response => response.json())
+      //.then(json => { console.log(json); return json; })
+      .then(processBoardJSON)
+   ;
+}
 
-            response.json()
-               .then(
-                  function(boardJSON) { resolve(processBoardJSON(boardJSON)); },
-                  function() { reject('Cannot parse the board JSON'); }
-               );
-         })
-         .catch(function(reason) {
-            reject(reason);
-         })
-      ;
-   });
+function checkResponse(response) {
+   if (response.status == 200)
+      return response;
+   else
+      throw Error('HTTP response status error code: ' + response.status);
 }
 
 function processBoardJSON(b) {
-   //console.log(b);
-
    var board = {
       id: b.id,
       name: b.name,

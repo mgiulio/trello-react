@@ -31,7 +31,7 @@ var App = React.createClass({
             // Notify user
             console.log('Failed to load the board: ', reason);
             // Retry
-            this.loadBoard(this.props.boardId);
+            //this.loadBoard(this.props.boardId);
          })
       ;
    },
