@@ -2,6 +2,8 @@
 
 An ongoing [Trello](http://trello.com) (partial)clone written in React.
 
+# v0.1: Hello World!
+
 ![sshot-00](sshot-00.jpg)
 
 # Description and Usage
