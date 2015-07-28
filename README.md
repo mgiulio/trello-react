@@ -14,9 +14,10 @@ The full card view is not implemented yet, clicking on a card opens a new tab wi
 
 No editing is allowed on the board.
 
-# Supported User Agents
+# Current Supported User Agents
 
-Modern browsers
+* Tested on Google Chrome 44
+* Don't work on IE
 
 # Implementation Notes
 
