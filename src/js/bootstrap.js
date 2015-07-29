@@ -1,6 +1,6 @@
 var
    trelloAPI = require('./api/trelloAPI'),
-   React = require('./lib/react/react'),
+   React = require('react'),
    App = require('./components/App'),
    boards = {
       'Trello Development': '4d5ea62fd76aa1136000000c'

@@ -1,5 +1,5 @@
 var
-   React = require('../lib/react/react'),
+   React = require('react'),
    trelloAPI = require('../api/trelloAPI'),
    ActivityIndicator = require('./ActivityIndicator'),
    Toolbar = require('./Toolbar'),
