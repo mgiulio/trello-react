@@ -17,6 +17,8 @@
     "postcss-custom-properties": "^4.0.0",
     "postcss-import": "^6.0.0",
     "postcss-inline-comment": "^1.0.4",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
     "reactify": "^1.1.1"
   }
 }

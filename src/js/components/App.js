@@ -1,5 +1,7 @@
 var
-   React = require('../lib/react/react'),
+   //React = require('../lib/react/react'),
+   Router = require('react-router'),
+   RouteHandler = Router.RouteHandler
    trelloAPI = require('../api/trelloAPI'),
    ActivityIndicator = require('./ActivityIndicator'),
    Toolbar = require('./Toolbar'),
@@ -9,16 +11,20 @@ var
 
 var App = React.createClass({
 
+   /*
    getInitialState: function() {
       return {
          board: null,
          loading: true
       };
    },
+   */
 
+   /*
    componentDidMount: function() {
       this.loadBoard(this.props.boardId);
    },
+   */
 
    loadBoard: function(boardId) {
       this.setState({loading: true});
@@ -37,15 +43,9 @@ var App = React.createClass({
    },
 
    render: function() {
-      return !this.state.loading ? (
-         <div className="app"> {/*<div className="app" style={{backgroundImage: 'url(' + this.state.board.backgroundImage.scaled[0].url + ')'}}>*/}
-            <Toolbar />
-            <BoardBar board={this.state.board} />
-            <CardLists ref="cardLists" lists={this.state.board.lists} />
-         </div>
-      ) : (
-         <div className="app loading">
-            <ActivityIndicator />
+      return (
+         <div className="app">
+            <RouteHandler />
          </div>
       );
    }
