@@ -1,12 +1,10 @@
 var
-   //React = require('../lib/react/react'),
+   React = require('react'),
    Router = require('react-router'),
-   RouteHandler = Router.RouteHandler
-   trelloAPI = require('../api/trelloAPI'),
-   ActivityIndicator = require('./ActivityIndicator'),
-   Toolbar = require('./Toolbar'),
-   BoardBar = require('./BoardBar'),
-   CardLists = require('./CardLists')
+   RouteHandler = Router.RouteHandler,
+
+   //ActivityIndicator = require('./ActivityIndicator'),
+   Toolbar = require('./Toolbar')
 ;
 
 var App = React.createClass({
@@ -26,25 +24,10 @@ var App = React.createClass({
    },
    */
 
-   loadBoard: function(boardId) {
-      this.setState({loading: true});
-
-      trelloAPI.getBoard(boardId)
-         .then(board => {
-            this.setState({loading: false, board: board});
-         })
-         .catch(reason => {
-            // Notify user
-            console.log('Failed to load the board: ', reason);
-            // Retry
-            //this.loadBoard(this.props.boardId);
-         })
-      ;
-   },
-
    render: function() {
       return (
          <div className="app">
+            <Toolbar />
             <RouteHandler />
          </div>
       );

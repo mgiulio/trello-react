@@ -1,5 +1,5 @@
 var
-   React = require('../lib/react/react'),
+   React = require('react'),
    Icon = require('./Icon')
 ;
 
