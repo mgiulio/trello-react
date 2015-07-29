@@ -8,7 +8,7 @@ An ongoing [Trello](http://trello.com) (partial)clone written in React.
 
 # Description and Usage
 
-In this first iteration the app just loads and displays the 'Trello Development' board.
+In this first iteration the app just fetches and displays the data from an hardcoded (public)bord id, the 'Trello Development' board.
 
 The full card view is not implemented yet, clicking on a card opens a new tab with the card page displayed by Trello.
 
