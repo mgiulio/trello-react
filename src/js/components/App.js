@@ -2,7 +2,8 @@ var
    React = require('react'),
    Toolbar = require('./Toolbar'),
    Board = require('./Board'),
-   ActivityIndicator = require('./ActivityIndicator')
+   ActivityIndicator = require('./ActivityIndicator'),
+   PageNotFound = require('./PageNotFound')
 ;
 
 var App = React.createClass({
@@ -31,7 +32,7 @@ var App = React.createClass({
          return (
             <div className="app not-found">
                <Toolbar />
-               <h1>Not Found</h1>
+               <PageNotFound />
             </div>
          );
       },

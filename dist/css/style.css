@@ -551,3 +551,7 @@ a {
 		        transform: scaleY(2.0);
 	}
 }
+.page-not-found__title {
+   text-align: center;
+   color: rgb(127, 127, 127);
+}
