@@ -19935,7 +19935,10 @@ var App = React.createClass({displayName: "App",
       'home': function(args) {
          return (
             React.createElement("div", {className: "app app--home"}, 
-               React.createElement(Toolbar, null)
+               React.createElement(Toolbar, null), 
+               React.createElement("div", {className: "app__body"}, 
+                  React.createElement("h1", null, "Welcome")
+               )
             )
          );
       },
@@ -19943,7 +19946,9 @@ var App = React.createClass({displayName: "App",
          return (
             React.createElement("div", {className: "app app--board"}, 
                React.createElement(Toolbar, null), 
-               React.createElement(Board, {board: args.board})
+               React.createElement("div", {className: "app__body"}, 
+                  React.createElement(Board, {board: args.board})
+               )
             )
          );
       },
@@ -19951,7 +19956,9 @@ var App = React.createClass({displayName: "App",
          return (
             React.createElement("div", {className: "app app--not-found"}, 
                React.createElement(Toolbar, null), 
-               React.createElement(PageNotFound, null)
+               React.createElement("div", {className: "app__body"}, 
+                  React.createElement(PageNotFound, null)
+               )
             )
          );
       },
@@ -19959,7 +19966,9 @@ var App = React.createClass({displayName: "App",
          return (
             React.createElement("div", {className: "app app--loading"}, 
                React.createElement(Toolbar, null), 
-               React.createElement(ActivityIndicator, null)
+               React.createElement("div", {className: "app__body"}, 
+                  React.createElement(ActivityIndicator, null)
+               )
             )
          );
       }

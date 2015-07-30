@@ -17,6 +17,9 @@ var App = React.createClass({
          return (
             <div className="app app--home">
                <Toolbar />
+               <div className="app__body" >
+                  <h1>Welcome</h1>
+               </div>
             </div>
          );
       },
@@ -24,7 +27,9 @@ var App = React.createClass({
          return (
             <div className="app app--board">
                <Toolbar />
-               <Board board={args.board} />
+               <div className="app__body" >
+                  <Board board={args.board} />
+               </div>
             </div>
          );
       },
@@ -32,7 +37,9 @@ var App = React.createClass({
          return (
             <div className="app app--not-found">
                <Toolbar />
-               <PageNotFound />
+               <div className="app__body" >
+                  <PageNotFound />
+               </div>
             </div>
          );
       },
@@ -40,7 +47,9 @@ var App = React.createClass({
          return (
             <div className="app app--loading">
                <Toolbar />
-               <ActivityIndicator />
+               <div className="app__body" >
+                  <ActivityIndicator />
+               </div>
             </div>
          );
       }

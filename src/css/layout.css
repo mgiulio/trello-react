@@ -16,3 +16,7 @@ body {
    background-position: 50% 50%;
    background-size: cover;
 }
+
+.app__body {
+   flex: 1 1 auto;
+}
