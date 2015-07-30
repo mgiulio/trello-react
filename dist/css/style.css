@@ -200,21 +200,12 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-
 html {
    height: 100%;
-   overflow: hidden;
 }
 
 body {
    height: 100%;
-   overflow: hidden;
-
-   background: #aaa;
-}
-
-a {
-   text-decoration: none;
 }
 
 .app {
@@ -227,6 +218,9 @@ a {
    -webkit-flex-direction: column;
        -ms-flex-direction: column;
            flex-direction: column;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
    height: 100%;
    overflow: hidden;
 
@@ -234,6 +228,21 @@ a {
    background-size: cover;
 }
 
+.app__body {
+   -webkit-box-flex: 1;
+   -webkit-flex: 1 1 auto;
+       -ms-flex: 1 1 auto;
+           flex: 1 1 auto;
+}
+a {
+   text-decoration: none;
+}
+body {
+   background: #aaa;
+}
+
+.app {
+}
 .meta-item__icon {
    width: 18px;
    height: 18px;
@@ -282,6 +291,19 @@ a {
    font-weight: bold;
    
    color: #f0f0f0;
+}
+.board {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   height: 100%;
+   overflow: hidden;
 }
 .board-name {
    margin: 0;
@@ -537,4 +559,8 @@ a {
 		-webkit-transform: scaleY(2.0);
 		        transform: scaleY(2.0);
 	}
+}
+.page-not-found__title {
+   text-align: center;
+   color: rgb(127, 127, 127);
 }
