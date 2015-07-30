@@ -28,6 +28,7 @@ a {
 
 @import 'meta-items.css';
 @import 'toolbar.css';
+@import 'board.css';
 @import 'boardbar.css';
 @import 'card-lists.css';
 @import 'activity-indicator.css';

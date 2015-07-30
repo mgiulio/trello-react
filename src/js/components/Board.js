@@ -1,44 +1,36 @@
 var
    React = require('react'),
-
-   trelloAPI = require('../api/trelloAPI'),
    BoardBar = require('./BoardBar'),
-   //CardLists = require('./CardLists'),
-
+   CardLists = require('./CardLists'),
    Board = React.createClass({
 
-      statics: {
-         fetch: function(boardId) {
-            //this.setState({loading: true});
-
-            return trelloAPI.getBoard(boardId);
-
-            /*
-            trelloAPI.getBoard(boardId)
-               .then(board => {
-                  this.setState({loading: false, board: board});
-               })
-               .catch(reason => {
-                  // Notify user
-                  console.log('Failed to load the board: ', reason);
-                  // Retry
-                  //this.loadBoard(this.props.boardId);
-               })
-            ;
-            */
-         },
-
-      },
-
       render: function() {
-         //console.log(this.props.params.boardId);
+         var boardMeta = this.extractBoardMeta(this.props.board);
 
          return (
             <div className="board">
-               <BoardBar board={this.props.board} />
-               {/* <CardLists lists={this.props.board.lists} /> */}
+               <BoardBar board={boardMeta} />
+               <CardLists lists={this.props.board.lists} />
             </div>
          );
+      },
+
+      extractBoardMeta(b) {
+         var bm = {
+            name: b.name,
+            url: b.shortUrl,
+            permissionLevel: b.permissionLevel,
+            numLists: b.lists.length
+         };
+
+         if ('organization' in b) {
+            bm.organization = {
+               name: b.organization.name,
+               url: b.organization.url
+            };
+         }
+
+         return bm;
       }
 
    })

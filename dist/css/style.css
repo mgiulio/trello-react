@@ -283,6 +283,19 @@ a {
    
    color: #f0f0f0;
 }
+.board {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   height: 100%;
+   overflow: hidden;
+}
 .board-name {
    margin: 0;
    padding: 10px;

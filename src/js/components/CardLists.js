@@ -1,5 +1,5 @@
 var
-   React = require('../lib/react/react'),
+   React = require('react'),
    CardList = require('./CardList'),
    util = require('../lib/util')
 ;

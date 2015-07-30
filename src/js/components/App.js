@@ -1,26 +1,11 @@
 var
    React = require('react'),
-
-   //ActivityIndicator = require('./ActivityIndicator'),
-   Toolbar = require('./Toolbar')
+   Toolbar = require('./Toolbar'),
+   Board = require('./Board'),
+   ActivityIndicator = require('./ActivityIndicator')
 ;
 
 var App = React.createClass({
-
-   /*
-   getInitialState: function() {
-      return {
-         board: null,
-         loading: true
-      };
-   },
-   */
-
-   /*
-   componentDidMount: function() {
-      this.loadBoard(this.props.boardId);
-   },
-   */
 
    render: function() {
       return this.tmpl[this.props.state](this.props);
@@ -38,9 +23,7 @@ var App = React.createClass({
          return (
             <div className="app board">
                <Toolbar />
-               <div className="board">
-                  <h1>Board #: {args.boardId}</h1>
-               </div>
+               <Board board={args.board} />
             </div>
          );
       },
@@ -49,6 +32,14 @@ var App = React.createClass({
             <div className="app not-found">
                <Toolbar />
                <h1>Not Found</h1>
+            </div>
+         );
+      },
+      'loading': function() {
+         return (
+            <div className="app loading">
+               <Toolbar />
+               <ActivityIndicator />
             </div>
          );
       }

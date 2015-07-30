@@ -1,4 +1,4 @@
-var React = require('../lib/react/react');
+var React = require('react');
 
 var ActivityIndicator = React.createClass({
 
