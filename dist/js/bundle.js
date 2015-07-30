@@ -19934,14 +19934,14 @@ var App = React.createClass({displayName: "App",
    tmpl: {
       'home': function(args) {
          return (
-            React.createElement("div", {className: "app home"}, 
+            React.createElement("div", {className: "app app--home"}, 
                React.createElement(Toolbar, null)
             )
          );
       },
       'board': function(args) {
          return (
-            React.createElement("div", {className: "app board"}, 
+            React.createElement("div", {className: "app app--board"}, 
                React.createElement(Toolbar, null), 
                React.createElement(Board, {board: args.board})
             )
@@ -19949,7 +19949,7 @@ var App = React.createClass({displayName: "App",
       },
       'not found': function(args) {
          return (
-            React.createElement("div", {className: "app not-found"}, 
+            React.createElement("div", {className: "app app--not-found"}, 
                React.createElement(Toolbar, null), 
                React.createElement(PageNotFound, null)
             )
@@ -19957,7 +19957,7 @@ var App = React.createClass({displayName: "App",
       },
       'loading': function() {
          return (
-            React.createElement("div", {className: "app loading"}, 
+            React.createElement("div", {className: "app app--loading"}, 
                React.createElement(Toolbar, null), 
                React.createElement(ActivityIndicator, null)
             )

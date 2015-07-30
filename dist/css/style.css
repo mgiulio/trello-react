@@ -200,21 +200,12 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-
 html {
    height: 100%;
-   overflow: hidden;
 }
 
 body {
    height: 100%;
-   overflow: hidden;
-
-   background: #aaa;
-}
-
-a {
-   text-decoration: none;
 }
 
 .app {
@@ -227,13 +218,24 @@ a {
    -webkit-flex-direction: column;
        -ms-flex-direction: column;
            flex-direction: column;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
    height: 100%;
    overflow: hidden;
 
    background-position: 50% 50%;
    background-size: cover;
 }
+a {
+   text-decoration: none;
+}
+body {
+   background: #aaa;
+}
 
+.app {
+}
 .meta-item__icon {
    width: 18px;
    height: 18px;

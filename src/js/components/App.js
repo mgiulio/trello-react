@@ -15,14 +15,14 @@ var App = React.createClass({
    tmpl: {
       'home': function(args) {
          return (
-            <div className="app home">
+            <div className="app app--home">
                <Toolbar />
             </div>
          );
       },
       'board': function(args) {
          return (
-            <div className="app board">
+            <div className="app app--board">
                <Toolbar />
                <Board board={args.board} />
             </div>
@@ -30,7 +30,7 @@ var App = React.createClass({
       },
       'not found': function(args) {
          return (
-            <div className="app not-found">
+            <div className="app app--not-found">
                <Toolbar />
                <PageNotFound />
             </div>
@@ -38,7 +38,7 @@ var App = React.createClass({
       },
       'loading': function() {
          return (
-            <div className="app loading">
+            <div className="app app--loading">
                <Toolbar />
                <ActivityIndicator />
             </div>

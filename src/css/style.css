@@ -1,31 +1,7 @@
 @import 'normalize-lite.css';
-
-html {
-   height: 100%;
-   overflow: hidden;
-}
-
-body {
-   height: 100%;
-   overflow: hidden;
-
-   background: #aaa;
-}
-
-a {
-   text-decoration: none;
-}
-
-.app {
-   display: flex;
-   flex-direction: column;
-   height: 100%;
-   overflow: hidden;
-
-   background-position: 50% 50%;
-   background-size: cover;
-}
-
+@import 'layout.css';
+@import 'common-styles.css';
+@import 'colors.css';
 @import 'components/meta-items.css';
 @import 'components/toolbar.css';
 @import 'components/board.css';
