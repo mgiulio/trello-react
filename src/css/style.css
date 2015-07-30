@@ -26,10 +26,10 @@ a {
    background-size: cover;
 }
 
-@import 'meta-items.css';
-@import 'toolbar.css';
-@import 'board.css';
-@import 'boardbar.css';
-@import 'card-lists.css';
-@import 'activity-indicator.css';
-@import 'page-not-found.css';
+@import 'components/meta-items.css';
+@import 'components/toolbar.css';
+@import 'components/board.css';
+@import 'components/boardbar.css';
+@import 'components/card-lists.css';
+@import 'components/activity-indicator.css';
+@import 'components/page-not-found.css';
