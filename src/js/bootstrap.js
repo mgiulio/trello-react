@@ -1,17 +1,7 @@
 var
    React = require('react'),
-
    //trelloAPI = require('./api/trelloAPI'),
-   App = require('./components/App'),
-   Board = require('./components/Board'),
-
-   Router = require('react-router'),
-   Route = Router.Route,
-   routes = (
-      <Route path="/" handler={App}>
-         <Route path="board/:boardId" handler={Board} />
-      </Route>
-   )
+   App = require('./components/App')
 ;
 
 /*
@@ -21,13 +11,28 @@ trelloAPI.setKeys({
 });
 */
 
-Router.run(routes, Router.HashLocation, (Root, state) => {
-   console.log(state);
+window.addEventListener('hashchange', doRouting);
+doRouting();
 
-   var filt = state.routes.filter(route => route.handler.fetch);
-   console.log(filt);
+function doRouting() {
+   var url = window.location.hash;
+   if (url !== '')
+      url = url.substring(1);
 
-   //catch
+   var props = {};
+   if (url === '')
+      props.state ='home';
+   else if (url.indexOf('/') !== -1) {
+      var parts = url.split('/');
+      if (parts[0] === 'board') {
+         props.state = 'board';
+         props.boardId = parts[1];
+      } else {
+         props.state = 'not found';
+      }
+   } else
+      props.state = 'not found';
 
-   React.render(<Root />, document.body);
-});
+   // render App passing the props
+   React.render(<App {...props} />, document.body);
+}

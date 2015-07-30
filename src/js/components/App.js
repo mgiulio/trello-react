@@ -1,7 +1,5 @@
 var
    React = require('react'),
-   Router = require('react-router'),
-   RouteHandler = Router.RouteHandler,
 
    //ActivityIndicator = require('./ActivityIndicator'),
    Toolbar = require('./Toolbar')
@@ -25,12 +23,35 @@ var App = React.createClass({
    */
 
    render: function() {
-      return (
-         <div className="app">
-            <Toolbar />
-            <RouteHandler />
-         </div>
-      );
+      return this.tmpl[this.props.state](this.props);
+   },
+
+   tmpl: {
+      'home': function(args) {
+         return (
+            <div className="app home">
+               <Toolbar />
+            </div>
+         );
+      },
+      'board': function(args) {
+         return (
+            <div className="app board">
+               <Toolbar />
+               <div className="board">
+                  <h1>Board #: {args.boardId}</h1>
+               </div>
+            </div>
+         );
+      },
+      'not found': function(args) {
+         return (
+            <div className="app not-found">
+               <Toolbar />
+               <h1>Not Found</h1>
+            </div>
+         );
+      }
    }
 
 });
