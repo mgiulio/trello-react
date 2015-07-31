@@ -564,3 +564,6 @@ body {
    text-align: center;
    color: rgb(127, 127, 127);
 }
+.error-panel {
+   position: absolute;
+}

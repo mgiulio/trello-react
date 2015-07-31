@@ -3,7 +3,8 @@ var
    Toolbar = require('./Toolbar'),
    Board = require('./Board'),
    ActivityIndicator = require('./ActivityIndicator'),
-   PageNotFound = require('./PageNotFound')
+   PageNotFound = require('./PageNotFound'),
+   ErrorPanel = require('./ErrorPanel')
 ;
 
 var App = React.createClass({
@@ -45,11 +46,16 @@ var App = React.createClass({
          );
       },
       'loading': function(props) {
+         var errorPanel;
+         if ('error' in props)
+            errorPanel = <ErrorPanel title={props.error.title} description={props.error.description} ondismiss={props.onDismiss} />;
+
          return (
             <div className="app app--loading">
                <Toolbar />
                <div className="app__body" >
                   <ActivityIndicator />
+                  {errorPanel}
                </div>
             </div>
          );

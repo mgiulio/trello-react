@@ -44,16 +44,37 @@ function renderApp(props) {
    React.render(<App {...props} />, document.body);
 }
 
+var
+   retryCounter = 0,
+   dismiss = false
+;
+function onDismiss() {
+   dismiss = true;
+}
 function loadBoard(boardId) {
    trelloAPI.getBoard(boardId)
       .then(function(board) {
          renderApp({state: 'board', board: board});
       })
       .catch(function(reason) {
-         // Notify user
-         console.log('Failed to load the board: ', reason);
-         // Retry
-         //this.loadBoard(this.props.boardId);
+         if (dismiss) {
+            window.location.hash = 'error';
+            return;
+         }
+
+         retryCounter++;
+
+         var desc = /*stringify readon*/'';
+         desc += 'Retry #' + retryCounter;
+
+         var error = {
+            title: 'Failed to load the board',
+            description: desc //reason
+         };
+
+         renderApp({state: 'loading', error: error, onDismiss: onDismiss});
+
+         loadBoard(boardId);
       })
    ;
 
