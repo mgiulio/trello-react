@@ -19928,11 +19928,12 @@ var
 var App = React.createClass({displayName: "App",
 
    render: function() {
-      return this.tmpl[this.props.state](this.props);
+      var $__0=   this.props,state=$__0.state,props=(function(source, exclusion) {var rest = {};var hasOwn = Object.prototype.hasOwnProperty;if (source == null) {throw new TypeError();}for (var key in source) {if (hasOwn.call(source, key) && !hasOwn.call(exclusion, key)) {rest[key] = source[key];}}return rest;})($__0,{state:1});
+      return this.tmpl[state](props);
    },
 
    tmpl: {
-      'home': function(args) {
+      'home': function(props) {
          return (
             React.createElement("div", {className: "app app--home"}, 
                React.createElement(Toolbar, null), 
@@ -19942,17 +19943,17 @@ var App = React.createClass({displayName: "App",
             )
          );
       },
-      'board': function(args) {
+      'board': function(props) {
          return (
             React.createElement("div", {className: "app app--board"}, 
                React.createElement(Toolbar, null), 
                React.createElement("div", {className: "app__body"}, 
-                  React.createElement(Board, {board: args.board})
+                  React.createElement(Board, {board: props.board})
                )
             )
          );
       },
-      'not found': function(args) {
+      'not found': function(props) {
          return (
             React.createElement("div", {className: "app app--not-found"}, 
                React.createElement(Toolbar, null), 
@@ -19962,7 +19963,7 @@ var App = React.createClass({displayName: "App",
             )
          );
       },
-      'loading': function() {
+      'loading': function(props) {
          return (
             React.createElement("div", {className: "app app--loading"}, 
                React.createElement(Toolbar, null), 

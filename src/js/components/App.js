@@ -9,11 +9,12 @@ var
 var App = React.createClass({
 
    render: function() {
-      return this.tmpl[this.props.state](this.props);
+      var {state, ...props} = this.props;
+      return this.tmpl[state](props);
    },
 
    tmpl: {
-      'home': function(args) {
+      'home': function(props) {
          return (
             <div className="app app--home">
                <Toolbar />
@@ -23,17 +24,17 @@ var App = React.createClass({
             </div>
          );
       },
-      'board': function(args) {
+      'board': function(props) {
          return (
             <div className="app app--board">
                <Toolbar />
                <div className="app__body" >
-                  <Board board={args.board} />
+                  <Board board={props.board} />
                </div>
             </div>
          );
       },
-      'not found': function(args) {
+      'not found': function(props) {
          return (
             <div className="app app--not-found">
                <Toolbar />
@@ -43,7 +44,7 @@ var App = React.createClass({
             </div>
          );
       },
-      'loading': function() {
+      'loading': function(props) {
          return (
             <div className="app app--loading">
                <Toolbar />
