@@ -7,6 +7,9 @@
 @import 'components/board.css';
 @import 'components/boardbar.css';
 @import 'components/card-lists.css';
+@import 'components/card-list.css';
+@import 'components/card.css';
 @import 'components/activity-indicator.css';
 @import 'components/page-not-found.css';
 @import 'components/error-panel.css';
+@import 'components/welcome.css';

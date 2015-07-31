@@ -12,6 +12,7 @@ var CardLists = React.createClass({
       };
    },
 
+   /*
    componentDidMount: function() {
       window.addEventListener('resize', util.debounce(function() {
          this.setState({listMaxHeight: this.computeListMaxHeight()});
@@ -19,6 +20,7 @@ var CardLists = React.createClass({
 
       this.setState({listMaxHeight: this.computeListMaxHeight()});
    },
+   */
 
    computeListMaxHeight: function() {
       var

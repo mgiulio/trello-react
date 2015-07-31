@@ -1,11 +1,12 @@
 .toolbar {
-   display: flex;
-   justify-content: space-between;
-   position: relative;
-
+   flex: none;
    height: 40px;
    box-sizing: border-box;
    padding: 5px;
+
+   display: flex;
+   justify-content: space-between;
+   position: relative;
 
    background-color: #5e5e5e;
    color: #aaa;
@@ -21,6 +22,6 @@
    font-family: verdana, sans-serif;
    text-transform: uppercase;
    font-weight: bold;
-   
+
    color: #f0f0f0;
 }

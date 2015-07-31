@@ -9,8 +9,12 @@ var
 
          return (
             <div className="board">
+               <h1>board</h1>
+               <p>foo</p>
+               {/*
                <BoardBar board={boardMeta} />
                <CardLists lists={this.props.board.lists} />
+               */}
             </div>
          );
       },

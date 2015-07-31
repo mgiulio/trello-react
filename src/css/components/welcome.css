@@ -1,0 +1,15 @@
+.welcome {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.welcome h1 {
+   margin-top: 0;
+   text-align: center;
+}
+
+.welcome h2 {
+   margin-bottom: 0;
+}
