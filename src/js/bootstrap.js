@@ -1,7 +1,9 @@
 var
    React = require('react'),
    trelloAPI = require('./api/trelloAPI'),
-   App = require('./components/App')
+   App = require('./components/App'),
+   loadBoard = require('./actions/load-board'),
+   renderApp = require('./renderApp')
 ;
 
 bootstrap();
@@ -28,8 +30,6 @@ function doRouting() {
    else if (url.indexOf('/') !== -1) {
       var parts = url.split('/');
       if (parts[0] === 'board') {
-         //props.state = 'board';
-         //props.boardId = parts[1];
          props = loadBoard(parts[1]);
       } else {
          props.state = 'not found';
@@ -38,45 +38,4 @@ function doRouting() {
       props.state = 'not found';
 
    renderApp(props);
-}
-
-function renderApp(props) {
-   React.render(<App {...props} />, document.body);
-}
-
-var
-   retryCounter = 0,
-   dismiss = false
-;
-function onDismiss() {
-   dismiss = true;
-}
-function loadBoard(boardId) {
-   trelloAPI.getBoard(boardId)
-      .then(function(board) {
-         renderApp({state: 'board', board: board});
-      })
-      .catch(function(reason) {
-         if (dismiss) {
-            window.location.hash = 'error';
-            return;
-         }
-
-         retryCounter++;
-
-         var desc = /*stringify readon*/'';
-         desc += 'Retry #' + retryCounter;
-
-         var error = {
-            title: 'Failed to load the board',
-            description: desc //reason
-         };
-
-         renderApp({state: 'loading', error: error, onDismiss: onDismiss});
-
-         loadBoard(boardId);
-      })
-   ;
-
-   return {state: 'loading'};
 }
