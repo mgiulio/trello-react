@@ -48,33 +48,7 @@ var CardLists = React.createClass({
 
       return (
          <section className="lists-container">
-            {/*listComponents*/}
-            <article>
-               <h1>Title</h1>
-               <p>foo is better than baz</p>
-            </article>
-            <article>
-               <h1>Title</h1>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-            </article>
-            <article>
-               <h1>Title</h1>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-               <p>foo is better than baz</p>
-            </article>
-
+            {listComponents}
          </section>
       );
    }

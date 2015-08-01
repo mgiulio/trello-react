@@ -20209,33 +20209,7 @@ var CardLists = React.createClass({displayName: "CardLists",
 
       return (
          React.createElement("section", {className: "lists-container"}, 
-            /*listComponents*/
-            React.createElement("article", null, 
-               React.createElement("h1", null, "Title"), 
-               React.createElement("p", null, "foo is better than baz")
-            ), 
-            React.createElement("article", null, 
-               React.createElement("h1", null, "Title"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz")
-            ), 
-            React.createElement("article", null, 
-               React.createElement("h1", null, "Title"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz"), 
-               React.createElement("p", null, "foo is better than baz")
-            )
-
+            listComponents
          )
       );
    }
