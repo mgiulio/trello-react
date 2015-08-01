@@ -7,7 +7,8 @@ var
    onDismiss = function() { dismiss = true; }
 ;
 
-function loadBoard(boardId) {
+function loadBoard(ctx) {
+   console.log(ctx);
    trelloAPI.getBoard(boardId)
       .then(function(board) {
          renderApp({state: 'board', board: board});
