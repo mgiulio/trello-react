@@ -20208,7 +20208,7 @@ var CardLists = React.createClass({displayName: "CardLists",
       }.bind(this));
 
       return (
-         React.createElement("section", {className: "lists-container"}, 
+         React.createElement("section", {className: "card-lists"}, 
             listComponents
          )
       );

@@ -47,7 +47,7 @@ var CardLists = React.createClass({
       });
 
       return (
-         <section className="lists-container">
+         <section className="card-lists">
             {listComponents}
          </section>
       );
