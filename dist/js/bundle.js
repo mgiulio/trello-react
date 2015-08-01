@@ -20138,15 +20138,18 @@ var CardList = React.createClass({displayName: "CardList",
       var cards = l.cards.map(function(c)  {return React.createElement(Card, {card: c, key: c.id});});
 
       var props = {className: 'cards'};
-      if ('maxHeight' in this.props)
-         props.style = {maxHeight: this.props.maxHeight + 'px'};
+      if ('maxHeight' in this.props) {
+         var cardsHeight = this.getDOMNode().querySelector('ul').offsetHeight;
+         if (cardsHeight > this.props.maxHeight)
+            props.style = {height: this.props.maxHeight + 'px'};
+      }
 
       return (
          React.createElement("div", {className: "list"}, 
             React.createElement("header", null, 
                React.createElement("h2", {className: "list__name"}, l.name)
             ), 
-            React.createElement("ul", React.__spread({},  props), 
+            React.createElement("ul", React.__spread({ref: "cards"},  props), 
                cards
             ), 
             React.createElement("footer", null
