@@ -20142,7 +20142,7 @@ var CardList = React.createClass({displayName: "CardList",
          props.style = {maxHeight: this.props.maxHeight + 'px'};
 
       return (
-         React.createElement("article", {className: "list"}, 
+         React.createElement("div", {className: "list"}, 
             React.createElement("header", null, 
                React.createElement("h2", {className: "list__name"}, l.name)
             ), 
@@ -20208,7 +20208,7 @@ var CardLists = React.createClass({displayName: "CardLists",
       }.bind(this));
 
       return (
-         React.createElement("section", {className: "card-lists"}, 
+         React.createElement("div", {className: "card-lists"}, 
             listComponents
          )
       );

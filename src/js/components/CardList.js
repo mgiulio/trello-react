@@ -14,7 +14,7 @@ var CardList = React.createClass({
          props.style = {maxHeight: this.props.maxHeight + 'px'};
 
       return (
-         <article className="list">
+         <div className="list">
             <header>
                <h2 className="list__name">{l.name}</h2>
             </header>
@@ -23,7 +23,7 @@ var CardList = React.createClass({
             </ul>
             <footer>
             </footer>
-         </article>
+         </div>
       );
    }
 
