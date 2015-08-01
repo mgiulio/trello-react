@@ -234,9 +234,23 @@ body {
            flex: 1 1 auto;
    height: auto;
    min-height: 0;
-   overflow: hidden;
 
    position: relative;
+}
+
+.app--board .app__body {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
 }
 a {
    text-decoration: none;
@@ -304,13 +318,28 @@ body {
    color: #f0f0f0;
 }
 .board {
-   //flex: 1 1 auto;
+   -webkit-box-flex: 1;
+   -webkit-flex: 1 1 auto;
+       -ms-flex: 1 1 auto;
+           flex: 1 1 auto;
+   height: auto;
+   min-height: 0;
 
-   /*
+   display: -webkit-box;
+
+   display: -webkit-flex;
+
+   display: -ms-flexbox;
+
    display: flex;
-   flex-direction: column;
-   flex-wrap: nowrap;
-   */
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
 }
 .board-name {
    margin: 0;
@@ -340,9 +369,11 @@ body {
 }
 .lists-container {
    -webkit-box-flex: 1;
-   -webkit-flex: auto;
-       -ms-flex: auto;
-           flex: auto;
+   -webkit-flex: 1 1 auto;
+       -ms-flex: 1 1 auto;
+           flex: 1 1 auto;
+   height: auto;
+   min-height: 0;
    overflow-x: auto;
    overflow-y: hidden;
 

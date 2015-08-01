@@ -20018,12 +20018,8 @@ var
 
          return (
             React.createElement("div", {className: "board"}, 
-               React.createElement("h1", null, "board"), 
-               React.createElement("p", null, "foo")
-               /*
-               <BoardBar board={boardMeta} />
-               <CardLists lists={this.props.board.lists} />
-               */
+               React.createElement(BoardBar, {board: boardMeta}), 
+               React.createElement(CardLists, {lists: this.props.board.lists})
             )
          );
       },
@@ -20213,7 +20209,33 @@ var CardLists = React.createClass({displayName: "CardLists",
 
       return (
          React.createElement("section", {className: "lists-container"}, 
-            listComponents
+            /*listComponents*/
+            React.createElement("article", null, 
+               React.createElement("h1", null, "Title"), 
+               React.createElement("p", null, "foo is better than baz")
+            ), 
+            React.createElement("article", null, 
+               React.createElement("h1", null, "Title"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz")
+            ), 
+            React.createElement("article", null, 
+               React.createElement("h1", null, "Title"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz"), 
+               React.createElement("p", null, "foo is better than baz")
+            )
+
          )
       );
    }

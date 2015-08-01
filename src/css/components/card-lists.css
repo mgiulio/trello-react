@@ -1,5 +1,7 @@
 .lists-container {
-   flex: auto;
+   flex: 1 1 auto;
+   height: auto;
+   min-height: 0;
    overflow-x: auto;
    overflow-y: hidden;
 
