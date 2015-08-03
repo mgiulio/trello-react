@@ -8,7 +8,8 @@ var
 ;
 
 function loadBoard(ctx) {
-   console.log(ctx);
+   var boardId = ctx.params.id;
+
    trelloAPI.getBoard(boardId)
       .then(function(board) {
          renderApp({state: 'board', board: board});
@@ -35,7 +36,7 @@ function loadBoard(ctx) {
       })
    ;
 
-   return {state: 'loading'};
+   renderApp({state: 'loading'});
 }
 
 module.exports = loadBoard;

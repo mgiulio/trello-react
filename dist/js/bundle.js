@@ -20559,7 +20559,8 @@ var
 ;
 
 function loadBoard(ctx) {
-   console.log(ctx);
+   var boardId = ctx.params.id;
+
    trelloAPI.getBoard(boardId)
       .then(function(board) {
          renderApp({state: 'board', board: board});
@@ -20586,7 +20587,7 @@ function loadBoard(ctx) {
       })
    ;
 
-   return {state: 'loading'};
+   renderApp({state: 'loading'});
 }
 
 module.exports = loadBoard;
@@ -20598,8 +20599,8 @@ var
 function getBoard(id) {
    var
       url =
-         //'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
-         '../board.json'
+         'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
+         //'/board.json'//board.json'//'../board.json'
    ;
 
    return fetch(url)
@@ -20724,16 +20725,21 @@ function bootstrap() {
       appSecret: '98c5231e7ef24465b02b6d20eb378280ea4b1b1fb5ffc5078a463630610c284c'
    });
 
-   //page.base('/trello-react/dist');
-   //page('/', home);
-   page('/about', function() {console.log(arguments);})
+
+   page('/', home);
+   page('/about', about);
    page('/board/:id', board);
-   //page('*', notFound);
+   page('*', notFound);
    page();
 }
 
 function home() {
    renderApp({state: 'home'});
+}
+
+function about() {
+   console.log('foo');
+   console.log(arguments);
 }
 
 function notFound() {
@@ -21079,7 +21085,7 @@ var Icon = React.createClass({displayName: "Icon",
       return (
          React.createElement("svg", {
             className: 'meta-item__icon ' + this.props.which, 
-            dangerouslySetInnerHTML: { __html: '<use xlink:href="img/sprite.svg#' + this.props.which + '" />'}}
+            dangerouslySetInnerHTML: { __html: '<use xlink:href="/img/sprite.svg#' + this.props.which + '" />'}}
          )
       );
    }
@@ -21155,7 +21161,13 @@ var
          return (
             React.createElement("div", {className: "welcome"}, 
                React.createElement("h1", null, "Welcome"), 
-               React.createElement("h2", null, "Enter a public board ID")
+               React.createElement("h2", null, "Some Trello Public Boards:"), 
+               React.createElement("ul", null, 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/4d5ea62fd76aa1136000000c"}, "Trello Development Board")), 
+                  React.createElement("li", null, React.createElement("a", {href: "#"}, "???"))
+               ), 
+
+               React.createElement("p", null, React.createElement("a", {href: "/about"}, "about"))
             )
          );
       }

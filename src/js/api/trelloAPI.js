@@ -6,7 +6,7 @@ function getBoard(id) {
    var
       url =
          //'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
-         '../board.json'
+         '/board.json'//board.json'//'../board.json'
    ;
 
    return fetch(url)
