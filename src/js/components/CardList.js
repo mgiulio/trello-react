@@ -10,11 +10,6 @@ var CardList = React.createClass({
       var cards = l.cards.map(c => <Card card={c} key={c.id} />);
 
       var props = {className: 'cards'};
-      if ('maxHeight' in this.props) {
-         var cardsHeight = this.getDOMNode().querySelector('ul').offsetHeight;
-         if (cardsHeight > this.props.maxHeight)
-            props.style = {height: this.props.maxHeight + 'px'};
-      }
 
       return (
          <div className="list">
@@ -28,6 +23,17 @@ var CardList = React.createClass({
             </footer>
          </div>
       );
+   },
+
+   componentDidUpdate: function() {
+      if ('maxHeight' in this.props) {
+         var cardsEl = this.refs.cards.getDOMNode();
+         cardsEl.style.height = 'auto';
+         var cardsElNaturalHeight = cardsEl.offsetHeight;
+
+         if (cardsElNaturalHeight > this.props.maxHeight)
+            cardsEl.style.height = this.props.maxHeight + 'px';
+      }
    }
 
 });

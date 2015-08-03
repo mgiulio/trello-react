@@ -20138,11 +20138,6 @@ var CardList = React.createClass({displayName: "CardList",
       var cards = l.cards.map(function(c)  {return React.createElement(Card, {card: c, key: c.id});});
 
       var props = {className: 'cards'};
-      if ('maxHeight' in this.props) {
-         var cardsHeight = this.getDOMNode().querySelector('ul').offsetHeight;
-         if (cardsHeight > this.props.maxHeight)
-            props.style = {height: this.props.maxHeight + 'px'};
-      }
 
       return (
          React.createElement("div", {className: "list"}, 
@@ -20156,6 +20151,17 @@ var CardList = React.createClass({displayName: "CardList",
             )
          )
       );
+   },
+
+   componentDidUpdate: function() {
+      if ('maxHeight' in this.props) {
+         var cardsEl = this.refs.cards.getDOMNode();
+         cardsEl.style.height = 'auto';
+         var cardsElNaturalHeight = cardsEl.offsetHeight;
+
+         if (cardsElNaturalHeight > this.props.maxHeight)
+            cardsEl.style.height = this.props.maxHeight + 'px';
+      }
    }
 
 });
