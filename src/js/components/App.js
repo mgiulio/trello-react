@@ -4,7 +4,8 @@ var
    Board = require('./Board'),
    ActivityIndicator = require('./ActivityIndicator'),
    PageNotFound = require('./PageNotFound'),
-   ErrorPanel = require('./ErrorPanel')
+   ErrorPanel = require('./ErrorPanel'),
+   Welcome = require('./Welcome')
 ;
 
 var App = React.createClass({
@@ -20,7 +21,7 @@ var App = React.createClass({
             <div className="app app--home">
                <Toolbar />
                <div className="app__body" >
-                  <h1>Welcome</h1>
+                  <Welcome />
                </div>
             </div>
          );
