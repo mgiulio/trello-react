@@ -21168,7 +21168,7 @@ var
             React.createElement("div", {className: "welcome"}, 
                React.createElement("header", null, 
                   React.createElement("h1", {className: "welcome__title"}, "Welcome to Trello React ", this.props.appVersion), 
-                  React.createElement("h2", {className: "welcome__subtitle"}, "A partial ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " clone written in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React"))
+                  React.createElement("h2", {className: "welcome__subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React")))
                ), 
                React.createElement("h3", null, "Try It!"), 
                React.createElement("p", null, "Try to load some public boards:"), 
@@ -21189,7 +21189,7 @@ var
                   React.createElement("li", null, React.createElement("a", {href: "/board/IuoxVMY1"}, "Trello for Sending Thank You Cards"))
                ), 
                React.createElement("h3", null, "About the Project"), 
-               React.createElement("p", null, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for the source and for development notes."), 
+               React.createElement("p", null, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for source, development notes, bugs and other informations."), 
             	React.createElement("footer", null, 
                   React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
                )

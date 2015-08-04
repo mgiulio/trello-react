@@ -7,7 +7,7 @@ var
             <div className="welcome">
                <header>
                   <h1 className="welcome__title">Welcome to Trello React {this.props.appVersion}</h1>
-                  <h2 className="welcome__subtitle">A partial <a href="http://trello.com">Trello</a> clone written in <a href="https://facebook.github.io/react/index.html">React</a></h2>
+                  <h2 className="welcome__subtitle">A <a href="http://trello.com">Trello</a> client <em>Thinked in <a href="https://facebook.github.io/react/index.html">React</a></em></h2>
                </header>
                <h3>Try It!</h3>
                <p>Try to load some public boards:</p>
@@ -28,7 +28,7 @@ var
                   <li><a href="/board/IuoxVMY1">Trello for Sending Thank You Cards</a></li>
                </ul>
                <h3>About the Project</h3>
-               <p>Visit the <a href="http://github.com/mgiulio/trello-react">project page on GitHub</a> for the source and for development notes.</p>
+               <p>Visit the <a href="http://github.com/mgiulio/trello-react">project page on GitHub</a> for source, development notes, bugs and other informations.</p>
             	<footer>
                   <p className="credits">Crafted with <em className="hearts">&hearts;</em> <a href="http://mgiulio.github.io">mg</a></p>
                </footer>
