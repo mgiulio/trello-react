@@ -35,12 +35,14 @@ function processBoardJSON(b) {
          scaled: b.prefs.backgroundImageScaled
       },
       lists: [],
-      organization: {
-         name: b.organization.displayName,
-         url: b.organization.url
-      },
       permissionLevel: b.prefs.permissionLevel
    };
+
+   if (b.organization)
+      board.organization =  {
+         name: b.organization.displayName,
+         url: b.organization.url
+      };
 
    var listHash = {};
    board.lists = b.lists.map(function(l) {
