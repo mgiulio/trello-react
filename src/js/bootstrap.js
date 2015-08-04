@@ -17,7 +17,6 @@ function bootstrap() {
 
 
    page('/', home);
-   page('/about', about);
    page('/board/:id', board);
    page('*', notFound);
    page();
@@ -29,11 +28,6 @@ function home() {
 
 function  board(ctx) {
    loadBoard(ctx.params.id);
-}
-
-function about() {
-   console.log('foo');
-   console.log(arguments);
 }
 
 function notFound() {
