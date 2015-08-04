@@ -7,14 +7,15 @@ var
    onDismiss = function() { dismiss = true; }
 ;
 
-function loadBoard(ctx) {
-   var boardId = ctx.params.id;
-
+function loadBoard(boardId) {
    trelloAPI.getBoard(boardId)
       .then(function(board) {
          renderApp({state: 'board', board: board});
       })
       .catch(function(reason) {
+         console.log(reason);
+         throw reason;
+
          if (dismiss) {
             window.location.hash = 'error';
             return;

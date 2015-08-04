@@ -5,8 +5,8 @@ var
 function getBoard(id) {
    var
       url =
-         //'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
-         '/board.json'//board.json'//'../board.json'
+         'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=visible&card_attachments=cover&organization=true&organization_fields=displayName,url'
+         //'/board.json'//board.json'//'../board.json'
    ;
 
    return fetch(url)
@@ -87,6 +87,10 @@ function processBoardJSON(b) {
          }
       }
 
+      if (!c.idList)
+         console.log(`Card #${c.id} has with falsy idList(${c.idList}, ${typeof c.idList})`);
+      if (!(c.idList in listHash))
+         console.log(`Card #${c.id} has an idList not present in listHash: ${c.idList}`);
       listHash[c.idList].cards.push(c1);
    });
 

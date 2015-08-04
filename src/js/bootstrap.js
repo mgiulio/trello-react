@@ -2,7 +2,7 @@ var
    React = require('react'),
    trelloAPI = require('./api/trelloAPI'),
    App = require('./components/App'),
-   board = require('./actions/board'),
+   loadBoard = require('./actions/board'),
    renderApp = require('./renderApp'),
    page = require('page')
 ;
@@ -25,6 +25,10 @@ function bootstrap() {
 
 function home() {
    renderApp({state: 'home'});
+}
+
+function  board(ctx) {
+   loadBoard(ctx.params.id);
 }
 
 function about() {

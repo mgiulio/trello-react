@@ -20558,14 +20558,15 @@ var
    onDismiss = function() { dismiss = true; }
 ;
 
-function loadBoard(ctx) {
-   var boardId = ctx.params.id;
-
+function loadBoard(boardId) {
    trelloAPI.getBoard(boardId)
       .then(function(board) {
          renderApp({state: 'board', board: board});
       })
       .catch(function(reason) {
+         console.log(reason);
+         throw reason;
+
          if (dismiss) {
             window.location.hash = 'error';
             return;
@@ -20599,8 +20600,8 @@ var
 function getBoard(id) {
    var
       url =
-         //'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
-         '/board.json'//board.json'//'../board.json'
+         'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=visible&card_attachments=cover&organization=true&organization_fields=displayName,url'
+         //'/board.json'//board.json'//'../board.json'
    ;
 
    return fetch(url)
@@ -20681,6 +20682,10 @@ function processBoardJSON(b) {
          }
       }
 
+      if (!c.idList)
+         console.log(("Card #" + c.id + " has with falsy idList(" + c.idList + ", " + (typeof c.idList) + ")"));
+      if (!(c.idList in listHash))
+         console.log(("Card #" + c.id + " has an idList not present in listHash: " + c.idList));
       listHash[c.idList].cards.push(c1);
    });
 
@@ -20714,7 +20719,7 @@ var
    React = require('react'),
    trelloAPI = require('./api/trelloAPI'),
    App = require('./components/App'),
-   board = require('./actions/board'),
+   loadBoard = require('./actions/board'),
    renderApp = require('./renderApp'),
    page = require('page')
 ;
@@ -20737,6 +20742,10 @@ function bootstrap() {
 
 function home() {
    renderApp({state: 'home'});
+}
+
+function  board(ctx) {
+   loadBoard(ctx.params.id);
 }
 
 function about() {
@@ -21167,13 +21176,21 @@ var
                   React.createElement("h1", {className: "welcome__title"}, "Welcome to Trello React ", this.props.appVersion), 
                   React.createElement("h2", {className: "welcome__subtitle"}, "A partial ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " clone written in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React"))
                ), 
-               React.createElement("p", null, "Try to load some Trello public boards:"), 
+               React.createElement("h3", null, "Try It!"), 
+               React.createElement("p", null, "Try to load some public boards:"), 
+               React.createElement("h4", null, "On Trello"), 
                React.createElement("ul", null, 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/4d5ea62fd76aa1136000000c"}, "Trello Development Board"))
+                  React.createElement("li", null, React.createElement("a", {href: "/board/nC8QJJoZ"}, "Trello Development Board")), 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/cI66RoQS"}, "Trello Public API")), 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/mRn3F1pT"}, "Trello Development - Shipped!")), 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/dpX2j6lT"}, "Open Source Libraries")), 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/5tj4qAvo"}, "Trello iOS App")), 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/nPNSBZjB"}, "Trello Resources"))
                ), 
+               React.createElement("h3", null, "About the Project"), 
                React.createElement("p", null, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for the source and for development notes."), 
             	React.createElement("footer", null, 
-                  React.createElement("p", {class: "credits"}, "Crafted with ", React.createElement("em", {class: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
+                  React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
                )
             )
          );
