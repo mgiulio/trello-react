@@ -1,4 +1,5 @@
 var
+   appVersion = '0.2',
    React = require('react'),
    Toolbar = require('./Toolbar'),
    Board = require('./Board'),
@@ -21,7 +22,7 @@ var App = React.createClass({
             <div className="app app--home">
                <Toolbar />
                <div className="app__body" >
-                  <Welcome />
+                  <Welcome appVersion={appVersion}/>
                </div>
             </div>
          );

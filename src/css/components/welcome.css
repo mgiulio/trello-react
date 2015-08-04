@@ -1,15 +1,56 @@
 .welcome {
+   margin: 0 auto;
+   width: 600px;
+
+   /*
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+   */
+
+   color: gray(221);
 }
 
-.welcome h1 {
-   margin-top: 0;
+.welcome a {
+   color: gray(100);
+}
+
+.welcome header {
+   margin: 20px 0 40px;
+}
+
+.welcome__title {
+   margin: 0;
    text-align: center;
+
+   font-family: serif;
+   font-size: 40px;
+
+   color: gray(237);
 }
 
-.welcome h2 {
-   margin-bottom: 0;
+.welcome__subtitle {
+   margin: 0;
+   text-align: center;
+
+   font-family: georgia;
+   font-size: 16px;
+   font-style: italic;
+   font-weight: normal;
+
+   color: gray(214);
+}
+
+.welcome footer {
+   margin: 40px 0 20px;
+
+   text-align: center;
+
+   font-size: 14px;
+   text-transform: uppercase;
+}
+
+.welcome footer .hearts {
+   color: #cc0000;
 }

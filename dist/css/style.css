@@ -603,19 +603,58 @@ body {
    position: absolute;
 }
 .welcome {
+   margin: 0 auto;
+   width: 600px;
+
+   /*
    position: absolute;
    top: 50%;
    left: 50%;
-   -webkit-transform: translate(-50%, -50%);
-       -ms-transform: translate(-50%, -50%);
-           transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+   */
+
+   color: rgb(221, 221, 221);
 }
 
-.welcome h1 {
-   margin-top: 0;
+.welcome a {
+   color: rgb(100, 100, 100);
+}
+
+.welcome header {
+   margin: 20px 0 40px;
+}
+
+.welcome__title {
+   margin: 0;
    text-align: center;
+
+   font-family: serif;
+   font-size: 40px;
+
+   color: rgb(237, 237, 237);
 }
 
-.welcome h2 {
-   margin-bottom: 0;
+.welcome__subtitle {
+   margin: 0;
+   text-align: center;
+
+   font-family: georgia;
+   font-size: 16px;
+   font-style: italic;
+   font-weight: normal;
+
+   color: rgb(214, 214, 214);
+}
+
+.welcome footer {
+   margin: 40px 0 20px;
+
+   text-align: center;
+
+   font-size: 14px;
+   text-transform: uppercase;
+}
+
+.welcome footer .hearts {
+   color: #cc0000;
 }

@@ -20599,8 +20599,8 @@ var
 function getBoard(id) {
    var
       url =
-         'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
-         //'/board.json'//board.json'//'../board.json'
+         //'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=all&card_attachments=cover&organization=true&organization_fields=displayName,url'
+         '/board.json'//board.json'//'../board.json'
    ;
 
    return fetch(url)
@@ -20769,6 +20769,7 @@ var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
 module.exports = ActivityIndicator;
 },{"react":158}],163:[function(require,module,exports){
 var
+   appVersion = '0.2',
    React = require('react'),
    Toolbar = require('./Toolbar'),
    Board = require('./Board'),
@@ -20791,7 +20792,7 @@ var App = React.createClass({displayName: "App",
             React.createElement("div", {className: "app app--home"}, 
                React.createElement(Toolbar, null), 
                React.createElement("div", {className: "app__body"}, 
-                  React.createElement(Welcome, null)
+                  React.createElement(Welcome, {appVersion: appVersion})
                )
             )
          );
@@ -21160,18 +21161,21 @@ var
       render: function() {
          return (
             React.createElement("div", {className: "welcome"}, 
-               React.createElement("h1", null, "Welcome"), 
-               React.createElement("h2", null, "Some Trello Public Boards:"), 
-               React.createElement("ul", null, 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/4d5ea62fd76aa1136000000c"}, "Trello Development Board")), 
-                  React.createElement("li", null, React.createElement("a", {href: "#"}, "???"))
+               React.createElement("header", null, 
+                  React.createElement("h1", {className: "welcome__title"}, "Welcome to Trello React ", this.props.appVersion), 
+                  React.createElement("h2", {className: "welcome__subtitle"}, "A partial ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " clone written in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React"))
                ), 
-
-               React.createElement("p", null, React.createElement("a", {href: "/about"}, "about"))
+               React.createElement("p", null, "Try to load some Trello public boards:"), 
+               React.createElement("ul", null, 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/4d5ea62fd76aa1136000000c"}, "Trello Development Board"))
+               ), 
+               React.createElement("p", null, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for the source and for development notes."), 
+            	React.createElement("footer", null, 
+                  React.createElement("p", {class: "credits"}, "Crafted with ", React.createElement("em", {class: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
+               )
             )
          );
       }
-
    })
 ;
 
