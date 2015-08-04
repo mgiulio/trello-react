@@ -6,4 +6,7 @@
    display: flex;
    flex-direction: column;
    flex-wrap: nowrap;
+
+   background-position: 50% 50%;
+   background-size: cover;
 }

@@ -20849,13 +20849,18 @@ var
    React = require('react'),
    BoardBar = require('./BoardBar'),
    CardLists = require('./CardLists'),
+   settings = require('../settings'),
    Board = React.createClass({displayName: "Board",
 
       render: function() {
          var boardMeta = this.extractBoardMeta(this.props.board);
 
+         var props = {className: 'board'};
+         if (settings['board background'])
+            props.style = {backgroundImage: 'url(' + this.props.board.backgroundImage.full/*.scaled[0].url*/ + ')'};
+
          return (
-            React.createElement("div", {className: "board"}, 
+            React.createElement("div", React.__spread({},  props), 
                React.createElement(BoardBar, {board: boardMeta}), 
                React.createElement(CardLists, {lists: this.props.board.lists})
             )
@@ -20884,7 +20889,7 @@ var
 ;
 
 module.exports = Board;
-},{"./BoardBar":165,"./CardLists":168,"react":158}],165:[function(require,module,exports){
+},{"../settings":177,"./BoardBar":165,"./CardLists":168,"react":158}],165:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('./MetaItem'),
@@ -21255,7 +21260,7 @@ function renderApp(props) {
 module.exports = renderApp;
 },{"./components/App":163,"react":158}],177:[function(require,module,exports){
 var settings = {
-   'board background': false,
+   'board background': true,
    'fake json': false
 };
 

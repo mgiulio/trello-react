@@ -222,9 +222,6 @@ body {
        -ms-flex-wrap: nowrap;
            flex-wrap: nowrap;
    height: 100%;
-
-   background-position: 50% 50%;
-   background-size: cover;
 }
 
 .app__body {
@@ -340,6 +337,9 @@ body {
    -webkit-flex-wrap: nowrap;
        -ms-flex-wrap: nowrap;
            flex-wrap: nowrap;
+
+   background-position: 50% 50%;
+   background-size: cover;
 }
 .board-name {
    margin: 0;
