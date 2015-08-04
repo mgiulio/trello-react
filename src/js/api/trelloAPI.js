@@ -1,12 +1,14 @@
 var
-   appKey
+   appKey,
+   settings = require('../settings')
 ;
 
 function getBoard(id) {
    var
-      url =
+      url = settings['fake json'] ?
+         '/board.json' //board.json'//'../board.json'
+         :
          'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=visible&card_attachments=cover&organization=true&organization_fields=displayName,url'
-         //'/board.json'//board.json'//'../board.json'
    ;
 
    return fetch(url)
