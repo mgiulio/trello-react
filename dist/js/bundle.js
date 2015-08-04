@@ -21178,7 +21178,7 @@ var
                ), 
                React.createElement("h3", null, "Try It!"), 
                React.createElement("p", null, "Try to load some public boards:"), 
-               React.createElement("h4", null, "On Trello"), 
+               React.createElement("h4", null, "About Trello Development"), 
                React.createElement("ul", null, 
                   React.createElement("li", null, React.createElement("a", {href: "/board/nC8QJJoZ"}, "Trello Development Board")), 
                   React.createElement("li", null, React.createElement("a", {href: "/board/cI66RoQS"}, "Trello Public API")), 
@@ -21186,6 +21186,13 @@ var
                   React.createElement("li", null, React.createElement("a", {href: "/board/dpX2j6lT"}, "Open Source Libraries")), 
                   React.createElement("li", null, React.createElement("a", {href: "/board/5tj4qAvo"}, "Trello iOS App")), 
                   React.createElement("li", null, React.createElement("a", {href: "/board/nPNSBZjB"}, "Trello Resources"))
+               ), 
+               React.createElement("h4", null, "Are you going to Get Married?"), 
+               React.createElement("ul", null, 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/kw7E5XeZ"}, "Wedding Seating Arrangement")), 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/wFECC39M"}, "Bridal Party Trello Board")), 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/lHRaeSZ7"}, "Trello for Wedding Day Timeline")), 
+                  React.createElement("li", null, React.createElement("a", {href: "/board/IuoxVMY1"}, "Trello for Sending Thank You Cards"))
                ), 
                React.createElement("h3", null, "About the Project"), 
                React.createElement("p", null, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for the source and for development notes."), 
