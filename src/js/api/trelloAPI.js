@@ -5,6 +5,7 @@ var
 ;
 
 function getBoard(id) {
+   console.log(settings['fake json']);
    var
       url = settings['fake json'] ?
          '/board.json' //board.json'//'../board.json'

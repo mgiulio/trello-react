@@ -20600,6 +20600,7 @@ var
 ;
 
 function getBoard(id) {
+   console.log(settings['fake json']);
    var
       url = settings['fake json'] ?
          '/board.json' //board.json'//'../board.json'
@@ -21267,7 +21268,7 @@ module.exports = renderApp;
 },{"./components/App":163,"react":158}],177:[function(require,module,exports){
 var settings = {
    'board background': false,
-   'fake json': false
+   'fake json': true
 };
 
 module.exports = settings;
