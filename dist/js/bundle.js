@@ -20998,7 +20998,7 @@ var CardList = React.createClass({displayName: "CardList",
 
    componentDidUpdate: function() {
       if ('maxHeight' in this.props) {
-         var cardsEl = this.refs.cards.getDOMNode();
+         var cardsEl = React.findDOMNode(this.refs.cards);
          cardsEl.style.height = 'auto';
          var cardsElNaturalHeight = cardsEl.offsetHeight;
 
@@ -21035,10 +21035,10 @@ var CardLists = React.createClass({displayName: "CardLists",
 
    computeListMaxHeight: function() {
       var
-         cardListsHeight = this.getDOMNode().offsetHeight,
+         cardListsHeight = React.findDOMNode(this).offsetHeight,
          scrollbarSize = 17,
          gap = 20,
-         listHeaderHeight = this.getDOMNode().querySelector('header').offsetHeight,
+         listHeaderHeight = React.findDOMNode(this).querySelector('header').offsetHeight,
          listVPadding = 10 + 10
       ;
 

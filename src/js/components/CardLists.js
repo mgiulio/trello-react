@@ -22,10 +22,10 @@ var CardLists = React.createClass({
 
    computeListMaxHeight: function() {
       var
-         cardListsHeight = this.getDOMNode().offsetHeight,
+         cardListsHeight = React.findDOMNode(this).offsetHeight,
          scrollbarSize = 17,
          gap = 20,
-         listHeaderHeight = this.getDOMNode().querySelector('header').offsetHeight,
+         listHeaderHeight = React.findDOMNode(this).querySelector('header').offsetHeight,
          listVPadding = 10 + 10
       ;
 

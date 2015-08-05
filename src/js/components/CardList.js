@@ -27,7 +27,7 @@ var CardList = React.createClass({
 
    componentDidUpdate: function() {
       if ('maxHeight' in this.props) {
-         var cardsEl = this.refs.cards.getDOMNode();
+         var cardsEl = React.findDOMNode(this.refs.cards);
          cardsEl.style.height = 'auto';
          var cardsElNaturalHeight = cardsEl.offsetHeight;
 
