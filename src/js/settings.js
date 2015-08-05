@@ -1,5 +1,5 @@
 var settings = {
-   'board background': true,
+   'board background': false,
    'fake json': false
 };
 

@@ -32,13 +32,15 @@ function processBoardJSON(b) {
       name: b.name,
       url: b.url,
       shortUrl: b.shortUrl,
-      backgroundImage: {
-         full: b.prefs.backgroundImage,
-         scaled: b.prefs.backgroundImageScaled
-      },
       lists: [],
       permissionLevel: b.prefs.permissionLevel
    };
+
+   if (b.prefs.backgroundImage)
+      board.backgroundImage = {
+         full: b.prefs.backgroundImage,
+         scaled: b.prefs.backgroundImageScaled
+      };
 
    if (b.organization)
       board.organization =  {

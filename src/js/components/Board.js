@@ -6,11 +6,14 @@ var
    Board = React.createClass({
 
       render: function() {
-         var boardMeta = this.extractBoardMeta(this.props.board);
+         var b = this.props.board;
+
+         var boardMeta = this.extractBoardMeta(b);
 
          var props = {className: 'board'};
-         if (settings['board background'])
-            props.style = {backgroundImage: 'url(' + this.props.board.backgroundImage.full/*.scaled[0].url*/ + ')'};
+
+         if (settings['board background'] && 'backgroundImage' in b)
+            props.style = {backgroundImage: `url(${b.backgroundImage.full})`};
 
          return (
             <div {...props}>
