@@ -20627,13 +20627,15 @@ function processBoardJSON(b) {
       name: b.name,
       url: b.url,
       shortUrl: b.shortUrl,
-      backgroundImage: {
-         full: b.prefs.backgroundImage,
-         scaled: b.prefs.backgroundImageScaled
-      },
       lists: [],
       permissionLevel: b.prefs.permissionLevel
    };
+
+   if (b.prefs.backgroundImage)
+      board.backgroundImage = {
+         full: b.prefs.backgroundImage,
+         scaled: b.prefs.backgroundImageScaled
+      };
 
    if (b.organization)
       board.organization =  {
@@ -20853,11 +20855,14 @@ var
    Board = React.createClass({displayName: "Board",
 
       render: function() {
-         var boardMeta = this.extractBoardMeta(this.props.board);
+         var b = this.props.board;
+
+         var boardMeta = this.extractBoardMeta(b);
 
          var props = {className: 'board'};
-         if (settings['board background'])
-            props.style = {backgroundImage: 'url(' + this.props.board.backgroundImage.full/*.scaled[0].url*/ + ')'};
+
+         if (settings['board background'] && 'backgroundImage' in b)
+            props.style = {backgroundImage: ("url(" + b.backgroundImage.full + ")")};
 
          return (
             React.createElement("div", React.__spread({},  props), 
@@ -21260,12 +21265,11 @@ function renderApp(props) {
 module.exports = renderApp;
 },{"./components/App":163,"react":158}],177:[function(require,module,exports){
 var settings = {
-   'board background': true,
+   'board background': false,
    'fake json': false
 };
 
 module.exports = settings;
-
 },{}],178:[function(require,module,exports){
 // shim for using process in browser
 
