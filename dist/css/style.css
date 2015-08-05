@@ -675,9 +675,9 @@ body {
    color: rgb(255, 255, 255);
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 530px) {
    .welcome {
       margin: 0 auto;
-      width: 600px;
+      width: 520px;
    }
 }
