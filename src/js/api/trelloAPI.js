@@ -103,11 +103,11 @@ function processBoardJSON(b) {
    return board;
 }
 
-function setKeys(k) {
-   appKey = k.appKey;
+function setAppKey(k) {
+   appKey = k;
 }
 
 module.exports = {
-   setKeys: setKeys,
+   setAppKey: setAppKey,
    getBoard: getBoard
 };

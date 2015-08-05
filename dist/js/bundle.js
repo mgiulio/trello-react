@@ -20698,12 +20698,12 @@ function processBoardJSON(b) {
    return board;
 }
 
-function setKeys(k) {
-   appKey = k.appKey;
+function setAppKey(k) {
+   appKey = k;
 }
 
 module.exports = {
-   setKeys: setKeys,
+   setAppKey: setAppKey,
    getBoard: getBoard
 };
 },{"../lib/util":175,"../settings":177}],161:[function(require,module,exports){
@@ -20719,11 +20719,7 @@ var
 bootstrap();
 
 function bootstrap() {
-   trelloAPI.setKeys({
-      appKey: '87cfab06a03de3e5d87a6fa9273c4ab4',
-      appSecret: '98c5231e7ef24465b02b6d20eb378280ea4b1b1fb5ffc5078a463630610c284c'
-   });
-
+   trelloAPI.setAppKey('dc529cce071b9272f0226c46515d78e5');
 
    page('/', home);
    page('/board/:id', board);
@@ -21268,7 +21264,7 @@ module.exports = renderApp;
 },{"./components/App":163,"react":158}],177:[function(require,module,exports){
 var settings = {
    'board background': false,
-   'fake json': true
+   'fake json': false
 };
 
 module.exports = settings;
