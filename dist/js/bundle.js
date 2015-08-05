@@ -20603,7 +20603,7 @@ function getBoard(id) {
       url = settings['fake json'] ?
          '/board.json' //board.json'//'../board.json'
          :
-         'https://api.trello.com/1/boards/' + id + '/?key=' + appKey + '&lists=open&cards=visible&card_attachments=cover&organization=true&organization_fields=displayName,url'
+         ("https://api.trello.com/1/boards/" + id + "/?key=" + appKey + "&lists=open&cards=visible&card_attachments=cover&organization=true&organization_fields=displayName,url")
    ;
 
    return fetch(url)
@@ -21125,7 +21125,7 @@ var MetaItem = React.createClass({displayName: "MetaItem",
             label = React.createElement("span", {className: "meta-item__label"}, this.props.children);
 
          return (
-            React.createElement("span", {className:  this.props.className ? 'meta-item ' + this.props.className : 'meta-item'}, 
+            React.createElement("span", {className:  this.props.className ? ("meta-item " + this.props.className) : 'meta-item'}, 
                React.createElement(Icon, {which: this.props.icon}), 
                label
             )
