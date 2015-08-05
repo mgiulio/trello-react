@@ -21031,7 +21031,7 @@ var CardLists = React.createClass({displayName: "CardLists",
    },
 
    componentDidMount: function() {
-      window.addEventListener('resize', util.debounce(function() {
+      window.addEventListener('resize', util.debounce(function()  {
          this.setState({listMaxHeight: this.computeListMaxHeight()});
       }.bind(this), 100));
 
