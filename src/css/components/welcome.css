@@ -1,23 +1,13 @@
-.welcome {
-   margin: 0 auto;
-   width: 600px;
-
-   /*
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   */
-
-   color: gray(221);
+.app--home .app__body {
+   overflow-y: auto;
 }
 
-.welcome a {
-   color: gray(100);
+.welcome {
+   padding: 20px 10px;
 }
 
 .welcome header {
-   margin: 20px 0 40px;
+   margin-bottom: 40px;
 }
 
 .welcome__title {
@@ -31,7 +21,7 @@
 }
 
 .welcome__subtitle {
-   margin: 0;
+   margin: 10px 0 0;
    text-align: center;
 
    font-family: georgia;
@@ -42,15 +32,40 @@
    color: gray(214);
 }
 
+.welcome h3 {
+   margin-top: 40px;
+   text-align: center;
+}
+
 .welcome footer {
-   margin: 40px 0 20px;
+   margin: 40px 0 0;
 
    text-align: center;
 
-   font-size: 14px;
    text-transform: uppercase;
+   font-size: 10px;
+}
+
+.welcome footer p {
+   margin: 0;
 }
 
 .welcome footer .hearts {
    color: #cc0000;
+}
+
+
+.welcome {
+   color: gray(221);
+}
+
+.welcome a {
+   color: gray(100);
+}
+
+@media screen and (min-width: 700px) {
+   .welcome {
+      margin: 0 auto;
+      width: 600px;
+   }
 }
