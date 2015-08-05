@@ -1,6 +1,7 @@
 var
    appKey,
-   settings = require('../settings')
+   settings = require('../settings'),
+   util = require('../lib/util')
 ;
 
 function getBoard(id) {
@@ -71,7 +72,7 @@ function processBoardJSON(b) {
          commentCount: c.badges.comments,
          voteCount: c.badges.votes,
 
-         dateLastActivity: formatDate(c.dateLastActivity),
+         dateLastActivity: util.formatDate(c.dateLastActivity),
 
          url: c.url
       };
@@ -103,20 +104,6 @@ function processBoardJSON(b) {
 
 function setKeys(k) {
    appKey = k.appKey;
-}
-
-function formatDate(str) {
-   var d = new Date(str);
-
-	var day = d.getDate();
-	var month = d.getMonth();
-	var year = d.getFullYear();
-
-	month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'][month];
-	year = String(year).substr(-2);
-
-	//return `${day} ${month} ${year}`;
-   return day + ' ' + month + ' ' + year;
 }
 
 module.exports = {

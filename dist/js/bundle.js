@@ -20595,7 +20595,8 @@ module.exports = loadBoard;
 },{"../api/trelloAPI":160,"../renderApp":176}],160:[function(require,module,exports){
 var
    appKey,
-   settings = require('../settings')
+   settings = require('../settings'),
+   util = require('../lib/util')
 ;
 
 function getBoard(id) {
@@ -20666,7 +20667,7 @@ function processBoardJSON(b) {
          commentCount: c.badges.comments,
          voteCount: c.badges.votes,
 
-         dateLastActivity: formatDate(c.dateLastActivity),
+         dateLastActivity: util.formatDate(c.dateLastActivity),
 
          url: c.url
       };
@@ -20700,25 +20701,11 @@ function setKeys(k) {
    appKey = k.appKey;
 }
 
-function formatDate(str) {
-   var d = new Date(str);
-
-	var day = d.getDate();
-	var month = d.getMonth();
-	var year = d.getFullYear();
-
-	month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'][month];
-	year = String(year).substr(-2);
-
-	//return `${day} ${month} ${year}`;
-   return day + ' ' + month + ' ' + year;
-}
-
 module.exports = {
    setKeys: setKeys,
    getBoard: getBoard
 };
-},{"../settings":177}],161:[function(require,module,exports){
+},{"../lib/util":175,"../settings":177}],161:[function(require,module,exports){
 var
    React = require('react'),
    trelloAPI = require('./api/trelloAPI'),
@@ -21248,9 +21235,23 @@ function debounce(func, wait, immediate) {
 	};
 }
 
+function formatDate(str) {
+   var d = new Date(str);
+
+	var day = d.getDate();
+	var month = d.getMonth();
+	var year = d.getFullYear();
+
+	month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'][month];
+	year = String(year).substr(-2);
+
+	return (day + " " + month + " " + year);
+}
+
 module.exports = {
 	debounce: debounce,
-	now: now
+	now: now,
+	formatDate: formatDate
 };
 },{}],176:[function(require,module,exports){
 var
