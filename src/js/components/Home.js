@@ -1,5 +1,7 @@
 var
-   React = require('react')
+   React = require('react'),
+   Toolbar = require('./Toolbar'),
+   Welcome = require('./Welcome')
 ;
 
 var Home = React.createClass({
@@ -9,12 +11,12 @@ var Home = React.createClass({
          <div className="app app--home">
             <Toolbar />
             <div className="app__body" >
-               <Welcome appVersion={this.props.appVersion}/>
+               <Welcome appVersion={this.props.appVersion} />
             </div>
          </div>
       );
    }
 
-};
+});
 
 module.exports = Home;
