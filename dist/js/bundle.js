@@ -19810,8 +19810,8 @@ function processBoardJSON(b) {
    return board;
 }
 
-function setKeys(k) {
-   appKey = k.appKey;
+function setAppKey(k) {
+   appKey = k;
 }
 
 function formatDate(str) {
@@ -19829,7 +19829,7 @@ function formatDate(str) {
 }
 
 module.exports = {
-   setKeys: setKeys,
+   setAppKey: setAppKey,
    getBoard: getBoard
 };
 },{}],157:[function(require,module,exports){
@@ -19843,10 +19843,7 @@ var
    boardId = boards['Trello Development']
 ;
 
-trelloAPI.setKeys({
-   appKey: '87cfab06a03de3e5d87a6fa9273c4ab4',
-   appSecret: '98c5231e7ef24465b02b6d20eb378280ea4b1b1fb5ffc5078a463630610c284c'
-});
+trelloAPI.setAppKey('dc529cce071b9272f0226c46515d78e5');
 
 React.render(React.createElement(App, {boardId: boardId}), document.body);
 },{"./api/trelloAPI":156,"./components/App":159,"react":155}],158:[function(require,module,exports){
@@ -19871,7 +19868,6 @@ var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
 });
 
 module.exports = ActivityIndicator;
-
 },{"react":155}],159:[function(require,module,exports){
 var
    React = require('react'),
