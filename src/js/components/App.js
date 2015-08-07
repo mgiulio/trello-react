@@ -4,7 +4,8 @@ var
    AppStore = require('../stores/AppStore'),
 
    Home = require('./Home')
-   BoardPage = require('./BoardPage')
+   BoardPage = require('./BoardPage'),
+   LoadingPage = require('./LoadingPage')
    //ActivityIndicator = require('./ActivityIndicator'),
    //PageNotFound = require('./PageNotFound'),
    //ErrorPanel = require('./ErrorPanel'),
@@ -16,13 +17,13 @@ var App = React.createClass({
    getInitialState: function() {
       this.defineAppStates();
 
-      return this.getHomeState();
+      return {rootId: 'loading', props: null};
    },
 
    defineAppStates: function() {
       this.appStates = {
          'home': () => {
-            this.setState(this.getHomeState());
+            this.setState({rootId: 'home', props: this.props.appVersion});
          },
 
          /*
@@ -57,13 +58,11 @@ var App = React.createClass({
       this.appStates[AppStore.getAppState()]();
    },
 
-   getHomeState: function() {
-      return {rootId: 'home', props: {appVersion: this.props.version}};
-   },
 
    roots: {
       'home':  Home,
-      'board': BoardPage
+      'board': BoardPage,
+      'loading': LoadingPage
    },
 
    render: function() {

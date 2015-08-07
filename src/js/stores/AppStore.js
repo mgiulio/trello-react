@@ -41,6 +41,11 @@ AppStore.dispatchToken = AppDispatcher.register(function(action) {
 
    switch(action.type) {
 
+      case ActionTypes.GO_HOME:
+         appState = 'home';
+         AppStore.emitChange();
+         break;
+
       case ActionTypes.LOAD_BOARD:
          trelloAPI.getBoard(action.boardId)
             .then(function(_board) {

@@ -12,6 +12,12 @@ module.exports = {
          type: ActionTypes.LOAD_BOARD,
          boardId: boardId
       });
-  }
+   },
+
+   goHome: function() {
+      AppDispatcher.dispatch({
+         type: ActionTypes.GO_HOME
+      });
+   }
 
 };

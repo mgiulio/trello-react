@@ -3,7 +3,8 @@ var keyMirror = require('keymirror');
 module.exports = {
 
    ActionTypes: keyMirror({
-      RECEIVE_RAW_MESSAGES: null
+      LOAD_BOARD: null,
+      GO_HOME: null
    })
 
 };
