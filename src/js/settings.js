@@ -1,6 +1,6 @@
 var settings = {
-   'board background': false,
-   'fake json': true
+   'board background': true,
+   'fake json': false
 };
 
 module.exports = settings;

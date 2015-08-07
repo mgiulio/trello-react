@@ -21262,8 +21262,8 @@ function renderApp(props) {
 module.exports = renderApp;
 },{"./components/App":163,"react":158}],177:[function(require,module,exports){
 var settings = {
-   'board background': false,
-   'fake json': true
+   'board background': true,
+   'fake json': false
 };
 
 module.exports = settings;
