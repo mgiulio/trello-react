@@ -47,11 +47,25 @@
    height: 200px;
    flex: 0 0 auto;
    margin: 10px;
+   position: relative;
 
    border-radius: 5px;
 
    background-color: gray(220);
    color: gray(150);
+}
+
+.boards-section__items__item__title {
+   margin: 0;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+
+   text-transform: none;
+   font-family: Verdana;
+   font-weight: bold;
+   font-size: 20px;
 }
 
 .welcome header {

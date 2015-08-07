@@ -20,7 +20,9 @@ var Welcome = React.createClass({
                <section className="boards-section">
                   <h2 className="boards-section-title">About Trello Development</h2>
                   <ul className="boards-section__items">
-                     <li className="boards-section__items__item"><a href="/board/nC8QJJoZ">Trello Development Board</a></li>
+                     <li className="boards-section__items__item">
+                        <h2 className="boards-section__items__item__title"><a href="/board/nC8QJJoZ">Trello Development Board</a></h2>
+                     </li>
                      <li className="boards-section__items__item"><a href="/board/cI66RoQS">Trello Public API</a></li>
                      <li className="boards-section__items__item"><a href="/board/mRn3F1pT">Trello Development - Shipped!</a></li>
                      <li className="boards-section__items__item"><a href="/board/dpX2j6lT">Open Source Libraries</a></li>

@@ -669,11 +669,27 @@ body {
        -ms-flex: 0 0 auto;
            flex: 0 0 auto;
    margin: 10px;
+   position: relative;
 
    border-radius: 5px;
 
    background-color: rgb(220, 220, 220);
    color: rgb(150, 150, 150);
+}
+
+.boards-section__items__item__title {
+   margin: 0;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   -webkit-transform: translate(-50%, -50%);
+       -ms-transform: translate(-50%, -50%);
+           transform: translate(-50%, -50%);
+
+   text-transform: none;
+   font-family: Verdana;
+   font-weight: bold;
+   font-size: 20px;
 }
 
 .welcome header {
