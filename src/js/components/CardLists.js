@@ -13,19 +13,19 @@ var CardLists = React.createClass({
    },
 
    componentDidMount: function() {
-      window.addEventListener('resize', util.debounce(function() {
+      window.addEventListener('resize', util.debounce(() => {
          this.setState({listMaxHeight: this.computeListMaxHeight()});
-      }.bind(this), 100));
+      }, 100));
 
       this.setState({listMaxHeight: this.computeListMaxHeight()});
    },
 
    computeListMaxHeight: function() {
       var
-         cardListsHeight = this.getDOMNode().offsetHeight,
+         cardListsHeight = React.findDOMNode(this).offsetHeight,
          scrollbarSize = 17,
          gap = 20,
-         listHeaderHeight = this.getDOMNode().querySelector('header').offsetHeight,
+         listHeaderHeight = React.findDOMNode(this).querySelector('header').offsetHeight,
          listVPadding = 10 + 10
       ;
 
@@ -45,9 +45,9 @@ var CardLists = React.createClass({
       });
 
       return (
-         <section className="lists-container">
+         <div className="card-lists">
             {listComponents}
-         </section>
+         </div>
       );
    }
 

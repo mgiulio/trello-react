@@ -1,0 +1,28 @@
+html {
+   height: 100%;
+}
+
+body {
+   height: 100%;
+}
+
+.app {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   height: 100%;
+}
+
+.app__body {
+   flex: 1 1 auto;
+   height: auto;
+   min-height: 0;
+
+   position: relative;
+}
+
+.app--board .app__body {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+}

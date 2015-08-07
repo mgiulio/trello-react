@@ -6,9 +6,24 @@ I started this project to make some practice with React. At the moment it is par
 
 [Demo (0.1)](http://mgiulio.github.io/trello-react/dist)
 
+# v0.2: In search of an architecture...
+
+![sshot-02](sshots/sshot-02.jpg)
+
+Now there is a welcome screen/page where it is possible to load some public boards.
+
+But the main aim of this iteration was to introduce some application architecture on top of the React components.
+
+In particular I made some experiments with app states and routing, using some great libraries like React Router, Router.js and Page.js.
+So now the url showed in the browser location bar is different form the one showed in a board page, with support of the browser history navigation buttons.
+
+However, this will change in 0.3, where I'm trying the Flux architecture.
+
+![sshot-01](sshots/sshot-01.jpg)
+
 # v0.1: Hello World!
 
-![sshot-00](sshot-00.jpg)
+![sshot-00](sshots/sshot-00.jpg)
 
 # Description and Usage
 

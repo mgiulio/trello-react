@@ -1,13 +1,31 @@
 var
-   trelloAPI = require('./api/trelloAPI'),
    React = require('react'),
+   trelloAPI = require('./api/trelloAPI'),
    App = require('./components/App'),
-   boards = {
-      'Trello Development': '4d5ea62fd76aa1136000000c'
-   },
-   boardId = boards['Trello Development']
+   loadBoard = require('./actions/board'),
+   renderApp = require('./renderApp'),
+   page = require('page')
 ;
 
-trelloAPI.setAppKey('dc529cce071b9272f0226c46515d78e5');
+bootstrap();
 
-React.render(<App boardId={boardId} />, document.body);
+function bootstrap() {
+   trelloAPI.setAppKey('dc529cce071b9272f0226c46515d78e5');
+
+   page('/', home);
+   page('/board/:id', board);
+   page('*', notFound);
+   page();
+}
+
+function home() {
+   renderApp({state: 'home'});
+}
+
+function  board(ctx) {
+   loadBoard(ctx.params.id);
+}
+
+function notFound() {
+   renderApp({state: 'not found'});
+}

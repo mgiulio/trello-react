@@ -200,21 +200,12 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
-
 html {
    height: 100%;
-   overflow: hidden;
 }
 
 body {
    height: 100%;
-   overflow: hidden;
-
-   background: #aaa;
-}
-
-a {
-   text-decoration: none;
 }
 
 .app {
@@ -227,13 +218,46 @@ a {
    -webkit-flex-direction: column;
        -ms-flex-direction: column;
            flex-direction: column;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
    height: 100%;
-   overflow: hidden;
-
-   background-position: 50% 50%;
-   background-size: cover;
 }
 
+.app__body {
+   -webkit-box-flex: 1;
+   -webkit-flex: 1 1 auto;
+       -ms-flex: 1 1 auto;
+           flex: 1 1 auto;
+   height: auto;
+   min-height: 0;
+
+   position: relative;
+}
+
+.app--board .app__body {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
+}
+a {
+   text-decoration: none;
+}
+body {
+   background: #aaa;
+}
+
+.app {
+}
 .meta-item__icon {
    width: 18px;
    height: 18px;
@@ -250,19 +274,26 @@ a {
    top: -2px;
 }
 .toolbar {
+   -webkit-box-flex: 0;
+   -webkit-flex: none;
+       -ms-flex: none;
+           flex: none;
+   height: 40px;
+   box-sizing: border-box;
+   padding: 5px;
+
    display: -webkit-box;
+
    display: -webkit-flex;
+
    display: -ms-flexbox;
+
    display: flex;
    -webkit-box-pack: justify;
    -webkit-justify-content: space-between;
        -ms-flex-pack: justify;
            justify-content: space-between;
    position: relative;
-
-   height: 40px;
-   box-sizing: border-box;
-   padding: 5px;
 
    background-color: #5e5e5e;
    color: #aaa;
@@ -280,8 +311,35 @@ a {
    font-family: verdana, sans-serif;
    text-transform: uppercase;
    font-weight: bold;
-   
+
    color: #f0f0f0;
+}
+.board {
+   -webkit-box-flex: 1;
+   -webkit-flex: 1 1 auto;
+       -ms-flex: 1 1 auto;
+           flex: 1 1 auto;
+   height: auto;
+   min-height: 0;
+
+   display: -webkit-box;
+
+   display: -webkit-flex;
+
+   display: -ms-flexbox;
+
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
+
+   background-position: 50% 50%;
+   background-size: cover;
 }
 .board-name {
    margin: 0;
@@ -309,11 +367,15 @@ a {
       display: inline-block;
    }
 }
-.lists-container {
+.card-lists {
    -webkit-box-flex: 1;
-   -webkit-flex: auto;
-       -ms-flex: auto;
-           flex: auto;
+   -webkit-flex: 1 1 auto;
+       -ms-flex: 1 1 auto;
+           flex: 1 1 auto;
+   height: auto;
+   min-height: 0;
+   overflow-x: auto;
+   overflow-y: hidden;
 
    display: -webkit-box;
 
@@ -334,11 +396,7 @@ a {
    -webkit-align-items: flex-start;
        -ms-flex-align: start;
            align-items: flex-start;
-
-   overflow-x: auto;
-   overflow-y: hidden;
 }
-
 .list {
    -webkit-box-flex: 0;
    -webkit-flex: none;
@@ -376,7 +434,6 @@ a {
    overflow-x: hidden;
    overflow-y: auto;
 }
-
 .card {
    padding: 10px;
    margin-bottom: 10px;
@@ -537,4 +594,90 @@ a {
 		-webkit-transform: scaleY(2.0);
 		        transform: scaleY(2.0);
 	}
+}
+.page-not-found__title {
+   text-align: center;
+   color: rgb(127, 127, 127);
+}
+.error-panel {
+   position: absolute;
+}
+.app--home .app__body {
+   overflow-y: auto;
+}
+
+.welcome {
+   padding: 20px 10px;
+}
+
+.welcome header {
+   margin-bottom: 40px;
+}
+
+.welcome__title {
+   margin: 0;
+   text-align: center;
+
+   font-family: serif;
+   font-size: 40px;
+
+   color: rgb(237, 237, 237);
+}
+
+.welcome__subtitle {
+   margin: 10px 0 0;
+   text-align: center;
+
+   font-family: georgia;
+   font-size: 16px;
+   font-style: italic;
+   font-weight: normal;
+
+   color: rgb(214, 214, 214);
+}
+
+.welcome h3 {
+   margin-top: 40px;
+   text-align: center;
+}
+
+.welcome footer {
+   margin: 40px 0 0;
+
+   text-align: center;
+
+   text-transform: uppercase;
+   font-size: 10px;
+}
+
+.welcome footer p {
+   margin: 0;
+}
+
+.welcome footer .hearts {
+   color: #cc0000;
+}
+
+.welcome p,
+.welcome ul {
+   line-height: 1.5;
+}
+
+
+.welcome {
+   color: rgb(221, 221, 221);
+}
+
+.welcome a {
+   color: rgb(250, 250, 250);
+}
+.welcome a:hover {
+   color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 530px) {
+   .welcome {
+      margin: 0 auto;
+      width: 520px;
+   }
 }

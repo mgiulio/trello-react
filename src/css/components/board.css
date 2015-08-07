@@ -1,0 +1,12 @@
+.board {
+   flex: 1 1 auto;
+   height: auto;
+   min-height: 0;
+
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+
+   background-position: 50% 50%;
+   background-size: cover;
+}
