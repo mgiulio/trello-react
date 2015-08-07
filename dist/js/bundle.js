@@ -20285,7 +20285,7 @@ function bootstrap() {
 
    React.render(React.createElement(App, {version: appVersion}), document.body);
 
-   setTimeout(function()  { ActionCreators.goHome(); }, 5000);
+   setTimeout(function()  { ActionCreators.goHome(); }, 500);
 
 }
 },{"./actions/ActionCreators":161,"./api/trelloAPI":162,"./components/App":164,"react":160}],164:[function(require,module,exports){
@@ -20309,7 +20309,6 @@ var App = React.createClass({displayName: "App",
       this.defineAppStates();
 
       return {rootId: 'loading', props: null};
-      //return this.getHomeState();
    },
 
    defineAppStates: function() {
@@ -20762,40 +20761,39 @@ var Welcome = React.createClass({displayName: "Welcome",
    render: function() {
       return (
          React.createElement("div", {className: "welcome"}, 
-            React.createElement("header", null, 
+
+            React.createElement("section", {className: "about"}, 
                React.createElement("h1", {className: "welcome__title"}, "Welcome to Trello React ", this.props.appVersion), 
-               React.createElement("h2", {className: "welcome__subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React")))
+               React.createElement("h2", {className: "welcome__subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React"))), 
+               React.createElement("p", {className: "github"}, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for source, development notes, bugs and other informations."), 
+               React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
             ), 
 
             React.createElement("section", {className: "boards", onClick: this.handleBoardClick}, 
-               React.createElement("h3", null, "Try It!"), 
-               React.createElement("p", null, "Try to load some public boards:"), 
-
-               React.createElement("h4", null, "About Trello Development"), 
-               React.createElement("ul", null, 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/nC8QJJoZ"}, "Trello Development Board")), 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/cI66RoQS"}, "Trello Public API")), 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/mRn3F1pT"}, "Trello Development - Shipped!")), 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/dpX2j6lT"}, "Open Source Libraries")), 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/5tj4qAvo"}, "Trello iOS App")), 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/nPNSBZjB"}, "Trello Resources"))
+               React.createElement("section", {className: "boards-section"}, 
+                  React.createElement("h2", {className: "boards-section-title"}, "About Trello Development"), 
+                  React.createElement("ul", {className: "boards-section__items"}, 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/nC8QJJoZ"}, "Trello Development Board")), 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/cI66RoQS"}, "Trello Public API")), 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/mRn3F1pT"}, "Trello Development - Shipped!")), 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/dpX2j6lT"}, "Open Source Libraries")), 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/5tj4qAvo"}, "Trello iOS App")), 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/nPNSBZjB"}, "Trello Resources"))
+                  )
                ), 
 
-               React.createElement("h4", null, "Are you going to Get Married?"), 
-               React.createElement("ul", null, 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/kw7E5XeZ"}, "Wedding Seating Arrangement")), 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/wFECC39M"}, "Bridal Party Trello Board")), 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/lHRaeSZ7"}, "Trello for Wedding Day Timeline")), 
-                  React.createElement("li", null, React.createElement("a", {href: "/board/IuoxVMY1"}, "Trello for Sending Thank You Cards"))
+               React.createElement("section", {className: "boards-section"}, 
+                  React.createElement("h2", {className: "boards-section-title"}, "Are you going to Get Married?"), 
+                  React.createElement("ul", {className: "boards-section__items"}, 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/kw7E5XeZ"}, "Wedding Seating Arrangement")), 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/wFECC39M"}, "Bridal Party Trello Board")), 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/lHRaeSZ7"}, "Trello for Wedding Day Timeline")), 
+                     React.createElement("li", {className: "boards-section__items__item"}, React.createElement("a", {href: "/board/IuoxVMY1"}, "Trello for Sending Thank You Cards"))
+                  )
                )
-            ), 
 
-            React.createElement("h3", null, "About the Project"), 
-            React.createElement("p", null, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for source, development notes, bugs and other informations."), 
-
-            React.createElement("footer", null, 
-               React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
             )
+
          )
       );
    },

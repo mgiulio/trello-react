@@ -607,7 +607,73 @@ body {
 }
 
 .welcome {
-   padding: 20px 10px;
+   margin-left: 200px;
+   //padding: 10px;
+}
+
+.welcome .about {
+   position: fixed;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   width: 200px;
+   overflow-x: hidden;
+   overflow-y: auto;
+   margin-top: 40px;
+
+   background-color: #333;
+}
+
+.welcome .boards-section {
+   margin-bottom: 40px;
+}
+
+.welcome .boards-section .boards-section-title {
+   margin: 0;
+   text-align: center;
+
+   text-transform: uppercase;
+}
+
+.welcome .boards-section__items {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+
+   display: -webkit-box;
+
+   display: -webkit-flex;
+
+   display: -ms-flexbox;
+
+   display: flex;
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: row;
+       -ms-flex-direction: row;
+           flex-direction: row;
+   -webkit-flex-wrap: wrap;
+       -ms-flex-wrap: wrap;
+           flex-wrap: wrap;
+   -webkit-box-pack: center;
+   -webkit-justify-content: center;
+       -ms-flex-pack: center;
+           justify-content: center;
+}
+
+.welcome .boards-section__items__item {
+   width: 250px;
+   height: 200px;
+   -webkit-box-flex: 0;
+   -webkit-flex: 0 0 auto;
+       -ms-flex: 0 0 auto;
+           flex: 0 0 auto;
+   margin: 10px;
+
+   border-radius: 5px;
+
+   background-color: rgb(220, 220, 220);
+   color: rgb(150, 150, 150);
 }
 
 .welcome header {
@@ -634,11 +700,6 @@ body {
    font-weight: normal;
 
    color: rgb(214, 214, 214);
-}
-
-.welcome h3 {
-   margin-top: 40px;
-   text-align: center;
 }
 
 .welcome footer {
@@ -673,11 +734,4 @@ body {
 }
 .welcome a:hover {
    color: rgb(255, 255, 255);
-}
-
-@media screen and (min-width: 530px) {
-   .welcome {
-      margin: 0 auto;
-      width: 520px;
-   }
 }

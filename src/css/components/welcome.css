@@ -3,7 +3,55 @@
 }
 
 .welcome {
-   padding: 20px 10px;
+   margin-left: 200px;
+   //padding: 10px;
+}
+
+.welcome .about {
+   position: fixed;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   width: 200px;
+   overflow-x: hidden;
+   overflow-y: auto;
+   margin-top: 40px;
+
+   background-color: #333;
+}
+
+.welcome .boards-section {
+   margin-bottom: 40px;
+}
+
+.welcome .boards-section .boards-section-title {
+   margin: 0;
+   text-align: center;
+
+   text-transform: uppercase;
+}
+
+.welcome .boards-section__items {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.welcome .boards-section__items__item {
+   width: 250px;
+   height: 200px;
+   flex: 0 0 auto;
+   margin: 10px;
+
+   border-radius: 5px;
+
+   background-color: gray(220);
+   color: gray(150);
 }
 
 .welcome header {
@@ -30,11 +78,6 @@
    font-weight: normal;
 
    color: gray(214);
-}
-
-.welcome h3 {
-   margin-top: 40px;
-   text-align: center;
 }
 
 .welcome footer {
@@ -69,11 +112,4 @@
 }
 .welcome a:hover {
    color: gray(255);
-}
-
-@media screen and (min-width: 530px) {
-   .welcome {
-      margin: 0 auto;
-      width: 520px;
-   }
 }
