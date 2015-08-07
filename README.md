@@ -4,7 +4,7 @@ An ongoing [Trello](http://trello.com) client *thinked in* [React](https://faceb
 
 I started this project to make some practice with React. At the moment it is partially imitating the Trello web client, but it could evolve in something else.
 
-[Demo (0.1)](http://mgiulio.github.io/trello-react/dist)
+[Demo (0.2)](http://mgiulio.github.io/trello-react/dist) *BROKEN*
 
 # v0.2: In search of an architecture...
 
