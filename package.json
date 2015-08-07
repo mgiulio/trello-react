@@ -1,6 +1,6 @@
 {
-  "name": "Trello React",
-  "version": "0.2",
+  "name": "trello-react",
+  "version": "",
   "description": "",
   "main": "",
   "scripts": {
@@ -10,7 +10,10 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
+    "flux": "^2.0.3",
     "fs-extra": "^0.20.1",
+    "keymirror": "^0.1.1",
+    "object-assign": "^3.0.0",
     "page": "^1.6.3",
     "postcss": "^4.1.13",
     "postcss-calc": "^4.1.0",

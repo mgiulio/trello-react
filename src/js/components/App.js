@@ -1,9 +1,10 @@
 var
    React = require('react'),
+
+   AppStore = require('../stores/AppStore'),
+
    Home = require('./Home')
-   //AppStore = require('../stores/AppStore')//,
-   //Toolbar = require('./Toolbar'),
-   //Board = require('./Board'),
+   BoardPage = require('./BoardPage')
    //ActivityIndicator = require('./ActivityIndicator'),
    //PageNotFound = require('./PageNotFound'),
    //ErrorPanel = require('./ErrorPanel'),
@@ -13,53 +14,56 @@ var
 var App = React.createClass({
 
    getInitialState: function() {
+      this.defineAppStates();
+
       return this.getHomeState();
    },
 
+   defineAppStates: function() {
+      this.appStates = {
+         'home': () => {
+            this.setState(this.getHomeState());
+         },
+
+         /*
+         'loading': () => {
+            this.setState({rootId: 'loading', props: null});
+         },
+         */
+
+         /*
+         'loadingError': () => {
+            var error = AppStore.getLoadingError();
+            this.setState({rootId: 'loading', props: {error: error}});
+         },
+         */
+
+         'board': () => {
+            var board = AppStore.getBoard();
+            this.setState({rootId: 'board', props: {board: board}});
+         }
+      };
+   },
+
    componentDidMount: function() {
-      //AppStore.addChangeListener(this._onChange);
+      AppStore.addChangeListener(this._onChange);
    },
 
    componentWillUnmount: function() {
-      //AppStore.removeChangeListener(this._onChange);
+      AppStore.removeChangeListener(this._onChange);
    },
 
    _onChange: function() {
-      //this.appStates[AppStore.getAppState()]();
+      this.appStates[AppStore.getAppState()]();
    },
 
    getHomeState: function() {
       return {rootId: 'home', props: {appVersion: this.props.version}};
    },
 
-   appStates: {
-      'home': () => {
-         this.setState(this.getHomeState());
-      },
-
-      /*
-      'loading': () => {
-         this.setState({rootId: 'loading', props: null});
-      },
-      */
-
-      /*
-      'loadingError': () => {
-         var error = AppStore.getLoadingError();
-         this.setState({rootId: 'loading', props: {error: error}});
-      },
-      */
-
-      /*
-      'board': () => {
-         var board = AppStore.getBoard();
-         this.setState({rootId: 'board', props: {board: board}});
-      },
-      */
-   },
-
    roots: {
-      'home':  Home
+      'home':  Home,
+      'board': BoardPage
    },
 
    render: function() {
@@ -69,3 +73,33 @@ var App = React.createClass({
 });
 
 module.exports = App;
+
+/*
+'loading': function(props) {
+	var errorPanel;
+	if ('error' in props)
+		errorPanel = <ErrorPanel title={props.error.title} description={props.error.description} ondismiss={props.onDismiss} />;
+
+	return (
+		<div className="app app--loading">
+			<Toolbar />
+			<div className="app__body" >
+				<ActivityIndicator />
+				{errorPanel}
+			</div>
+		</div>
+	);
+},
+
+'not found': function(props) {
+	return (
+		<div className="app app--not-found">
+			<Toolbar />
+			<div className="app__body" >
+				<PageNotFound />
+			</div>
+		</div>
+	);
+}
+
+*/
