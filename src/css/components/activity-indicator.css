@@ -7,6 +7,15 @@
 
    background-color: rgba(0,0,0, 0.5);
    color: gray(255);
+
+   opacity: 0;
+   transition: opacity 0.5s;
+   display: none;
+}
+
+.loading .activity-indicator {
+   display: block;
+   opacity: 1;
 }
 
 .activity-indicator .fg {

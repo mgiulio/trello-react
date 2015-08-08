@@ -8,7 +8,7 @@ var BoardPage = React.createClass({
 
       render: function() {
          return (
-      		<div className="page board">
+      		<div className="board-page">
       			<Toolbar />
       			<div className="app__body" >
       				<Board board={this.props.board} />

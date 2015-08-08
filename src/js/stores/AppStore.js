@@ -31,6 +31,46 @@ var AppStore = assign({}, EventEmitter.prototype, {
       return appState;
    },
 
+   getBoards: function() {
+      return [
+         {
+            name:  'Trello Development',
+            boards: [
+               {
+                  name: 'Trello Development Board',
+                  id: 'nC8QJJoZ'
+               },
+               {
+                  name: 'Trello Public API',
+                  id: 'cI66RoQS'
+               },
+               {
+                  name: 'Trello Development - Shipped!',
+                  id: 'mRn3F1pT'
+               },
+               {
+                  name: 'Open Source Libraries',
+                  id: 'dpX2j6lT'
+               },
+               {
+                  name: 'Trello iOS App',
+                  id: '5tj4qAvo'
+               },
+               {
+                  name: 'Trello Resources',
+                  id: 'nPNSBZjB'
+               }
+            ]
+         }
+         /*
+         <li className="boards-section__items__item"><a href="/board/kw7E5XeZ">Wedding Seating Arrangement</a></li>
+         <li className="boards-section__items__item"><a href="/board/wFECC39M">Bridal Party Trello Board</a></li>
+         <li className="boards-section__items__item"><a href="/board/lHRaeSZ7">Trello for Wedding Day Timeline</a></li>
+         <li className="boards-section__items__item"><a href="/board/IuoxVMY1">Trello for Sending Thank You Cards</a></li>
+         */
+      ];
+   },
+
    getBoard: function() {
       return board;
    }

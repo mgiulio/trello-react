@@ -3,9 +3,8 @@ var
 
    AppStore = require('../stores/AppStore'),
 
-   Home = require('./Home')
-   BoardPage = require('./BoardPage'),
-   LoadingPage = require('./LoadingPage')
+   HomePage = require('./HomePage/HomePage')
+   //BoardPage = require('./BoardPage'),
    ActivityIndicator = require('./ActivityIndicator')
    //PageNotFound = require('./PageNotFound'),
    //ErrorPanel = require('./ErrorPanel'),
@@ -17,13 +16,13 @@ var App = React.createClass({
    getInitialState: function() {
       this.defineAppStates();
 
-      return {rootId: 'loading', props: null};
+      return {rootId: null, props: null};
    },
 
    defineAppStates: function() {
       this.appStates = {
          'home': () => {
-            this.replaceState({rootId: 'home', props: this.props.appVersion});
+            this.replaceState({rootId: 'home', props: {appVersion: this.props.version, boards: AppStore.getBoards()}});
          },
 
          'loading': () => {
@@ -58,20 +57,25 @@ var App = React.createClass({
 
 
    roots: {
-      'home':  Home,
-      'board': BoardPage,
-      'loading': LoadingPage
+      'home':  HomePage//,
+      //'board': BoardPage
    },
 
    render: function() {
       var activityIndicator;
-      if (this.state.loading)
-         activityIndicator = <ActivityIndicator />;
+      var className = 'app';
+      if (this.state.loading) {
+         className += ' loading';
+         //activityIndicator = <ActivityIndicator />;
+      }
+      activityIndicator = <ActivityIndicator />; // <ActivityIndicator visible=... />
 
-      var page = React.createElement(this.roots[this.state.rootId], React.__spread({},  this.state.props));
+      var page;
+      if (this.state.rootId)
+         page = React.createElement(this.roots[this.state.rootId], React.__spread({},  this.state.props));
 
       return (
-         <div className="app">
+         <div className={className}>
             {page}
             {activityIndicator}
          </div>

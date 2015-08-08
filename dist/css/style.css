@@ -201,34 +201,23 @@ samp {
   font-size: 1em;
 }
 html {
-   height: 100%;
+   //height: 100%;
 }
 
 body {
-   height: 100%;
+   //height: 100%;
 }
 
+/*
 .app {
-   display: -webkit-box;
-   display: -webkit-flex;
-   display: -ms-flexbox;
    display: flex;
-   -webkit-box-orient: vertical;
-   -webkit-box-direction: normal;
-   -webkit-flex-direction: column;
-       -ms-flex-direction: column;
-           flex-direction: column;
-   -webkit-flex-wrap: nowrap;
-       -ms-flex-wrap: nowrap;
-           flex-wrap: nowrap;
+   flex-direction: column;
+   flex-wrap: nowrap;
    height: 100%;
 }
 
 .app__body {
-   -webkit-box-flex: 1;
-   -webkit-flex: 1 1 auto;
-       -ms-flex: 1 1 auto;
-           flex: 1 1 auto;
+   flex: 1 1 auto;
    height: auto;
    min-height: 0;
 
@@ -236,19 +225,11 @@ body {
 }
 
 .app--board .app__body {
-   display: -webkit-box;
-   display: -webkit-flex;
-   display: -ms-flexbox;
    display: flex;
-   -webkit-box-orient: vertical;
-   -webkit-box-direction: normal;
-   -webkit-flex-direction: column;
-       -ms-flex-direction: column;
-           flex-direction: column;
-   -webkit-flex-wrap: nowrap;
-       -ms-flex-wrap: nowrap;
-           flex-wrap: nowrap;
+   flex-direction: column;
+   flex-wrap: nowrap;
 }
+*/
 a {
    text-decoration: none;
 }
@@ -514,6 +495,16 @@ body {
 
    background-color: rgba(0,0,0, 0.5);
    color: rgb(255, 255, 255);
+
+   opacity: 0;
+   -webkit-transition: opacity 0.5s;
+           transition: opacity 0.5s;
+   display: none;
+}
+
+.loading .activity-indicator {
+   display: block;
+   opacity: 1;
 }
 
 .activity-indicator .fg {
