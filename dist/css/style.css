@@ -593,6 +593,14 @@ body {
 .error-panel {
    position: absolute;
 }
+/*
+ * General
+ */
+
+/*
+ * About
+ */
+
 .home-page .about {
    position: fixed;
    left: 0;
@@ -662,23 +670,32 @@ body {
 }
 
 
+.welcome header {
+   margin-bottom: 40px;
+}
+
+
+/*
+ * Boards
+ */
+
 .home-page .boards {
    margin-left: 200px;
    //padding: 10px;
 }
 
-.welcome .boards-section {
+.welcome .boards .group {
    margin-bottom: 40px;
 }
 
-.welcome .boards-section .boards-section-title {
+.home-page .boards .group .title {
    margin: 0;
    text-align: center;
 
    text-transform: uppercase;
 }
 
-.welcome .boards-section__items {
+.home-page .boards .group .items {
    list-style: none;
    margin: 0;
    padding: 0;
@@ -704,7 +721,7 @@ body {
            justify-content: center;
 }
 
-.welcome .boards-section__items__item {
+.home-page .boards .group .items .item {
    width: 250px;
    height: 200px;
    -webkit-box-flex: 0;
@@ -720,7 +737,7 @@ body {
    color: rgb(150, 150, 150);
 }
 
-.boards-section__items__item__title {
+.home-page .boards .group .items .item .title {
    margin: 0;
    position: absolute;
    left: 50%;
@@ -733,8 +750,4 @@ body {
    font-family: Verdana;
    font-weight: bold;
    font-size: 20px;
-}
-
-.welcome header {
-   margin-bottom: 40px;
 }
