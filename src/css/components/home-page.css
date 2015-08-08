@@ -2,6 +2,18 @@
  * General
  */
 
+ .welcome {
+    color: gray(221);
+ }
+
+ .welcome a {
+    color: gray(250);
+ }
+ .welcome a:hover {
+    color: gray(255);
+ }
+
+
 /*
  * About
  */
@@ -62,23 +74,9 @@
    line-height: 1.5;
 }
 
-
-.welcome {
-   color: gray(221);
-}
-
-.welcome a {
-   color: gray(250);
-}
-.welcome a:hover {
-   color: gray(255);
-}
-
-
 .welcome header {
    margin-bottom: 40px;
 }
-
 
 /*
  * Boards
@@ -87,6 +85,9 @@
 .home-page .boards {
    margin-left: 200px;
    //padding: 10px;
+
+   height: calc(100vh - 40px);
+   overflow-y: auto;
 }
 
 .welcome .boards .group {
