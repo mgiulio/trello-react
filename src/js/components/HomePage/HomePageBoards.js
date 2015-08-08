@@ -44,8 +44,17 @@ var HomePageBoards = React.createClass({
       );
    },
 
-   handleBoardClick: function() {
+   handleBoardClick: function(e) {
+      if (e.target.tagName.toLowerCase() != 'a')
+         return;
 
+      e.stopPropagation();
+      e.preventDefault();
+
+      var boardUrl = e.target.href;
+      var boardId = boardUrl.slice(boardUrl.lastIndexOf('/') + 1);
+
+      ActionCreators.loadBoard(boardId);
    }
 
 });
