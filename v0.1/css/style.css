@@ -1,0 +1,540 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/* Lite version */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+html {
+   height: 100%;
+   overflow: hidden;
+}
+
+body {
+   height: 100%;
+   overflow: hidden;
+
+   background: #aaa;
+}
+
+a {
+   text-decoration: none;
+}
+
+.app {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: column;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   height: 100%;
+   overflow: hidden;
+
+   background-position: 50% 50%;
+   background-size: cover;
+}
+
+.meta-item__icon {
+   width: 18px;
+   height: 18px;
+
+   fill: rgb(206, 206, 206);
+
+   vertical-align: middle;
+   position: relative;
+}
+.meta-item__label {
+   color: rgb(206, 206, 206);
+}
+.meta-item__icon.standard {
+   top: -2px;
+}
+.toolbar {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: justify;
+   -webkit-justify-content: space-between;
+       -ms-flex-pack: justify;
+           justify-content: space-between;
+   position: relative;
+
+   height: 40px;
+   box-sizing: border-box;
+   padding: 5px;
+
+   background-color: #5e5e5e;
+   color: #aaa;
+   opacity: 0.5;
+}
+
+.toolbar .logo {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   -webkit-transform: translate(-50%, -50%);
+       -ms-transform: translate(-50%, -50%);
+           transform: translate(-50%, -50%);
+
+   font-family: verdana, sans-serif;
+   text-transform: uppercase;
+   font-weight: bold;
+   
+   color: #f0f0f0;
+}
+.board-name {
+   margin: 0;
+   padding: 10px;
+}
+
+.board-name, .board-meta {
+   text-align: center;
+}
+
+.board-meta > * {
+   display: inline-block;
+   padding: 10px;
+}
+
+.boardbar a {
+   color: rgb(221, 221, 221);
+}
+.boardbar a:hover {
+   color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 490px) {
+   .board-name, .board-meta {
+      display: inline-block;
+   }
+}
+.lists-container {
+   -webkit-box-flex: 1;
+   -webkit-flex: auto;
+       -ms-flex: auto;
+           flex: auto;
+
+   display: -webkit-box;
+
+   display: -webkit-flex;
+
+   display: -ms-flexbox;
+
+   display: flex;
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: row;
+       -ms-flex-direction: row;
+           flex-direction: row;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
+   -webkit-box-align: start;
+   -webkit-align-items: flex-start;
+       -ms-flex-align: start;
+           align-items: flex-start;
+
+   overflow-x: auto;
+   overflow-y: hidden;
+}
+
+.list {
+   -webkit-box-flex: 0;
+   -webkit-flex: none;
+       -ms-flex: none;
+           flex: none;
+
+   box-sizing: border-box;
+   width: 300px;
+   padding: 10px;
+   margin: 0 10px;
+
+   border-radius: 5px;
+
+   background-color: #e5e5e5;
+   border: 1px solid rgb(154, 154, 154);
+   color: rgb(133, 133, 133);
+}
+
+.list__name {
+   margin: 0;
+   padding-bottom: 10px;
+
+   font-family: verdana;
+   font-size: 18px;
+
+   color: rgb(128, 128, 128);
+}
+
+.list .cards {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+
+   //max-height: 450px;
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+
+.card {
+   padding: 10px;
+   margin-bottom: 10px;
+
+   border-radius: 5px;
+
+   background-color: rgb(250, 250, 250);
+   color: rgb(160, 160, 160);
+   box-shadow: 0 1px 2px 0px rgba(0,0,0, 0.2);
+
+   -webkit-transition: box-shadow;
+
+           transition: box-shadow;
+}
+.card:last-child {
+   margin-bottom: 0;
+}
+.card:hover {
+   cursor: pointer;
+   box-shadow: 0 1px 8px 0 rgba(0,0,0, 0.2);
+}
+
+.card__name {
+   text-align: center;
+
+   margin: 40px 0 20px;
+
+   font-family: sans-serif;
+   font-size: 16px;
+}
+
+.card__meta {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+   -webkit-flex-direction: row;
+       -ms-flex-direction: row;
+           flex-direction: row;
+   -webkit-flex-wrap: nowrap;
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
+
+   margin: 0;
+
+   font-size: 14px;
+
+   color: rgb(200, 200, 200);
+}
+
+.card__meta > * {
+   -webkit-box-flex: 0;
+   -webkit-flex: none;
+       -ms-flex: none;
+           flex: none;
+   margin-right: 10px;
+}
+
+.card__meta > *.latest-activity {
+   margin-right: 0;
+   margin-left: auto;
+}
+
+.card .cover {
+   display: block;
+   width: 100%;
+   height: auto;
+   margin-bottom: 20px;
+}
+.activity-indicator {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+
+   background-color: rgba(0,0,0, 0.5);
+   color: rgb(255, 255, 255);
+}
+
+.activity-indicator .fg {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translate(-50%);
+       -ms-transform: translate(-50%);
+           transform: translate(-50%);
+}
+
+/*
+ * A CSS-only 'hola-wave' spinner parameterized with CSS variables.
+ *
+ * Can be post-processed with the [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties) [PostCSS](https://github.com/postcss/postcss) plugin.
+ *
+ * Ported and adapted from http://tobiasahlin.com/spinkit/ , the third spinner.
+ */
+
+.hola-bars {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+
+	font-size: 0px;
+ }
+
+.hola-bars > * {
+	display: inline-block;
+	width: 5px;
+	height: 25px;
+	margin-right: 5px;
+
+	background-color: #fff;
+
+	-webkit-animation: stretch 1.2s infinite ease-in-out;
+
+	        animation: stretch 1.2s infinite ease-in-out;
+}
+.hola-bars > *:last-child {
+	margin-right: 0;
+}
+
+.hola-bars > *:nth-child(2) {
+	-webkit-animation-delay: 0.05s;
+	        animation-delay: 0.05s;
+}
+.hola-bars > *:nth-child(3) {
+	-webkit-animation-delay: 0.1s;
+	        animation-delay: 0.1s;
+}
+.hola-bars> *:nth-child(4) {
+	-webkit-animation-delay: 0.15s;
+	        animation-delay: 0.15s;
+}
+.hola-bars > *:nth-child(5) {
+	-webkit-animation-delay: 0.2s;
+	        animation-delay: 0.2s;
+}
+
+@-webkit-keyframes stretch {
+	0%, 40% {
+		-webkit-transform: scaleY(1.0);
+		        transform: scaleY(1.0);
+	}
+	20% {
+		-webkit-transform: scaleY(2.0);
+		        transform: scaleY(2.0);
+	}
+}
+
+@keyframes stretch {
+	0%, 40% {
+		-webkit-transform: scaleY(1.0);
+		        transform: scaleY(1.0);
+	}
+	20% {
+		-webkit-transform: scaleY(2.0);
+		        transform: scaleY(2.0);
+	}
+}
