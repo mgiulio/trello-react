@@ -1,0 +1,125 @@
+.home-page .about {
+   position: fixed;
+   left: 0;
+   top: 0; margin-top: 40px;
+   bottom: 0;
+   width: 200px;
+   overflow-x: hidden;
+   overflow-y: auto;
+
+   background-color: #333;
+}
+
+.welcome__title {
+   margin: 0;
+   text-align: center;
+
+   font-family: serif;
+   font-size: 40px;
+
+   color: gray(237);
+}
+
+.welcome__subtitle {
+   margin: 10px 0 0;
+   text-align: center;
+
+   font-family: georgia;
+   font-size: 16px;
+   font-style: italic;
+   font-weight: normal;
+
+   color: gray(214);
+}
+
+.welcome footer {
+   margin: 40px 0 0;
+
+   text-align: center;
+
+   text-transform: uppercase;
+   font-size: 10px;
+}
+
+.welcome footer p {
+   margin: 0;
+}
+
+.welcome footer .hearts {
+   color: #cc0000;
+}
+
+.welcome p,
+.welcome ul {
+   line-height: 1.5;
+}
+
+
+.welcome {
+   color: gray(221);
+}
+
+.welcome a {
+   color: gray(250);
+}
+.welcome a:hover {
+   color: gray(255);
+}
+
+
+.home-page .boards {
+   margin-left: 200px;
+   //padding: 10px;
+}
+
+.welcome .boards-section {
+   margin-bottom: 40px;
+}
+
+.welcome .boards-section .boards-section-title {
+   margin: 0;
+   text-align: center;
+
+   text-transform: uppercase;
+}
+
+.welcome .boards-section__items {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.welcome .boards-section__items__item {
+   width: 250px;
+   height: 200px;
+   flex: 0 0 auto;
+   margin: 10px;
+   position: relative;
+
+   border-radius: 5px;
+
+   background-color: gray(220);
+   color: gray(150);
+}
+
+.boards-section__items__item__title {
+   margin: 0;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+
+   text-transform: none;
+   font-family: Verdana;
+   font-weight: bold;
+   font-size: 20px;
+}
+
+.welcome header {
+   margin-bottom: 40px;
+}
