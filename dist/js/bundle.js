@@ -20700,13 +20700,28 @@ var AppStore = assign({}, EventEmitter.prototype, {
                   id: 'nPNSBZjB'
                }
             ]
+         },
+         {
+            name: 'Weddings',
+            boards: [
+               {
+                  name: 'Wedding Seating Arrangement',
+                  id: 'kw7E5XeZ'
+               },
+               {
+                  name: 'Bridal Party Trello Board',
+                  id: 'wFECC39M'
+               },
+               {
+                  name: 'Trello for Wedding Day Timeline',
+                  id: 'lHRaeSZ7'
+               },
+               {
+                  name: 'Trello for Sending Thank You Cards',
+                  id: 'IuoxVMY1'
+               }
+            ]
          }
-         /*
-         <li className="boards-section__items__item"><a href="/board/kw7E5XeZ">Wedding Seating Arrangement</a></li>
-         <li className="boards-section__items__item"><a href="/board/wFECC39M">Bridal Party Trello Board</a></li>
-         <li className="boards-section__items__item"><a href="/board/lHRaeSZ7">Trello for Wedding Day Timeline</a></li>
-         <li className="boards-section__items__item"><a href="/board/IuoxVMY1">Trello for Sending Thank You Cards</a></li>
-         */
       ];
    },
 
