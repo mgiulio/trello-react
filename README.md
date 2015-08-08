@@ -6,6 +6,11 @@ I started this project to make some practice with React. At the moment it is par
 
 [Demo (0.2)](http://mgiulio.github.io/trello-react/dist) *BROKEN*
 
+# v0.3: Flux Architecture
+
+* HTML5 History API based routing, built on top of Flux actions.
+* New Home page design, with public boards Flexbox grid.
+
 # v0.2: In search of an architecture...
 
 ![sshot-02](sshots/sshot-02.jpg)
