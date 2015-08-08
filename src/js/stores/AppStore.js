@@ -43,6 +43,8 @@ AppStore.dispatchToken = AppDispatcher.register(function(action) {
 
       case ActionTypes.GO_HOME:
          appState = 'home';
+         //window.history.pushState(action, null, '/');
+
          AppStore.emitChange();
          break;
 
@@ -51,6 +53,7 @@ AppStore.dispatchToken = AppDispatcher.register(function(action) {
             .then(function(_board) {
                board = _board;
                appState = 'board';
+               //window.history.pushState(action, null, `/board/${action.boardId}`);
 
                AppStore.emitChange();
             })

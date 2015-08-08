@@ -20155,7 +20155,6 @@ module.exports = {
    }
 
 };
-
 },{"../constants/AppConstants":177,"../dispatcher/AppDispatcher":178}],162:[function(require,module,exports){
 var
    appKey,
@@ -20275,7 +20274,8 @@ var
    React = require('react'),
    trelloAPI = require('./api/trelloAPI'),
    App = require('./components/App'),
-   ActionCreators = require('./actions/ActionCreators')
+   ActionCreators = require('./actions/ActionCreators'),
+   AppDispatcher = require('./dispatcher/AppDispatcher')
 ;
 
 bootstrap();
@@ -20283,12 +20283,19 @@ bootstrap();
 function bootstrap() {
    trelloAPI.setAppKey('dc529cce071b9272f0226c46515d78e5');
 
+   /*
+   window.addEventListener('popstate', function(e) {
+      var action = e.state;
+      AppDispatcher.dispatch(action);
+   });
+   */
+
    React.render(React.createElement(App, {version: appVersion}), document.body);
 
    setTimeout(function()  { ActionCreators.goHome(); }, 500);
 
 }
-},{"./actions/ActionCreators":161,"./api/trelloAPI":162,"./components/App":164,"react":160}],164:[function(require,module,exports){
+},{"./actions/ActionCreators":161,"./api/trelloAPI":162,"./components/App":164,"./dispatcher/AppDispatcher":178,"react":160}],164:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -20707,7 +20714,6 @@ var LoadingPage = React.createClass({displayName: "LoadingPage",
 });
 
 module.exports = LoadingPage;
-
 },{"./Toolbar":175,"react":160}],174:[function(require,module,exports){
 var
    React = require('react'),
@@ -20827,12 +20833,10 @@ module.exports = {
    })
 
 };
-
 },{"keymirror":4}],178:[function(require,module,exports){
 var Dispatcher = require('flux').Dispatcher;
 
 module.exports = new Dispatcher();
-
 },{"flux":1}],179:[function(require,module,exports){
 var now = Date.now || function() { return new Date().getTime(); }
 
@@ -20940,6 +20944,8 @@ AppStore.dispatchToken = AppDispatcher.register(function(action) {
 
       case ActionTypes.GO_HOME:
          appState = 'home';
+         //window.history.pushState(action, null, '/');
+
          AppStore.emitChange();
          break;
 
@@ -20948,6 +20954,7 @@ AppStore.dispatchToken = AppDispatcher.register(function(action) {
             .then(function(_board) {
                board = _board;
                appState = 'board';
+               //window.history.pushState(action, null, `/board/${action.boardId}`);
 
                AppStore.emitChange();
             })
