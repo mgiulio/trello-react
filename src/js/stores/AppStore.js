@@ -55,12 +55,18 @@ AppStore.dispatchToken = AppDispatcher.register(function(action) {
                appState = 'board';
                //window.history.pushState(action, null, `/board/${action.boardId}`);
 
-               AppStore.emitChange();
+               setTimeout(() =>{
+                  AppStore.emitChange();
+               }, 5000);
+
             })
             .catch(function(reason) {
                console.log(reason);
             })
          ;
+
+         appState = 'loading';
+         AppStore.emitChange();
       break;
 
       default:
