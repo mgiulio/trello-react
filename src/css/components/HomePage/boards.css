@@ -1,17 +1,13 @@
 .home-page .boards {
    margin-left: 200px;
-   //padding: 10px;
-
    height: calc(100vh - 40px);
    overflow-y: auto;
 }
 
-.welcome .boards .group {
-   margin-bottom: 40px;
-}
-
 .home-page .boards .group .title {
    margin: 0;
+   padding: 20px 10px;
+
    text-align: center;
 
    text-transform: uppercase;
@@ -33,6 +29,7 @@
    height: 200px;
    flex: 0 0 auto;
    margin: 10px;
+
    position: relative;
 
    border-radius: 5px;
