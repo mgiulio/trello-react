@@ -417,11 +417,6 @@ body {
     color: rgb(255, 255, 255);
  }
 
-
-/*
- * About
- */
-
 .home-page .about {
    position: fixed;
    left: 0;
@@ -481,11 +476,6 @@ body {
 .welcome header {
    margin-bottom: 40px;
 }
-
-/*
- * Boards
- */
-
 .home-page .boards {
    margin-left: 200px;
    //padding: 10px;

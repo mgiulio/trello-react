@@ -1,0 +1,55 @@
+.home-page .boards {
+   margin-left: 200px;
+   //padding: 10px;
+
+   height: calc(100vh - 40px);
+   overflow-y: auto;
+}
+
+.welcome .boards .group {
+   margin-bottom: 40px;
+}
+
+.home-page .boards .group .title {
+   margin: 0;
+   text-align: center;
+
+   text-transform: uppercase;
+}
+
+.home-page .boards .group .items {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.home-page .boards .group .items .item {
+   width: 250px;
+   height: 200px;
+   flex: 0 0 auto;
+   margin: 10px;
+   position: relative;
+
+   border-radius: 5px;
+
+   background-color: gray(220);
+   color: gray(150);
+}
+
+.home-page .boards .group .items .item .title {
+   margin: 0;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+
+   text-transform: none;
+   font-family: Verdana;
+   font-weight: bold;
+   font-size: 20px;
+}
