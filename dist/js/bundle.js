@@ -20784,7 +20784,7 @@ var Icon = React.createClass({displayName: "Icon",
       return (
          React.createElement("svg", {
             className: 'meta-item__icon ' + this.props.which, 
-            dangerouslySetInnerHTML: { __html: '<use xlink:href="/img/sprite.svg#' + this.props.which + '" />'}}
+            dangerouslySetInnerHTML: { __html: '<use xlink:href="img/sprite.svg#' + this.props.which + '" />'}}
          )
       );
    }
@@ -21025,7 +21025,7 @@ AppStore.dispatchToken = AppDispatcher.register(function(action) {
 
                setTimeout(function() {
                   AppStore.emitChange();
-               }, 5000);
+               }, 1000);
 
             })
             .catch(function(reason) {
