@@ -32,3 +32,5 @@
    overflow-x: hidden;
    overflow-y: auto;
 }
+
+@import 'card.css';

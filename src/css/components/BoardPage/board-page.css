@@ -10,3 +10,6 @@
    background-position: 50% 50%;
    background-size: cover;
 }
+
+@import 'boardbar.css';
+@import 'card-lists.css';
