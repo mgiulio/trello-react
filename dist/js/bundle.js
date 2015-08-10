@@ -20720,8 +20720,8 @@ var Board = React.createClass({displayName: "Board",
 
    render: function() {
       return (
-         React.createElement("li", {className: "item"}, 
-            React.createElement("h2", {className: "title"}, React.createElement("a", {href: ("/boards/" + this.props.id)}, this.props.name))
+         React.createElement("li", {className: "item", onClick: ActionCreators.loadBoard.bind(ActionCreators, this.props.id)}, 
+            React.createElement("h2", {className: "title"}, this.props.name)
          )
       );
    }
@@ -20751,23 +20751,10 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
       var groups = this.props.boards.map(function(group, i)  {return React.createElement(BoardGroup, {key: i, name: group.name, boards: group.boards});});
 
       return (
-         React.createElement("div", {className: "boards", onClick: this.handleBoardClick}, 
+         React.createElement("div", {className: "boards"}, 
             groups
          )
       );
-   },
-
-   handleBoardClick: function(e) {
-      if (e.target.tagName.toLowerCase() != 'a')
-         return;
-
-      e.stopPropagation();
-      e.preventDefault();
-
-      var boardUrl = e.target.href;
-      var boardId = boardUrl.slice(boardUrl.lastIndexOf('/') + 1);
-
-      ActionCreators.loadBoard(boardId);
    }
 
 });

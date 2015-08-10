@@ -518,6 +518,7 @@ body {
 }
 
 .home-page .boards .group .items .item {
+   box-sizing: border-box;
    width: 250px;
    height: 200px;
    -webkit-box-flex: 0;
@@ -532,6 +533,11 @@ body {
 
    background-color: rgb(220, 220, 220);
    color: rgb(150, 150, 150);
+}
+
+.home-page .boards .group .items .item:hover {
+   cursor: pointer;
+   border: 1px solid black;
 }
 
 .home-page .boards .group .items .item .title {

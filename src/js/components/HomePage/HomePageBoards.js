@@ -7,8 +7,8 @@ var Board = React.createClass({
 
    render: function() {
       return (
-         <li className="item">
-            <h2 className="title"><a href={`/boards/${this.props.id}`}>{this.props.name}</a></h2>
+         <li className="item" onClick={ActionCreators.loadBoard.bind(ActionCreators, this.props.id)}>
+            <h2 className="title">{this.props.name}</h2>
          </li>
       );
    }
@@ -38,23 +38,10 @@ var HomePageBoards = React.createClass({
       var groups = this.props.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />);
 
       return (
-         <div className="boards" onClick={this.handleBoardClick}>
+         <div className="boards">
             {groups}
          </div>
       );
-   },
-
-   handleBoardClick: function(e) {
-      if (e.target.tagName.toLowerCase() != 'a')
-         return;
-
-      e.stopPropagation();
-      e.preventDefault();
-
-      var boardUrl = e.target.href;
-      var boardId = boardUrl.slice(boardUrl.lastIndexOf('/') + 1);
-
-      ActionCreators.loadBoard(boardId);
    }
 
 });

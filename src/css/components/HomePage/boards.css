@@ -25,6 +25,7 @@
 }
 
 .home-page .boards .group .items .item {
+   box-sizing: border-box;
    width: 250px;
    height: 200px;
    flex: 0 0 auto;
@@ -36,6 +37,11 @@
 
    background-color: gray(220);
    color: gray(150);
+}
+
+.home-page .boards .group .items .item:hover {
+   cursor: pointer;
+   border: 1px solid black;
 }
 
 .home-page .boards .group .items .item .title {
