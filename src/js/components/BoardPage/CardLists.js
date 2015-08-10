@@ -1,7 +1,7 @@
 var
    React = require('react'),
    CardList = require('./CardList'),
-   util = require('../lib/util')
+   util = require('../../lib/util')
 ;
 
 var CardLists = React.createClass({

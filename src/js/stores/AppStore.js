@@ -112,7 +112,7 @@ AppStore.dispatchToken = AppDispatcher.register(function(action) {
 
                setTimeout(() =>{
                   AppStore.emitChange();
-               }, 5000);
+               }, 1000);
 
             })
             .catch(function(reason) {

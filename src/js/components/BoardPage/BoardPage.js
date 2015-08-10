@@ -1,29 +1,34 @@
 var
    React = require('react'),
+
+   Toolbar = require('../Toolbar'),
    BoardBar = require('./BoardBar'),
    CardLists = require('./CardLists'),
-   settings = require('../settings'),
-   Board = React.createClass({
+   settings = require('../../settings')
+;
+
+var BoardPage = React.createClass({
 
       render: function() {
          var b = this.props.board;
 
          var boardMeta = this.extractBoardMeta(b);
 
-         var props = {className: 'board'};
-
+         var props = {className: 'board-page'};
          if (settings['board background'] && 'backgroundImage' in b)
             props.style = {backgroundImage: `url(${b.backgroundImage.full})`};
 
+
          return (
-            <div {...props}>
-               <BoardBar board={boardMeta} />
+      		<div  {...props}>
+      			<Toolbar />
+      			<BoardBar board={boardMeta} />
                <CardLists lists={this.props.board.lists} />
-            </div>
-         );
+      		</div>
+      	);
       },
 
-      extractBoardMeta(b) {
+      extractBoardMeta: function(b) {
          var bm = {
             name: b.name,
             url: b.shortUrl,
@@ -44,4 +49,4 @@ var
    })
 ;
 
-module.exports = Board;
+module.exports = BoardPage;

@@ -3,8 +3,8 @@ var
 
    AppStore = require('../stores/AppStore'),
 
-   HomePage = require('./HomePage/HomePage')
-   //BoardPage = require('./BoardPage'),
+   HomePage = require('./HomePage/HomePage'),
+   BoardPage = require('./BoardPage/BoardPage'),
    ActivityIndicator = require('./ActivityIndicator')
    //PageNotFound = require('./PageNotFound'),
    //ErrorPanel = require('./ErrorPanel'),
@@ -29,17 +29,17 @@ var App = React.createClass({
             this.setState({loading: true});
          },
 
+         'board': () => {
+            var board = AppStore.getBoard();
+            this.replaceState({rootId: 'board', props: {board: board}});
+         }
+
          /*
          'loadingError': () => {
             var error = AppStore.getLoadingError();
             this.setState({rootId: 'loading', props: {error: error}});
          },
          */
-
-         'board': () => {
-            var board = AppStore.getBoard();
-            this.replaceState({rootId: 'board', props: {board: board}});
-         }
       };
    },
 
@@ -57,8 +57,8 @@ var App = React.createClass({
 
 
    roots: {
-      'home':  HomePage//,
-      //'board': BoardPage
+      'home':  HomePage,
+      'board': BoardPage
    },
 
    render: function() {
