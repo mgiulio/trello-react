@@ -482,7 +482,7 @@ body {
    overflow-y: auto;
 }
 
-.home-page .boards .group .title {
+.home-page .boards .group > .title {
    margin: 0;
    padding: 20px 10px;
 
@@ -548,6 +548,8 @@ body {
    -webkit-transform: translate(-50%, -50%);
        -ms-transform: translate(-50%, -50%);
            transform: translate(-50%, -50%);
+
+   text-align: center;
 
    text-transform: none;
    font-family: Verdana;
