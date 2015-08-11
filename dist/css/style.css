@@ -520,7 +520,7 @@ body {
 .home-page .boards .group .items .item {
    box-sizing: border-box;
    width: 250px;
-   height: 200px;
+   height: 120px;
    -webkit-box-flex: 0;
    -webkit-flex: 0 0 auto;
        -ms-flex: 0 0 auto;
