@@ -10,7 +10,7 @@ var App = React.createClass({
 
    getInitialState: function() {
       return {
-         pageName: this.props.page,
+         pageName: 'home',
          pageProps: {}
       };
    },

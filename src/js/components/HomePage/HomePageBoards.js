@@ -1,5 +1,6 @@
 var
-   React = require('react')
+   React = require('react'),
+   boards = require('../../boards.js')
 ;
 
 var Board = React.createClass({
@@ -7,6 +8,7 @@ var Board = React.createClass({
    render: function() {
       return (
          <li className="item" /*onClick={ActionCreators.loadBoard.bind(ActionCreators, this.props.id)}*/>
+            {/*<a href="#" onClick={this.onBoardSelection.bind(this, 'trellodev-id')} >Trello Development</a>*/}
             <h2 className="title">{this.props.name}</h2>
          </li>
       );
@@ -33,15 +35,21 @@ var BoardGroup = React.createClass({
 
 var HomePageBoards = React.createClass({
 
+   getInitialState: function() {
+      return {
+         boards: boards
+      };
+   },
+
+   componentDidMount: function() {
+   },
+
    render: function() {
-      //var groups = this.props.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />);
+      var groups = this.state.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />);
 
       return (
          <div className="boards">
-            No boards yet
-            <a href="#" onClick={this.onBoardSelection.bind(this, 'trellodev-id')} >Trello Development</a>
-            <a href="#" onClick={this.onBoardSelection.bind(this, 'trelloteam-id')}>Trello Team</a>
-            {/* groups */}
+            {groups}
          </div>
       );
    },
