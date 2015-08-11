@@ -539,7 +539,7 @@ body {
 
 .home-page .boards .group .items .item:hover {
    cursor: pointer;
-   border: 1px solid black;
+   border: 1px solid rgb(140, 140, 140);
 }
 
 .home-page .boards .group .items .item .title {

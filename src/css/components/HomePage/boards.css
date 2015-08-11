@@ -43,7 +43,7 @@
 
 .home-page .boards .group .items .item:hover {
    cursor: pointer;
-   border: 1px solid black;
+   border: 1px solid gray(140);
 }
 
 .home-page .boards .group .items .item .title {
