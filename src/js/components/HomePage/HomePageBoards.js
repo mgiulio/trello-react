@@ -4,18 +4,25 @@ var
    gotoPage = require('../../gotopage')
 ;
 
-var Board = React.createClass({
+var HomePageBoards = React.createClass({
 
-   render: function() {
-      return (
-         <li className="item" onClick={this.onBoardSelection}>
-            <h2 className="title">{this.props.name}</h2>
-         </li>
-      );
+   getInitialState: function() {
+      return {
+         boards: boards
+      };
    },
 
-   onBoardSelection: function() {
-      gotoPage('board', {boardId: this.props.id});
+   componentDidMount: function() {
+   },
+
+   render: function() {
+      var groups = this.state.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />);
+
+      return (
+         <div className="boards">
+            {groups}
+         </div>
+      );
    }
 
 });
@@ -37,25 +44,18 @@ var BoardGroup = React.createClass({
 
 });
 
-var HomePageBoards = React.createClass({
-
-   getInitialState: function() {
-      return {
-         boards: boards
-      };
-   },
-
-   componentDidMount: function() {
-   },
+var Board = React.createClass({
 
    render: function() {
-      var groups = this.state.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />);
-
       return (
-         <div className="boards">
-            {groups}
-         </div>
+         <li className="item" onClick={this.onBoardSelection}>
+            <h2 className="title">{this.props.name}</h2>
+         </li>
       );
+   },
+
+   onBoardSelection: function() {
+      gotoPage('board', {boardId: this.props.id});
    }
 
 });

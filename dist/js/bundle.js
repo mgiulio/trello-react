@@ -20263,18 +20263,25 @@ var
    gotoPage = require('../../gotopage')
 ;
 
-var Board = React.createClass({displayName: "Board",
+var HomePageBoards = React.createClass({displayName: "HomePageBoards",
 
-   render: function() {
-      return (
-         React.createElement("li", {className: "item", onClick: this.onBoardSelection}, 
-            React.createElement("h2", {className: "title"}, this.props.name)
-         )
-      );
+   getInitialState: function() {
+      return {
+         boards: boards
+      };
    },
 
-   onBoardSelection: function() {
-      gotoPage('board', {boardId: this.props.id});
+   componentDidMount: function() {
+   },
+
+   render: function() {
+      var groups = this.state.boards.map(function(group, i)  {return React.createElement(BoardGroup, {key: i, name: group.name, boards: group.boards});});
+
+      return (
+         React.createElement("div", {className: "boards"}, 
+            groups
+         )
+      );
    }
 
 });
@@ -20296,25 +20303,18 @@ var BoardGroup = React.createClass({displayName: "BoardGroup",
 
 });
 
-var HomePageBoards = React.createClass({displayName: "HomePageBoards",
-
-   getInitialState: function() {
-      return {
-         boards: boards
-      };
-   },
-
-   componentDidMount: function() {
-   },
+var Board = React.createClass({displayName: "Board",
 
    render: function() {
-      var groups = this.state.boards.map(function(group, i)  {return React.createElement(BoardGroup, {key: i, name: group.name, boards: group.boards});});
-
       return (
-         React.createElement("div", {className: "boards"}, 
-            groups
+         React.createElement("li", {className: "item", onClick: this.onBoardSelection}, 
+            React.createElement("h2", {className: "title"}, this.props.name)
          )
       );
+   },
+
+   onBoardSelection: function() {
+      gotoPage('board', {boardId: this.props.id});
    }
 
 });
