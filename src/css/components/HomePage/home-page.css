@@ -13,5 +13,4 @@
     color: gray(255);
  }
 
-@import 'about.css';
 @import 'boards.css';

@@ -417,69 +417,14 @@ body {
     color: rgb(255, 255, 255);
  }
 
-.home-page .about {
-   position: fixed;
-   left: 0;
-   top: 0; margin-top: 40px;
-   bottom: 0;
-   width: 200px;
-   overflow-x: hidden;
-   overflow-y: auto;
-
-   background-color: #333;
-}
-
-.welcome__title {
-   margin: 0;
-   text-align: center;
-
-   font-family: serif;
-   font-size: 40px;
-
-   color: rgb(237, 237, 237);
-}
-
-.welcome__subtitle {
-   margin: 10px 0 0;
-   text-align: center;
-
-   font-family: georgia;
-   font-size: 16px;
-   font-style: italic;
-   font-weight: normal;
-
-   color: rgb(214, 214, 214);
-}
-
-.welcome footer {
-   margin: 40px 0 0;
-
-   text-align: center;
-
-   text-transform: uppercase;
-   font-size: 10px;
-}
-
-.welcome footer p {
-   margin: 0;
-}
-
-.welcome footer .hearts {
-   color: #cc0000;
-}
-
-.welcome p,
-.welcome ul {
-   line-height: 1.5;
-}
-
-.welcome header {
-   margin-bottom: 40px;
-}
 .home-page .boards {
-   margin-left: 200px;
    height: calc(100vh - 40px);
    overflow-y: auto;
+}
+
+.home-page .boards .group {
+   max-width: 960px;
+   margin: 0 auto;
 }
 
 .home-page .boards .group > .title {

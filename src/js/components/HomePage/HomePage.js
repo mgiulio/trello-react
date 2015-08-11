@@ -1,8 +1,7 @@
 var
    React = require('react'),
    Toolbar = require('../Toolbar'),
-   HomePageBoards = require('./HomePageBoards'),
-   HomePageAbout = require('./HomePageAbout')
+   HomePageBoards = require('./HomePageBoards')
 ;
 
 var HomePage = React.createClass({
@@ -12,7 +11,6 @@ var HomePage = React.createClass({
          <div className="home-page">
             <Toolbar />
             <HomePageBoards />
-            <HomePageAbout />
          </div>
       );
    }
