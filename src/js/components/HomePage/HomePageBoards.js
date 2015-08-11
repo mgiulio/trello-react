@@ -1,17 +1,21 @@
 var
    React = require('react'),
-   boards = require('../../boards.js')
+   boards = require('../../boards'),
+   gotoPage = require('../../gotopage')
 ;
 
 var Board = React.createClass({
 
    render: function() {
       return (
-         <li className="item" /*onClick={ActionCreators.loadBoard.bind(ActionCreators, this.props.id)}*/>
-            {/*<a href="#" onClick={this.onBoardSelection.bind(this, 'trellodev-id')} >Trello Development</a>*/}
+         <li className="item" onClick={this.onBoardSelection}>
             <h2 className="title">{this.props.name}</h2>
          </li>
       );
+   },
+
+   onBoardSelection: function() {
+      gotoPage('board', {boardId: this.props.id});
    }
 
 });
@@ -52,10 +56,6 @@ var HomePageBoards = React.createClass({
             {groups}
          </div>
       );
-   },
-
-   onBoardSelection: function(boardId) {
-      this.props.onPageSwitch('board', {boardId: boardId});
    }
 
 });

@@ -1,8 +1,7 @@
 var
-   appVersion = '0.3',
    React = require('react'),
    trelloAPI = require('./api/trelloAPI'),
-   App = require('./components/App')
+   gotoPage = require('./gotoPage')
 ;
 
 bootstrap();
@@ -16,6 +15,5 @@ function bootstrap() {
       AppDispatcher.dispatch(action);
    });
    */
-
-   React.render(<App />, document.body);
+   gotoPage('home');
 }
