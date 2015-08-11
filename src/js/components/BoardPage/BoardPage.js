@@ -10,6 +10,12 @@ var
 var BoardPage = React.createClass({
 
       render: function() {
+         return (
+            <div>
+               {this.props.boardId}
+            </div>
+         );
+
          var b = this.props.board;
 
          var boardMeta = this.extractBoardMeta(b);

@@ -1,6 +1,7 @@
 var
    React = require('react'),
-   Toolbar = require('../Toolbar')
+
+   Toolbar = require('../Toolbar'),
    HomePageBoards = require('./HomePageBoards'),
    HomePageAbout = require('./HomePageAbout')
 ;
@@ -11,8 +12,8 @@ var HomePage = React.createClass({
       return (
          <div className="home-page">
             <Toolbar />
-            <HomePageBoards boards={this.props.boards} />
-            <HomePageAbout appVersion={this.props.appVersion} />
+            <HomePageBoards onPageSwitch={this.props.onPageSwitch} />
+            <HomePageAbout />
          </div>
       );
    }

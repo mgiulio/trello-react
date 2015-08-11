@@ -2,9 +2,7 @@ var
    appVersion = '0.3',
    React = require('react'),
    trelloAPI = require('./api/trelloAPI'),
-   App = require('./components/App'),
-   ActionCreators = require('./actions/ActionCreators'),
-   AppDispatcher = require('./dispatcher/AppDispatcher')
+   App = require('./components/App')
 ;
 
 bootstrap();
@@ -19,8 +17,5 @@ function bootstrap() {
    });
    */
 
-   React.render(<App version={appVersion} />, document.body);
-
-   setTimeout(() => { ActionCreators.goHome(); }, 500);
-
+   React.render(<App />, document.body);
 }
