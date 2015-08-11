@@ -11,6 +11,8 @@
    text-align: center;
 
    text-transform: uppercase;
+
+   color: gray(206);
 }
 
 .home-page .boards .group .items {

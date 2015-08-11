@@ -489,6 +489,8 @@ body {
    text-align: center;
 
    text-transform: uppercase;
+
+   color: rgb(206, 206, 206);
 }
 
 .home-page .boards .group .items {
