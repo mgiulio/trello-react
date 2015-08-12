@@ -20179,7 +20179,7 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
 
    loadBoards: function() {
       data.getHomeBoards()
-         .then(function(boards)  {throw Error();
+         .then(function(boards)  {
             this.setState({state: 'boards', boards: boards});
          }.bind(this))
          .catch(function(reason)  {

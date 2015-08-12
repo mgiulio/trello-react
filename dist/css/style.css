@@ -431,6 +431,16 @@ body {
    text-transform: uppercase;
 
    color: rgb(206, 206, 206);
+
+   opacity: 0;
+   -webkit-animation-name: fadein;
+           animation-name: fadein;
+   -webkit-animation-duration: 1s;
+           animation-duration: 1s;
+   -webkit-animation-timing-function: ease-out;
+           animation-timing-function: ease-out;
+   -webkit-animation-fill-mode: forwards;
+           animation-fill-mode: forwards;
 }
 
 .home-page .boards .group .items {
@@ -457,6 +467,28 @@ body {
    -webkit-justify-content: center;
        -ms-flex-pack: center;
            justify-content: center;
+
+   opacity: 0;
+   -webkit-animation-name: fadein;
+           animation-name: fadein;
+   -webkit-animation-duration: 1s;
+           animation-duration: 1s;
+   -webkit-animation-timing-function: ease-out;
+           animation-timing-function: ease-out;
+   -webkit-animation-fill-mode: forwards;
+           animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadein {
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes fadein {
+   to {
+      opacity: 1;
+   }
 }
 
 .home-page .boards .group .items .item {
