@@ -7,7 +7,8 @@ var
    Toolbar = require('../Toolbar'),
    BoardBar = require('./BoardBar'),
    CardLists = require('./CardLists'),
-   ActivityIndicator = require('../ActivityIndicator')
+   ActivityIndicator = require('../ActivityIndicator'),
+   Failure = require('../Failure')
 ;
 
 var BoardPage = React.createClass({
@@ -55,10 +56,7 @@ var BoardPage = React.createClass({
             ];
             break;
          case 'failure':
-            content = [
-               <p>Loading failed.</p>,
-               <button onClick={this.retry}>Retry</button>
-            ];
+            content = <Failure msg="Loading failed" actionButton={{label: 'Retry', onClick: this.retry}} />;
             break;
          default:
             // throw exception?
@@ -73,7 +71,7 @@ var BoardPage = React.createClass({
    },
 
    retry: function() {
-      this.loadBoard();
+      this.loadBoard(this.props.boardId);
       this.setState({state: 'loading'});
    },
 
