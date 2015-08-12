@@ -1,4 +1,5 @@
 var
+   http = require('./http'),
    trelloAPI = require('./trelloAPI'),
    util = require('../lib/util')
 ;
@@ -12,8 +13,14 @@ function getHomeBoards() {
 }
 
 function getBoard(id) {
-   return trelloAPI.getBoard(id)
-      .then(processBoardJSON)
+   return id.indexOf('board-') === 0 ?
+      http.get(`json/${id}.json`)
+         .then(util.checkResponse)
+         .then(response => response.json())
+         .then(processBoardJSON)
+   :
+      trelloAPI.getBoard(id)
+         .then(processBoardJSON)
    ;
 }
 
