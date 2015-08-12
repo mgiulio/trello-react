@@ -1,6 +1,6 @@
 var
    React = require('react'),
-   trelloAPI = require('./api/trelloAPI'),
+   trelloAPI = require('./data/trelloAPI'),
    gotoPage = require('./gotoPage')
 ;
 

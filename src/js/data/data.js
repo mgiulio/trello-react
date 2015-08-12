@@ -1,17 +1,13 @@
 var
-   trelloAPI = null,
-   homeBoards = require('../boards')
+   trelloAPI = require('./trelloAPI'),
+   util = require('../lib/util')
 ;
 
 function getHomeBoards() {
-   return new Promise(function(resolve, reject) {
-      setTimeout(function() {
-         if (Math.random() > 0.5)
-            resolve(homeBoards);
-         else
-            reject();
-      }, 2000);
-   });
+   return fetch('json/public-boards.json')
+      .then(util.checkResponse)
+      .then(response => response.json())
+   ;
 }
 
 module.exports = {
