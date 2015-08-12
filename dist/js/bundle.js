@@ -20118,9 +20118,6 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
       ;
    },
 
-   componentDidMount: function() {
-   },
-
    retry: function() {
       this.loadBoards();
       this.setState({state: 'loading'});

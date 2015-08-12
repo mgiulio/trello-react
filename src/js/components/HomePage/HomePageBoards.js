@@ -26,9 +26,6 @@ var HomePageBoards = React.createClass({
       ;
    },
 
-   componentDidMount: function() {
-   },
-
    retry: function() {
       this.loadBoards();
       this.setState({state: 'loading'});
