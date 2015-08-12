@@ -19870,62 +19870,104 @@ module.exports = BoardBar;
 var
    React = require('react'),
 
+   settings = require('../../settings'),
+   data = require('../../data/data'),
+
    Toolbar = require('../Toolbar'),
    BoardBar = require('./BoardBar'),
    CardLists = require('./CardLists'),
-   settings = require('../../settings')
+   ActivityIndicator = require('../ActivityIndicator')
 ;
 
 var BoardPage = React.createClass({displayName: "BoardPage",
 
-      render: function() {
-         return (
-            React.createElement("div", null, 
-               this.props.boardId
-            )
-         );
+   loadBoard: function(id) {
+      data.getBoard(id)
+         .then(function(board)  {
+            this.setState({state: 'board', board: board});
+         }.bind(this))
+         .catch(function(reason)  {
+            this.setState({state: 'failure'});
+         }.bind(this))
+      ;
+   },
 
-         var b = this.props.board;
+   getInitialState: function() {
+      this.loadBoard(this.props.boardId);
 
-         var boardMeta = this.extractBoardMeta(b);
+      return {
+         state: 'loading'
+      }
+   },
 
-         var props = {className: 'board-page'};
-         if (settings['board background'] && 'backgroundImage' in b)
-            props.style = {backgroundImage: ("url(" + b.backgroundImage.full + ")")};
+   render: function() {
+      var
+         content,
+         rootProps = {className: 'board-page'}
+      ;
 
+      switch (this.state.state) {
+         case 'loading':
+            content = React.createElement(ActivityIndicator, null);
+            break;
+         case 'board':
+            var b = this.state.board;
 
-         return (
-      		React.createElement("div", React.__spread({},   props), 
-      			React.createElement(Toolbar, null), 
-      			React.createElement(BoardBar, {board: boardMeta}), 
-               React.createElement(CardLists, {lists: this.props.board.lists})
-      		)
-      	);
-      },
+            var boardMeta = this.extractBoardMeta(b);
 
-      extractBoardMeta: function(b) {
-         var bm = {
-            name: b.name,
-            url: b.shortUrl,
-            permissionLevel: b.permissionLevel,
-            numLists: b.lists.length
-         };
+            if (settings['board background'] && 'backgroundImage' in b)
+               rootProps.style = {backgroundImage: ("url(" + b.backgroundImage.full + ")")};
 
-         if ('organization' in b) {
-            bm.organization = {
-               name: b.organization.name,
-               url: b.organization.url
-            };
-         }
-
-         return bm;
+            content = [
+               React.createElement(BoardBar, {board: boardMeta, key: 1}),
+               React.createElement(CardLists, {lists: this.state.board.lists, key: 2})
+            ];
+            break;
+         case 'failure':
+            content = [
+               React.createElement("p", null, "Loading failed."),
+               React.createElement("button", {onClick: this.retry}, "Retry")
+            ];
+            break;
+         default:
+            // throw exception?
       }
 
-   })
-;
+      return (
+   		React.createElement("div", React.__spread({},   rootProps), 
+   			React.createElement(Toolbar, null), 
+            content
+   		)
+   	);
+   },
+
+   retry: function() {
+      this.loadBoard();
+      this.setState({state: 'loading'});
+   },
+
+   extractBoardMeta: function(b) {
+      var bm = {
+         name: b.name,
+         url: b.shortUrl,
+         permissionLevel: b.permissionLevel,
+         numLists: b.lists.length
+      };
+
+      if ('organization' in b) {
+         bm.organization = {
+            name: b.organization.name,
+            url: b.organization.url
+         };
+      }
+
+      return bm;
+   }
+
+});
 
 module.exports = BoardPage;
-},{"../../settings":175,"../Toolbar":169,"./BoardBar":160,"./CardLists":164,"react":156}],162:[function(require,module,exports){
+},{"../../data/data":170,"../../settings":175,"../ActivityIndicator":158,"../Toolbar":169,"./BoardBar":160,"./CardLists":164,"react":156}],162:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../MetaItem')
@@ -20257,41 +20299,14 @@ function getHomeBoards() {
    return fetch('json/public-boards.json')
       .then(util.checkResponse)
       .then(function(response)  {return response.json();})
+      //.then(json => { console.log(json); return json; })
    ;
 }
-
-module.exports = {
-   getHomeBoards: getHomeBoards
-};
-
-},{"../lib/util":174,"./trelloAPI":171}],171:[function(require,module,exports){
-var
-   appKey,
-   settings = require('../settings'),
-   util = require('../lib/util')
-;
 
 function getBoard(id) {
-   var
-      url = settings['fake json'] ?
-         '/board.json' //board.json'//'../board.json'
-         :
-         ("https://api.trello.com/1/boards/" + id + "/?key=" + appKey + "&lists=open&cards=visible&card_attachments=cover&organization=true&organization_fields=displayName,url")
-   ;
-
-   return fetch(url)
-      .then(checkResponse)
-      .then(function(response)  {return response.json();})
-      //.then(json => { console.log(json); return json; })
+   return trelloAPI.getBoard(id)
       .then(processBoardJSON)
    ;
-}
-
-function checkResponse(response) {
-   if (response.status == 200)
-      return response;
-   else
-      throw Error('HTTP response status error code: ' + response.status);
 }
 
 function processBoardJSON(b) {
@@ -20367,6 +20382,33 @@ function processBoardJSON(b) {
    });
 
    return board;
+}
+
+module.exports = {
+   getHomeBoards: getHomeBoards,
+   getBoard: getBoard
+};
+
+},{"../lib/util":174,"./trelloAPI":171}],171:[function(require,module,exports){
+var
+   appKey,
+   settings = require('../settings'),
+   util = require('../lib/util')
+;
+
+function getBoard(id) {
+   var
+      url = settings['fake json'] ?
+         'json/trello-development.json'
+         :
+         ("https://api.trello.com/1/boards/" + id + "/?key=" + appKey + "&lists=open&cards=visible&card_attachments=cover&organization=true&organization_fields=displayName,url")
+   ;
+
+   return fetch(url)
+      .then(util.checkResponse)
+      .then(function(response)  {return response.json();})
+      //.then(json => { console.log(json); return json; })
+   ;
 }
 
 function setAppKey(k) {
