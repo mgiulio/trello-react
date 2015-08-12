@@ -36,18 +36,6 @@
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: center;
-
-   opacity: 0;
-   animation-name: fadein;
-   animation-duration: 1s;
-   animation-timing-function: ease-out;
-   animation-fill-mode: forwards;
-}
-
-@keyframes fadein {
-   to {
-      opacity: 1;
-   }
 }
 
 .home-page .boards .group .items .item {
@@ -63,6 +51,18 @@
 
    background-color: gray(220);
    color: gray(150);
+
+   opacity: 0;
+   animation-name: fadein;
+   animation-duration: 1s;
+   animation-timing-function: ease-out;
+   animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+   to {
+      opacity: 1;
+   }
 }
 
 .home-page .boards .group .items .item:hover {

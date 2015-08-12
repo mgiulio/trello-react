@@ -1,17 +1,5 @@
 [
    {
-         "name":"Test Boards",
-         "boards":[
-            {"name":"Board-00","id":"board-00"}
-         ]
-   },
-   {
-         "name":"Trello Usage",
-         "boards":[
-            {"name":"The Ultimate Board of trello Tips and Tricks","id":"QtjSVKOf"}
-         ]
-   },
-   {
          "name":"Trello Development",
          "boards":[
             {"name":"Trello Development Board","id":"nC8QJJoZ"},
@@ -20,6 +8,12 @@
             {"name":"Open Source Libraries","id":"dpX2j6lT"},
             {"name":"Trello iOS App","id":"5tj4qAvo"},
             {"name":"Trello Resources","id":"nPNSBZjB"}
+         ]
+   },
+   {
+         "name":"Trello Usage",
+         "boards":[
+            {"name":"The Ultimate Board of trello Tips and Tricks","id":"QtjSVKOf"}
          ]
    },
    {
@@ -48,6 +42,12 @@
          "name":"Sports",
          "boards":[
             {"name":"Marathon Training","id":"tvhdBdMn"}
+         ]
+   },
+   {
+         "name":"Test Boards",
+         "boards":[
+            {"name":"Board-00","id":"board-00"}
          ]
    }
 ]

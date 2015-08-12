@@ -467,6 +467,24 @@ body {
    -webkit-justify-content: center;
        -ms-flex-pack: center;
            justify-content: center;
+}
+
+.home-page .boards .group .items .item {
+   box-sizing: border-box;
+   width: 250px;
+   height: 120px;
+   -webkit-box-flex: 0;
+   -webkit-flex: 0 0 auto;
+       -ms-flex: 0 0 auto;
+           flex: 0 0 auto;
+   margin: 10px;
+
+   position: relative;
+
+   border-radius: 5px;
+
+   background-color: rgb(220, 220, 220);
+   color: rgb(150, 150, 150);
 
    opacity: 0;
    -webkit-animation-name: fadein;
@@ -489,24 +507,6 @@ body {
    to {
       opacity: 1;
    }
-}
-
-.home-page .boards .group .items .item {
-   box-sizing: border-box;
-   width: 250px;
-   height: 120px;
-   -webkit-box-flex: 0;
-   -webkit-flex: 0 0 auto;
-       -ms-flex: 0 0 auto;
-           flex: 0 0 auto;
-   margin: 10px;
-
-   position: relative;
-
-   border-radius: 5px;
-
-   background-color: rgb(220, 220, 220);
-   color: rgb(150, 150, 150);
 }
 
 .home-page .boards .group .items .item:hover {
