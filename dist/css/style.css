@@ -299,7 +299,7 @@ body {
    color: #f0f0f0;
 }
 .activity-indicator {
-   position: fixed;
+   position: absolute;
    top: 0;
    bottom: 0;
    left: 0;
@@ -308,15 +308,8 @@ body {
    background-color: rgba(0,0,0, 0.5);
    color: rgb(255, 255, 255);
 
-   opacity: 0;
-   -webkit-transition: opacity 0.5s;
-           transition: opacity 0.5s;
-   display: none;
-}
-
-.loading .activity-indicator {
-   display: block;
-   opacity: 1;
+   //opacity: 0;
+   //transition: opacity 0.5s;
 }
 
 .activity-indicator .fg {
@@ -420,6 +413,8 @@ body {
 .home-page .boards {
    height: calc(100vh - 40px);
    overflow-y: auto;
+
+   position: relative;
 }
 
 .home-page .boards .group {
