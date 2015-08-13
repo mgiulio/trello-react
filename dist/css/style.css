@@ -445,6 +445,38 @@ body {
 .home-page .boards .group {
    max-width: 960px;
    margin: 0 auto;
+
+   -webkit-transform: scale(0);
+
+       -ms-transform: scale(0);
+
+           transform: scale(0);
+   opacity: 0;
+   -webkit-animation: scaleup;
+           animation: scaleup;
+   -webkit-animation-duration: 0.3s;
+           animation-duration: 0.3s;
+   -webkit-animation-timing-function: ease-in;
+           animation-timing-function: ease-in;
+   -webkit-animation-fill-mode: forwards;
+           animation-fill-mode: forwards;
+}
+
+.home-page .boards .group:nth-child(1) {
+   -webkit-animation-delay: 0.0s;
+           animation-delay: 0.0s;
+}
+.home-page .boards .group:nth-child(2) {
+   -webkit-animation-delay: 0.1s;
+           animation-delay: 0.1s;
+}
+.home-page .boards .group:nth-child(3) {
+   -webkit-animation-delay: 0.2s;
+           animation-delay: 0.2s;
+}
+.home-page .boards .group:nth-child(4) {
+   -webkit-animation-delay: 0.3s;
+           animation-delay: 0.3s;
 }
 
 .home-page .boards .group > .title {
@@ -456,16 +488,6 @@ body {
    text-transform: uppercase;
 
    color: rgb(206, 206, 206);
-
-   opacity: 0;
-   -webkit-animation-name: fadein;
-           animation-name: fadein;
-   -webkit-animation-duration: 1s;
-           animation-duration: 1s;
-   -webkit-animation-timing-function: ease-out;
-           animation-timing-function: ease-out;
-   -webkit-animation-fill-mode: forwards;
-           animation-fill-mode: forwards;
 }
 
 .home-page .boards .group .items {
@@ -510,53 +532,6 @@ body {
 
    background-color: rgb(220, 220, 220);
    color: rgb(150, 150, 150);
-
-   opacity: 0;
-   -webkit-animation-name: fadein;
-           animation-name: fadein;
-   -webkit-animation-duration: 1s;
-           animation-duration: 1s;
-   -webkit-animation-timing-function: ease-out;
-           animation-timing-function: ease-out;
-   -webkit-animation-fill-mode: forwards;
-           animation-fill-mode: forwards;
-}
-
-.home-page .boards .group .items .item:nth-child(1) {
-   -webkit-animation-delay: 0s;
-           animation-delay: 0s;
-}
-.home-page .boards .group .items .item:nth-child(2) {
-   -webkit-animation-delay: 0.1s;
-           animation-delay: 0.1s;
-}
-.home-page .boards .group .items .item:nth-child(3) {
-   -webkit-animation-delay: 0.2s;
-           animation-delay: 0.2s;
-}
-.home-page .boards .group .items .item:nth-child(4) {
-   -webkit-animation-delay: 0.3s;
-           animation-delay: 0.3s;
-}
-.home-page .boards .group .items .item:nth-child(5) {
-   -webkit-animation-delay: 0.4s;
-           animation-delay: 0.4s;
-}
-.home-page .boards .group .items .item:nth-child(6) {
-   -webkit-animation-delay: 0.5s;
-           animation-delay: 0.5s;
-}
-
-@-webkit-keyframes fadein {
-   to {
-      opacity: 1;
-   }
-}
-
-@keyframes fadein {
-   to {
-      opacity: 1;
-   }
 }
 
 .home-page .boards .group .items .item:hover {
@@ -583,6 +558,22 @@ body {
 
 .home-page .boards .no-boards-msg {
    text-align: center;
+}
+
+@-webkit-keyframes scaleup {
+   to {
+      -webkit-transform: scale(1.0);
+              transform: scale(1.0);
+      opacity: 1;
+   }
+}
+
+@keyframes scaleup {
+   to {
+      -webkit-transform: scale(1.0);
+              transform: scale(1.0);
+      opacity: 1;
+   }
 }
 .board {
    -webkit-box-flex: 1;
