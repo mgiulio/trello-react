@@ -19905,11 +19905,19 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 
    render: function() {
       return (
-         React.createElement("div", {className: "about"}, 
-            React.createElement("h1", {className: "title"}, "Welcome to Trello React appversion"), 
-            React.createElement("h2", {className: "subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React"))), 
+         React.createElement("div", {className: "about-page"}, 
+            React.createElement("header", null, 
+               React.createElement("h1", {className: "title"}, "Trello React"), 
+               React.createElement("h2", {className: "subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React"))), 
+               React.createElement("h3", {className: "version"}, "v0.3")
+            ), 
+
             React.createElement("p", {className: "github"}, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for source, development notes, bugs and other informations."), 
-            React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
+            React.createElement("a", {href: "home"}, "back to home"), 
+
+            React.createElement("footer", null, 
+               React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
+            )
          )
       );
    }

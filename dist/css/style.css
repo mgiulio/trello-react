@@ -728,3 +728,83 @@ body {
    height: auto;
    margin-bottom: 20px;
 }
+body {
+
+}
+
+.about-page {
+   padding: 10px;
+   height: 100vh;
+   box-sizing: border-box;
+
+   position: relative;
+
+   background-color: rgb(180, 180, 180);
+}
+
+.about-page .title {
+   margin: 0;
+   text-align: center;
+
+   font-family: serif;
+   font-size: 40px;
+
+   color: rgb(237, 237, 237);
+}
+
+.about-page .subtitle {
+   margin: 10px 0 0;
+   text-align: center;
+
+   font-family: georgia;
+   font-size: 16px;
+   font-style: italic;
+   font-weight: normal;
+
+   color: rgb(214, 214, 214);
+}
+
+.about-page .version {
+}
+
+.about-page .home {
+   text-align: center;
+}
+
+.about-page footer {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+}
+
+.about-page footer .credits {
+   margin: 0;
+   text-align: center;
+
+   text-transform: uppercase;
+   font-size: 10px;
+}
+
+.about-page footer .credits .hearts {
+   color: #cc0000;
+}
+
+.welcome p,
+.welcome ul {
+   line-height: 1.5;
+}
+
+.welcome header {
+   margin-bottom: 40px;
+}
+
+@media screen and (min-width: 620px) {
+   .about-page {
+      width: 600px;
+      height: auto;
+      margin: 10px auto;
+      border: 1px solid rgb(150, 150, 150);
+      border-radius: 5px;
+   }
+}
