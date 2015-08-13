@@ -497,6 +497,31 @@ body {
            animation-fill-mode: forwards;
 }
 
+.home-page .boards .group .items .item:nth-child(1) {
+   -webkit-animation-delay: 0s;
+           animation-delay: 0s;
+}
+.home-page .boards .group .items .item:nth-child(2) {
+   -webkit-animation-delay: 0.1s;
+           animation-delay: 0.1s;
+}
+.home-page .boards .group .items .item:nth-child(3) {
+   -webkit-animation-delay: 0.2s;
+           animation-delay: 0.2s;
+}
+.home-page .boards .group .items .item:nth-child(4) {
+   -webkit-animation-delay: 0.3s;
+           animation-delay: 0.3s;
+}
+.home-page .boards .group .items .item:nth-child(5) {
+   -webkit-animation-delay: 0.4s;
+           animation-delay: 0.4s;
+}
+.home-page .boards .group .items .item:nth-child(6) {
+   -webkit-animation-delay: 0.5s;
+           animation-delay: 0.5s;
+}
+
 @-webkit-keyframes fadein {
    to {
       opacity: 1;
