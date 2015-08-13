@@ -19812,7 +19812,6 @@ var App = React.createClass({displayName: "App",
    },
 
    render: function() {
-      console.log(this.props);
       var page = React.createElement(
          this.pageComponent[this.props.pageName],
          this.props.pageProps
@@ -20267,7 +20266,7 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
             content = this.state.boards.length > 0 ?
                this.state.boards.map(function(group, i)  {return React.createElement(BoardGroup, {key: i, name: group.name, boards: group.boards});})
             :
-               React.createElement("p", null, "No boards")
+               React.createElement("p", {className: "no-boards-msg"}, "No boards")
             ;
             break;
          case 'failure':

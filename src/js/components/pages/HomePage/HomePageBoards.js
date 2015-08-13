@@ -46,7 +46,7 @@ var HomePageBoards = React.createClass({
             content = this.state.boards.length > 0 ?
                this.state.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />)
             :
-               <p>No boards</p>
+               <p className="no-boards-msg">No boards</p>
             ;
             break;
          case 'failure':

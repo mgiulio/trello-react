@@ -84,3 +84,7 @@
    font-weight: bold;
    font-size: 18px;
 }
+
+.home-page .boards .no-boards-msg {
+   text-align: center;
+}
