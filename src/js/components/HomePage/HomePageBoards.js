@@ -43,7 +43,11 @@ var HomePageBoards = React.createClass({
             content = <ActivityIndicator />;
             break;
          case 'boards':
-            content = this.state.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />);
+            content = this.state.boards.length > 0 ?
+               this.state.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />)
+            :
+               <p>No boards</p>
+            ;
             break;
          case 'failure':
             content = <Failure msg="Loading failed" actionButton={{label: 'Retry', onClick: this.retry}} />;

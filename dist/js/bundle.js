@@ -20201,7 +20201,11 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
             content = React.createElement(ActivityIndicator, null);
             break;
          case 'boards':
-            content = this.state.boards.map(function(group, i)  {return React.createElement(BoardGroup, {key: i, name: group.name, boards: group.boards});});
+            content = this.state.boards.length > 0 ?
+               this.state.boards.map(function(group, i)  {return React.createElement(BoardGroup, {key: i, name: group.name, boards: group.boards});})
+            :
+               React.createElement("p", null, "No boards")
+            ;
             break;
          case 'failure':
             content = React.createElement(Failure, {msg: "Loading failed", actionButton: {label: 'Retry', onClick: this.retry}});
