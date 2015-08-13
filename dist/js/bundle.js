@@ -20338,8 +20338,10 @@ var Toolbar = React.createClass({displayName: "Toolbar",
    render: function() {
       return (
          React.createElement("header", {className: "toolbar", onClick: this.handleCLick}, 
-            React.createElement("a", {className: "logo", href: "./", "data-page": "home"}, "App Logo"), 
-            React.createElement("a", {href: "./about", className: "about", "data-page": "about"}, "About")
+            React.createElement("nav", null, 
+               React.createElement("a", {className: "logo", href: "./", "data-page": "home"}, "App Logo"), 
+               React.createElement("a", {href: "./about", className: "about", "data-page": "about"}, "About")
+            )
          )
       );
    },

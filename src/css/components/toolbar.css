@@ -3,13 +3,16 @@
    height: var(--toolbarHeight);
    padding: 5px;
 
+   background-color: gray(115);
+}
+
+.toolbar nav {
+   height: 100%;
    display: flex;
    //justify-content: space-between;
    align-items: center;
 
    position: relative;
-
-   background-color: gray(115);
 }
 
 .toolbar .logo {
@@ -41,4 +44,11 @@
 
 .toolbar a:hover {
    color: gray(255);
+}
+
+@media screen and (min-width: 1000px) {
+   .toolbar nav {
+      width: 1000px;
+      margin: 0 auto;
+   }
 }

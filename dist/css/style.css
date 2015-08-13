@@ -262,12 +262,14 @@ body {
    height: 40px;
    padding: 5px;
 
+   background-color: rgb(115, 115, 115);
+}
+
+.toolbar nav {
+   height: 100%;
    display: -webkit-box;
-
    display: -webkit-flex;
-
    display: -ms-flexbox;
-
    display: flex;
    //justify-content: space-between;
    -webkit-box-align: center;
@@ -276,8 +278,6 @@ body {
            align-items: center;
 
    position: relative;
-
-   background-color: rgb(115, 115, 115);
 }
 
 .toolbar .logo {
@@ -315,6 +315,13 @@ body {
 
 .toolbar a:hover {
    color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 1000px) {
+   .toolbar nav {
+      width: 1000px;
+      margin: 0 auto;
+   }
 }
 .activity-indicator {
    position: absolute;

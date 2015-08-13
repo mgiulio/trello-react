@@ -8,8 +8,10 @@ var Toolbar = React.createClass({
    render: function() {
       return (
          <header className="toolbar" onClick={this.handleCLick}>
-            <a className="logo" href="./" data-page="home">App Logo</a>
-            <a href="./about" className="about" data-page="about">About</a>
+            <nav>
+               <a className="logo" href="./" data-page="home">App Logo</a>
+               <a href="./about" className="about" data-page="about">About</a>
+            </nav>
          </header>
       );
    },
