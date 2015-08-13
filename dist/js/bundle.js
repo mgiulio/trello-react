@@ -20322,18 +20322,12 @@ var
 ;
 
 function getHomeBoards() {
-   return fetch('json/public-boards.json')
-      .then(util.checkResponse)
-      .then(function(response)  {return response.json();})
-      //.then(json => { console.log(json); return json; })
-   ;
+   return http.getJSON('json/public-boards.json');
 }
 
 function getBoard(id) {
    return id.indexOf('board-') === 0 ?
-      http.get(("json/" + id + ".json"))
-         .then(util.checkResponse)
-         .then(function(response)  {return response.json();})
+      http.getJSON(("json/" + id + ".json"))
          .then(processBoardJSON)
    :
       trelloAPI.getBoard(id)
@@ -20426,15 +20420,31 @@ function get(url) {
    return fetch(url);
 }
 
+function getJSON(url) {
+   return get(url)
+      .then(checkResponse)
+      .then(function(response)  {return response.json();})
+      //.then(json => { console.log(json); return json; })
+   ;
+}
+
+function checkResponse(response) {
+   if (response.status == 200)
+      return response;
+   else
+      throw Error('HTTP response status error code: ' + response.status);
+}
+
+
 module.exports = {
-   get: get
+   get: get,
+   getJSON: getJSON
 };
 
 },{}],173:[function(require,module,exports){
 var
    appKey,
-   http = require('./http'),
-   util = require('../lib/util')
+   http = require('./http')
 ;
 
 function getBoard(id) {
@@ -20442,11 +20452,7 @@ function getBoard(id) {
       url = ("https://api.trello.com/1/boards/" + id + "/?key=" + appKey + "&lists=open&cards=visible&card_attachments=cover&organization=true&organization_fields=displayName,url")
    ;
 
-   return http.get(url)
-      .then(util.checkResponse)
-      .then(function(response)  {return response.json();})
-      //.then(json => { console.log(json); return json; })
-   ;
+   return http.getJSON(url);
 }
 
 function setAppKey(k) {
@@ -20457,7 +20463,7 @@ module.exports = {
    setAppKey: setAppKey,
    getBoard: getBoard
 };
-},{"../lib/util":176,"./http":172}],174:[function(require,module,exports){
+},{"./http":172}],174:[function(require,module,exports){
 var
    React = require('react')
    App = require('./components/App')
@@ -20538,18 +20544,10 @@ function formatDate(str) {
 	return (day + " " + month + " " + year);
 }
 
-function checkResponse(response) {
-   if (response.status == 200)
-      return response;
-   else
-      throw Error('HTTP response status error code: ' + response.status);
-}
-
 module.exports = {
 	debounce: debounce,
 	now: now,
-	formatDate: formatDate,
-	checkResponse: checkResponse
+	formatDate: formatDate
 };
 },{}],177:[function(require,module,exports){
 var settings = {

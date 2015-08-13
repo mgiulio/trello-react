@@ -5,18 +5,12 @@ var
 ;
 
 function getHomeBoards() {
-   return fetch('json/public-boards.json')
-      .then(util.checkResponse)
-      .then(response => response.json())
-      //.then(json => { console.log(json); return json; })
-   ;
+   return http.getJSON('json/public-boards.json');
 }
 
 function getBoard(id) {
    return id.indexOf('board-') === 0 ?
-      http.get(`json/${id}.json`)
-         .then(util.checkResponse)
-         .then(response => response.json())
+      http.getJSON(`json/${id}.json`)
          .then(processBoardJSON)
    :
       trelloAPI.getBoard(id)
