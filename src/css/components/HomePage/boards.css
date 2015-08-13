@@ -1,5 +1,5 @@
 .home-page .boards {
-   height: calc(100vh - 40px);
+   height: calc(100vh - var(--toolbarHeight));
    overflow-y: auto;
 
    position: relative;
@@ -102,4 +102,8 @@
    font-family: Verdana;
    font-weight: bold;
    font-size: 18px;
+}
+
+.home-page .boards .no-boards-msg {
+   text-align: center;
 }

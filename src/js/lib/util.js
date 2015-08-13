@@ -46,16 +46,8 @@ function formatDate(str) {
 	return `${day} ${month} ${year}`;
 }
 
-function checkResponse(response) {
-   if (response.status == 200)
-      return response;
-   else
-      throw Error('HTTP response status error code: ' + response.status);
-}
-
 module.exports = {
 	debounce: debounce,
 	now: now,
-	formatDate: formatDate,
-	checkResponse: checkResponse
+	formatDate: formatDate
 };

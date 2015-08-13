@@ -258,30 +258,26 @@ body {
    top: -2px;
 }
 .toolbar {
-   -webkit-box-flex: 0;
-   -webkit-flex: none;
-       -ms-flex: none;
-           flex: none;
-   height: 40px;
    box-sizing: border-box;
+   height: 40px;
    padding: 5px;
 
+   background-color: rgb(115, 115, 115);
+}
+
+.toolbar nav {
+   height: 100%;
    display: -webkit-box;
-
    display: -webkit-flex;
-
    display: -ms-flexbox;
-
    display: flex;
-   -webkit-box-pack: justify;
-   -webkit-justify-content: space-between;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
-   position: relative;
+   //justify-content: space-between;
+   -webkit-box-align: center;
+   -webkit-align-items: center;
+       -ms-flex-align: center;
+           align-items: center;
 
-   background-color: #5e5e5e;
-   color: #aaa;
-   opacity: 0.5;
+   position: relative;
 }
 
 .toolbar .logo {
@@ -295,8 +291,37 @@ body {
    font-family: verdana, sans-serif;
    text-transform: uppercase;
    font-weight: bold;
+}
 
-   color: #f0f0f0;
+.toolbar .about {
+   -webkit-box-flex: 0;
+   -webkit-flex: 0 0 auto;
+       -ms-flex: 0 0 auto;
+           flex: 0 0 auto;
+   margin: 0;
+   margin-left: auto;
+
+   text-transform: uppercase;
+   font-size: 12px;
+   font-weight: bold;
+   font-family: sans-serif;
+}
+
+.toolbar a {
+   color: rgb(225, 225, 225);
+   -webkit-transition: color 0.2s ease-in;
+           transition: color 0.2s ease-in;
+}
+
+.toolbar a:hover {
+   color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 1000px) {
+   .toolbar nav {
+      width: 1000px;
+      margin: 0 auto;
+   }
 }
 .activity-indicator {
    position: absolute;
@@ -555,6 +580,10 @@ body {
    font-weight: bold;
    font-size: 18px;
 }
+
+.home-page .boards .no-boards-msg {
+   text-align: center;
+}
 .board {
    -webkit-box-flex: 1;
    -webkit-flex: 1 1 auto;
@@ -748,4 +777,84 @@ body {
    width: 100%;
    height: auto;
    margin-bottom: 20px;
+}
+body {
+
+}
+
+.about-page {
+   padding: 10px;
+   height: 100vh;
+   box-sizing: border-box;
+
+   position: relative;
+
+   background-color: rgb(180, 180, 180);
+}
+
+.about-page .title {
+   margin: 0;
+   text-align: center;
+
+   font-family: serif;
+   font-size: 40px;
+
+   color: rgb(237, 237, 237);
+}
+
+.about-page .subtitle {
+   margin: 10px 0 0;
+   text-align: center;
+
+   font-family: georgia;
+   font-size: 16px;
+   font-style: italic;
+   font-weight: normal;
+
+   color: rgb(214, 214, 214);
+}
+
+.about-page .version {
+}
+
+.about-page .home {
+   text-align: center;
+}
+
+.about-page footer {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+}
+
+.about-page footer .credits {
+   margin: 0;
+   text-align: center;
+
+   text-transform: uppercase;
+   font-size: 10px;
+}
+
+.about-page footer .credits .hearts {
+   color: #cc0000;
+}
+
+.welcome p,
+.welcome ul {
+   line-height: 1.5;
+}
+
+.welcome header {
+   margin-bottom: 40px;
+}
+
+@media screen and (min-width: 620px) {
+   .about-page {
+      width: 600px;
+      height: auto;
+      margin: 10px auto;
+      border: 1px solid rgb(150, 150, 150);
+      border-radius: 5px;
+   }
 }

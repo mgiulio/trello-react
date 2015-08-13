@@ -1,12 +1,12 @@
 var
    React = require('react'),
 
-   data = require('../../data/data'),
+   data = require('../../../data/data'),
 
-   ActivityIndicator = require('../ActivityIndicator'),
-   Failure = require('../Failure')
+   ActivityIndicator = require('../../ActivityIndicator'),
+   Failure = require('../../Failure')
 
-   gotoPage = require('../../gotopage')
+   gotoPage = require('../../../gotopage')
 ;
 
 var HomePageBoards = React.createClass({
@@ -43,7 +43,11 @@ var HomePageBoards = React.createClass({
             content = <ActivityIndicator />;
             break;
          case 'boards':
-            content = this.state.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />);
+            content = this.state.boards.length > 0 ?
+               this.state.boards.map((group, i) => <BoardGroup key={i} name={group.name} boards={group.boards} />)
+            :
+               <p className="no-boards-msg">No boards</p>
+            ;
             break;
          case 'failure':
             content = <Failure msg="Loading failed" actionButton={{label: 'Retry', onClick: this.retry}} />;

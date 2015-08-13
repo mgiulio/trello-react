@@ -1,6 +1,6 @@
 var
    React = require('react'),
-   Toolbar = require('../Toolbar'),
+   Toolbar = require('../../Toolbar'),
    HomePageBoards = require('./HomePageBoards')
 ;
 

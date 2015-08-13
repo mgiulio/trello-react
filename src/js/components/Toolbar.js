@@ -1,15 +1,28 @@
 var
-   React = require('react')
+   React = require('react'),
+   gotoPage = require('../gotopage')
 ;
 
 var Toolbar = React.createClass({
 
    render: function() {
       return (
-         <header className="toolbar">
-            <a className="logo" href="/">App Logo</a>
+         <header className="toolbar" onClick={this.handleCLick}>
+            <nav>
+               <a className="logo" href="./" data-page="home">App Logo</a>
+               <a href="./about" className="about" data-page="about">About</a>
+            </nav>
          </header>
       );
+   },
+
+   handleCLick: function(e) {
+      if (e.target.tagName.toLowerCase() !== 'a')
+         return;
+
+      e.preventDefault();
+
+      gotoPage(e.target.dataset.page);
    }
 
 });
