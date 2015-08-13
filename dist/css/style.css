@@ -258,12 +258,8 @@ body {
    top: -2px;
 }
 .toolbar {
-   -webkit-box-flex: 0;
-   -webkit-flex: none;
-       -ms-flex: none;
-           flex: none;
-   height: 40px;
    box-sizing: border-box;
+   height: 40px;
    padding: 5px;
 
    display: -webkit-box;
@@ -273,15 +269,15 @@ body {
    display: -ms-flexbox;
 
    display: flex;
-   -webkit-box-pack: justify;
-   -webkit-justify-content: space-between;
-       -ms-flex-pack: justify;
-           justify-content: space-between;
+   //justify-content: space-between;
+   -webkit-box-align: center;
+   -webkit-align-items: center;
+       -ms-flex-align: center;
+           align-items: center;
+
    position: relative;
 
-   background-color: #5e5e5e;
-   color: #aaa;
-   opacity: 0.5;
+   background-color: rgb(115, 115, 115);
 }
 
 .toolbar .logo {
@@ -295,8 +291,30 @@ body {
    font-family: verdana, sans-serif;
    text-transform: uppercase;
    font-weight: bold;
+}
 
-   color: #f0f0f0;
+.toolbar .about {
+   -webkit-box-flex: 0;
+   -webkit-flex: 0 0 auto;
+       -ms-flex: 0 0 auto;
+           flex: 0 0 auto;
+   margin: 0;
+   margin-left: auto;
+
+   text-transform: uppercase;
+   font-size: 12px;
+   font-weight: bold;
+   font-family: sans-serif;
+}
+
+.toolbar a {
+   color: rgb(225, 225, 225);
+   -webkit-transition: color 0.2s ease-in;
+           transition: color 0.2s ease-in;
+}
+
+.toolbar a:hover {
+   color: rgb(255, 255, 255);
 }
 .activity-indicator {
    position: absolute;

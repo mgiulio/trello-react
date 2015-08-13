@@ -20339,7 +20339,7 @@ var Toolbar = React.createClass({displayName: "Toolbar",
       return (
          React.createElement("header", {className: "toolbar", onClick: this.handleCLick}, 
             React.createElement("a", {className: "logo", href: "./", "data-page": "home"}, "App Logo"), 
-            React.createElement("a", {href: "./about", "data-page": "about"}, "About")
+            React.createElement("a", {href: "./about", className: "about", "data-page": "about"}, "About")
          )
       );
    },

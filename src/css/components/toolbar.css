@@ -1,16 +1,15 @@
 .toolbar {
-   flex: none;
-   height: var(--toolbarHeight);
    box-sizing: border-box;
+   height: var(--toolbarHeight);
    padding: 5px;
 
    display: flex;
-   justify-content: space-between;
+   //justify-content: space-between;
+   align-items: center;
+
    position: relative;
 
-   background-color: #5e5e5e;
-   color: #aaa;
-   opacity: 0.5;
+   background-color: gray(115);
 }
 
 .toolbar .logo {
@@ -22,6 +21,24 @@
    font-family: verdana, sans-serif;
    text-transform: uppercase;
    font-weight: bold;
+}
 
-   color: #f0f0f0;
+.toolbar .about {
+   flex: 0 0 auto;
+   margin: 0;
+   margin-left: auto;
+
+   text-transform: uppercase;
+   font-size: 12px;
+   font-weight: bold;
+   font-family: sans-serif;
+}
+
+.toolbar a {
+   color: gray(225);
+   transition: color 0.2s ease-in;
+}
+
+.toolbar a:hover {
+   color: gray(255);
 }
