@@ -5,6 +5,10 @@
 @import 'common-styles.css';
 @import 'colors.css';
 
+:root {
+	--toolbarHeight: 40px;
+}
+
 @import 'components/meta-items.css';
 @import 'components/toolbar.css';
 @import 'components/activity-indicator.css';

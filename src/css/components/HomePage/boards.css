@@ -1,5 +1,5 @@
 .home-page .boards {
-   height: calc(100vh - 40px);
+   height: calc(100vh - var(--toolbarHeight));
    overflow-y: auto;
 
    position: relative;

@@ -1,6 +1,6 @@
 .toolbar {
    flex: none;
-   height: 40px;
+   height: var(--toolbarHeight);
    box-sizing: border-box;
    padding: 5px;
 
