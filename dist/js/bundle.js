@@ -19772,27 +19772,6 @@ function bootstrap() {
    gotoPage('home');
 }
 },{"./data/trelloAPI":174,"./gotoPage":175,"react":156}],158:[function(require,module,exports){
-var
-   React = require('react')
-;
-
-var AboutPage = React.createClass({displayName: "AboutPage",
-
-   render: function() {
-      return (
-         React.createElement("div", {className: "about"}, 
-            React.createElement("h1", {className: "title"}, "Welcome to Trello React appversion"), 
-            React.createElement("h2", {className: "subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React"))), 
-            React.createElement("p", {className: "github"}, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for source, development notes, bugs and other informations."), 
-            React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
-         )
-      );
-   }
-
-});
-
-module.exports = AboutPage;
-},{"react":156}],159:[function(require,module,exports){
 var React = require('react');
 
 var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
@@ -19814,14 +19793,14 @@ var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
 });
 
 module.exports = ActivityIndicator;
-},{"react":156}],160:[function(require,module,exports){
+},{"react":156}],159:[function(require,module,exports){
 var
    React = require('react'),
    assign = require('object-assign'),
 
-   HomePage = require('./HomePage/HomePage'),
-   BoardPage = require('./BoardPage/BoardPage'),
-   AboutPage = require('./AboutPage')
+   HomePage = require('./Pages/HomePage/HomePage'),
+   BoardPage = require('./Pages/BoardPage/BoardPage'),
+   AboutPage = require('./Pages/AboutPage')
 ;
 
 var App = React.createClass({displayName: "App",
@@ -19848,11 +19827,103 @@ var App = React.createClass({displayName: "App",
 });
 
 module.exports = App;
-},{"./AboutPage":158,"./BoardPage/BoardPage":162,"./HomePage/HomePage":167,"object-assign":1,"react":156}],161:[function(require,module,exports){
+},{"./Pages/AboutPage":163,"./Pages/BoardPage/BoardPage":165,"./Pages/HomePage/HomePage":169,"object-assign":1,"react":156}],160:[function(require,module,exports){
+var
+   React = require('react')
+;
+
+var Failure = React.createClass({displayName: "Failure",
+
+   render: function() {
+      var button;
+      if (this.props.actionButton) {
+         var b = this.props.actionButton;
+         button = React.createElement("button", {onClick: b.onClick}, b.label);
+      }
+
+      return (
+         React.createElement("div", null, 
+            React.createElement("p", null, this.props.msg), 
+            button
+         )
+      );
+   }
+
+});
+
+module.exports = Failure;
+
+},{"react":156}],161:[function(require,module,exports){
+var
+   React = require('react')
+;
+
+var Icon = React.createClass({displayName: "Icon",
+
+   render: function() {
+      return (
+         React.createElement("svg", {
+            className: 'meta-item__icon ' + this.props.which, 
+            dangerouslySetInnerHTML: { __html: '<use xlink:href="img/sprite.svg#' + this.props.which + '" />'}}
+         )
+      );
+   }
+
+});
+
+module.exports = Icon;
+},{"react":156}],162:[function(require,module,exports){
 var
    React = require('react'),
-   MetaItem = require('../MetaItem'),
-   BoardBar = React.createClass({displayName: "BoardBar",
+   Icon = require('./Icon')
+;
+
+var MetaItem = React.createClass({displayName: "MetaItem",
+
+   render: function() {
+         var label;
+         if (this.props.children)
+            label = React.createElement("span", {className: "meta-item__label"}, this.props.children);
+
+         return (
+            React.createElement("span", {className:  this.props.className ? ("meta-item " + this.props.className) : 'meta-item'}, 
+               React.createElement(Icon, {which: this.props.icon}), 
+               label
+            )
+         );
+   }
+
+});
+
+module.exports = MetaItem;
+},{"./Icon":161,"react":156}],163:[function(require,module,exports){
+var
+   React = require('react')
+;
+
+var AboutPage = React.createClass({displayName: "AboutPage",
+
+   render: function() {
+      return (
+         React.createElement("div", {className: "about"}, 
+            React.createElement("h1", {className: "title"}, "Welcome to Trello React appversion"), 
+            React.createElement("h2", {className: "subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React"))), 
+            React.createElement("p", {className: "github"}, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for source, development notes, bugs and other informations."), 
+            React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
+         )
+      );
+   }
+
+});
+
+module.exports = AboutPage;
+},{"react":156}],164:[function(require,module,exports){
+var
+   React = require('react'),
+   MetaItem = require('../../MetaItem')
+;
+
+var BoardBar = React.createClass({displayName: "BoardBar",
 
       render: function() {
          var b = this.props.board;
@@ -19883,18 +19954,18 @@ var
 ;
 
 module.exports = BoardBar;
-},{"../MetaItem":170,"react":156}],162:[function(require,module,exports){
+},{"../../MetaItem":162,"react":156}],165:[function(require,module,exports){
 var
    React = require('react'),
 
-   settings = require('../../settings'),
-   data = require('../../data/data'),
+   settings = require('../../../settings'),
+   data = require('../../../data/data'),
 
-   Toolbar = require('../Toolbar'),
+   Toolbar = require('../../Toolbar'),
    BoardBar = require('./BoardBar'),
    CardLists = require('./CardLists'),
-   ActivityIndicator = require('../ActivityIndicator'),
-   Failure = require('../Failure')
+   ActivityIndicator = require('../../ActivityIndicator'),
+   Failure = require('../../Failure')
 ;
 
 var BoardPage = React.createClass({displayName: "BoardPage",
@@ -19982,10 +20053,10 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 });
 
 module.exports = BoardPage;
-},{"../../data/data":172,"../../settings":178,"../ActivityIndicator":159,"../Failure":166,"../Toolbar":171,"./BoardBar":161,"./CardLists":165,"react":156}],163:[function(require,module,exports){
+},{"../../../data/data":172,"../../../settings":178,"../../ActivityIndicator":158,"../../Failure":160,"../../Toolbar":171,"./BoardBar":164,"./CardLists":168,"react":156}],166:[function(require,module,exports){
 var
    React = require('react'),
-   MetaItem = require('../MetaItem')
+   MetaItem = require('../../MetaItem')
 ;
 
 var Card = React.createClass({displayName: "Card",
@@ -20026,7 +20097,7 @@ var Card = React.createClass({displayName: "Card",
 });
 
 module.exports = Card;
-},{"../MetaItem":170,"react":156}],164:[function(require,module,exports){
+},{"../../MetaItem":162,"react":156}],167:[function(require,module,exports){
 var
    React = require('react'),
    Card = require('./Card')
@@ -20068,11 +20139,11 @@ var CardList = React.createClass({displayName: "CardList",
 });
 
 module.exports = CardList;
-},{"./Card":163,"react":156}],165:[function(require,module,exports){
+},{"./Card":166,"react":156}],168:[function(require,module,exports){
 var
    React = require('react'),
    CardList = require('./CardList'),
-   util = require('../../lib/util')
+   util = require('../../../lib/util')
 ;
 
 var CardLists = React.createClass({displayName: "CardLists",
@@ -20125,36 +20196,10 @@ var CardLists = React.createClass({displayName: "CardLists",
 });
 
 module.exports = CardLists;
-},{"../../lib/util":177,"./CardList":164,"react":156}],166:[function(require,module,exports){
-var
-   React = require('react')
-;
-
-var Failure = React.createClass({displayName: "Failure",
-
-   render: function() {
-      var button;
-      if (this.props.actionButton) {
-         var b = this.props.actionButton;
-         button = React.createElement("button", {onClick: b.onClick}, b.label);
-      }
-
-      return (
-         React.createElement("div", null, 
-            React.createElement("p", null, this.props.msg), 
-            button
-         )
-      );
-   }
-
-});
-
-module.exports = Failure;
-
-},{"react":156}],167:[function(require,module,exports){
+},{"../../../lib/util":177,"./CardList":167,"react":156}],169:[function(require,module,exports){
 var
    React = require('react'),
-   Toolbar = require('../Toolbar'),
+   Toolbar = require('../../Toolbar'),
    HomePageBoards = require('./HomePageBoards')
 ;
 
@@ -20172,16 +20217,16 @@ var HomePage = React.createClass({displayName: "HomePage",
 });
 
 module.exports = HomePage;
-},{"../Toolbar":171,"./HomePageBoards":168,"react":156}],168:[function(require,module,exports){
+},{"../../Toolbar":171,"./HomePageBoards":170,"react":156}],170:[function(require,module,exports){
 var
    React = require('react'),
 
-   data = require('../../data/data'),
+   data = require('../../../data/data'),
 
-   ActivityIndicator = require('../ActivityIndicator'),
-   Failure = require('../Failure')
+   ActivityIndicator = require('../../ActivityIndicator'),
+   Failure = require('../../Failure')
 
-   gotoPage = require('../../gotopage')
+   gotoPage = require('../../../gotopage')
 ;
 
 var HomePageBoards = React.createClass({displayName: "HomePageBoards",
@@ -20274,50 +20319,7 @@ var Board = React.createClass({displayName: "Board",
 });
 
 module.exports = HomePageBoards;
-},{"../../data/data":172,"../../gotopage":176,"../ActivityIndicator":159,"../Failure":166,"react":156}],169:[function(require,module,exports){
-var
-   React = require('react')
-;
-
-var Icon = React.createClass({displayName: "Icon",
-
-   render: function() {
-      return (
-         React.createElement("svg", {
-            className: 'meta-item__icon ' + this.props.which, 
-            dangerouslySetInnerHTML: { __html: '<use xlink:href="img/sprite.svg#' + this.props.which + '" />'}}
-         )
-      );
-   }
-
-});
-
-module.exports = Icon;
-},{"react":156}],170:[function(require,module,exports){
-var
-   React = require('react'),
-   Icon = require('./Icon')
-;
-
-var MetaItem = React.createClass({displayName: "MetaItem",
-
-   render: function() {
-         var label;
-         if (this.props.children)
-            label = React.createElement("span", {className: "meta-item__label"}, this.props.children);
-
-         return (
-            React.createElement("span", {className:  this.props.className ? ("meta-item " + this.props.className) : 'meta-item'}, 
-               React.createElement(Icon, {which: this.props.icon}), 
-               label
-            )
-         );
-   }
-
-});
-
-module.exports = MetaItem;
-},{"./Icon":169,"react":156}],171:[function(require,module,exports){
+},{"../../../data/data":172,"../../../gotopage":176,"../../ActivityIndicator":158,"../../Failure":160,"react":156}],171:[function(require,module,exports){
 var
    React = require('react'),
    gotoPage = require('../gotopage')
@@ -20335,7 +20337,6 @@ var Toolbar = React.createClass({displayName: "Toolbar",
    },
 
    handleCLick: function(e) {
-      console.log(e);
       if (e.target.tagName.toLowerCase() !== 'a')
          return;
 
@@ -20512,7 +20513,7 @@ function gotoPage(pageName, pageProps) {
 }
 
 module.exports = gotoPage;
-},{"./components/App":160,"react":156}],176:[function(require,module,exports){
+},{"./components/App":159,"react":156}],176:[function(require,module,exports){
 var
    React = require('react')
    App = require('./components/App')
@@ -20528,7 +20529,7 @@ function gotoPage(pageName, pageProps) {
 }
 
 module.exports = gotoPage;
-},{"./components/App":160,"react":156}],177:[function(require,module,exports){
+},{"./components/App":159,"react":156}],177:[function(require,module,exports){
 var now = Date.now || function() { return new Date().getTime(); }
 
 function debounce(func, wait, immediate) {

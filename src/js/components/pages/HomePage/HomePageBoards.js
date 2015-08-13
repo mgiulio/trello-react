@@ -1,12 +1,12 @@
 var
    React = require('react'),
 
-   data = require('../../data/data'),
+   data = require('../../../data/data'),
 
-   ActivityIndicator = require('../ActivityIndicator'),
-   Failure = require('../Failure')
+   ActivityIndicator = require('../../ActivityIndicator'),
+   Failure = require('../../Failure')
 
-   gotoPage = require('../../gotopage')
+   gotoPage = require('../../../gotopage')
 ;
 
 var HomePageBoards = React.createClass({

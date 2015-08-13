@@ -1,7 +1,9 @@
 var
    React = require('react'),
-   MetaItem = require('../MetaItem'),
-   BoardBar = React.createClass({
+   MetaItem = require('../../MetaItem')
+;
+
+var BoardBar = React.createClass({
 
       render: function() {
          var b = this.props.board;

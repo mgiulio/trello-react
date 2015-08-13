@@ -1,14 +1,14 @@
 var
    React = require('react'),
 
-   settings = require('../../settings'),
-   data = require('../../data/data'),
+   settings = require('../../../settings'),
+   data = require('../../../data/data'),
 
-   Toolbar = require('../Toolbar'),
+   Toolbar = require('../../Toolbar'),
    BoardBar = require('./BoardBar'),
    CardLists = require('./CardLists'),
-   ActivityIndicator = require('../ActivityIndicator'),
-   Failure = require('../Failure')
+   ActivityIndicator = require('../../ActivityIndicator'),
+   Failure = require('../../Failure')
 ;
 
 var BoardPage = React.createClass({
