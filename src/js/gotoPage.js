@@ -6,7 +6,7 @@ var
 function gotoPage(pageName, pageProps) {
    var props = {pageName: pageName};
 
-   if (typeof pageProps !== 'undefined' /* && isObject(pageProps) */)
+   if (pageProps !== undefined)
       props.pageProps = pageProps;
 
    React.render(<App {...props} />, document.body);

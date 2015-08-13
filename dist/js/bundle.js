@@ -19812,6 +19812,7 @@ var App = React.createClass({displayName: "App",
    },
 
    render: function() {
+      console.log(this.props);
       var page = React.createElement(
          this.pageComponent[this.props.pageName],
          this.props.pageProps
@@ -20506,7 +20507,7 @@ var
 function gotoPage(pageName, pageProps) {
    var props = {pageName: pageName};
 
-   if (typeof pageProps !== 'undefined' /* && isObject(pageProps) */)
+   if (pageProps !== undefined)
       props.pageProps = pageProps;
 
    React.render(React.createElement(App, React.__spread({},  props)), document.body);
@@ -20522,7 +20523,7 @@ var
 function gotoPage(pageName, pageProps) {
    var props = {pageName: pageName};
 
-   if (typeof pageProps !== 'undefined' /* && isObject(pageProps) */)
+   if (pageProps !== undefined)
       props.pageProps = pageProps;
 
    React.render(React.createElement(App, React.__spread({},  props)), document.body);
