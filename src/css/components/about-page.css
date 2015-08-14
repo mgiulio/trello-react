@@ -46,8 +46,20 @@
    color: gray(214);
 }
 
-.about-page .home {
+.about-page > .home {
    text-align: center;
+}
+
+.about-page > .home .home {
+   width: 40px;
+   height: 40px;
+
+   fill: gray(218);
+   transition: fill 0.3s ease-in;
+}
+
+.about-page > .home .home:hover {
+   fill: gray(255);
 }
 
 .about-page footer {

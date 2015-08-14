@@ -1,5 +1,6 @@
 var
-   React = require('react')
+   React = require('react'),
+   Icon = require('../Icon')
 ;
 
 var AboutPage = React.createClass({
@@ -14,7 +15,7 @@ var AboutPage = React.createClass({
 
             <p>Visit the <a href="http://github.com/mgiulio/trello-react">project page on GitHub</a> for source, development notes, bugs and other informations.</p>
 
-            <a href="home">back to home</a>
+            <p className="home"><a href="home" title="Back to Home"><Icon which="home" /></a></p>
 
             <footer>
                <p className="credits">Crafted with <em className="hearts">&hearts;</em> <a href="http://mgiulio.github.io">mg</a></p>

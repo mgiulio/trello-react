@@ -19898,7 +19898,8 @@ var MetaItem = React.createClass({displayName: "MetaItem",
 module.exports = MetaItem;
 },{"./Icon":161,"react":156}],163:[function(require,module,exports){
 var
-   React = require('react')
+   React = require('react'),
+   Icon = require('../Icon')
 ;
 
 var AboutPage = React.createClass({displayName: "AboutPage",
@@ -19913,7 +19914,7 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 
             React.createElement("p", null, "Visit the ", React.createElement("a", {href: "http://github.com/mgiulio/trello-react"}, "project page on GitHub"), " for source, development notes, bugs and other informations."), 
 
-            React.createElement("a", {href: "home"}, "back to home"), 
+            React.createElement("p", {className: "home"}, React.createElement("a", {href: "home", title: "Back to Home"}, React.createElement(Icon, {which: "home"}))), 
 
             React.createElement("footer", null, 
                React.createElement("p", {className: "credits"}, "Crafted with ", React.createElement("em", {className: "hearts"}, "♥"), " ", React.createElement("a", {href: "http://mgiulio.github.io"}, "mg"))
@@ -19925,7 +19926,7 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 });
 
 module.exports = AboutPage;
-},{"react":156}],164:[function(require,module,exports){
+},{"../Icon":161,"react":156}],164:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
