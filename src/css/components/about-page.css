@@ -2,6 +2,8 @@
    padding: 10px;
    height: 100vh;
    box-sizing: border-box;
+   overflow-x: hidden;
+   overflow-y: auto;
 
    position: relative;
 
@@ -49,10 +51,11 @@
 }
 
 .about-page footer {
-   position: fixed;
+   position: absolute;
    bottom: 0;
    left: 0;
    right: 0;
+   margin-bottom: 5px;
 }
 
 .about-page footer .credits {
@@ -61,10 +64,16 @@
 
    text-transform: uppercase;
    font-size: 10px;
+
+   position: relative;
 }
 
 .about-page footer .credits .hearts {
-   color: #cc0000;
+   font-size: 1.4em;
+   color: #ff6767;
+
+   position: relative;
+   top: 1px;
 }
 
 @media screen and (min-width: 620px) {
@@ -74,6 +83,11 @@
       margin: 10px auto;
       border: 1px solid gray(150);
       border-radius: 5px;
+   }
+
+   .about-page footer {
+      position: static;
+      margin: 40px 0 0;
    }
 }
 
