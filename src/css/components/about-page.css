@@ -9,15 +9,6 @@
    color: gray(218);
 }
 
-.about-page a {
-   color: gray(230);
-   transition: color 0.3s ease-in;
-}
-
-.about-page a:hover {
-   color: gray(255);
-}
-
 .about-page .title {
    margin: 0;
    text-align: center;
@@ -74,4 +65,17 @@
       border: 1px solid gray(150);
       border-radius: 5px;
    }
+}
+
+.about-page p {
+   line-height: 1.5;
+}
+
+.about-page a {
+   color: gray(230);
+   transition: color 0.3s ease-in;
+}
+
+.about-page a:hover {
+   color: gray(255);
 }

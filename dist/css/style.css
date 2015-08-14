@@ -769,15 +769,6 @@ body {
    height: auto;
    margin-bottom: 20px;
 }
-.welcome p,
-.welcome ul {
-   line-height: 1.5;
-}
-
-.welcome header {
-   margin-bottom: 40px;
-}
-
 .about-page {
    padding: 10px;
    height: 100vh;
@@ -787,16 +778,6 @@ body {
 
    background-color: rgb(180, 180, 180);
    color: rgb(218, 218, 218);
-}
-
-.about-page a {
-   color: rgb(230, 230, 230);
-   -webkit-transition: color 0.3s ease-in;
-           transition: color 0.3s ease-in;
-}
-
-.about-page a:hover {
-   color: rgb(255, 255, 255);
 }
 
 .about-page .title {
@@ -855,4 +836,18 @@ body {
       border: 1px solid rgb(150, 150, 150);
       border-radius: 5px;
    }
+}
+
+.about-page p {
+   line-height: 1.5;
+}
+
+.about-page a {
+   color: rgb(230, 230, 230);
+   -webkit-transition: color 0.3s ease-in;
+           transition: color 0.3s ease-in;
+}
+
+.about-page a:hover {
+   color: rgb(255, 255, 255);
 }

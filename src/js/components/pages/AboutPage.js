@@ -13,7 +13,8 @@ var AboutPage = React.createClass({
                <h3 className="version">v0.3</h3>
             </header>
 
-            <p className="github">Visit the <a href="http://github.com/mgiulio/trello-react">project page on GitHub</a> for source, development notes, bugs and other informations.</p>
+            <p>Visit the <a href="http://github.com/mgiulio/trello-react">project page on GitHub</a> for source, development notes, bugs and other informations.</p>
+
             <a href="home">back to home</a>
 
             <footer>
