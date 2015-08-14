@@ -19863,7 +19863,7 @@ var Icon = React.createClass({displayName: "Icon",
    render: function() {
       return (
          React.createElement("svg", {
-            className: 'meta-item__icon ' + this.props.which, 
+            className: 'icon ' + this.props.which, 
             dangerouslySetInnerHTML: { __html: '<use xlink:href="img/sprite.svg#' + this.props.which + '" />'}}
          )
       );
@@ -19883,7 +19883,7 @@ var MetaItem = React.createClass({displayName: "MetaItem",
    render: function() {
          var label;
          if (this.props.children)
-            label = React.createElement("span", {className: "meta-item__label"}, this.props.children);
+            label = React.createElement("span", {className: "label"}, this.props.children);
 
          return (
             React.createElement("span", {className:  this.props.className ? ("meta-item " + this.props.className) : 'meta-item'}, 

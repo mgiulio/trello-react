@@ -242,7 +242,7 @@ body {
 .app {
 }
 
-.meta-item__icon {
+.meta-item .icon {
    width: 18px;
    height: 18px;
 
@@ -251,10 +251,12 @@ body {
    vertical-align: middle;
    position: relative;
 }
-.meta-item__label {
+
+.meta-item .label {
    color: rgb(206, 206, 206);
 }
-.meta-item__icon.standard {
+
+.meta-item .icon.standard {
    top: -2px;
 }
 .toolbar {
