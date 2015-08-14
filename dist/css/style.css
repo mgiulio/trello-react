@@ -769,8 +769,13 @@ body {
    height: auto;
    margin-bottom: 20px;
 }
-body {
+.welcome p,
+.welcome ul {
+   line-height: 1.5;
+}
 
+.welcome header {
+   margin-bottom: 40px;
 }
 
 .about-page {
@@ -781,13 +786,24 @@ body {
    position: relative;
 
    background-color: rgb(180, 180, 180);
+   color: rgb(218, 218, 218);
+}
+
+.about-page a {
+   color: rgb(230, 230, 230);
+   -webkit-transition: color 0.3s ease-in;
+           transition: color 0.3s ease-in;
+}
+
+.about-page a:hover {
+   color: rgb(255, 255, 255);
 }
 
 .about-page .title {
    margin: 0;
    text-align: center;
 
-   font-family: serif;
+   font-family: georgia;
    font-size: 40px;
 
    color: rgb(237, 237, 237);
@@ -829,15 +845,6 @@ body {
 
 .about-page footer .credits .hearts {
    color: #cc0000;
-}
-
-.welcome p,
-.welcome ul {
-   line-height: 1.5;
-}
-
-.welcome header {
-   margin-bottom: 40px;
 }
 
 @media screen and (min-width: 620px) {
