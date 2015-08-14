@@ -780,8 +780,13 @@ body {
    color: rgb(218, 218, 218);
 }
 
-.about-page .title {
+.about-page header {
+   margin-bottom: 60px;
+}
+
+.about-page header .title {
    margin: 0;
+   margin-bottom: 20px;
    text-align: center;
 
    font-family: georgia;
@@ -790,7 +795,7 @@ body {
    color: rgb(237, 237, 237);
 }
 
-.about-page .title .version {
+.about-page header .title .version {
    font-family: Georgia;
    font-size: 0.4em;
    vertical-align: top;
@@ -798,7 +803,7 @@ body {
    color: rgb(156, 156, 156);
 }
 
-.about-page .subtitle {
+.about-page header .subtitle {
    margin: 10px 0 0;
    text-align: center;
 
