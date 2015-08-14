@@ -1,12 +1,3 @@
-.welcome p,
-.welcome ul {
-   line-height: 1.5;
-}
-
-.welcome header {
-   margin-bottom: 40px;
-}
-
 .about-page {
    padding: 10px;
    height: 100vh;
