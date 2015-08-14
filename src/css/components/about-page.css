@@ -22,8 +22,9 @@
 .about-page .title .version {
    font-family: Georgia;
    font-size: 0.4em;
-
    vertical-align: top;
+
+   color: gray(156);
 }
 
 .about-page .subtitle {
