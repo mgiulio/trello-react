@@ -19,6 +19,13 @@
    color: gray(237);
 }
 
+.about-page .title .version {
+   font-family: Georgia;
+   font-size: 0.4em;
+
+   vertical-align: top;
+}
+
 .about-page .subtitle {
    margin: 10px 0 0;
    text-align: center;
@@ -29,9 +36,6 @@
    font-weight: normal;
 
    color: gray(214);
-}
-
-.about-page .version {
 }
 
 .about-page .home {
