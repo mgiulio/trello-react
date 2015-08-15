@@ -20264,6 +20264,10 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
       this.setState({state: 'loading'});
    },
 
+   componentDidUpdate: function() {
+      React.findDOMNode(this).querySelector('.group .items .item a').focus();
+   },
+
    render: function() {
       var content;
 
@@ -20277,6 +20281,7 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
             :
                React.createElement("p", {className: "no-boards-msg"}, "No boards")
             ;
+            //content = [<a href="#">test</a>].concat(content);
             break;
          case 'failure':
             content = React.createElement(Failure, {msg: "Loading failed", actionButton: {label: 'Retry', onClick: this.retry}});
@@ -20316,12 +20321,17 @@ var Board = React.createClass({displayName: "Board",
    render: function() {
       return (
          React.createElement("li", {className: "item", onClick: this.onBoardSelection}, 
-            React.createElement("h2", {className: "title"}, this.props.name)
+            React.createElement("a", {href: ("/boards/" + this.props.id)}, 
+               React.createElement("h2", {className: "title"}, this.props.name)
+            )
          )
       );
    },
 
-   onBoardSelection: function() {
+   onBoardSelection: function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
       gotoPage('board', {boardId: this.props.id});
    }
 
