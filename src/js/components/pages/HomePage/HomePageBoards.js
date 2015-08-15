@@ -52,7 +52,6 @@ var HomePageBoards = React.createClass({
             :
                <p className="no-boards-msg">No boards</p>
             ;
-            //content = [<a href="#">test</a>].concat(content);
             break;
          case 'failure':
             content = <Failure msg="Loading failed" actionButton={{label: 'Retry', onClick: this.retry}} />;

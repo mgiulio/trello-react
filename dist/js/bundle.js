@@ -19834,17 +19834,22 @@ var
 
 var Failure = React.createClass({displayName: "Failure",
 
+   componentDidUpdate: function() {
+      React.findDOMNode(this).querySelector('.action .button').focus();
+   },
+
    render: function() {
       var button;
       if (this.props.actionButton) {
          var b = this.props.actionButton;
-         button = React.createElement("button", {onClick: b.onClick}, b.label);
+         button = React.createElement("button", {className: "button action", onClick: b.onClick}, b.label);
       }
 
       return (
-         React.createElement("div", null, 
-            React.createElement("p", null, this.props.msg), 
-            button
+         React.createElement("div", {className: "failure"}, 
+            React.createElement("h1", {className: "title"}, "Oops...Something Went Wrong!"), 
+            React.createElement("p", {className: "msg"}, this.props.msg), 
+            React.createElement("p", {className: "action"}, button)
          )
       );
    }
@@ -20267,7 +20272,7 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
    },
 
    componentDidUpdate: function() {
-      React.findDOMNode(this).querySelector('.group .items .item a').focus();
+      //React.findDOMNode(this).querySelector('.group .items .item a').focus();
    },
 
    render: function() {
@@ -20283,7 +20288,6 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
             :
                React.createElement("p", {className: "no-boards-msg"}, "No boards")
             ;
-            //content = [<a href="#">test</a>].concat(content);
             break;
          case 'failure':
             content = React.createElement(Failure, {msg: "Loading failed", actionButton: {label: 'Retry', onClick: this.retry}});
@@ -20291,6 +20295,8 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
          default:
             // throw exception?
       }
+
+      content = React.createElement(Failure, {msg: "Loading failed", actionButton: {label: 'Retry', onClick: this.retry}});
 
       return (
          React.createElement("div", {className: "boards"}, 

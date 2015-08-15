@@ -12,7 +12,7 @@
 @import 'components/meta-items.css';
 @import 'components/toolbar.css';
 @import 'components/activity-indicator.css';
-@import 'components/error-panel.css';
+@import 'components/failure.css';
 
 @import 'components/HomePage/home-page.css';
 @import 'components/BoardPage/board-page.css';
