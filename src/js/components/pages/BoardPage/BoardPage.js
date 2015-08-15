@@ -47,8 +47,10 @@ var BoardPage = React.createClass({
 
             var boardMeta = this.extractBoardMeta(b);
 
-            if (settings['board background'] && 'backgroundImage' in b)
+            if (settings['board background'] && 'backgroundImage' in b) {
                rootProps.style = {backgroundImage: `url(${b.backgroundImage.full})`};
+               var toolbarProps = {translucent: true};
+            }
 
             content = [
                <BoardBar board={boardMeta} key={1} />,
@@ -64,7 +66,7 @@ var BoardPage = React.createClass({
 
       return (
    		<div  {...rootProps}>
-   			<Toolbar />
+   			<Toolbar {...toolbarProps} />
             {content}
    		</div>
    	);

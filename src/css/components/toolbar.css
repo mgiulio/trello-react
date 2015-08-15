@@ -6,6 +6,10 @@
    background-color: gray(115);
 }
 
+.toolbar.translucent {
+   background-color: rgba(50,50,50, 0.5);
+}
+
 .toolbar nav {
    height: 100%;
    display: flex;

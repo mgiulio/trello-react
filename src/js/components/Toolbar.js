@@ -6,8 +6,16 @@ var
 var Toolbar = React.createClass({
 
    render: function() {
+      var headerProps = {
+         className: "toolbar",
+         onClick: this.handleCLick
+      };
+
+      if (this.props.translucent)
+         headerProps.className += " translucent";
+
       return (
-         <header className="toolbar" onClick={this.handleCLick}>
+         <header {...headerProps}>
             <nav>
                <a className="logo" href="./" data-page="home">App Logo</a>
                <a href="./about" className="about" data-page="about">About</a>

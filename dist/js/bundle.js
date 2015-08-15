@@ -20013,8 +20013,10 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 
             var boardMeta = this.extractBoardMeta(b);
 
-            if (settings['board background'] && 'backgroundImage' in b)
+            if (settings['board background'] && 'backgroundImage' in b) {
                rootProps.style = {backgroundImage: ("url(" + b.backgroundImage.full + ")")};
+               var toolbarProps = {translucent: true};
+            }
 
             content = [
                React.createElement(BoardBar, {board: boardMeta, key: 1}),
@@ -20030,7 +20032,7 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 
       return (
    		React.createElement("div", React.__spread({},   rootProps), 
-   			React.createElement(Toolbar, null), 
+   			React.createElement(Toolbar, React.__spread({},  toolbarProps)), 
             content
    		)
    	);
@@ -20347,8 +20349,16 @@ var
 var Toolbar = React.createClass({displayName: "Toolbar",
 
    render: function() {
+      var headerProps = {
+         className: "toolbar",
+         onClick: this.handleCLick
+      };
+
+      if (this.props.translucent)
+         headerProps.className += " translucent";
+
       return (
-         React.createElement("header", {className: "toolbar", onClick: this.handleCLick}, 
+         React.createElement("header", React.__spread({},  headerProps), 
             React.createElement("nav", null, 
                React.createElement("a", {className: "logo", href: "./", "data-page": "home"}, "App Logo"), 
                React.createElement("a", {href: "./about", className: "about", "data-page": "about"}, "About")

@@ -267,6 +267,10 @@ body {
    background-color: rgb(115, 115, 115);
 }
 
+.toolbar.translucent {
+   background-color: rgba(115,115,115, 0.5);
+}
+
 .toolbar nav {
    height: 100%;
    display: -webkit-box;
