@@ -20272,7 +20272,8 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
    },
 
    componentDidUpdate: function() {
-      //React.findDOMNode(this).querySelector('.group .items .item a').focus();
+      if (this.state.state === 'boards' && this.state.boards.length > 0)
+         React.findDOMNode(this).querySelector('.group .items .item a').focus();
    },
 
    render: function() {
@@ -20295,8 +20296,6 @@ var HomePageBoards = React.createClass({displayName: "HomePageBoards",
          default:
             // throw exception?
       }
-
-      content = React.createElement(Failure, {msg: "Loading failed", actionButton: {label: 'Retry', onClick: this.retry}});
 
       return (
          React.createElement("div", {className: "boards"}, 

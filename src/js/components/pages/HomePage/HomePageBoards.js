@@ -36,7 +36,8 @@ var HomePageBoards = React.createClass({
    },
 
    componentDidUpdate: function() {
-      React.findDOMNode(this).querySelector('.group .items .item a').focus();
+      if (this.state.state === 'boards' && this.state.boards.length > 0)
+         React.findDOMNode(this).querySelector('.group .items .item a').focus();
    },
 
    render: function() {
