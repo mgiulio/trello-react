@@ -10,7 +10,7 @@ function getHomeBoards() {
 
 function getBoard(id) {
    return id.indexOf('board-') === 0 ?
-      http.getJSON(`json/${id}.json`)
+      http.getJSON(`/dist/json/${id}.json`)
          .then(processBoardJSON)
    :
       trelloAPI.getBoard(id)

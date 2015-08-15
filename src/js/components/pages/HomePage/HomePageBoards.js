@@ -4,9 +4,10 @@ var
    data = require('../../../data/data'),
 
    ActivityIndicator = require('../../ActivityIndicator'),
-   Failure = require('../../Failure')
+   Failure = require('../../Failure'),
 
-   gotoPage = require('../../../gotopage')
+   Router = require('react-router'),
+   Link = Router.Link
 ;
 
 var HomePageBoards = React.createClass({
@@ -91,10 +92,10 @@ var Board = React.createClass({
 
    render: function() {
       return (
-         <li className="item" onClick={this.onBoardSelection}>
-            <a href={`/boards/${this.props.id}`}>
+         <li className="item">
+            <Link to="board" params={{id: this.props.id}}>
                <h2 className="title">{this.props.name}</h2>
-            </a>
+            </Link>
          </li>
       );
    },

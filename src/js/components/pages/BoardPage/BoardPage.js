@@ -25,7 +25,7 @@ var BoardPage = React.createClass({
    },
 
    getInitialState: function() {
-      this.loadBoard(this.props.boardId);
+      this.loadBoard(this.props.params.id);
 
       return {
          state: 'loading'

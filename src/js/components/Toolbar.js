@@ -1,14 +1,14 @@
 var
    React = require('react'),
-   gotoPage = require('../gotopage')
+   Router = require('react-router'),
+   Link = Router.Link
 ;
 
 var Toolbar = React.createClass({
 
    render: function() {
       var headerProps = {
-         className: "toolbar",
-         onClick: this.handleCLick
+         className: "toolbar"
       };
 
       if (this.props.translucent)
@@ -17,20 +17,11 @@ var Toolbar = React.createClass({
       return (
          <header {...headerProps}>
             <nav>
-               <a className="logo" href="./" data-page="home">App Logo</a>
-               <a href="./about" className="about" data-page="about">About</a>
+               <Link to="home" className="logo">App Logo</Link>
+               <Link to="about" className="about">About</Link>
             </nav>
          </header>
       );
-   },
-
-   handleCLick: function(e) {
-      if (e.target.tagName.toLowerCase() !== 'a')
-         return;
-
-      e.preventDefault();
-
-      gotoPage(e.target.dataset.page);
    }
 
 });

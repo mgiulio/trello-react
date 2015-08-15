@@ -8,7 +8,7 @@ var Icon = React.createClass({
       return (
          <svg
             className={'icon ' + this.props.which}
-            dangerouslySetInnerHTML={{ __html: '<use xlink:href="img/sprite.svg#' + this.props.which + '" />' }}
+            dangerouslySetInnerHTML={{ __html: '<use xlink:href="/dist/img/sprite.svg#' + this.props.which + '" />' }}
          />
       );
    }
