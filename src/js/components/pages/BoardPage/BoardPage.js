@@ -8,7 +8,9 @@ var
    BoardBar = require('./BoardBar'),
    CardLists = require('./CardLists'),
    ActivityIndicator = require('../../ActivityIndicator'),
-   Failure = require('../../Failure')
+   Failure = require('../../Failure'),
+
+   errors = require('../../../errors')
 ;
 
 var BoardPage = React.createClass({
@@ -19,7 +21,15 @@ var BoardPage = React.createClass({
             this.setState({state: 'board', board: board});
          })
          .catch(reason => {
-            this.setState({state: 'failure'});
+            console.log(reason);
+            /*
+            if (reason instanceof errors.Network)
+               this.setState({state: 'failure'});
+            else if (reason instanceof .NotFoundError)
+               this.setState({state: 'not found'});
+            else if (reason instanceof Error )
+               console.log(reason.message);
+            */
          })
       ;
    },

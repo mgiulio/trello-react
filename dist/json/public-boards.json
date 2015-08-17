@@ -47,7 +47,8 @@
    {
          "name":"Test Boards",
          "boards":[
-            {"name":"Board-00","id":"board-00"}
+            {"name":"Board-00","id":"board-00"},
+            {"name":"This board doesn't exist","id":"ou812"}
          ]
    }
 ]
