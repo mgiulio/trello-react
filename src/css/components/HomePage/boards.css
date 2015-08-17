@@ -13,7 +13,11 @@
    opacity: 0;
    animation: scaleup;
    animation-duration: 0.3s;
-   animation-timing-function: ease-in;
+   animation-timing-function:
+      /*cubic-bezier(0.42, 0, 0.29, 1.6)*/ /* overshooting: impact + ampio... */
+      cubic-bezier(0.42, 0, 0.74, 1.35) /* overshooting: impact */
+      /*ease-in*/
+   ;
    animation-fill-mode: forwards;
 }
 

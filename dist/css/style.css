@@ -514,8 +514,16 @@ body {
            animation: scaleup;
    -webkit-animation-duration: 0.3s;
            animation-duration: 0.3s;
-   -webkit-animation-timing-function: ease-in;
-           animation-timing-function: ease-in;
+   -webkit-animation-timing-function:
+      /*cubic-bezier(0.42, 0, 0.29, 1.6)*/ /* overshooting: impact + ampio... */
+      cubic-bezier(0.42, 0, 0.74, 1.35) /* overshooting: impact */
+      /*ease-in*/
+   ;
+           animation-timing-function:
+      /*cubic-bezier(0.42, 0, 0.29, 1.6)*/ /* overshooting: impact + ampio... */
+      cubic-bezier(0.42, 0, 0.74, 1.35) /* overshooting: impact */
+      /*ease-in*/
+   ;
    -webkit-animation-fill-mode: forwards;
            animation-fill-mode: forwards;
 }
