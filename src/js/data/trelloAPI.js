@@ -1,7 +1,6 @@
 var
    appKey,
-   http = require('./http'),
-   errors = require('../errors')
+   http = require('./http')
 ;
 
 function getBoard(id) {
@@ -11,19 +10,18 @@ function getBoard(id) {
 
    return http.getJSON(url)
       .catch(reason => {
-         console.log(reason);
-         if (reason instanceof errors.Http) {
-            console.log('instance');
-            switch (reason.status) {
-               case 400:
-                  throw new errors.ResourceNotFound(`Board #${id} not found`);
+         switch (reason.type) {
+            case 'http':
+               switch (reason.statusCode) {
+                  case 400:
+                     throw {type: 'resource not found', message: `Board #${id} not found`};
                   break;
-               default:
-                  throw reason;
-            }
-         }
-         else {
-            throw reason;
+                  default:
+                     throw reason;
+               }
+               break;
+            default:
+               throw reason;
          }
       });
 }
