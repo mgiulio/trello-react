@@ -1,16 +1,17 @@
 var
    http = require('./http'),
    trelloAPI = require('./trelloAPI'),
-   util = require('../lib/util')
+   util = require('../lib/util'),
+   settings = require('../settings')
 ;
 
 function getHomeBoards() {
-   return http.getJSON('json/public-boards.json');
+   return http.getJSON(`${settings.basepath}/json/public-boards.json`);
 }
 
 function getBoard(id) {
    return id.indexOf('board-') === 0 ?
-      http.getJSON(`/dist/json/${id}.json`)
+      http.getJSON(`${settings.basepath}/json/${id}.json`)
          .then(processBoardJSON)
    :
       trelloAPI.getBoard(id)

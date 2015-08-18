@@ -22684,7 +22684,8 @@ var
    Router = require('react-router'),
    $__0=     Router,Route=$__0.Route,RouteHandler=$__0.RouteHandler,DefaultRoute=$__0.DefaultRoute,NotFoundRoute=$__0.NotFoundRoute,
 
-   trelloAPI = require('./data/trelloAPI')
+   trelloAPI = require('./data/trelloAPI'),
+   settings = require('./settings')
 ;
 
 var App = React.createClass({displayName: "App",
@@ -22704,8 +22705,15 @@ bootstrap();
 function bootstrap() {
    trelloAPI.setAppKey('dc529cce071b9272f0226c46515d78e5');
 
+   var bp = window.location.pathname;
+   settings.basepath = bp[bp.length - 1] === '/' ?
+      bp.slice(0, bp.length - 1)
+   :
+      bp
+   ;
+
    var routes = (
-      React.createElement(Route, {name: "home", path: "/dist/", handler: App}, 
+      React.createElement(Route, {name: "home", path: bp, handler: App}, 
          React.createElement(DefaultRoute, {handler: HomePage}), 
          React.createElement(NotFoundRoute, {handler: NotFoundPage}), 
          React.createElement(Route, {name: "about", path: "about", handler: AboutPage}), 
@@ -22717,7 +22725,7 @@ function bootstrap() {
       React.render(React.createElement(Root, null), document.body);
    })
 }
-},{"./components/Pages/AboutPage":200,"./components/Pages/BoardPage/BoardPage":202,"./components/Pages/HomePage/HomePage":206,"./components/Pages/NotFoundPage":208,"./data/trelloAPI":212,"react":194,"react-router":25}],196:[function(require,module,exports){
+},{"./components/Pages/AboutPage":200,"./components/Pages/BoardPage/BoardPage":202,"./components/Pages/HomePage/HomePage":206,"./components/Pages/NotFoundPage":208,"./data/trelloAPI":212,"./settings":214,"react":194,"react-router":25}],196:[function(require,module,exports){
 var React = require('react');
 
 var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
@@ -22771,7 +22779,8 @@ var Failure = React.createClass({displayName: "Failure",
 module.exports = Failure;
 },{"react":194}],198:[function(require,module,exports){
 var
-   React = require('react')
+   React = require('react'),
+   settings = require('../settings')
 ;
 
 var Icon = React.createClass({displayName: "Icon",
@@ -22780,7 +22789,7 @@ var Icon = React.createClass({displayName: "Icon",
       return (
          React.createElement("svg", {
             className: 'icon ' + this.props.which, 
-            dangerouslySetInnerHTML: { __html: '<use xlink:href="/dist/img/sprite.svg#' + this.props.which + '" />'}}
+            dangerouslySetInnerHTML: { __html: ("<use xlink:href=\"" + settings.basepath + "/img/sprite.svg#" + this.props.which + "\" />")}}
          )
       );
    }
@@ -22788,7 +22797,7 @@ var Icon = React.createClass({displayName: "Icon",
 });
 
 module.exports = Icon;
-},{"react":194}],199:[function(require,module,exports){
+},{"../settings":214,"react":194}],199:[function(require,module,exports){
 var
    React = require('react'),
    Icon = require('./Icon')
@@ -23341,16 +23350,17 @@ module.exports = Toolbar;
 var
    http = require('./http'),
    trelloAPI = require('./trelloAPI'),
-   util = require('../lib/util')
+   util = require('../lib/util'),
+   settings = require('../settings')
 ;
 
 function getHomeBoards() {
-   return http.getJSON('json/public-boards.json');
+   return http.getJSON((settings.basepath + "/json/public-boards.json"));
 }
 
 function getBoard(id) {
    return id.indexOf('board-') === 0 ?
-      http.getJSON(("/dist/json/" + id + ".json"))
+      http.getJSON((settings.basepath + "/json/" + id + ".json"))
          .then(processBoardJSON)
    :
       trelloAPI.getBoard(id)
@@ -23437,7 +23447,7 @@ module.exports = {
    getHomeBoards: getHomeBoards,
    getBoard: getBoard
 };
-},{"../lib/util":213,"./http":211,"./trelloAPI":212}],211:[function(require,module,exports){
+},{"../lib/util":213,"../settings":214,"./http":211,"./trelloAPI":212}],211:[function(require,module,exports){
 function get(url) {
    return fetch(url)
       .catch(function(reason)  { throw {type: 'network', message: reason.message}; })

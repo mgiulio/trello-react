@@ -9,7 +9,8 @@ var
    Router = require('react-router'),
    {Route, RouteHandler, DefaultRoute, NotFoundRoute} = Router,
 
-   trelloAPI = require('./data/trelloAPI')
+   trelloAPI = require('./data/trelloAPI'),
+   settings = require('./settings')
 ;
 
 var App = React.createClass({
@@ -29,8 +30,15 @@ bootstrap();
 function bootstrap() {
    trelloAPI.setAppKey('dc529cce071b9272f0226c46515d78e5');
 
+   var bp = window.location.pathname;
+   settings.basepath = bp[bp.length - 1] === '/' ?
+      bp.slice(0, bp.length - 1)
+   :
+      bp
+   ;
+
    var routes = (
-      <Route name="home" path="/dist/" handler={App}>
+      <Route name="home" path={bp} handler={App}>
          <DefaultRoute handler={HomePage} />
          <NotFoundRoute handler={NotFoundPage}/>
          <Route name="about" path="about" handler={AboutPage} />
