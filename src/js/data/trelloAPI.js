@@ -11,7 +11,9 @@ function getBoard(id) {
 
    return http.getJSON(url)
       .catch(reason => {
+         console.log(reason);
          if (reason instanceof errors.Http) {
+            console.log('instance');
             switch (reason.status) {
                case 400:
                   throw new errors.ResourceNotFound(`Board #${id} not found`);

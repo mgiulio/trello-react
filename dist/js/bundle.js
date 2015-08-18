@@ -22772,7 +22772,6 @@ var Failure = React.createClass({displayName: "Failure",
 });
 
 module.exports = Failure;
-
 },{"react":194}],198:[function(require,module,exports){
 var
    React = require('react')
@@ -23441,21 +23440,15 @@ var errors = require('../errors');
 
 function get(url) {
    return fetch(url)
-      .then(
-         checkHTTPStatusCode,
-         function(reason)  { throw new errors.Network(reason.message); }
-      )
+      .catch(function(reason)  { throw new errors.Network(reason.message); })
+      .then(checkHTTPStatusCode)
    ;
 }
 
 function getJSON(url) {
    return get(url)
-      .then(
-         function(response)  {return response.json();},
-         function(error)  { throw error; }
-      )
-      .catch(function(reason)  { throw new errors.JSON(); })
-      //.then(json => { console.log(json); return json; })
+      .catch(function(reason)  { console.log(reason); throw reason; })
+      .then(function(response)  {return response.json().catch(function(reason)  { throw new errors.JSON(); });})
    ;
 }
 
@@ -23485,7 +23478,9 @@ function getBoard(id) {
 
    return http.getJSON(url)
       .catch(function(reason)  {
+         console.log(reason);
          if (reason instanceof errors.Http) {
+            console.log('instance');
             switch (reason.status) {
                case 400:
                   throw new errors.ResourceNotFound(("Board #" + id + " not found"));

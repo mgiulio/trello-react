@@ -2,21 +2,15 @@ var errors = require('../errors');
 
 function get(url) {
    return fetch(url)
-      .then(
-         checkHTTPStatusCode,
-         reason => { throw new errors.Network(reason.message); }
-      )
+      .catch(reason => { throw new errors.Network(reason.message); })
+      .then(checkHTTPStatusCode)
    ;
 }
 
 function getJSON(url) {
    return get(url)
-      .then(
-         response => response.json(),
-         error => { throw error; }
-      )
-      .catch(reason => { throw new errors.JSON(); })
-      //.then(json => { console.log(json); return json; })
+      .catch(reason => { console.log(reason); throw reason; })
+      .then(response => response.json().catch(reason => { throw new errors.JSON(); }))
    ;
 }
 
