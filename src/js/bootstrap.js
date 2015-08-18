@@ -7,10 +7,7 @@ var
    NotFoundPage = require('./components/Pages/NotFoundPage'),
 
    Router = require('react-router'),
-   Route = Router.Route,
-   RouteHandler = Router.RouteHandler,
-   DefaultRoute = Router.DefaultRoute,
-   NotFoundRoute = Router.NotFoundRoute,
+   {Route, RouteHandler, DefaultRoute, NotFoundRoute} = Router,
 
    trelloAPI = require('./data/trelloAPI')
 ;
