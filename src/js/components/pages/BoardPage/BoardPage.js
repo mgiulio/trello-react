@@ -16,28 +16,9 @@ var BoardPage = React.createClass({
    loadBoard: function(id) {
       data.getBoard(id)
          .then(board => {
-            this.setState({state: 'board', board: board});
+            this.replaceState({state: 'board', board: board});
          })
-         .catch(reason => {
-            switch (reason.type) {
-               case 'network':
-                  console.log('network');
-                  break;
-               case 'resource not found':
-                  console.log('resource');
-                  break;
-               default:
-            }
-            /*
-            if (reason instanceof errors.Network)
-               this.setState({state: 'failure'});
-            else if (reason instanceof .NotFoundError)
-               this.setState({state: 'not found'});
-            else if (reason instanceof Error )
-               console.log(reason.message);
-            */
-         })
-      ;
+         .catch(reason => { this.replaceState({state: 'failure', reason: reason}); })
    },
 
    getInitialState: function() {
@@ -74,7 +55,25 @@ var BoardPage = React.createClass({
             ];
             break;
          case 'failure':
-            content = <Failure msg="Loading failed" actionButton={{label: 'Retry', onClick: this.retry}} />;
+            var
+               reason = this.state.reason,
+               props = {}
+            ;
+
+            switch (reason.type) {
+               case 'network':
+                  props.msg = reason.message;
+                  props.actionButton = {label: 'Retry', onClick: this.retry};
+                  break;
+               case 'resource not found':
+                  props.msg = `Board #${this.props.params.id} not found`;
+                  break;
+               default:
+                  props.msg = reason.message || 'Unknown error';
+                  props.actionButton = {label: 'Retry', onClick: this.retry};
+            }
+
+            content = <Failure {...props} />;
             break;
          default:
             // throw exception?
@@ -89,8 +88,8 @@ var BoardPage = React.createClass({
    },
 
    retry: function() {
-      this.loadBoard(this.props.boardId);
-      this.setState({state: 'loading'});
+      this.loadBoard(this.props.params.id);
+      this.replaceState({state: 'loading'});
    },
 
    extractBoardMeta: function(b) {

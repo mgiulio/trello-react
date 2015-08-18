@@ -14,7 +14,7 @@ function getBoard(id) {
             case 'http':
                switch (reason.statusCode) {
                   case 400:
-                     throw {type: 'resource not found', message: `Board #${id} not found`};
+                     throw {type: 'resource not found'};
                   break;
                   default:
                      throw reason;

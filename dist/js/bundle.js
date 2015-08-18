@@ -22907,31 +22907,9 @@ var BoardPage = React.createClass({displayName: "BoardPage",
    loadBoard: function(id) {
       data.getBoard(id)
          .then(function(board)  {
-            this.setState({state: 'board', board: board});
+            this.replaceState({state: 'board', board: board});
          }.bind(this))
-         .catch(function(reason)  {
-            console.log(reason);
-            console.log(typeof reason);
-
-            switch (reason.type) {
-               case 'network':
-                  console.log('network');
-                  break;
-               case 'resource not found':
-                  console.log('resource');
-                  break;
-               default:
-            }
-            /*
-            if (reason instanceof errors.Network)
-               this.setState({state: 'failure'});
-            else if (reason instanceof .NotFoundError)
-               this.setState({state: 'not found'});
-            else if (reason instanceof Error )
-               console.log(reason.message);
-            */
-         })
-      ;
+         .catch(function(reason)  { this.replaceState({state: 'failure', reason: reason}); }.bind(this))
    },
 
    getInitialState: function() {
@@ -22968,7 +22946,25 @@ var BoardPage = React.createClass({displayName: "BoardPage",
             ];
             break;
          case 'failure':
-            content = React.createElement(Failure, {msg: "Loading failed", actionButton: {label: 'Retry', onClick: this.retry}});
+            var
+               reason = this.state.reason,
+               props = {}
+            ;
+
+            switch (reason.type) {
+               case 'network':
+                  props.msg = reason.message;
+                  props.actionButton = {label: 'Retry', onClick: this.retry};
+                  break;
+               case 'resource not found':
+                  props.msg = ("Board #" + this.props.params.id + " not found");
+                  break;
+               default:
+                  props.msg = reason.message || 'Unknown error';
+                  props.actionButton = {label: 'Retry', onClick: this.retry};
+            }
+
+            content = React.createElement(Failure, React.__spread({},  props));
             break;
          default:
             // throw exception?
@@ -22983,8 +22979,8 @@ var BoardPage = React.createClass({displayName: "BoardPage",
    },
 
    retry: function() {
-      this.loadBoard(this.props.boardId);
-      this.setState({state: 'loading'});
+      this.loadBoard(this.props.params.id);
+      this.replaceState({state: 'loading'});
    },
 
    extractBoardMeta: function(b) {
@@ -23488,7 +23484,7 @@ function getBoard(id) {
             case 'http':
                switch (reason.statusCode) {
                   case 400:
-                     throw {type: 'resource not found', message: ("Board #" + id + " not found")};
+                     throw {type: 'resource not found'};
                   break;
                   default:
                      throw reason;
