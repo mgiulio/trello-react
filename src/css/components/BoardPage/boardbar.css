@@ -1,6 +1,9 @@
 .board-name {
    margin: 0;
    padding: 10px;
+
+   height: 48px;
+   box-sizing: border-box;
 }
 
 .board-name, .board-meta {
