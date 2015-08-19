@@ -201,37 +201,6 @@ samp {
   font-size: 1em;
 }
 
-html {
-   //height: 100%;
-}
-
-body {
-   //height: 100%;
-}
-
-/*
-.app {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: nowrap;
-   height: 100%;
-}
-
-.app__body {
-   flex: 1 1 auto;
-   height: auto;
-   min-height: 0;
-
-   position: relative;
-}
-
-.app--board .app__body {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: nowrap;
-}
-*/
-
 a {
    text-decoration: none;
 }
@@ -656,37 +625,17 @@ body {
       opacity: 1;
    }
 }
-.board {
-   -webkit-box-flex: 1;
-   -webkit-flex: 1 1 auto;
-       -ms-flex: 1 1 auto;
-           flex: 1 1 auto;
-   height: auto;
-   min-height: 0;
-
-   display: -webkit-box;
-
-   display: -webkit-flex;
-
-   display: -ms-flexbox;
-
-   display: flex;
-   -webkit-box-orient: vertical;
-   -webkit-box-direction: normal;
-   -webkit-flex-direction: column;
-       -ms-flex-direction: column;
-           flex-direction: column;
-   -webkit-flex-wrap: nowrap;
-       -ms-flex-wrap: nowrap;
-           flex-wrap: nowrap;
-
-   background-position: 50% 50%;
+.board-page {
    background-size: cover;
+   background-position: 50% 50%;
 }
 
 .board-name {
    margin: 0;
    padding: 10px;
+
+   height: 48px;
+   box-sizing: border-box;
 }
 
 .board-name, .board-meta {
@@ -710,13 +659,8 @@ body {
       display: inline-block;
    }
 }
-.card-lists {
-   -webkit-box-flex: 1;
-   -webkit-flex: 1 1 auto;
-       -ms-flex: 1 1 auto;
-           flex: 1 1 auto;
-   height: auto;
-   min-height: 0;
+.board-page .card-lists {
+   height: calc(100vh - 40px - 48px);
    overflow-x: auto;
    overflow-y: hidden;
 

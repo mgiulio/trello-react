@@ -1,7 +1,5 @@
-.card-lists {
-   flex: 1 1 auto;
-   height: auto;
-   min-height: 0;
+.board-page .card-lists {
+   height: calc(100vh - 40px - 48px);
    overflow-x: auto;
    overflow-y: hidden;
 
