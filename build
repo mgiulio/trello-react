@@ -7,10 +7,10 @@ var
 
 //fs.emptyDirSync('dist');
 
-fs.copySync('src/index.html', 'dist/index.html');
+//fs.copySync('src/index.html', 'dist/index.html');
 //fs.copySync('src/img', 'dist/img');
 css();
-js();
+//js();
 
 function css() {
 	var input = fs.readFileSync('src/css/style.css', 'utf8');
@@ -33,7 +33,7 @@ function css() {
 		//to: 'app.css'
 	})
 	.then(function(result) {
-		fs.outputFileSync('dist/css/style.css', result.css); //fs.writeFileSync('dist/style.css', result.css);
+		fs.outputFileSync('dist/public/css/style.css', result.css); //fs.writeFileSync('dist/style.css', result.css);
 	});
 }
 

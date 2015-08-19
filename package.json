@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
+    "express": "^4.13.3",
     "flux": "^2.0.3",
     "fs-extra": "^0.20.1",
     "keymirror": "^0.1.1",
