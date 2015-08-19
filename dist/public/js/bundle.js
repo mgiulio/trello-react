@@ -22705,12 +22705,13 @@ bootstrap();
 function bootstrap() {
    trelloAPI.setAppKey('dc529cce071b9272f0226c46515d78e5');
 
-   var bp = window.location.pathname;
-   settings.basepath = bp[bp.length - 1] === '/' ?
+   var bp = '/'; //window.location.pathname;
+   settings.basepath = ''; /*bp[bp.length - 1] === '/' ?
       bp.slice(0, bp.length - 1)
    :
       bp
    ;
+   */
 
    var routes = (
       React.createElement(Route, {name: "home", path: bp, handler: App}, 
@@ -22722,6 +22723,7 @@ function bootstrap() {
    );
 
    Router.run(routes, Router.HistoryLocation, function(Root)  {
+      console.log(arguments);
       React.render(React.createElement(Root, null), document.body);
    })
 }
