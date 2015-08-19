@@ -3,5 +3,5 @@
    background-position: 50% 50%;
 }
 
-@import 'boardbar.css';
+@import 'board-info.css';
 @import 'card-lists.css';

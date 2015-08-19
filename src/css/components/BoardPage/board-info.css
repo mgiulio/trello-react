@@ -1,0 +1,42 @@
+.board-page .board-info {
+   height: 48px;
+   box-sizing: border-box;
+   padding: 5px 10px;
+
+   display: flex;
+   align-items: center;
+}
+
+.board-page .board-info > * {
+   margin: 0;
+   margin-right: 20px;
+   flex: 0 0 auto;
+}
+
+.board-page .board-info > *:last-child {
+   margin-right: 0;
+}
+
+.board-page .board-info .meta > * {
+   display: inline-block;
+   margin-right: 5px;
+}
+.board-page .board-info .meta > *:last-child {
+   margin-right: 0;
+}
+
+.board-page .board-info a {
+   color: gray(221);
+}
+.board-page .board-info a:hover {
+   color: gray(255);
+}
+
+@media screen and (max-width: 450px) {
+   .board-page .board-info {
+      flex-direction: column;
+   }
+   .board-page .board-info > * {
+      margin: 0;
+   }
+}

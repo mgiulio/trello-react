@@ -22881,9 +22881,9 @@ var BoardBar = React.createClass({displayName: "BoardBar",
          ;
 
          return (
-            React.createElement("div", {className: "boardbar"}, 
-               React.createElement("h2", {className: "board-name"}, React.createElement("a", {href: b.url}, b.name)), 
-               React.createElement("div", {className: "board-meta"}, 
+            React.createElement("div", {className: "board-info"}, 
+               React.createElement("h2", {className: "name"}, React.createElement("a", {href: b.url}, b.name)), 
+               React.createElement("div", {className: "meta"}, 
                   organization, 
                   React.createElement(MetaItem, {icon: "lock", className: "permission-level"}, b.permissionLevel), 
                   React.createElement(MetaItem, {icon: "summary", className: "list-count"}, b.numLists)
