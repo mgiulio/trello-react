@@ -13,7 +13,7 @@ var AboutPage = React.createClass({
       return (
          <div className="about-page">
             <header>
-               <h1 className="title">Trello React<span className="version">0.3</span></h1>
+               <h1 className="title">ReactTrello<span className="version">0.3</span></h1>
                <h2 className="subtitle">A <a href="http://trello.com">Trello</a> client <em>Thinked in <a href="https://facebook.github.io/react/index.html">React</a></em></h2>
             </header>
 
