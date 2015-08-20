@@ -7,8 +7,8 @@
 
    position: relative;
 
-   background-color: gray(180);
-   color: gray(218);
+   background-color: rgb(180,180,180);
+   color: rgb(218,218,218);
 }
 
 .about-page header {
@@ -23,7 +23,7 @@
    font-family: georgia;
    font-size: 40px;
 
-   color: gray(237);
+   color: rgb(237,237,237);
 }
 
 .about-page header .title .version {
@@ -31,7 +31,7 @@
    font-size: 0.4em;
    vertical-align: top;
 
-   color: gray(156);
+   color: rgb(156,156,156);
 }
 
 .about-page header .subtitle {
@@ -43,7 +43,7 @@
    font-style: italic;
    font-weight: normal;
 
-   color: gray(214);
+   color: rgb(214,214,214);
 }
 
 .about-page > .home {
@@ -54,12 +54,12 @@
    width: 40px;
    height: 40px;
 
-   fill: gray(218);
+   fill: rgb(218,218,218);
    transition: fill 0.3s ease-in;
 }
 
 .about-page > .home .home:hover {
-   fill: gray(255);
+   fill: rgb(255,255,255);
 }
 
 .about-page footer {
@@ -108,10 +108,10 @@
 }
 
 .about-page a {
-   color: gray(230);
+   color: rgb(230,230,230);
    transition: color 0.3s ease-in;
 }
 
 .about-page a:hover {
-   color: gray(255);
+   color: rgb(255,255,255);
 }

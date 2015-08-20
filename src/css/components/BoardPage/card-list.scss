@@ -9,8 +9,8 @@
    border-radius: 5px;
 
    background-color: #e5e5e5;
-   border: 1px solid gray(154);
-   color: gray(133);
+   border: 1px solid rgb(154,154,154);
+   color: rgb(133,133,133);
 }
 
 .list__name {
@@ -20,7 +20,7 @@
    font-family: verdana;
    font-size: 18px;
 
-   color: gray(128);
+   color: rgb(128,128,128);
 }
 
 .list .cards {
@@ -33,4 +33,4 @@
    overflow-y: auto;
 }
 
-@import 'card.css';
+@import 'card';

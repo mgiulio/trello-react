@@ -5,14 +5,37 @@ var
 	postcss = require('postcss')
 ;
 
-//fs.emptyDirSync('dist');
-
-//fs.copySync('src/index.html', 'dist/index.html');
-//fs.copySync('src/img', 'dist/img');
 css();
-//js();
 
 function css() {
+	var
+		inFile = 'src/css/style.scss',
+		outFile = 'dist/public/css/style.css',
+		sass = require('node-sass')
+	;
+
+	console.log('Start Sass on ' + inFile);
+
+	sass.render(
+		{
+  			file: inFile
+		},
+		function(err, result) {
+			if (err) {
+				console.log(err);
+			}
+			else {
+				console.log('Writing ' + outFile + '...');
+				fs.writeFile(outFile, result.css, function(err) {
+        			if(err) {
+          			console.log(err);
+        			}
+      		});
+			}
+		}
+	);
+
+	/*
 	var input = fs.readFileSync('src/css/style.css', 'utf8');
 
 	postcss([
@@ -35,12 +58,5 @@ function css() {
 	.then(function(result) {
 		fs.outputFileSync('dist/public/css/style.css', result.css); //fs.writeFileSync('dist/style.css', result.css);
 	});
-}
-
-function js() {
-	//fs.mkdir('dist/js');
-
-	// browserify api here
-	//fs.copySync('src/js', 'dist/js');
-	//fs.copySync('src/common/js/optiscroll.js/', 'dist/common/js/optiscroll.js');
+	*/
 }

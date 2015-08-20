@@ -1,5 +1,5 @@
 .home-page .boards {
-   height: calc(100vh - var(--toolbarHeight));
+   height: calc(100vh - 40px);
    overflow-y: auto;
 
    position: relative;
@@ -42,7 +42,7 @@
 
    text-transform: uppercase;
 
-   color: gray(206);
+   color: rgb(206,206,206);
 }
 
 .home-page .boards .group .items {
@@ -67,8 +67,8 @@
 
    border-radius: 5px;
 
-   background-color: gray(220);
-   color: gray(150);
+   background-color: rgb(220,220,220);
+   color: rgb(150,150,150);
 }
 
 .home-page .boards .group .items .item a {
@@ -78,17 +78,17 @@
 
    border-radius: 5px;
 
-   color: gray(150);
+   color: rgb(150,150,150);
 }
 
 .home-page .boards .group .items .item a:hover {
-   border: 1px solid gray(140);
-   color: gray(150);
+   border: 1px solid rgb(140,140,140);
+   color: rgb(150,150,150);
 }
 
 .home-page .boards .group .items .item a:focus {
    outline: none;
-   border: 1px solid gray(140);
+   border: 1px solid rgb(140,140,140);
 }
 
 .home-page .boards .group .items .item .title {

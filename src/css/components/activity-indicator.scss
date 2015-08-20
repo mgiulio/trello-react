@@ -6,7 +6,7 @@
    right: 0;
 
    background-color: rgba(0,0,0, 0.5);
-   color: gray(255);
+   color: rgb(255,255,255);
 
    //opacity: 0;
    //transition: opacity 0.5s;
@@ -19,4 +19,4 @@
    transform: translate(-50%);
 }
 
-@import 'hola-bars.css';
+@import 'hola-bars';

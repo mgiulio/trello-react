@@ -1,0 +1,16 @@
+/*
+ * General
+ */
+
+ .welcome {
+    color: rgb(221,221,221);
+ }
+
+ .welcome a {
+    color: rgb(250,250,250);
+ }
+ .welcome a:hover {
+    color: rgb(255,255,255);
+ }
+
+@import 'boards';

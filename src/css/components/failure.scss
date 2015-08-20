@@ -7,9 +7,9 @@
 
    border-radius: 5px;
 
-   background-color: gray(180);
-   color: gray(218);
-   border: 1px solid gray(150);
+   background-color: rgb(180,180,180);
+   color: rgb(218,218,218);
+   border: 1px solid rgb(250,250,250);
 }
 
 .failure .title {
@@ -39,17 +39,17 @@
    font-size: 14px;
    font-weight: bold;
 
-   background-color: gray(220);
-   color: gray(150);
-   border: 1px solid gray(150);
+   background-color: rgb(220,220,220);
+   color: rgb(150,150,150);
+   border: 1px solid rgb(150,150,150);
 }
 
 .failure .action .button:hover {
    cursor: pointer;
-   color: gray(255);
+   color: rgb(255, 255, 255);
 }
 
 .failure .action .button:focus {
    outline: none;
-   color: gray(255);
+   color: rgb(255, 255, 255);
 }

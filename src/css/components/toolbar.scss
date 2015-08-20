@@ -1,9 +1,9 @@
 .toolbar {
    box-sizing: border-box;
-   height: var(--toolbarHeight);
+   height: 40px;
    padding: 5px;
 
-   background-color: gray(115);
+   background-color: rgb(115, 115, 115);
 }
 
 .toolbar.translucent {
@@ -42,12 +42,12 @@
 }
 
 .toolbar a {
-   color: gray(225);
+   color: rgb(225, 225, 225);
    transition: color 0.2s ease-in;
 }
 
 .toolbar a:hover {
-   color: gray(255);
+   color: rgb(255, 255, 255);
 }
 
 @media screen and (min-width: 1000px) {

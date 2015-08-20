@@ -4,8 +4,8 @@
 
    border-radius: 5px;
 
-   background-color: gray(250);
-   color: gray(160);
+   background-color: rgb(250,250,250);
+   color: rgb(160,160,160);
    box-shadow: 0 1px 2px 0px rgba(0,0,0, 0.2);
 
    transition: box-shadow;
@@ -36,7 +36,7 @@
 
    font-size: 14px;
 
-   color: gray(200);
+   color: rgb(200,200,200);
 }
 
 .card__meta > * {
