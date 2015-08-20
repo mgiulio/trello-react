@@ -740,7 +740,7 @@ body {
     width: 600px;
     height: auto;
     margin: 10px auto;
-    border: 1px solid gray(150);
+    border: 1px solid #969696;
     border-radius: 5px; }
   .about-page footer {
     position: static;
