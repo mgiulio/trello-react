@@ -23570,7 +23570,7 @@ module.exports = {
 };
 },{}],214:[function(require,module,exports){
 var settings = {
-   'board background': false
+   'board background': true
 };
 
 module.exports = settings;
