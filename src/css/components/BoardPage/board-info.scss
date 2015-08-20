@@ -1,16 +1,17 @@
 .board-page .board-info {
-   height: $board-info-height;
-   box-sizing: border-box;
-   padding: 5px 10px;
+   flex: 0 0 auto;
+
+   padding: 10px;
 
    display: flex;
    align-items: center;
 }
 
 .board-page .board-info > * {
+   flex: 0 0 auto;
+
    margin: 0;
    margin-right: 20px;
-   flex: 0 0 auto;
 }
 
 .board-page .board-info > *:last-child {
@@ -38,5 +39,8 @@
    }
    .board-page .board-info > * {
       margin: 0;
+   }
+   .board-page .board-info .name {
+      margin-bottom: 10px;
    }
 }

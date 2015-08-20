@@ -183,7 +183,7 @@ body {
 .toolbar {
   box-sizing: border-box;
   height: 40px;
-  padding: 5px;
+  padding: 0 5px;
   background-color: #737373; }
 
 .toolbar.translucent {
@@ -490,13 +490,28 @@ body {
     opacity: 1; } }
 
 .board-page {
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
   background-size: cover;
   background-position: 50% 50%; }
 
 .board-page .board-info {
-  height: 48px;
-  box-sizing: border-box;
-  padding: 5px 10px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  padding: 10px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -507,12 +522,12 @@ body {
           align-items: center; }
 
 .board-page .board-info > * {
-  margin: 0;
-  margin-right: 20px;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
-          flex: 0 0 auto; }
+          flex: 0 0 auto;
+  margin: 0;
+  margin-right: 20px; }
 
 .board-page .board-info > *:last-child {
   margin-right: 0; }
@@ -538,10 +553,15 @@ body {
         -ms-flex-direction: column;
             flex-direction: column; }
   .board-page .board-info > * {
-    margin: 0; } }
+    margin: 0; }
+  .board-page .board-info .name {
+    margin-bottom: 10px; } }
 
 .board-page .card-lists {
-  height: calc(100vh - 88px);
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   overflow-x: auto;
   overflow-y: hidden;
   display: -webkit-box;

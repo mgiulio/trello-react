@@ -1,6 +1,10 @@
-$board-info-height: 48px;
-
 .board-page {
+   height: 100vh;
+
+   display: flex;
+   flex-direction: column;
+   flex-wrap: nowrap;
+
    background-size: cover;
    background-position: 50% 50%;
 }

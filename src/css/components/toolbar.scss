@@ -1,7 +1,9 @@
 .toolbar {
    box-sizing: border-box;
    height: 40px;
-   padding: 5px;
+   padding: 0 5px;
+
+   //flex: 0 0 auto;
 
    background-color: rgb(115, 115, 115);
 }
@@ -13,7 +15,6 @@
 .toolbar nav {
    height: 100%;
    display: flex;
-   //justify-content: space-between;
    align-items: center;
 
    position: relative;
