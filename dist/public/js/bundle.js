@@ -22883,10 +22883,10 @@ var BoardInfo = React.createClass({displayName: "BoardInfo",
          return (
             React.createElement("div", {className: "board-info"}, 
                React.createElement("h2", {className: "name"}, React.createElement("a", {href: b.url}, b.name)), 
-               React.createElement("div", {className: "meta"}, 
-                  organization, 
-                  React.createElement(MetaItem, {icon: "lock", className: "permission-level"}, b.permissionLevel), 
-                  React.createElement(MetaItem, {icon: "summary", className: "list-count"}, b.numLists)
+               React.createElement("ul", {className: "meta"}, 
+                  React.createElement("li", null, organization), 
+                  React.createElement("li", null, React.createElement(MetaItem, {icon: "lock", className: "permission-level"}, b.permissionLevel)), 
+                  React.createElement("li", null, React.createElement(MetaItem, {icon: "summary", className: "list-count"}, b.numLists))
                )
             )
          );

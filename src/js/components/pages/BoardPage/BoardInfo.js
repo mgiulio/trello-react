@@ -21,11 +21,11 @@ var BoardInfo = React.createClass({
          return (
             <div className="board-info">
                <h2 className="name"><a href={b.url}>{b.name}</a></h2>
-               <div className="meta">
-                  {organization}
-                  <MetaItem icon="lock" className="permission-level">{b.permissionLevel}</MetaItem>
-                  <MetaItem icon="summary" className="list-count">{b.numLists}</MetaItem>
-               </div>
+               <ul className="meta">
+                  <li>{organization}</li>
+                  <li><MetaItem icon="lock" className="permission-level">{b.permissionLevel}</MetaItem></li>
+                  <li><MetaItem icon="summary" className="list-count">{b.numLists}</MetaItem></li>
+               </ul>
             </div>
          );
       }
