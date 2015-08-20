@@ -1,5 +1,5 @@
 .board-page .card-lists {
-   height: calc(100vh - 40px - 48px);
+   height: calc(100vh - #{$toolbar-height + $board-info-height});
    overflow-x: auto;
    overflow-y: hidden;
 

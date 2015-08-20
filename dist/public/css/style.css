@@ -541,7 +541,7 @@ body {
     margin: 0; } }
 
 .board-page .card-lists {
-  height: calc(100vh - 40px - 48px);
+  height: calc(100vh - 88px);
   overflow-x: auto;
   overflow-y: hidden;
   display: -webkit-box;
