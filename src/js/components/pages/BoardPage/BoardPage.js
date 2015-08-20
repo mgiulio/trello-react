@@ -5,7 +5,7 @@ var
    data = require('../../../data/data'),
 
    Toolbar = require('../../Toolbar'),
-   BoardBar = require('./BoardBar'),
+   BoardInfo = require('./BoardInfo'),
    CardLists = require('./CardLists'),
    ActivityIndicator = require('../../ActivityIndicator'),
    Failure = require('../../Failure')
@@ -50,7 +50,7 @@ var BoardPage = React.createClass({
             }
 
             content = [
-               <BoardBar board={boardMeta} key={1} />,
+               <BoardInfo board={boardMeta} key={1} />,
                <CardLists lists={this.state.board.lists} key={2} />
             ];
             break;

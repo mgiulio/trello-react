@@ -3,7 +3,7 @@ var
    MetaItem = require('../../MetaItem')
 ;
 
-var BoardBar = React.createClass({
+var BoardInfo = React.createClass({
 
       render: function() {
          var b = this.props.board;
@@ -33,4 +33,4 @@ var BoardBar = React.createClass({
    })
 ;
 
-module.exports = BoardBar;
+module.exports = BoardInfo;

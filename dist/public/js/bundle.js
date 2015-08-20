@@ -22865,7 +22865,7 @@ var
    MetaItem = require('../../MetaItem')
 ;
 
-var BoardBar = React.createClass({displayName: "BoardBar",
+var BoardInfo = React.createClass({displayName: "BoardInfo",
 
       render: function() {
          var b = this.props.board;
@@ -22895,7 +22895,7 @@ var BoardBar = React.createClass({displayName: "BoardBar",
    })
 ;
 
-module.exports = BoardBar;
+module.exports = BoardInfo;
 },{"../../MetaItem":199,"react":194}],202:[function(require,module,exports){
 var
    React = require('react'),
@@ -22904,7 +22904,7 @@ var
    data = require('../../../data/data'),
 
    Toolbar = require('../../Toolbar'),
-   BoardBar = require('./BoardBar'),
+   BoardInfo = require('./BoardInfo'),
    CardLists = require('./CardLists'),
    ActivityIndicator = require('../../ActivityIndicator'),
    Failure = require('../../Failure')
@@ -22949,7 +22949,7 @@ var BoardPage = React.createClass({displayName: "BoardPage",
             }
 
             content = [
-               React.createElement(BoardBar, {board: boardMeta, key: 1}),
+               React.createElement(BoardInfo, {board: boardMeta, key: 1}),
                React.createElement(CardLists, {lists: this.state.board.lists, key: 2})
             ];
             break;
@@ -23012,7 +23012,7 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 });
 
 module.exports = BoardPage;
-},{"../../../data/data":210,"../../../settings":214,"../../ActivityIndicator":196,"../../Failure":197,"../../Toolbar":209,"./BoardBar":201,"./CardLists":205,"react":194}],203:[function(require,module,exports){
+},{"../../../data/data":210,"../../../settings":214,"../../ActivityIndicator":196,"../../Failure":197,"../../Toolbar":209,"./BoardInfo":201,"./CardLists":205,"react":194}],203:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
