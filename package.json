@@ -1,23 +1,23 @@
 {
-  "name": "trello-react",
-  "version": "",
-  "description": "",
-  "main": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Giulio 'mgiulio' Mainardi",
-  "license": "ISC",
-  "devDependencies": {
-    "autoprefixer-core": "^5.2.1",
-    "express": "^4.13.3",
-    "fs-extra": "^0.20.1",
-    "keymirror": "^0.1.1",
-    "node-sass": "^3.2.0",
-    "object-assign": "^3.0.0",
-    "postcss": "^4.1.13",
-    "react": "^0.13.3",
-    "react-router": "^0.13.3",
-    "reactify": "^1.1.1"
-  }
+   "name": "trello-react",
+   "description": "A Trello client thinked in React",
+   "version": "0.3",
+   "author": "Giulio 'mgiulio' Mainardi",
+   "license": "ISC",
+   "main": "dist/index.js",
+   "devDependencies": {
+      "autoprefixer-core": "^5.2.1",
+      "express": "^4.13.3",
+      "fs-extra": "^0.20.1",
+      "keymirror": "^0.1.1",
+      "node-sass": "^3.2.0",
+      "object-assign": "^3.0.0",
+      "postcss": "^4.1.13",
+      "react": "^0.13.3",
+      "react-router": "^0.13.3",
+      "reactify": "^1.1.1"
+   },
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   }
 }
