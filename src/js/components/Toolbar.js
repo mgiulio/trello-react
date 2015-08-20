@@ -17,7 +17,7 @@ var Toolbar = React.createClass({
       return (
          <header {...headerProps}>
             <nav>
-               <Link to="home" className="logo">App Logo</Link>
+               <Link to="home" className="logo">ReactTrello</Link>
                <Link to="about" className="about">About</Link>
             </nav>
          </header>

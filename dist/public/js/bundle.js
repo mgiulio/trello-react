@@ -23339,7 +23339,7 @@ var Toolbar = React.createClass({displayName: "Toolbar",
       return (
          React.createElement("header", React.__spread({},  headerProps), 
             React.createElement("nav", null, 
-               React.createElement(Link, {to: "home", className: "logo"}, "App Logo"), 
+               React.createElement(Link, {to: "home", className: "logo"}, "ReactTrello"), 
                React.createElement(Link, {to: "about", className: "about"}, "About")
             )
          )
