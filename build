@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 var
-	fs = require('fs-extra'),
-	postcss = require('postcss')
+	fs = require('fs-extra')
 ;
 
 css();
@@ -11,7 +10,8 @@ function css() {
 	var
 		inFile = 'src/css/style.scss',
 		outFile = 'dist/public/css/style.css',
-		sass = require('node-sass')
+		sass = require('node-sass'),
+		postcss = require('postcss')
 	;
 
 	console.log('Start Sass on ' + inFile);
@@ -25,38 +25,20 @@ function css() {
 				console.log(err);
 			}
 			else {
-				console.log('Writing ' + outFile + '...');
-				fs.writeFile(outFile, result.css, function(err) {
-        			if(err) {
-          			console.log(err);
-        			}
-      		});
+				console.log('Autoprefixer...');
+				postcss([
+					require('autoprefixer-core')()
+				])
+				.process(result.css, {
+				})
+				.then(function(result) {
+					fs.outputFileSync(outFile, result.css); //fs.writeFileSync('dist/style.css', result.css);
+				})
+				.catch(function() {
+					console.log(argumentss);
+				})
+				;
 			}
 		}
 	);
-
-	/*
-	var input = fs.readFileSync('src/css/style.css', 'utf8');
-
-	postcss([
-		require('postcss-inline-comment')(),
-		require('postcss-import')({
-			path: 'src/css'
-		}),
-		require('postcss-custom-properties')(),
-		require('postcss-calc')({
-			preserve: false,
-			precision: 5
-		}),
-		require('postcss-color-gray')(),
-		require('autoprefixer-core')()
-	])
-	.process(input, {
-		//from: 'src/app.css',
-		//to: 'app.css'
-	})
-	.then(function(result) {
-		fs.outputFileSync('dist/public/css/style.css', result.css); //fs.writeFileSync('dist/style.css', result.css);
-	});
-	*/
 }
