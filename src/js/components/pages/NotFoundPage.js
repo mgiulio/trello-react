@@ -13,7 +13,7 @@ var NotFoundPage = React.createClass({
       return (
          <div className="notfound-page">
             <header>
-               <h1 className="title">Not Found</h1>
+               <h1 className="title">Page Not Found</h1>
             </header>
 
             <p className="home">

@@ -23306,7 +23306,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
       return (
          React.createElement("div", {className: "notfound-page"}, 
             React.createElement("header", null, 
-               React.createElement("h1", {className: "title"}, "Not Found")
+               React.createElement("h1", {className: "title"}, "Page Not Found")
             ), 
 
             React.createElement("p", {className: "home"}, 

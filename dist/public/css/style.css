@@ -756,3 +756,20 @@ body {
 
 .about-page a:hover {
   color: white; }
+
+.notfound-page .title {
+  text-align: center;
+  color: #7f7f7f; }
+
+.notfound-page > .home {
+  text-align: center; }
+
+.notfound-page > .home .home {
+  width: 40px;
+  height: 40px;
+  fill: #dadada;
+  -webkit-transition: fill 0.3s ease-in;
+          transition: fill 0.3s ease-in; }
+
+.notfound-page > .home .home:hover {
+  fill: white; }
