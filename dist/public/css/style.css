@@ -354,18 +354,6 @@ body {
   outline: none;
   color: white; }
 
-/*
- * General
- */
-.welcome {
-  color: #dddddd; }
-
-.welcome a {
-  color: #fafafa; }
-
-.welcome a:hover {
-  color: white; }
-
 .home-page .boards {
   height: calc(100vh - 40px);
   overflow-y: auto;
