@@ -587,6 +587,15 @@ body {
       -ms-flex-align: start;
           align-items: flex-start; }
 
+.board-page .card-lists::after {
+  content: '.';
+  width: 0px;
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+      -ms-flex: none;
+          flex: none;
+  color: transparent; }
+
 .list {
   -webkit-box-flex: 0;
   -webkit-flex: none;

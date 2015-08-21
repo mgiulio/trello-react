@@ -10,4 +10,11 @@
    align-items: flex-start;
 }
 
+.board-page .card-lists::after {
+   content: '.';
+   width: 0px;
+   flex: none;
+   color: rgba(0,0,0,0);
+}
+
 @import 'card-list';
