@@ -22778,9 +22778,12 @@ var
 
    trelloAPI = require('./data/trelloAPI'),
    settings = require('./settings')
+   //,lifeCycleSpy = require('./mixins/lifeCycleSpy')
 ;
 
 var App = React.createClass({displayName: "App",
+
+   //mixins: [lifeCycleSpy],
 
    render: function() {
       return (
@@ -22815,7 +22818,6 @@ function bootstrap() {
    );
 
    Router.run(routes, Router.HistoryLocation, function(Root)  {
-      console.log(arguments);
       React.render(React.createElement(Root, null), document.body);
    })
 }
@@ -23253,9 +23255,12 @@ var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
    HomePageBoards = require('./HomePageBoards')
+   //, lifeCycleSpy = require('../../../mixins/lifeCycleSpy')
 ;
 
 var HomePage = React.createClass({displayName: "HomePage",
+
+   //mixins: [lifeCycleSpy],
 
    render: function() {
       return (

@@ -11,9 +11,12 @@ var
 
    trelloAPI = require('./data/trelloAPI'),
    settings = require('./settings')
+   //,lifeCycleSpy = require('./mixins/lifeCycleSpy')
 ;
 
 var App = React.createClass({
+
+   //mixins: [lifeCycleSpy],
 
    render: function() {
       return (
@@ -48,7 +51,6 @@ function bootstrap() {
    );
 
    Router.run(routes, Router.HistoryLocation, (Root) => {
-      console.log(arguments);
       React.render(<Root/>, document.body);
    })
 }
