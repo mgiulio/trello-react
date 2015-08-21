@@ -208,8 +208,9 @@ body {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-family: verdana, sans-serif;
-  font-weight: bold; }
+  font-family: cursive;
+  font-size: 20px;
+  font-weight: normal; }
 
 .toolbar .about {
   -webkit-box-flex: 0;
