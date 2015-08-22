@@ -1,14 +1,14 @@
 @import 'normalize-lite';
-
-@import 'common-styles';
 @import 'colors';
+@import 'common-styles';
 
 @import 'components/meta-items';
 @import 'components/toolbar';
 @import 'components/activity-indicator';
 @import 'components/failure';
-
 @import 'components/HomePage/home-page';
 @import 'components/BoardPage/board-page';
 @import 'components/about-page';
 @import 'components/notfound-page';
+
+@import 'skin';

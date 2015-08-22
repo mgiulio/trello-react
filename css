@@ -33,13 +33,13 @@ function css() {
 				.process(result.css, {
 				})
 				.then(function(result) {
-					console.log('CleanCSS')
-					var CleanCSS = require('clean-css...');
+					console.log('CleanCSS...')
+					var CleanCSS = require('clean-css');
 					var minifiedCSS = new CleanCSS().minify(result.css).styles;
 					fs.outputFileSync(outFile, minifiedCSS); //fs.writeFileSync('dist/style.css', result.css);
 				})
 				.catch(function() {
-					console.log(argumentss);
+					console.log(arguments);
 				})
 				;
 			}
