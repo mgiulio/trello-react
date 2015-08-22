@@ -1,3 +1,42 @@
-.app {
+body, .app {
    background: color(grey);
+}
+
+.about-page {
+   background-color: lighten(color(grey), 5%);
+   color: rgb(218,218,218);
+}
+
+.about-page header .title {
+   color: rgb(237,237,237);
+}
+
+.about-page header .title .version {
+   color: rgb(156,156,156);
+}
+
+.about-page header .subtitle {
+   color: rgb(214,214,214);
+}
+
+.about-page > .home .home {
+   fill: rgb(218,218,218);
+   transition: fill 0.3s ease-in;
+}
+
+.about-page > .home .home:hover {
+   fill: rgb(255,255,255);
+}
+
+.about-page footer .credits .hearts {
+   color: color(red);
+}
+
+.about-page a {
+   color: rgb(230,230,230);
+   transition: color 0.3s ease-in;
+}
+
+.about-page a:hover {
+   color: rgb(255,255,255);
 }
