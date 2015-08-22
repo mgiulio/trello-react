@@ -1,10 +1,28 @@
 {
   "name": "ReactTrello",
+  "version": "0.3.0",
   "description": "A Trello client thinked in React",
-  "version": "",
-  "author": "Giulio 'mgiulio' Mainardi",
+  "keywords": [
+    "JavaScript",
+    "SPA",
+    "Node.js",
+    "application"
+  ],
+  "author": {
+    "name": "Giulio 'mgiulio' Mainardi",
+    "url": "http://mgiulio.github.io/"
+  },
+  "homepage": "http://reacttrello-mgiulio.rhcloud.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgiulio/trello-react"
+  },
   "license": "ISC",
-  "main": "dist/index.js",
+  "private": true,
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js"
+   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "clean-css": "^3.3.9",
@@ -19,7 +37,8 @@
     "reactify": "^1.1.1",
     "uglify-js": "^2.4.24"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
   }
 }
