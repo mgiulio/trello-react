@@ -5,46 +5,39 @@ body, .app {
 .about-page {
    background-color: lighten(color(grey), 5%);
    color: rgb(218,218,218);
-}
-
-.about-page header .title {
-   color: rgb(237,237,237);
-}
-
-.about-page header .title .version {
-   color: rgb(156,156,156);
-}
-
-.about-page header .subtitle {
-   color: rgb(214,214,214);
-}
-
-.about-page > .home .home {
-   fill: rgb(218,218,218);
-   transition: fill 0.3s ease-in;
-}
-
-.about-page > .home .home:hover {
-   fill: rgb(255,255,255);
-}
-
-.about-page footer .credits .hearts {
-   color: color(red);
-}
-
-.about-page a {
-   color: rgb(230,230,230);
-   transition: color 0.3s ease-in;
-}
-
-.about-page a:hover {
-   color: rgb(255,255,255);
+   header {
+      .title {
+         color: rgb(237,237,237);
+      }
+      .title .version {
+         color: rgb(156,156,156);
+      }
+      .subtitle {
+         color: rgb(214,214,214);
+      }
+   }
+   & > .home .home {
+      fill: rgb(218,218,218);
+      transition: fill 0.3s ease-in;
+      &:hover {
+         fill: rgb(255,255,255);
+      }
+   }
+   footer .credits .hearts {
+      color: color(red);
+   }
+   a {
+      color: rgb(230,230,230);
+      transition: color 0.3s ease-in;
+      &:hover {
+         color: rgb(255,255,255);
+      }
+   }
 }
 
 .toolbar {
    background-color: color(fossil);
-}
-
-.toolbar.translucent {
-   background-color: rgba(50,50,50, 0.5);
+   &.translucent {
+      background-color: rgba(50,50,50, 0.5);
+   }
 }
