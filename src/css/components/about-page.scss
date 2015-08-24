@@ -73,12 +73,16 @@
    .about .page {
       width: 600px;
       height: auto;
-      margin: 10px auto;
+      margin: 0 auto;
       border: 1px solid rgb(150, 150, 150);
       border-radius: 5px;
       footer {
          position: static;
          margin: 40px 0 0;
       }
+   }
+
+   .about .app {
+      padding-top: 10px;
    }
 }
