@@ -50,7 +50,18 @@ function bootstrap() {
       </Route>
    );
 
-   Router.run(routes, Router.HistoryLocation, (Root) => {
+   Router.run(routes, Router.HistoryLocation, (Root, state) => {
+      docElemClasses(state.pathname);
+
       React.render(<Root/>, document.body);
    })
+}
+
+function docElemClasses(path) {
+   var pathSegments = path.split(/\//);
+   var className = pathSegments[1];
+   if (className === '')
+      className = 'home';
+
+   document.documentElement.className = className;
 }
