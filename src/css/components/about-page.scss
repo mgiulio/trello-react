@@ -4,71 +4,69 @@
    box-sizing: border-box;
    overflow-x: hidden;
    overflow-y: auto;
-
    position: relative;
-}
 
-.about .page header {
-   margin-bottom: 60px;
-}
+   p {
+      line-height: 1.5;
+   }
 
-.about .page header .title {
-   margin: 0;
-   margin-bottom: 20px;
-   text-align: center;
+   header {
+      margin-bottom: 60px;
+      .title {
+         margin: 0;
+         margin-bottom: 20px;
+         text-align: center;
 
-   font-family: georgia;
-   font-size: 40px;
-}
+         font-family: georgia;
+         font-size: 40px;
 
-.about .page header .title .version {
-   font-family: Georgia;
-   font-size: 0.4em;
-   vertical-align: top;
-}
+         .version {
+            font-family: Georgia;
+            font-size: 0.4em;
+            vertical-align: top;
+         }
+      }
+      .subtitle {
+         margin: 10px 0 0;
+         text-align: center;
 
-.about .page header .subtitle {
-   margin: 10px 0 0;
-   text-align: center;
+         font-family: georgia;
+         font-size: 16px;
+         font-style: italic;
+         font-weight: normal;
+      }
+   }
 
-   font-family: georgia;
-   font-size: 16px;
-   font-style: italic;
-   font-weight: normal;
-}
+   & > .home {
+      text-align: center;
+      .home {
+         width: 40px;
+         height: 40px;
+      }
+   }
 
-.about .page > .home {
-   text-align: center;
-}
+   footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-bottom: 5px;
+      .credits {
+         margin: 0;
+         text-align: center;
 
-.about .page > .home .home {
-   width: 40px;
-   height: 40px;
-}
+         text-transform: uppercase;
+         font-size: 10px;
 
-.about .page footer {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   margin-bottom: 5px;
-}
+         position: relative;
+         .hearts {
+            font-size: 1.4em;
 
-.about .page footer .credits {
-   margin: 0;
-   text-align: center;
-
-   text-transform: uppercase;
-   font-size: 10px;
-
-   position: relative;
-}
-
-.about .page footer .credits .hearts {
-   font-size: 1.4em;
-
-   position: relative;
-   top: 1px;
+            position: relative;
+            top: 1px;
+         }
+      }
+   }
 }
 
 @media screen and (min-width: 620px) {
@@ -78,14 +76,9 @@
       margin: 10px auto;
       border: 1px solid rgb(150, 150, 150);
       border-radius: 5px;
+      footer {
+         position: static;
+         margin: 40px 0 0;
+      }
    }
-
-   .about .page footer {
-      position: static;
-      margin: 40px 0 0;
-   }
-}
-
-.about .page p {
-   line-height: 1.5;
 }
