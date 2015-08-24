@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 var
-	fs = require('fs-extra')
+	fs = require('fs-extra'),
+	inFile = 'src/js/bootstrap.js',
+	outFile = 'dist/public/js/bundle.js'
 ;
 
 try {
@@ -11,33 +13,50 @@ try {
 }
 
 function js() {
-	var
-		inFile = 'src/js/bootstrap.js',
-		outFile = 'dist/public/js/bundle.js',
-		browserify = require('browserify')
+	browserify(inFile)
+	.then(minify)
+	.then(save)
+	.catch(function(err) {
+		console.log(err);
+	})
 	;
+}
 
-	console.log('Browserify ' + inFile);
-   browserify(inFile)
-      .transform('reactify', {es6: true, harmony: true})
-      .bundle(function(err, buff) {
-			if (err)
-				throw err;
+function browserify(inFile) {
+	return new Promise(function(resolve, reject) {
+		console.log('Browserify ' + inFile);
 
-			var unminifiedCode = buff.toString();
-			// lenght?
+		var browserify = require('browserify');
 
-			/*
-			console.log('Uglify...');
-			var UglifyJS = require('uglify-js');
-         var result = UglifyJS.minify(unminifiedCode, {fromString: true});
-			var minifiedCode = result.code;
-			*/
+		browserify(inFile)
+	      .transform('reactify', {es6: true, harmony: true})
+	      .bundle(function(err, buff) {
+				if (err)
+					reject(err);
+				resolve(buff.toString());
+			})
+		;
+	});
+}
 
-			minifiedCode = unminifiedCode;
+function minify(codeString) {
+	return new Promise(function(resolve, reject) {
+		console.log('Uglify...');
 
-			console.log('Write to ' + outFile);
-			fs.outputFileSync(outFile, minifiedCode);
-      })
-   ;
+		var UglifyJS = require('uglify-js');
+
+		var unminifiedCodeSize = codeString.length;
+		console.log('Unminified code size: ' + unminifiedCodeSize + ' characters');
+		var result = UglifyJS.minify(codeString, {fromString: true});
+		var minifiedCode = result.code;
+		var minifiedCodeSize = minifiedCode.length;
+		console.log('minififed code size: ' + minifiedCodeSize +  ' characters, ' + Math.round(minifiedCodeSize / unminifiedCodeSize * 100) + '%');
+
+		resolve(minifiedCode);
+	});
+}
+
+function save(codeString) {
+	console.log('Saving ' + outFile);
+	fs.outputFileSync(outFile, codeString);
 }
