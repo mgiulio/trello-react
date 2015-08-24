@@ -22778,12 +22778,12 @@ var
 
    trelloAPI = require('./data/trelloAPI'),
    settings = require('./settings')
-   //,lifeCycleSpy = require('./mixins/lifeCycleSpy')
+   ,lifeCycleSpy = require('./mixins/lifeCycleSpy')
 ;
 
 var App = React.createClass({displayName: "App",
 
-   //mixins: [lifeCycleSpy],
+   mixins: [lifeCycleSpy],
 
    render: function() {
       return (
@@ -22832,7 +22832,7 @@ function docElemClasses(path) {
 
    document.documentElement.className = className;
 }
-},{"./components/Pages/AboutPage":201,"./components/Pages/BoardPage/BoardPage":203,"./components/Pages/HomePage/HomePage":207,"./components/Pages/NotFoundPage":209,"./data/trelloAPI":213,"./settings":215,"react":195,"react-router":26}],197:[function(require,module,exports){
+},{"./components/Pages/AboutPage":201,"./components/Pages/BoardPage/BoardPage":203,"./components/Pages/HomePage/HomePage":207,"./components/Pages/NotFoundPage":209,"./data/trelloAPI":213,"./mixins/lifeCycleSpy":215,"./settings":216,"react":195,"react-router":26}],197:[function(require,module,exports){
 var React = require('react');
 
 var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
@@ -22904,7 +22904,7 @@ var Icon = React.createClass({displayName: "Icon",
 });
 
 module.exports = Icon;
-},{"../settings":215,"react":195}],200:[function(require,module,exports){
+},{"../settings":216,"react":195}],200:[function(require,module,exports){
 var
    React = require('react'),
    Icon = require('./Icon')
@@ -23117,7 +23117,7 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 });
 
 module.exports = BoardPage;
-},{"../../../data/data":211,"../../../settings":215,"../../ActivityIndicator":197,"../../Failure":198,"../../Toolbar":210,"./BoardInfo":202,"./CardLists":206,"react":195}],204:[function(require,module,exports){
+},{"../../../data/data":211,"../../../settings":216,"../../ActivityIndicator":197,"../../Failure":198,"../../Toolbar":210,"./BoardInfo":202,"./CardLists":206,"react":195}],204:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
@@ -23558,7 +23558,7 @@ module.exports = {
    getHomeBoards: getHomeBoards,
    getBoard: getBoard
 };
-},{"../lib/util":214,"../settings":215,"./http":212,"./trelloAPI":213}],212:[function(require,module,exports){
+},{"../lib/util":214,"../settings":216,"./http":212,"./trelloAPI":213}],212:[function(require,module,exports){
 function get(url) {
    return fetch(url)
       .catch(function(reason)  { throw {type: 'network', message: reason.message}; })
@@ -23677,6 +23677,27 @@ module.exports = {
 	formatDate: formatDate
 };
 },{}],215:[function(require,module,exports){
+var lifeCycleSpy = [
+   'componentWillMount',
+   'componentDidMount',
+   'componentWillUnmount',
+   'componentWillReceiveProps',
+   'shouldComponentUpdate',
+   'componentWillUpdate',
+   'componentDidUpdate'
+   ].reduce(
+      function(o, m)  {
+         o[m] = function() {
+            console.log((this.constructor.displayName + "::" + m + ": "), arguments);
+            return true; // for componentShouldUpdate()
+         };
+         return o;
+      }.bind(this),
+      {}
+   );
+
+module.exports = lifeCycleSpy;
+},{}],216:[function(require,module,exports){
 var settings = {
    'board background': true
 };

@@ -11,12 +11,12 @@ var
 
    trelloAPI = require('./data/trelloAPI'),
    settings = require('./settings')
-   //,lifeCycleSpy = require('./mixins/lifeCycleSpy')
+   ,lifeCycleSpy = require('./mixins/lifeCycleSpy')
 ;
 
 var App = React.createClass({
 
-   //mixins: [lifeCycleSpy],
+   mixins: [lifeCycleSpy],
 
    render: function() {
       return (

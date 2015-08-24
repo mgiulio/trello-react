@@ -2,11 +2,19 @@ var lifeCycleSpy = [
    'componentWillMount',
    'componentDidMount',
    'componentWillUnmount',
-   'componentWillReceiveProps'
+   'componentWillReceiveProps',
+   'shouldComponentUpdate',
+   'componentWillUpdate',
+   'componentDidUpdate'
    ].reduce(
-      (o, m) => { o[m] = function() { console.log(`${m}: `, arguments, this); }; return o; },
+      (o, m) => {
+         o[m] = function() {
+            console.log(`${this.constructor.displayName}::${m}: `, arguments);
+            return true; // for componentShouldUpdate()
+         };
+         return o;
+      },
       {}
    );
-console.log(lifeCycleSpy);
 
 module.exports = lifeCycleSpy;
