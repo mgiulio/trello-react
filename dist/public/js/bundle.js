@@ -22942,7 +22942,7 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 
    render: function() {
       return (
-         React.createElement("div", {className: "about-page"}, 
+         React.createElement("div", {className: "page"}, 
             React.createElement("header", null, 
                React.createElement("h1", {className: "title"}, "ReactTrello", React.createElement("span", {className: "version"}, "0.3")), 
                React.createElement("h2", {className: "subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React")))

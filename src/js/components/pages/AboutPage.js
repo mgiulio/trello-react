@@ -11,7 +11,7 @@ var AboutPage = React.createClass({
 
    render: function() {
       return (
-         <div className="about-page">
+         <div className="page">
             <header>
                <h1 className="title">ReactTrello<span className="version">0.3</span></h1>
                <h2 className="subtitle">A <a href="http://trello.com">Trello</a> client <em>Thinked in <a href="https://facebook.github.io/react/index.html">React</a></em></h2>

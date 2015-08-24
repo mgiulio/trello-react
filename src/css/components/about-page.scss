@@ -1,4 +1,4 @@
-.about-page {
+.about .page {
    padding: 10px;
    height: 100vh;
    box-sizing: border-box;
@@ -8,11 +8,11 @@
    position: relative;
 }
 
-.about-page header {
+.about .page header {
    margin-bottom: 60px;
 }
 
-.about-page header .title {
+.about .page header .title {
    margin: 0;
    margin-bottom: 20px;
    text-align: center;
@@ -21,13 +21,13 @@
    font-size: 40px;
 }
 
-.about-page header .title .version {
+.about .page header .title .version {
    font-family: Georgia;
    font-size: 0.4em;
    vertical-align: top;
 }
 
-.about-page header .subtitle {
+.about .page header .subtitle {
    margin: 10px 0 0;
    text-align: center;
 
@@ -37,16 +37,16 @@
    font-weight: normal;
 }
 
-.about-page > .home {
+.about .page > .home {
    text-align: center;
 }
 
-.about-page > .home .home {
+.about .page > .home .home {
    width: 40px;
    height: 40px;
 }
 
-.about-page footer {
+.about .page footer {
    position: absolute;
    bottom: 0;
    left: 0;
@@ -54,7 +54,7 @@
    margin-bottom: 5px;
 }
 
-.about-page footer .credits {
+.about .page footer .credits {
    margin: 0;
    text-align: center;
 
@@ -64,7 +64,7 @@
    position: relative;
 }
 
-.about-page footer .credits .hearts {
+.about .page footer .credits .hearts {
    font-size: 1.4em;
 
    position: relative;
@@ -72,7 +72,7 @@
 }
 
 @media screen and (min-width: 620px) {
-   .about-page {
+   .about .page {
       width: 600px;
       height: auto;
       margin: 10px auto;
@@ -80,12 +80,12 @@
       border-radius: 5px;
    }
 
-   .about-page footer {
+   .about .page footer {
       position: static;
       margin: 40px 0 0;
    }
 }
 
-.about-page p {
+.about .page p {
    line-height: 1.5;
 }
