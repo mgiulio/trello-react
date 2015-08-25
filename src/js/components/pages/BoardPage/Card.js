@@ -1,9 +1,12 @@
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var Card = React.createClass({
+
+   mixins: mixins(),
 
    render: function() {
       var c = this.props.card;

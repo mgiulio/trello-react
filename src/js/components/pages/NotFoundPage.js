@@ -5,9 +5,12 @@ var
 
    Router = require('react-router'),
    Link = Router.Link
+   ,mixins = require('../../mixins/mixins')
 ;
 
 var NotFoundPage = React.createClass({
+
+   mixins: mixins(),
 
    render: function() {
       return (

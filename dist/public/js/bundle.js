@@ -22833,9 +22833,15 @@ function docElemClasses(path) {
    document.documentElement.className = className;
 }
 },{"./components/Pages/AboutPage":201,"./components/Pages/BoardPage/BoardPage":203,"./components/Pages/HomePage/HomePage":207,"./components/Pages/NotFoundPage":209,"./data/trelloAPI":213,"./mixins/mixins":215,"./settings":216,"react":195,"react-router":26}],197:[function(require,module,exports){
-var React = require('react');
+var
+   React = require('react')
+   ,mixins = require('../mixins/mixins')
+;
+
 
 var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
+
+   mixins: mixins(),
 
    render: function() {
       return (
@@ -22854,12 +22860,15 @@ var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
 });
 
 module.exports = ActivityIndicator;
-},{"react":195}],198:[function(require,module,exports){
+},{"../mixins/mixins":215,"react":195}],198:[function(require,module,exports){
 var
    React = require('react')
+   ,mixins = require('../mixins/mixins')
 ;
 
 var Failure = React.createClass({displayName: "Failure",
+
+   mixins: mixins(),
 
    componentDidUpdate: function() {
       React.findDOMNode(this).querySelector('.action .button').focus();
@@ -22884,13 +22893,16 @@ var Failure = React.createClass({displayName: "Failure",
 });
 
 module.exports = Failure;
-},{"react":195}],199:[function(require,module,exports){
+},{"../mixins/mixins":215,"react":195}],199:[function(require,module,exports){
 var
    React = require('react'),
    settings = require('../settings')
+   ,mixins = require('../mixins/mixins')
 ;
 
 var Icon = React.createClass({displayName: "Icon",
+
+   mixins: mixins(),
 
    render: function() {
       return (
@@ -22904,13 +22916,16 @@ var Icon = React.createClass({displayName: "Icon",
 });
 
 module.exports = Icon;
-},{"../settings":216,"react":195}],200:[function(require,module,exports){
+},{"../mixins/mixins":215,"../settings":216,"react":195}],200:[function(require,module,exports){
 var
    React = require('react'),
    Icon = require('./Icon')
+   ,mixins = require('../mixins/mixins')
 ;
 
 var MetaItem = React.createClass({displayName: "MetaItem",
+
+   mixins: mixins(),
 
    render: function() {
          var label;
@@ -22928,7 +22943,7 @@ var MetaItem = React.createClass({displayName: "MetaItem",
 });
 
 module.exports = MetaItem;
-},{"./Icon":199,"react":195}],201:[function(require,module,exports){
+},{"../mixins/mixins":215,"./Icon":199,"react":195}],201:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -22936,15 +22951,18 @@ var
 
    Router = require('react-router'),
    Link = Router.Link
+   ,mixins = require('../../mixins/mixins')
 ;
 
 var AboutPage = React.createClass({displayName: "AboutPage",
+
+   mixins: mixins(),
 
    render: function() {
       return (
          React.createElement("div", {className: "page"}, 
             React.createElement("header", null, 
-               React.createElement("h1", {className: "title"}, "ReactTrello", React.createElement("span", {className: "version"}, "0.3")), 
+               React.createElement("h1", {className: "title"}, "ReactTrello", React.createElement("span", {className: "version"}, "0.4")), 
                React.createElement("h2", {className: "subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React")))
             ), 
 
@@ -22964,13 +22982,16 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 });
 
 module.exports = AboutPage;
-},{"../Icon":199,"react":195,"react-router":26}],202:[function(require,module,exports){
+},{"../../mixins/mixins":215,"../Icon":199,"react":195,"react-router":26}],202:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var BoardInfo = React.createClass({displayName: "BoardInfo",
+
+   mixins: mixins(),
 
       render: function() {
          var b = this.props.board;
@@ -23001,7 +23022,7 @@ var BoardInfo = React.createClass({displayName: "BoardInfo",
 ;
 
 module.exports = BoardInfo;
-},{"../../MetaItem":200,"react":195}],203:[function(require,module,exports){
+},{"../../../mixins/mixins":215,"../../MetaItem":200,"react":195}],203:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -23013,9 +23034,12 @@ var
    CardLists = require('./CardLists'),
    ActivityIndicator = require('../../ActivityIndicator'),
    Failure = require('../../Failure')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var BoardPage = React.createClass({displayName: "BoardPage",
+
+   mixins: mixins(),
 
    loadBoard: function(id) {
       data.getBoard(id)
@@ -23117,13 +23141,16 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 });
 
 module.exports = BoardPage;
-},{"../../../data/data":211,"../../../settings":216,"../../ActivityIndicator":197,"../../Failure":198,"../../Toolbar":210,"./BoardInfo":202,"./CardLists":206,"react":195}],204:[function(require,module,exports){
+},{"../../../data/data":211,"../../../mixins/mixins":215,"../../../settings":216,"../../ActivityIndicator":197,"../../Failure":198,"../../Toolbar":210,"./BoardInfo":202,"./CardLists":206,"react":195}],204:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var Card = React.createClass({displayName: "Card",
+
+   mixins: mixins(),
 
    render: function() {
       var c = this.props.card;
@@ -23161,13 +23188,16 @@ var Card = React.createClass({displayName: "Card",
 });
 
 module.exports = Card;
-},{"../../MetaItem":200,"react":195}],205:[function(require,module,exports){
+},{"../../../mixins/mixins":215,"../../MetaItem":200,"react":195}],205:[function(require,module,exports){
 var
    React = require('react'),
    Card = require('./Card')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var CardList = React.createClass({displayName: "CardList",
+
+   mixins: mixins(),
 
    render: function() {
       var l = this.props.list;
@@ -23203,14 +23233,17 @@ var CardList = React.createClass({displayName: "CardList",
 });
 
 module.exports = CardList;
-},{"./Card":204,"react":195}],206:[function(require,module,exports){
+},{"../../../mixins/mixins":215,"./Card":204,"react":195}],206:[function(require,module,exports){
 var
    React = require('react'),
    CardList = require('./CardList'),
    util = require('../../../lib/util')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var CardLists = React.createClass({displayName: "CardLists",
+
+   mixins: mixins(),
 
    getInitialState: function() {
       return {
@@ -23261,7 +23294,7 @@ var CardLists = React.createClass({displayName: "CardLists",
 });
 
 module.exports = CardLists;
-},{"../../../lib/util":214,"./CardList":205,"react":195}],207:[function(require,module,exports){
+},{"../../../lib/util":214,"../../../mixins/mixins":215,"./CardList":205,"react":195}],207:[function(require,module,exports){
 var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
@@ -23409,9 +23442,12 @@ var
 
    Router = require('react-router'),
    Link = Router.Link
+   ,mixins = require('../../mixins/mixins')
 ;
 
 var NotFoundPage = React.createClass({displayName: "NotFoundPage",
+
+   mixins: mixins(),
 
    render: function() {
       return (
@@ -23430,7 +23466,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 });
 
 module.exports = NotFoundPage;
-},{"../Icon":199,"react":195,"react-router":26}],210:[function(require,module,exports){
+},{"../../mixins/mixins":215,"../Icon":199,"react":195,"react-router":26}],210:[function(require,module,exports){
 var
    React = require('react'),
    Router = require('react-router'),

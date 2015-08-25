@@ -1,6 +1,12 @@
-var React = require('react');
+var
+   React = require('react')
+   ,mixins = require('../mixins/mixins')
+;
+
 
 var ActivityIndicator = React.createClass({
+
+   mixins: mixins(),
 
    render: function() {
       return (

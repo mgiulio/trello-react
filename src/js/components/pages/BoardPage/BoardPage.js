@@ -9,9 +9,12 @@ var
    CardLists = require('./CardLists'),
    ActivityIndicator = require('../../ActivityIndicator'),
    Failure = require('../../Failure')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var BoardPage = React.createClass({
+
+   mixins: mixins(),
 
    loadBoard: function(id) {
       data.getBoard(id)

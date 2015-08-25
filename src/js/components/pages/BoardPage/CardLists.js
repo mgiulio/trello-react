@@ -2,9 +2,12 @@ var
    React = require('react'),
    CardList = require('./CardList'),
    util = require('../../../lib/util')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var CardLists = React.createClass({
+
+   mixins: mixins(),
 
    getInitialState: function() {
       return {

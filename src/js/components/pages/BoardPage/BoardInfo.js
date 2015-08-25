@@ -1,9 +1,12 @@
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var BoardInfo = React.createClass({
+
+   mixins: mixins(),
 
       render: function() {
          var b = this.props.board;

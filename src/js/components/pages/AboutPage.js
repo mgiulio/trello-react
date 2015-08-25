@@ -5,9 +5,12 @@ var
 
    Router = require('react-router'),
    Link = Router.Link
+   ,mixins = require('../../mixins/mixins')
 ;
 
 var AboutPage = React.createClass({
+
+   mixins: mixins(),
 
    render: function() {
       return (

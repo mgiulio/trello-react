@@ -1,9 +1,12 @@
 var
    React = require('react'),
    Icon = require('./Icon')
+   ,mixins = require('../mixins/mixins')
 ;
 
 var MetaItem = React.createClass({
+
+   mixins: mixins(),
 
    render: function() {
          var label;

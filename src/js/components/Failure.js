@@ -1,8 +1,11 @@
 var
    React = require('react')
+   ,mixins = require('../mixins/mixins')
 ;
 
 var Failure = React.createClass({
+
+   mixins: mixins(),
 
    componentDidUpdate: function() {
       React.findDOMNode(this).querySelector('.action .button').focus();

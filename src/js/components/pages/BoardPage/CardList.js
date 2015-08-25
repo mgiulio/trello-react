@@ -1,9 +1,12 @@
 var
    React = require('react'),
    Card = require('./Card')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var CardList = React.createClass({
+
+   mixins: mixins(),
 
    render: function() {
       var l = this.props.list;
