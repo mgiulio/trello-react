@@ -1,5 +1,6 @@
 var settings = {
-   'board background': true
+   'board background': true,
+   enableLifeCycleSpy: true
 };
 
 module.exports = settings;

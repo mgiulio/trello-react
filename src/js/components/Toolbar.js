@@ -2,9 +2,12 @@ var
    React = require('react'),
    Router = require('react-router'),
    Link = Router.Link
+   ,mixins = require('../mixins/mixins')
 ;
 
 var Toolbar = React.createClass({
+
+   mixins: mixins(),
 
    render: function() {
       var headerProps = {

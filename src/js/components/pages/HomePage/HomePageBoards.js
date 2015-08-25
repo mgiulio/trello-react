@@ -8,9 +8,12 @@ var
 
    Router = require('react-router'),
    Link = Router.Link
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var HomePageBoards = React.createClass({
+
+   mixins: mixins(),
 
    getInitialState: function() {
       this.loadBoards();

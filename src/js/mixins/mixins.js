@@ -1,3 +1,11 @@
+var settings = require('../settings');
+
+function mixins(mixinArr) {
+   mixinArr = mixinArr || [];
+
+    return !settings.enableLifeCycleSpy ? mixinArr : mixinArr.concat([lifeCycleSpy]);
+}
+
 var lifeCycleSpy = [
    'componentWillMount',
    'componentDidMount',
@@ -17,4 +25,4 @@ var lifeCycleSpy = [
       {}
    );
 
-module.exports = lifeCycleSpy;
+module.exports = mixins;

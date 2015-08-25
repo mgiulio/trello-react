@@ -2,12 +2,12 @@ var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
    HomePageBoards = require('./HomePageBoards')
-   //, lifeCycleSpy = require('../../../mixins/lifeCycleSpy')
+   ,mixins = require('../../../mixins/mixins')
 ;
 
 var HomePage = React.createClass({
 
-   //mixins: [lifeCycleSpy],
+   mixins: mixins(),
 
    render: function() {
       return (
