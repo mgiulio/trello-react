@@ -33,7 +33,8 @@ function browserify(inFile) {
 	      .bundle(function(err, buff) {
 				if (err)
 					reject(err);
-				resolve(buff.toString());
+				else
+					resolve(buff.toString());
 			})
 		;
 	});
