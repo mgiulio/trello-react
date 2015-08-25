@@ -23724,10 +23724,10 @@ var settings = require('../settings');
 function mixins(mixinArr) {
    mixinArr = mixinArr || [];
 
-    return !settings.enableLifeCycleSpy ? mixinArr : mixinArr.concat([lifeCycleSpy]);
+    return !settings['lifecycle logger'] ? mixinArr : mixinArr.concat([lifeCycleLogger]);
 }
 
-var lifeCycleSpy = [
+var lifeCycleLogger = [
    'componentWillMount',
    'componentDidMount',
    'componentWillUnmount',
@@ -23750,7 +23750,7 @@ module.exports = mixins;
 },{"../settings":216}],216:[function(require,module,exports){
 var settings = {
    'board background': true,
-   enableLifeCycleSpy: true
+   'lifecycle logger': true
 };
 
 module.exports = settings;
