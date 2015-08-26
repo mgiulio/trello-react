@@ -1,0 +1,122 @@
+.card .page {
+
+   .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%
+   }
+
+   .wrap {
+      width: 960px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+
+      .main {
+         float: left;
+         width: 610px;
+         padding-right: 20px;
+         box-sizing: border-box;
+
+         header {
+            margin-bottom: 40px;
+
+            .title {
+               margin: 0 0 10px;
+
+               font-family: sans-serif;
+               font-weight: bold;
+               font-size: 24px;
+            }
+         }
+
+         .cover {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin-bottom: 40px;
+         }
+
+         .description {
+            margin-bottom: 40px;
+         }
+
+         .activity {
+            header {
+               margin-bottom: 40px;
+
+               .title {
+                  margin: 0 0 10px;
+
+                  font-family: sans-serif;
+                  font-weight: bold;
+                  font-size: 24px;
+               }
+
+               .meta {
+                  p {
+                     margin: 0;
+                  }
+               }
+            }
+
+            .comments {
+               margin: 0;
+               padding: 0;
+               list-style: none;
+
+               .comment {
+                  border-top: 1px solid gray;
+                  border-bottom: 1px solid gray;
+                  padding: 15px 0 15px 55px;
+                  position: relative;
+
+                  .avatar {
+                     position: absolute;
+                     top: 15px;
+                     left: 0px;
+                     width: 40px;
+                     height: 40px;
+                     border-radius: 50%;
+                  }
+
+                  .username {
+                     margin: 0 0 15px;
+                     font-family: sans-serif;
+                     font-weight: normal;
+                     font-size: 20px;
+                  }
+
+                  .content {
+                     line-height: 1.4;
+                     margin-bottom: 20px;
+                  }
+
+                  .meta {
+                     margin: 0;
+                     font-size: 14px;
+
+                     .timestamp {
+
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      .aux {
+         float: right;
+         width: 350px;
+         padding-left: 20px;
+         box-sizing: border-box;
+      }
+
+      &::after {
+         content: '';
+         display: table;
+         clear: both;
+      }
+   }
+
+}
