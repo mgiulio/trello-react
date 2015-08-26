@@ -1,7 +1,9 @@
 var
-   React = require('react'),
-   MetaItem = require('../../MetaItem')
+   React = require('react')
+   ,MetaItem = require('../../MetaItem')
    ,mixins = require('../../../mixins/mixins')
+   ,Router = require('react-router')
+   ,Link = Router.Link
 ;
 
 var Card = React.createClass({
@@ -27,18 +29,16 @@ var Card = React.createClass({
       meta.push(<MetaItem className="latest-activity" icon="clock" key="latest-activity">{c.dateLastActivity}</MetaItem>);
 
       return (
-         <li className="card" onClick={this.showCardDetails}>
-            {cover}
-            <h2 className="card__name">{c.name}</h2>
-            <p className="card__meta">
-               {meta}
-            </p>
+         <li className="card">
+            <Link to="card" params={{id: this.props.card.id}} title="Card details">
+               {cover}
+               <h2 className="card__name">{c.name}</h2>
+               <p className="card__meta">
+                  {meta}
+               </p>
+            </Link>
          </li>
       );
-   },
-
-   showCardDetails: function() {
-      window.open(this.props.card.url  );
    }
 
 });

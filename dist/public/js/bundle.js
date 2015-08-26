@@ -22769,7 +22769,8 @@ var
    React = require('react'),
 
    HomePage = require('./components/Pages/HomePage/HomePage'),
-   BoardPage = require('./components/Pages/BoardPage/BoardPage'),
+   BoardPage = require('./components/Pages/BoardPage/BoardPage')
+   ,CardPage = require('./components/Pages/CardPage/CardPage'),
    AboutPage = require('./components/Pages/AboutPage'),
    NotFoundPage = require('./components/Pages/NotFoundPage'),
 
@@ -22813,7 +22814,8 @@ function bootstrap() {
          React.createElement(DefaultRoute, {handler: HomePage}), 
          React.createElement(NotFoundRoute, {handler: NotFoundPage}), 
          React.createElement(Route, {name: "about", path: "about", handler: AboutPage}), 
-         React.createElement(Route, {name: "board", path: "board/:id", handler: BoardPage})
+         React.createElement(Route, {name: "board", path: "board/:id", handler: BoardPage}), 
+         React.createElement(Route, {name: "card", path: "card/:id", handler: CardPage})
       )
    );
 
@@ -22832,7 +22834,7 @@ function docElemClasses(path) {
 
    document.documentElement.className = className;
 }
-},{"./components/Pages/AboutPage":201,"./components/Pages/BoardPage/BoardPage":203,"./components/Pages/HomePage/HomePage":207,"./components/Pages/NotFoundPage":209,"./data/trelloAPI":213,"./mixins/mixins":215,"./settings":216,"react":195,"react-router":26}],197:[function(require,module,exports){
+},{"./components/Pages/AboutPage":201,"./components/Pages/BoardPage/BoardPage":203,"./components/Pages/CardPage/CardPage":207,"./components/Pages/HomePage/HomePage":208,"./components/Pages/NotFoundPage":210,"./data/trelloAPI":214,"./mixins/mixins":216,"./settings":217,"react":195,"react-router":26}],197:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../mixins/mixins')
@@ -22860,7 +22862,7 @@ var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
 });
 
 module.exports = ActivityIndicator;
-},{"../mixins/mixins":215,"react":195}],198:[function(require,module,exports){
+},{"../mixins/mixins":216,"react":195}],198:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../mixins/mixins')
@@ -22893,7 +22895,7 @@ var Failure = React.createClass({displayName: "Failure",
 });
 
 module.exports = Failure;
-},{"../mixins/mixins":215,"react":195}],199:[function(require,module,exports){
+},{"../mixins/mixins":216,"react":195}],199:[function(require,module,exports){
 var
    React = require('react'),
    settings = require('../settings')
@@ -22916,7 +22918,7 @@ var Icon = React.createClass({displayName: "Icon",
 });
 
 module.exports = Icon;
-},{"../mixins/mixins":215,"../settings":216,"react":195}],200:[function(require,module,exports){
+},{"../mixins/mixins":216,"../settings":217,"react":195}],200:[function(require,module,exports){
 var
    React = require('react'),
    Icon = require('./Icon')
@@ -22943,7 +22945,7 @@ var MetaItem = React.createClass({displayName: "MetaItem",
 });
 
 module.exports = MetaItem;
-},{"../mixins/mixins":215,"./Icon":199,"react":195}],201:[function(require,module,exports){
+},{"../mixins/mixins":216,"./Icon":199,"react":195}],201:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -22982,7 +22984,7 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 });
 
 module.exports = AboutPage;
-},{"../../mixins/mixins":215,"../Icon":199,"react":195,"react-router":26}],202:[function(require,module,exports){
+},{"../../mixins/mixins":216,"../Icon":199,"react":195,"react-router":26}],202:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
@@ -23022,7 +23024,7 @@ var BoardInfo = React.createClass({displayName: "BoardInfo",
 ;
 
 module.exports = BoardInfo;
-},{"../../../mixins/mixins":215,"../../MetaItem":200,"react":195}],203:[function(require,module,exports){
+},{"../../../mixins/mixins":216,"../../MetaItem":200,"react":195}],203:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -23141,11 +23143,13 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 });
 
 module.exports = BoardPage;
-},{"../../../data/data":211,"../../../mixins/mixins":215,"../../../settings":216,"../../ActivityIndicator":197,"../../Failure":198,"../../Toolbar":210,"./BoardInfo":202,"./CardLists":206,"react":195}],204:[function(require,module,exports){
+},{"../../../data/data":212,"../../../mixins/mixins":216,"../../../settings":217,"../../ActivityIndicator":197,"../../Failure":198,"../../Toolbar":211,"./BoardInfo":202,"./CardLists":206,"react":195}],204:[function(require,module,exports){
 var
-   React = require('react'),
-   MetaItem = require('../../MetaItem')
+   React = require('react')
+   ,MetaItem = require('../../MetaItem')
    ,mixins = require('../../../mixins/mixins')
+   ,Router = require('react-router')
+   ,Link = Router.Link
 ;
 
 var Card = React.createClass({displayName: "Card",
@@ -23171,24 +23175,22 @@ var Card = React.createClass({displayName: "Card",
       meta.push(React.createElement(MetaItem, {className: "latest-activity", icon: "clock", key: "latest-activity"}, c.dateLastActivity));
 
       return (
-         React.createElement("li", {className: "card", onClick: this.showCardDetails}, 
-            cover, 
-            React.createElement("h2", {className: "card__name"}, c.name), 
-            React.createElement("p", {className: "card__meta"}, 
-               meta
+         React.createElement("li", {className: "card"}, 
+            React.createElement(Link, {to: "card", params: {id: this.props.card.id}, title: "Card details"}, 
+               cover, 
+               React.createElement("h2", {className: "card__name"}, c.name), 
+               React.createElement("p", {className: "card__meta"}, 
+                  meta
+               )
             )
          )
       );
-   },
-
-   showCardDetails: function() {
-      window.open(this.props.card.url  );
    }
 
 });
 
 module.exports = Card;
-},{"../../../mixins/mixins":215,"../../MetaItem":200,"react":195}],205:[function(require,module,exports){
+},{"../../../mixins/mixins":216,"../../MetaItem":200,"react":195,"react-router":26}],205:[function(require,module,exports){
 var
    React = require('react'),
    Card = require('./Card')
@@ -23233,7 +23235,7 @@ var CardList = React.createClass({displayName: "CardList",
 });
 
 module.exports = CardList;
-},{"../../../mixins/mixins":215,"./Card":204,"react":195}],206:[function(require,module,exports){
+},{"../../../mixins/mixins":216,"./Card":204,"react":195}],206:[function(require,module,exports){
 var
    React = require('react'),
    CardList = require('./CardList'),
@@ -23294,7 +23296,32 @@ var CardLists = React.createClass({displayName: "CardLists",
 });
 
 module.exports = CardLists;
-},{"../../../lib/util":214,"../../../mixins/mixins":215,"./CardList":205,"react":195}],207:[function(require,module,exports){
+},{"../../../lib/util":215,"../../../mixins/mixins":216,"./CardList":205,"react":195}],207:[function(require,module,exports){
+var
+   React = require('react')
+   ,settings = require('../../../settings')
+   ,data = require('../../../data/data')
+   ,Toolbar = require('../../Toolbar')
+   ,mixins = require('../../../mixins/mixins')
+;
+
+var CardPage = React.createClass({displayName: "CardPage",
+
+   mixins: mixins(),
+
+   render: function() {
+      return (
+   		React.createElement("div", null, 
+   			React.createElement(Toolbar, null), 
+            React.createElement("p", null, "Details for card #", this.props.params.id)
+   		)
+   	);
+   }
+
+});
+
+module.exports = CardPage;
+},{"../../../data/data":212,"../../../mixins/mixins":216,"../../../settings":217,"../../Toolbar":211,"react":195}],208:[function(require,module,exports){
 var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
@@ -23318,7 +23345,7 @@ var HomePage = React.createClass({displayName: "HomePage",
 });
 
 module.exports = HomePage;
-},{"../../../mixins/mixins":215,"../../Toolbar":210,"./HomePageBoards":208,"react":195}],208:[function(require,module,exports){
+},{"../../../mixins/mixins":216,"../../Toolbar":211,"./HomePageBoards":209,"react":195}],209:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -23434,7 +23461,7 @@ var Board = React.createClass({displayName: "Board",
 });
 
 module.exports = HomePageBoards;
-},{"../../../data/data":211,"../../../mixins/mixins":215,"../../ActivityIndicator":197,"../../Failure":198,"react":195,"react-router":26}],209:[function(require,module,exports){
+},{"../../../data/data":212,"../../../mixins/mixins":216,"../../ActivityIndicator":197,"../../Failure":198,"react":195,"react-router":26}],210:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -23466,7 +23493,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 });
 
 module.exports = NotFoundPage;
-},{"../../mixins/mixins":215,"../Icon":199,"react":195,"react-router":26}],210:[function(require,module,exports){
+},{"../../mixins/mixins":216,"../Icon":199,"react":195,"react-router":26}],211:[function(require,module,exports){
 var
    React = require('react'),
    Router = require('react-router'),
@@ -23499,7 +23526,7 @@ var Toolbar = React.createClass({displayName: "Toolbar",
 });
 
 module.exports = Toolbar;
-},{"../mixins/mixins":215,"react":195,"react-router":26}],211:[function(require,module,exports){
+},{"../mixins/mixins":216,"react":195,"react-router":26}],212:[function(require,module,exports){
 var
    http = require('./http'),
    trelloAPI = require('./trelloAPI'),
@@ -23600,7 +23627,7 @@ module.exports = {
    getHomeBoards: getHomeBoards,
    getBoard: getBoard
 };
-},{"../lib/util":214,"../settings":216,"./http":212,"./trelloAPI":213}],212:[function(require,module,exports){
+},{"../lib/util":215,"../settings":217,"./http":213,"./trelloAPI":214}],213:[function(require,module,exports){
 function get(url) {
    return fetch(url)
       .catch(function(reason)  { throw {type: 'network', message: reason.message}; })
@@ -23627,7 +23654,7 @@ module.exports = {
    get: get,
    getJSON: getJSON
 };
-},{}],213:[function(require,module,exports){
+},{}],214:[function(require,module,exports){
 var
    appKey,
    http = require('./http')
@@ -23664,7 +23691,7 @@ module.exports = {
    setAppKey: setAppKey,
    getBoard: getBoard
 };
-},{"./http":212}],214:[function(require,module,exports){
+},{"./http":213}],215:[function(require,module,exports){
 var now = Date.now || function() { return new Date().getTime(); }
 
 function debounce(func, wait, immediate) {
@@ -23718,7 +23745,7 @@ module.exports = {
 	now: now,
 	formatDate: formatDate
 };
-},{}],215:[function(require,module,exports){
+},{}],216:[function(require,module,exports){
 var settings = require('../settings');
 
 function mixins(mixinArr) {
@@ -23747,10 +23774,10 @@ var lifeCycleLogger = [
    );
 
 module.exports = mixins;
-},{"../settings":216}],216:[function(require,module,exports){
+},{"../settings":217}],217:[function(require,module,exports){
 var settings = {
-   'board background': true,
-   'lifecycle logger': true
+   'board background': false,
+   'lifecycle logger': false
 };
 
 module.exports = settings;

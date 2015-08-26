@@ -1,6 +1,6 @@
 var settings = {
-   'board background': true,
-   'lifecycle logger': true
+   'board background': false,
+   'lifecycle logger': false
 };
 
 module.exports = settings;

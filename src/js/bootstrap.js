@@ -2,7 +2,8 @@ var
    React = require('react'),
 
    HomePage = require('./components/Pages/HomePage/HomePage'),
-   BoardPage = require('./components/Pages/BoardPage/BoardPage'),
+   BoardPage = require('./components/Pages/BoardPage/BoardPage')
+   ,CardPage = require('./components/Pages/CardPage/CardPage'),
    AboutPage = require('./components/Pages/AboutPage'),
    NotFoundPage = require('./components/Pages/NotFoundPage'),
 
@@ -47,6 +48,7 @@ function bootstrap() {
          <NotFoundRoute handler={NotFoundPage}/>
          <Route name="about" path="about" handler={AboutPage} />
          <Route name="board" path="board/:id" handler={BoardPage} />
+         <Route name="card" path="card/:id" handler={CardPage} />
       </Route>
    );
 
