@@ -23303,6 +23303,7 @@ var
    ,data = require('../../../data/data')
    ,Toolbar = require('../../Toolbar')
    ,mixins = require('../../../mixins/mixins')
+   ,MetaItem = require('../../MetaItem')
 ;
 
 var CardPage = React.createClass({displayName: "CardPage",
@@ -23310,10 +23311,90 @@ var CardPage = React.createClass({displayName: "CardPage",
    mixins: mixins(),
 
    render: function() {
+      var comments = [
+         {
+            username: 'user-00',
+            avatarUrl: 'foo.png',
+            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
+            timestamp: 'Aug 12 at 6:56 PM'
+         },
+         {
+            username: 'user-00',
+            avatarUrl: 'foo.png',
+            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
+            timestamp: 'Aug 12 at 6:56 PM'
+         },
+         {
+            username: 'user-01',
+            avatarUrl: 'foo.png',
+            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
+            timestamp: 'Aug 12 at 6:56 PM'
+         },
+         {
+            username: 'user-02',
+            avatarUrl: 'foo.png',
+            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
+            timestamp: 'Aug 12 at 6:56 PM'
+         },
+         {
+            username: 'user-03',
+            avatarUrl: 'foo.png',
+            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
+            timestamp: 'Aug 12 at 6:56 PM'
+         }
+      ];
+
+      var commentItems = comments.map(function(c)  
+         {return React.createElement("li", null, 
+            React.createElement("span", {className: "username"}, c.username), 
+            React.createElement("img", {className: "avatar", src: c.avatarUrl}), 
+            React.createElement("div", {className: "content"}, 
+               c.commentText
+            ), 
+            React.createElement("time", null, c.timestamp)
+         );}
+      );
+
       return (
-   		React.createElement("div", null, 
+   		React.createElement("div", {className: "page"}, 
    			React.createElement(Toolbar, null), 
-            React.createElement("p", null, "Details for card #", this.props.params.id)
+            React.createElement("div", {className: "wrap"}, 
+               React.createElement("div", {className: "main"}, 
+                  React.createElement("header", null, 
+                     React.createElement("h1", {className: "title"}, "Card Title"), 
+                     React.createElement("div", {className: "meta"}, 
+                        React.createElement(MetaItem, {icon: "summary", className: "list"}, 
+                           "Foo List"
+                        )
+                     )
+                  ), 
+                  React.createElement("img", {className: "cover", src: "foo.png"}), 
+                  React.createElement("div", {className: "description"}, 
+                     React.createElement("p", null, "This is the description for card #", this.props.params.id)
+                  ), 
+                  React.createElement("div", {className: "activity"}, 
+                     React.createElement("header", null, 
+                        React.createElement("h1", {className: "title"}, "Activity"), 
+                        React.createElement("div", {className: "meta"}, 
+                           React.createElement("p", null, "999 Comments")
+                        )
+                     ), 
+                     React.createElement("ul", null, 
+                        commentItems
+                     )
+
+                  )
+               ), 
+               React.createElement("div", {className: "aux"}, 
+                  React.createElement("div", {className: "votes"}, 
+                     "9999 votes"
+                  ), 
+                  React.createElement("p", null, "link to original card on Trello: this.props.card.url"), 
+                  React.createElement("div", {className: "attachments"}, 
+                     React.createElement("h2", null, "Attachments")
+                  )
+               )
+            )
    		)
    	);
    }
@@ -23321,7 +23402,7 @@ var CardPage = React.createClass({displayName: "CardPage",
 });
 
 module.exports = CardPage;
-},{"../../../data/data":212,"../../../mixins/mixins":216,"../../../settings":217,"../../Toolbar":211,"react":195}],208:[function(require,module,exports){
+},{"../../../data/data":212,"../../../mixins/mixins":216,"../../../settings":217,"../../MetaItem":200,"../../Toolbar":211,"react":195}],208:[function(require,module,exports){
 var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
