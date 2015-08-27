@@ -12,14 +12,14 @@ function getHomeBoards() {
 function getBoard(id) {
    return id.indexOf('board-') === 0 ?
       http.getJSON(`${settings.basepath}/json/${id}.json`)
-         .then(processBoardJSON)
+         .then(processBoard)
    :
       trelloAPI.getBoard(id)
-         .then(processBoardJSON)
+         .then(processBoard)
    ;
 }
 
-function processBoardJSON(b) {
+function processBoard(b) {
    var board = {
       id: b.id,
       name: b.name,
@@ -94,7 +94,71 @@ function processBoardJSON(b) {
    return board;
 }
 
+function getCard(id) {
+   return trelloAPI.getCard(id)
+      .then(processCard)
+   ;
+}
+
+function processCard(c) {
+   var card = {
+      title: c.name,
+      votes: c.badges.votes,
+      originalCardUrl: c.url
+   };
+
+   card.parentList = {
+      name: c.list.name
+   };
+
+   if (c.badges.description && c.desc)
+      card.description = c.desc;
+
+   card.attachmentCount = c.attachments.length;
+   if (card.attachmentCount > 0) {
+      if (c.idAttachmentCover) {
+         var attachmentCover = findById(c.idAttachmentCover, c.attachments);
+         if (attachmentCover)
+            card.coverUrl = attachmentCover.url;
+      }
+
+      // Process attachments here
+   }
+
+   card.commentCount = c.badges.comments;
+   if (card.commentCount > 0)
+      card.comments = c.actions.map(a => {
+         var comment = {
+            author: {
+               username: a.memberCreator.username,
+               profilePageUrl: a.memberCreator.url
+            },
+            text: a.data.text,
+            timestamp: a.date
+         };
+
+         var avatarHash = a.memberCreator.avatarHash
+         if (avatarHash)
+            comment.author.avatarUrl = `https://trello-avatars.s3.amazonaws.com/${avatarHash}/30.png`;
+
+         return comment;
+      });
+
+   return card;
+}
+
+function findById(id, arr) {
+   var o = null;
+   for (var i = 0, l = arr.length; i < l; ++i)
+      if (arr[i].id === id) {
+         o = arr[i];
+         break;
+      }
+   return o;
+}
+
 module.exports = {
    getHomeBoards: getHomeBoards,
-   getBoard: getBoard
+   getBoard: getBoard,
+   getCard: getCard
 };

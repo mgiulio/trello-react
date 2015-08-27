@@ -22834,7 +22834,7 @@ function docElemClasses(path) {
 
    document.documentElement.className = className;
 }
-},{"./components/Pages/AboutPage":201,"./components/Pages/BoardPage/BoardPage":203,"./components/Pages/CardPage/CardPage":207,"./components/Pages/HomePage/HomePage":208,"./components/Pages/NotFoundPage":210,"./data/trelloAPI":214,"./mixins/mixins":216,"./settings":217,"react":195,"react-router":26}],197:[function(require,module,exports){
+},{"./components/Pages/AboutPage":201,"./components/Pages/BoardPage/BoardPage":203,"./components/Pages/CardPage/CardPage":207,"./components/Pages/HomePage/HomePage":209,"./components/Pages/NotFoundPage":211,"./data/trelloAPI":215,"./mixins/mixins":217,"./settings":218,"react":195,"react-router":26}],197:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../mixins/mixins')
@@ -22862,7 +22862,7 @@ var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
 });
 
 module.exports = ActivityIndicator;
-},{"../mixins/mixins":216,"react":195}],198:[function(require,module,exports){
+},{"../mixins/mixins":217,"react":195}],198:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../mixins/mixins')
@@ -22895,7 +22895,7 @@ var Failure = React.createClass({displayName: "Failure",
 });
 
 module.exports = Failure;
-},{"../mixins/mixins":216,"react":195}],199:[function(require,module,exports){
+},{"../mixins/mixins":217,"react":195}],199:[function(require,module,exports){
 var
    React = require('react'),
    settings = require('../settings')
@@ -22918,7 +22918,7 @@ var Icon = React.createClass({displayName: "Icon",
 });
 
 module.exports = Icon;
-},{"../mixins/mixins":216,"../settings":217,"react":195}],200:[function(require,module,exports){
+},{"../mixins/mixins":217,"../settings":218,"react":195}],200:[function(require,module,exports){
 var
    React = require('react'),
    Icon = require('./Icon')
@@ -22945,7 +22945,7 @@ var MetaItem = React.createClass({displayName: "MetaItem",
 });
 
 module.exports = MetaItem;
-},{"../mixins/mixins":216,"./Icon":199,"react":195}],201:[function(require,module,exports){
+},{"../mixins/mixins":217,"./Icon":199,"react":195}],201:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -22984,7 +22984,7 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 });
 
 module.exports = AboutPage;
-},{"../../mixins/mixins":216,"../Icon":199,"react":195,"react-router":26}],202:[function(require,module,exports){
+},{"../../mixins/mixins":217,"../Icon":199,"react":195,"react-router":26}],202:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
@@ -23024,7 +23024,7 @@ var BoardInfo = React.createClass({displayName: "BoardInfo",
 ;
 
 module.exports = BoardInfo;
-},{"../../../mixins/mixins":216,"../../MetaItem":200,"react":195}],203:[function(require,module,exports){
+},{"../../../mixins/mixins":217,"../../MetaItem":200,"react":195}],203:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -23143,7 +23143,7 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 });
 
 module.exports = BoardPage;
-},{"../../../data/data":212,"../../../mixins/mixins":216,"../../../settings":217,"../../ActivityIndicator":197,"../../Failure":198,"../../Toolbar":211,"./BoardInfo":202,"./CardLists":206,"react":195}],204:[function(require,module,exports){
+},{"../../../data/data":213,"../../../mixins/mixins":217,"../../../settings":218,"../../ActivityIndicator":197,"../../Failure":198,"../../Toolbar":212,"./BoardInfo":202,"./CardLists":206,"react":195}],204:[function(require,module,exports){
 var
    React = require('react')
    ,MetaItem = require('../../MetaItem')
@@ -23190,7 +23190,7 @@ var Card = React.createClass({displayName: "Card",
 });
 
 module.exports = Card;
-},{"../../../mixins/mixins":216,"../../MetaItem":200,"react":195,"react-router":26}],205:[function(require,module,exports){
+},{"../../../mixins/mixins":217,"../../MetaItem":200,"react":195,"react-router":26}],205:[function(require,module,exports){
 var
    React = require('react'),
    Card = require('./Card')
@@ -23235,7 +23235,7 @@ var CardList = React.createClass({displayName: "CardList",
 });
 
 module.exports = CardList;
-},{"../../../mixins/mixins":216,"./Card":204,"react":195}],206:[function(require,module,exports){
+},{"../../../mixins/mixins":217,"./Card":204,"react":195}],206:[function(require,module,exports){
 var
    React = require('react'),
    CardList = require('./CardList'),
@@ -23296,7 +23296,7 @@ var CardLists = React.createClass({displayName: "CardLists",
 });
 
 module.exports = CardLists;
-},{"../../../lib/util":215,"../../../mixins/mixins":216,"./CardList":205,"react":195}],207:[function(require,module,exports){
+},{"../../../lib/util":216,"../../../mixins/mixins":217,"./CardList":205,"react":195}],207:[function(require,module,exports){
 var
    React = require('react')
    ,settings = require('../../../settings')
@@ -23304,52 +23304,118 @@ var
    ,Toolbar = require('../../Toolbar')
    ,mixins = require('../../../mixins/mixins')
    ,MetaItem = require('../../MetaItem')
+   ,data = require('../../../data/data')
+   ,Comments = require('./Comments')
+   ,ActivityIndicator = require('../../ActivityIndicator')
+   ,Failure = require('../../Failure')
 ;
 
 var CardPage = React.createClass({displayName: "CardPage",
 
    mixins: mixins(),
 
-   render: function() {
-      var comments = [
-         {
-            username: 'user-00',
-            avatarUrl: '/img/avatar.png',
-            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
-            timestamp: 'Aug 12 at 6:56 PM'
-         },
-         {
-            username: 'user-00',
-            avatarUrl: '/img/avatar.png',
-            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
-            timestamp: 'Aug 12 at 6:56 PM'
-         },
-         {
-            username: 'user-01',
-            avatarUrl: '/img/avatar.png',
-            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
-            timestamp: 'Aug 12 at 6:56 PM'
-         },
-         {
-            username: 'user-02',
-            avatarUrl: '/img/avatar.png',
-            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
-            timestamp: 'Aug 12 at 6:56 PM'
-         },
-         {
-            username: 'user-03',
-            avatarUrl: '/img/avatar.png',
-            commentText: "@hostilefork Interesting thought, I'll pass that on! For now, you might want to manually add a visual indicator to the card at the top of the list to make that more apparent(e.g. attach a pic and use as card cover)",
-            timestamp: 'Aug 12 at 6:56 PM'
-         }
-      ];
+   getInitialState: function() {
+      this.loadCard(this.props.params.id);
 
-      var commentItems = comments.map(function(c)  
-         {return React.createElement("li", {className: "comment"}, 
-            React.createElement("h2", {className: "username"}, c.username), 
-            React.createElement("img", {className: "avatar", src: c.avatarUrl}), 
+      return {
+         state: 'loading'
+      };
+   },
+
+   loadCard: function(id) {
+      data.getCard(id)
+         .then(function(card)  {
+            this.setState({state: 'card', card: card});
+         }.bind(this))
+         .catch(function(reason)  {
+            console.log(reason);
+            this.setState({state: 'failure'});
+         }.bind(this))
+      ;
+   },
+
+   retry: function() {
+      this.loadCard(this.props.params.id);
+      this.setState({state: 'loading'});
+   },
+
+   render: function() {
+      var content;
+
+      switch (this.state.state) {
+         case 'loading':
+            content = React.createElement(ActivityIndicator, null);
+            break;
+         case 'failure':
+            content = React.createElement(Failure, {msg: "Loading failed", actionButton: {label: 'Retry', onClick: this.retry}});
+            break;
+         case 'card':
+            var c = this.state.card;
+
+            var comments;
+            if (c.commentCount > 0)
+               comments = React.createElement(Comments, {data: c.comments});
+
+            content = (
+               React.createElement("div", {className: "wrap"}, 
+                  React.createElement("div", {className: "main"}, 
+                     React.createElement("header", null, 
+                        React.createElement("h1", {className: "title"}, c.title), 
+                        React.createElement("div", {className: "meta"}, 
+                           React.createElement(MetaItem, {icon: "summary", className: "parent-list"}, 
+                              c.parentList.name
+                           )
+                        )
+                     ), 
+                     React.createElement("img", {className: "cover", src: c.coverUrl}), 
+                     React.createElement("div", {className: "description"}, c.description || 'This card has no decription'), 
+                     comments
+                  ), 
+                  React.createElement("div", {className: "aux"}, 
+                     React.createElement("div", {className: "votes"}, 
+                        c.votes, " votes"
+                     ), 
+                     React.createElement("p", null, React.createElement("a", {href: c.originalCardUrl})), 
+                     React.createElement("div", {className: "attachments"}, 
+                        React.createElement("h2", null, c.attachmentCount, " attachments")
+                     )
+                  )
+               )
+            );
+
+            break;
+         default:
+            // throw exception?
+      }
+
+      return (
+         React.createElement("div", {className: "page"}, 
+            React.createElement(Toolbar, null), 
+            content
+         )
+      );
+   }
+
+});
+
+module.exports = CardPage;
+},{"../../../data/data":213,"../../../mixins/mixins":217,"../../../settings":218,"../../ActivityIndicator":197,"../../Failure":198,"../../MetaItem":200,"../../Toolbar":212,"./Comments":208,"react":195}],208:[function(require,module,exports){
+var
+   React = require('react')
+   ,mixins = require('../../../mixins/mixins')
+;
+
+var Comments = React.createClass({displayName: "Comments",
+
+   mixins: mixins(),
+
+   render: function() {
+      var commentItems = this.props.data.map(function(c,i)  
+         {return React.createElement("li", {className: "comment", key: i}, 
+            React.createElement("h2", {className: "username"}, React.createElement("a", {href: c.author.profilePageUrl}, c.author.username)), 
+            React.createElement("img", {className: "avatar", src: c.author.avatarUrl}), 
             React.createElement("div", {className: "content"}, 
-               c.commentText
+               c.text
             ), 
             React.createElement("p", {className: "meta"}, 
                React.createElement("time", {className: "timestamp"}, c.timestamp)
@@ -23358,67 +23424,21 @@ var CardPage = React.createClass({displayName: "CardPage",
       );
 
       return (
-   		React.createElement("div", {className: "page"}, 
-   			React.createElement(Toolbar, null), 
-            React.createElement("div", {className: "wrap"}, 
-               React.createElement("div", {className: "main"}, 
-                  React.createElement("header", null, 
-                     React.createElement("h1", {className: "title"}, "What can you expect from this board"), 
-                     React.createElement("div", {className: "meta"}, 
-                        React.createElement(MetaItem, {icon: "summary", className: "parent-list"}, 
-                           React.createElement("a", {href: "#"}, "Foo List")
-                        )
-                     )
-                  ), 
-                  React.createElement("img", {className: "cover", src: "/img/avatar.png"}), 
-                  React.createElement("div", {className: "description"}, 
-                     React.createElement("p", null, "This is the description for card #", this.props.params.id), 
-                     "Why is this board here?" + ' ' +
-"The primary purpose of this board is to communicate with our customers what the Trello team is working on, what’s potentially coming up, and to listen to the insights our customers have about what they’d like to see in Trello." + ' ' +
-
-"Regular updates to cards that are In Progress" + ' ' +
-"If a card is “In Progress,” that means we’re working on it. You can expect to see regular updates to cards that are on the In Progress list in Trello. The Trello support team will update this list on a regular basis and read the comments frequently." + ' ' +
-
-"Customer comments on cards" + ' ' +
-"We review the comments to learn how our users can get the most out of Trello. This information is really helpful! We may not get to respond to all of the comments on this board, but please keep the feedback coming." + ' ' +
-
-"The best place to get support isn’t on this board, but rather via help.trello.com. If you can't find what you're looking for, contact us. We can provide much better support via email than via public comments on this board." + ' ' +
-
-"We want cards to be a place where you can read the history of updates from the team without needing to try to figure out what’s a comment from the Trello team and what’s a comment from a customer. Since the primary purpose of public comments is an input stream of insights from our customers, we’ll be deleting public comments after seven days. This will cause comments from Trello team members to be much more visible. (We may not implement this immediately, but expect this change to happen eventually)."
-
-
-                  ), 
-                  React.createElement("div", {className: "activity"}, 
-                     React.createElement("header", null, 
-                        React.createElement("h1", {className: "title"}, "Activity"), 
-                        React.createElement("div", {className: "meta"}, 
-                           React.createElement("p", null, "999 Comments")
-                        )
-                     ), 
-                     React.createElement("ul", {className: "comments"}, 
-                        commentItems
-                     )
-
-                  )
-               ), 
-               React.createElement("div", {className: "aux"}, 
-                  React.createElement("div", {className: "votes"}, 
-                     "9999 votes"
-                  ), 
-                  React.createElement("p", null, "link to original card on Trello: this.props.card.url"), 
-                  React.createElement("div", {className: "attachments"}, 
-                     React.createElement("h2", null, "Attachments")
-                  )
-               )
+         React.createElement("div", {className: "comments"}, 
+            React.createElement("header", null, 
+               React.createElement("p", null, this.props.data.length, " Comments")
+            ), 
+            React.createElement("ul", {className: "comments"}, 
+               commentItems
             )
-   		)
-   	);
+         )
+      );
    }
 
 });
 
-module.exports = CardPage;
-},{"../../../data/data":212,"../../../mixins/mixins":216,"../../../settings":217,"../../MetaItem":200,"../../Toolbar":211,"react":195}],208:[function(require,module,exports){
+module.exports = Comments;
+},{"../../../mixins/mixins":217,"react":195}],209:[function(require,module,exports){
 var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
@@ -23442,7 +23462,7 @@ var HomePage = React.createClass({displayName: "HomePage",
 });
 
 module.exports = HomePage;
-},{"../../../mixins/mixins":216,"../../Toolbar":211,"./HomePageBoards":209,"react":195}],209:[function(require,module,exports){
+},{"../../../mixins/mixins":217,"../../Toolbar":212,"./HomePageBoards":210,"react":195}],210:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -23558,7 +23578,7 @@ var Board = React.createClass({displayName: "Board",
 });
 
 module.exports = HomePageBoards;
-},{"../../../data/data":212,"../../../mixins/mixins":216,"../../ActivityIndicator":197,"../../Failure":198,"react":195,"react-router":26}],210:[function(require,module,exports){
+},{"../../../data/data":213,"../../../mixins/mixins":217,"../../ActivityIndicator":197,"../../Failure":198,"react":195,"react-router":26}],211:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -23590,7 +23610,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 });
 
 module.exports = NotFoundPage;
-},{"../../mixins/mixins":216,"../Icon":199,"react":195,"react-router":26}],211:[function(require,module,exports){
+},{"../../mixins/mixins":217,"../Icon":199,"react":195,"react-router":26}],212:[function(require,module,exports){
 var
    React = require('react'),
    Router = require('react-router'),
@@ -23623,7 +23643,7 @@ var Toolbar = React.createClass({displayName: "Toolbar",
 });
 
 module.exports = Toolbar;
-},{"../mixins/mixins":216,"react":195,"react-router":26}],212:[function(require,module,exports){
+},{"../mixins/mixins":217,"react":195,"react-router":26}],213:[function(require,module,exports){
 var
    http = require('./http'),
    trelloAPI = require('./trelloAPI'),
@@ -23638,14 +23658,14 @@ function getHomeBoards() {
 function getBoard(id) {
    return id.indexOf('board-') === 0 ?
       http.getJSON((settings.basepath + "/json/" + id + ".json"))
-         .then(processBoardJSON)
+         .then(processBoard)
    :
       trelloAPI.getBoard(id)
-         .then(processBoardJSON)
+         .then(processBoard)
    ;
 }
 
-function processBoardJSON(b) {
+function processBoard(b) {
    var board = {
       id: b.id,
       name: b.name,
@@ -23720,11 +23740,75 @@ function processBoardJSON(b) {
    return board;
 }
 
+function getCard(id) {
+   return trelloAPI.getCard(id)
+      .then(processCard)
+   ;
+}
+
+function processCard(c) {
+   var card = {
+      title: c.name,
+      votes: c.badges.votes,
+      originalCardUrl: c.url
+   };
+
+   card.parentList = {
+      name: c.list.name
+   };
+
+   if (c.badges.description && c.desc)
+      card.description = c.desc;
+
+   card.attachmentCount = c.attachments.length;
+   if (card.attachmentCount > 0) {
+      if (c.idAttachmentCover) {
+         var attachmentCover = findById(c.idAttachmentCover, c.attachments);
+         if (attachmentCover)
+            card.coverUrl = attachmentCover.url;
+      }
+
+      // Process attachments here
+   }
+
+   card.commentCount = c.badges.comments;
+   if (card.commentCount > 0)
+      card.comments = c.actions.map(function(a)  {
+         var comment = {
+            author: {
+               username: a.memberCreator.username,
+               profilePageUrl: a.memberCreator.url
+            },
+            text: a.data.text,
+            timestamp: a.date
+         };
+
+         var avatarHash = a.memberCreator.avatarHash
+         if (avatarHash)
+            comment.author.avatarUrl = ("https://trello-avatars.s3.amazonaws.com/" + avatarHash + "/30.png");
+
+         return comment;
+      });
+
+   return card;
+}
+
+function findById(id, arr) {
+   var o = null;
+   for (var i = 0, l = arr.length; i < l; ++i)
+      if (arr[i].id === id) {
+         o = arr[i];
+         break;
+      }
+   return o;
+}
+
 module.exports = {
    getHomeBoards: getHomeBoards,
-   getBoard: getBoard
+   getBoard: getBoard,
+   getCard: getCard
 };
-},{"../lib/util":215,"../settings":217,"./http":213,"./trelloAPI":214}],213:[function(require,module,exports){
+},{"../lib/util":216,"../settings":218,"./http":214,"./trelloAPI":215}],214:[function(require,module,exports){
 function get(url) {
    return fetch(url)
       .catch(function(reason)  { throw {type: 'network', message: reason.message}; })
@@ -23751,7 +23835,7 @@ module.exports = {
    get: get,
    getJSON: getJSON
 };
-},{}],214:[function(require,module,exports){
+},{}],215:[function(require,module,exports){
 var
    appKey,
    http = require('./http')
@@ -23780,15 +23864,39 @@ function getBoard(id) {
       });
 }
 
+function getCard(id) {
+   var
+      url = ("https://api.trello.com/1/card/" + id + "/?key=" + appKey + "&attachments=true&list=true&actions=commentCard&action_memberCreator_fields=username,avatarHash,url")
+   ;
+
+   return http.getJSON(url)
+      .catch(function(reason)  {
+         switch (reason.type) {
+            case 'http':
+               switch (reason.statusCode) {
+                  case 400:
+                     throw {type: 'resource not found'};
+                  break;
+                  default:
+                     throw reason;
+               }
+               break;
+            default:
+               throw reason;
+         }
+      });
+}
+
 function setAppKey(k) {
    appKey = k;
 }
 
 module.exports = {
    setAppKey: setAppKey,
-   getBoard: getBoard
+   getBoard: getBoard,
+   getCard: getCard
 };
-},{"./http":213}],215:[function(require,module,exports){
+},{"./http":214}],216:[function(require,module,exports){
 var now = Date.now || function() { return new Date().getTime(); }
 
 function debounce(func, wait, immediate) {
@@ -23842,7 +23950,7 @@ module.exports = {
 	now: now,
 	formatDate: formatDate
 };
-},{}],216:[function(require,module,exports){
+},{}],217:[function(require,module,exports){
 var settings = require('../settings');
 
 function mixins(mixinArr) {
@@ -23871,7 +23979,7 @@ var lifeCycleLogger = [
    );
 
 module.exports = mixins;
-},{"../settings":217}],217:[function(require,module,exports){
+},{"../settings":218}],218:[function(require,module,exports){
 var settings = {
    'board background': false,
    'lifecycle logger': false
