@@ -9,6 +9,7 @@ var
    ,Comments = require('./Comments')
    ,ActivityIndicator = require('../../ActivityIndicator')
    ,Failure = require('../../Failure')
+   ,marked = require('react-marked')
 ;
 
 var CardPage = React.createClass({
@@ -69,7 +70,7 @@ var CardPage = React.createClass({
                         </div>
                      </header>
                      <img className="cover" src={c.coverUrl} />
-                     <div className="description">{c.description || 'This card has no decription'}</div>
+                     <div className="description">{c.description ? marked(c.description) : 'This card has no decription'}</div>
                      {comments}
                   </div>
                   <div className="aux">
