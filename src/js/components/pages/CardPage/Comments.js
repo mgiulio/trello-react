@@ -1,6 +1,7 @@
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
+   ,util = require('../../../lib/util')
 ;
 
 var Comments = React.createClass({
@@ -16,7 +17,7 @@ var Comments = React.createClass({
                {c.text}
             </div>
             <p className="meta">
-               <time className="timestamp">{c.timestamp}</time>
+               <time className="timestamp" datetime={c.timestamp}>{util.formatDate(c.timestamp)}</time>
             </p>
          </li>
       ));

@@ -23375,7 +23375,7 @@ var CardPage = React.createClass({displayName: "CardPage",
                      React.createElement("div", {className: "votes"}, 
                         c.votes, " votes"
                      ), 
-                     React.createElement("p", null, React.createElement("a", {href: c.originalCardUrl})), 
+                     React.createElement("p", null, React.createElement("a", {href: c.originalCardUrl}, "View this card on Trello")), 
                      React.createElement("div", {className: "attachments"}, 
                         React.createElement("h2", null, c.attachmentCount, " attachments")
                      )
@@ -23403,6 +23403,7 @@ module.exports = CardPage;
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
+   ,util = require('../../../lib/util')
 ;
 
 var Comments = React.createClass({displayName: "Comments",
@@ -23418,7 +23419,7 @@ var Comments = React.createClass({displayName: "Comments",
                c.text
             ), 
             React.createElement("p", {className: "meta"}, 
-               React.createElement("time", {className: "timestamp"}, c.timestamp)
+               React.createElement("time", {className: "timestamp", datetime: c.timestamp}, util.formatDate(c.timestamp))
             )
          );}
       );
@@ -23438,7 +23439,7 @@ var Comments = React.createClass({displayName: "Comments",
 });
 
 module.exports = Comments;
-},{"../../../mixins/mixins":217,"react":195}],209:[function(require,module,exports){
+},{"../../../lib/util":216,"../../../mixins/mixins":217,"react":195}],209:[function(require,module,exports){
 var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
