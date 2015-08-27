@@ -11,7 +11,7 @@ var Comments = React.createClass({
       var commentItems = this.props.data.map((c,i) => (
          <li className="item" key={i}>
             <h2 className="username"><a href={c.author.profilePageUrl}>{c.author.username}</a></h2>
-            <img className="avatar" src={c.author.avatarUrl} />
+            <img className="avatar" src={ 'avatarUrl' in c.author ? c.author.avatarUrl : '/img/avatar-placeholder.jpg' } />
             <div className="text">
                {c.text}
             </div>

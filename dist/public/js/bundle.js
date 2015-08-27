@@ -23413,7 +23413,7 @@ var Comments = React.createClass({displayName: "Comments",
       var commentItems = this.props.data.map(function(c,i)  
          {return React.createElement("li", {className: "item", key: i}, 
             React.createElement("h2", {className: "username"}, React.createElement("a", {href: c.author.profilePageUrl}, c.author.username)), 
-            React.createElement("img", {className: "avatar", src: c.author.avatarUrl}), 
+            React.createElement("img", {className: "avatar", src:  'avatarUrl' in c.author ? c.author.avatarUrl : '/img/avatar-placeholder.jpg'}), 
             React.createElement("div", {className: "text"}, 
                c.text
             ), 
