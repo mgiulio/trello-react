@@ -9,10 +9,10 @@ var Comments = React.createClass({
 
    render: function() {
       var commentItems = this.props.data.map((c,i) => (
-         <li className="comment" key={i}>
+         <li className="item" key={i}>
             <h2 className="username"><a href={c.author.profilePageUrl}>{c.author.username}</a></h2>
             <img className="avatar" src={c.author.avatarUrl} />
-            <div className="content">
+            <div className="text">
                {c.text}
             </div>
             <p className="meta">
@@ -23,10 +23,10 @@ var Comments = React.createClass({
 
       return (
          <div className="comments">
-            <header>
+            <header className="topbar">
                <p>{this.props.data.length} Comments</p>
             </header>
-            <ul className="comments">
+            <ul className="items">
                {commentItems}
             </ul>
          </div>

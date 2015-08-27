@@ -23411,10 +23411,10 @@ var Comments = React.createClass({displayName: "Comments",
 
    render: function() {
       var commentItems = this.props.data.map(function(c,i)  
-         {return React.createElement("li", {className: "comment", key: i}, 
+         {return React.createElement("li", {className: "item", key: i}, 
             React.createElement("h2", {className: "username"}, React.createElement("a", {href: c.author.profilePageUrl}, c.author.username)), 
             React.createElement("img", {className: "avatar", src: c.author.avatarUrl}), 
-            React.createElement("div", {className: "content"}, 
+            React.createElement("div", {className: "text"}, 
                c.text
             ), 
             React.createElement("p", {className: "meta"}, 
@@ -23425,10 +23425,10 @@ var Comments = React.createClass({displayName: "Comments",
 
       return (
          React.createElement("div", {className: "comments"}, 
-            React.createElement("header", null, 
+            React.createElement("header", {className: "topbar"}, 
                React.createElement("p", null, this.props.data.length, " Comments")
             ), 
-            React.createElement("ul", {className: "comments"}, 
+            React.createElement("ul", {className: "items"}, 
                commentItems
             )
          )

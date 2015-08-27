@@ -1,0 +1,63 @@
+.comments {
+   .topbar {
+      margin-bottom: 40px;
+      /*
+      .title {
+         margin: 0 0 10px;
+
+         font-family: sans-serif;
+         font-weight: bold;
+         font-size: 24px;
+      }
+
+      .meta {
+         p {
+            margin: 0;
+         }
+      }
+      */
+   }
+
+   .items {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      .item {
+         border-top: 1px solid gray;
+         border-bottom: 1px solid gray;
+         padding: 15px 0 15px 55px;
+         position: relative;
+
+         .avatar {
+            position: absolute;
+            top: 15px;
+            left: 0px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+         }
+
+         .username {
+            margin: 0 0 15px;
+            font-family: sans-serif;
+            font-weight: normal;
+            font-size: 20px;
+         }
+
+         .text {
+            line-height: 1.4;
+            margin-bottom: 20px;
+         }
+
+         .meta {
+            margin: 0;
+            font-size: 14px;
+
+            .timestamp {
+
+            }
+         }
+      }
+   }
+}
