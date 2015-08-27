@@ -24675,7 +24675,7 @@ var Comments = React.createClass({displayName: "Comments",
                 marked(c.text) 
             ), 
             React.createElement("p", {className: "meta"}, 
-               React.createElement("time", {className: "timestamp", datetime: c.timestamp}, util.formatDate(c.timestamp))
+               React.createElement("time", {className: "timestamp", dateTime: c.timestamp}, util.formatDate(c.timestamp))
             )
          );}
       );

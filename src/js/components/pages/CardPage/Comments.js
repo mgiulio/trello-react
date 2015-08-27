@@ -18,7 +18,7 @@ var Comments = React.createClass({
                { marked(c.text) }
             </div>
             <p className="meta">
-               <time className="timestamp" datetime={c.timestamp}>{util.formatDate(c.timestamp)}</time>
+               <time className="timestamp" dateTime={c.timestamp}>{util.formatDate(c.timestamp)}</time>
             </p>
          </li>
       ));
