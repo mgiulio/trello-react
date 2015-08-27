@@ -76,7 +76,7 @@ var CardPage = React.createClass({
                      <div className="votes">
                         {c.votes} votes
                      </div>
-                     <p><a href={c.originalCardUrl}></a></p>
+                     <p><a href={c.originalCardUrl}>View this card on Trello</a></p>
                      <div className="attachments">
                         <h2>{c.attachmentCount} attachments</h2>
                      </div>
