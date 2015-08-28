@@ -1,5 +1,7 @@
 .card .page {
 
+   background-color: #f7f7f7;
+
    .toolbar {
       position: fixed;
       top: 0;
@@ -19,7 +21,7 @@
          padding-right: 20px;
          box-sizing: border-box;
 
-         header {
+         & > header {
             margin-bottom: 40px;
 
             .title {
@@ -39,7 +41,18 @@
          }
 
          .description {
-            margin-bottom: 40px;
+            margin-bottom: 80px;
+            line-height: 1.4;
+
+            h1, h2, h3, h4 {
+               font-family: serif;
+            }
+            h1 {
+               font-size: 20px;
+            }
+            h2 {
+               font-size: 18px;
+            }
          }
       }
 

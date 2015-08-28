@@ -1,21 +1,11 @@
 .comments {
    .topbar {
-      margin-bottom: 40px;
-      /*
-      .title {
-         margin: 0 0 10px;
+      margin-bottom: 10px;
+      font-size: 22px;
 
-         font-family: sans-serif;
-         font-weight: bold;
-         font-size: 24px;
+      p {
+         margin: 0;
       }
-
-      .meta {
-         p {
-            margin: 0;
-         }
-      }
-      */
    }
 
    .items {
@@ -25,9 +15,12 @@
 
       .item {
          border-top: 1px solid gray;
-         border-bottom: 1px solid gray;
          padding: 15px 0 15px 55px;
          position: relative;
+
+         &:last-child {
+            border-bottom: 1px solid gray;
+         }
 
          .avatar {
             position: absolute;
