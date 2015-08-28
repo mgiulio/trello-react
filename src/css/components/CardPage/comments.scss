@@ -48,6 +48,10 @@
          .text {
             line-height: 1.4;
             margin-bottom: 20px;
+
+            ul {
+               list-style: disc;
+            }
          }
 
          .meta {
