@@ -9,7 +9,7 @@ var
    ,Comments = require('./Comments')
    ,ActivityIndicator = require('../../ActivityIndicator')
    ,Failure = require('../../Failure')
-   ,marked = require('react-marked')
+   ,marked = require('marked')
 ;
 
 var CardPage = React.createClass({
@@ -30,7 +30,6 @@ var CardPage = React.createClass({
             this.setState({state: 'card', card: card});
          })
          .catch(reason => {
-            console.log(reason);
             this.setState({state: 'failure'});
          })
       ;
@@ -70,7 +69,7 @@ var CardPage = React.createClass({
                         </div>
                      </header>
                      <img className="cover" src={c.coverUrl} />
-                     <div className="description">{c.description ? marked(c.description) : 'This card has no decription'}</div>
+                     <div className="description" dangerouslySetInnerHTML={{__html: marked(c.description ? c.description : 'This card has no decription', {sanitize: true})}}></div>
                      {comments}
                   </div>
                   <div className="aux">

@@ -112,7 +112,7 @@ function processCard(c) {
    };
 
    if (c.badges.description && c.desc)
-      card.description = c.desc;
+      card.description = processMarkdown(c.desc);
 
    card.attachmentCount = c.attachments.length;
    if (card.attachmentCount > 0) {
@@ -133,7 +133,7 @@ function processCard(c) {
                username: a.memberCreator.username,
                profilePageUrl: a.memberCreator.url
             },
-            text: a.data.text,
+            text: processMarkdown(a.data.text),
             timestamp: a.date
          };
 
@@ -155,6 +155,10 @@ function findById(id, arr) {
          break;
       }
    return o;
+}
+
+function processMarkdown(md) {
+   return md.replace(/^(#+)(\w+)/mg, '$1 $2');
 }
 
 module.exports = {
