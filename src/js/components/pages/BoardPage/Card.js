@@ -4,6 +4,7 @@ var
    ,mixins = require('../../../mixins/mixins')
    ,Router = require('react-router')
    ,Link = Router.Link
+   ,Timestamp = require('../../Timestamp')
 ;
 
 var Card = React.createClass({
@@ -26,7 +27,7 @@ var Card = React.createClass({
          meta.push(<MetaItem className="comment" icon="comment" key="comment">{c.commentCount}</MetaItem>);
       if (c.voteCount !== 0)
          meta.push(<MetaItem className="votes" icon="digg" key="votes">{c.voteCount}</MetaItem>);
-      meta.push(<MetaItem className="latest-activity" icon="clock" key="latest-activity">{c.dateLastActivity}</MetaItem>);
+      meta.push(<MetaItem className="latest-activity" icon="clock" key="latest-activity"><Timestamp dateTime={c.dateLastActivity} onlyDate={true}/></MetaItem>);
 
       return (
          <li className="card">

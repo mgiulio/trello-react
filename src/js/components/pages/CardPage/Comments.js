@@ -3,6 +3,7 @@ var
    ,mixins = require('../../../mixins/mixins')
    ,util = require('../../../lib/util')
    ,marked = require('marked')
+   ,Timestamp = require('../../Timestamp')
 ;
 
 var Comments = React.createClass({
@@ -16,7 +17,7 @@ var Comments = React.createClass({
             <img className="avatar" src={ 'avatarUrl' in c.author ? c.author.avatarUrl : '/img/avatar-placeholder.jpg' } />
             <div className="text" dangerouslySetInnerHTML={{__html: marked(c.text, {sanitize: true})}}></div>
             <p className="meta">
-               <time className="timestamp" dateTime={c.timestamp}>{util.formatDate(c.timestamp)}</time>
+               <Timestamp dateTime={c.timestamp} />
             </p>
          </li>
       ));

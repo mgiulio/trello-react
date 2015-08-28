@@ -33,21 +33,8 @@ function debounce(func, wait, immediate) {
 	};
 }
 
-function formatDate(str) {
-   var d = new Date(str);
-
-	var day = d.getDate();
-	var month = d.getMonth();
-	var year = d.getFullYear();
-
-	month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'][month];
-	year = String(year).substr(-2);
-
-	return `${day} ${month} ${year}`;
-}
 
 module.exports = {
 	debounce: debounce,
-	now: now,
-	formatDate: formatDate
+	now: now
 };

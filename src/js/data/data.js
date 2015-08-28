@@ -64,7 +64,7 @@ function processBoard(b) {
          commentCount: c.badges.comments,
          voteCount: c.badges.votes,
 
-         dateLastActivity: util.formatDate(c.dateLastActivity),
+         dateLastActivity: c.dateLastActivity,
 
          url: c.url
       };
