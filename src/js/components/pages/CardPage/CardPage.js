@@ -10,6 +10,7 @@ var
    ,ActivityIndicator = require('../../ActivityIndicator')
    ,Failure = require('../../Failure')
    ,marked = require('marked')
+   ,Icon = require('../../Icon')
 ;
 
 var CardPage = React.createClass({
@@ -74,7 +75,7 @@ var CardPage = React.createClass({
                   </div>
                   <div className="aux">
                      <div className="votes">
-                        <Icon which="home"/>
+                        <Icon which="digg"/>
                         <span className="number">{c.votes}</span>
                      </div>
                      <p><a href={c.originalCardUrl}>View this card on Trello</a></p>

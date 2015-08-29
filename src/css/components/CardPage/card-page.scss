@@ -44,6 +44,25 @@
          width: 350px;
          padding-left: 20px;
          box-sizing: border-box;
+         .votes {
+            .icon {
+               width: 30px;
+               height: 30px;
+               float: left;
+            }
+            .number {
+               float: right;
+               margin-top: 5px;
+               font-family: georgia;
+            }
+            &::after {
+               clear: both;
+               content: '';
+               display: table;
+            }
+            padding-bottom: 10px;
+            border-bottom: 1px solid;
+         }
       }
 
       &::after {

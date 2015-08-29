@@ -94,6 +94,18 @@ body, .app {
                line-height: 1.4;
             }
          }
+         .aux {
+            .votes {
+               color: #aaa;
+               .icon {
+                  fill: #aaa;
+               }
+               .number {
+                  font-family: georgia;
+               }
+               border-bottom: 1px solid;
+            }
+         }
       }
    }
 }

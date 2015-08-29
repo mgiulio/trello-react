@@ -24599,6 +24599,7 @@ var
    ,ActivityIndicator = require('../../ActivityIndicator')
    ,Failure = require('../../Failure')
    ,marked = require('marked')
+   ,Icon = require('../../Icon')
 ;
 
 var CardPage = React.createClass({displayName: "CardPage",
@@ -24663,7 +24664,7 @@ var CardPage = React.createClass({displayName: "CardPage",
                   ), 
                   React.createElement("div", {className: "aux"}, 
                      React.createElement("div", {className: "votes"}, 
-                        React.createElement(Icon, {which: "home"}), 
+                        React.createElement(Icon, {which: "digg"}), 
                         React.createElement("span", {className: "number"}, c.votes)
                      ), 
                      React.createElement("p", null, React.createElement("a", {href: c.originalCardUrl}, "View this card on Trello")), 
@@ -24690,7 +24691,7 @@ var CardPage = React.createClass({displayName: "CardPage",
 });
 
 module.exports = CardPage;
-},{"../../../data/data":215,"../../../mixins/mixins":220,"../../../settings":221,"../../ActivityIndicator":198,"../../Failure":199,"../../MetaItem":201,"../../Toolbar":214,"./Comments":209,"marked":2,"react":196}],209:[function(require,module,exports){
+},{"../../../data/data":215,"../../../mixins/mixins":220,"../../../settings":221,"../../ActivityIndicator":198,"../../Failure":199,"../../Icon":200,"../../MetaItem":201,"../../Toolbar":214,"./Comments":209,"marked":2,"react":196}],209:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
