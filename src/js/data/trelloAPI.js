@@ -49,6 +49,29 @@ function getCard(id) {
       });
 }
 
+function getCardCommentPage(cardId, page, pageSize) {
+   var
+      url = `https://api.trello.com/1/cards/${cardId}/actions/?key=${appKey}&filter=commentCard&limit=${pageSize}&page=${page}&memberCreator_fields=username,avatarHash,url`
+   ;
+
+   return http.getJSON(url)
+      .catch(reason => {
+         switch (reason.type) {
+            case 'http':
+               switch (reason.statusCode) {
+                  case 400:
+                     throw {type: 'resource not found'};
+                  break;
+                  default:
+                     throw reason;
+               }
+               break;
+            default:
+               throw reason;
+         }
+      });
+}
+
 function setAppKey(k) {
    appKey = k;
 }
@@ -56,5 +79,6 @@ function setAppKey(k) {
 module.exports = {
    setAppKey: setAppKey,
    getBoard: getBoard,
-   getCard: getCard
+   getCard: getCard,
+   getCardCommentPage: getCardCommentPage
 };

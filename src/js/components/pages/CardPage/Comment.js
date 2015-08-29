@@ -10,15 +10,24 @@ var Comment = React.createClass({
    mixins: mixins(),
 
    render: function() {
-      var
-         a = this.props.author,
-         avatarUrl = 'avatarUrl' in a ? a.avatarUrl : this.props.defaultAvatarUrl
-      ;
+      var author;
+      if (this.props.author) {
+         author = this.props.author;
+         if (!author.avatarUrl)
+            author.avatarUrl = this.props.defaultAvatarUrl;
+      }
+      else {
+         author = {
+            avatarUrl: this.props.defaultAvatarUrl,
+            profilePageUrl: null,
+            username: 'unknown user'
+         };
+      }
 
       return (
          <li className="item">
-            <h2 className="username"><a href={a.profilePageUrl}>{a.username}</a></h2>
-            <img className="avatar" src={avatarUrl} />
+            <h2 className="username">{author.profilePageUrl ? <a href={author.profilePageUrl}>{author.username}</a> : author.username}</h2>
+            <img className="avatar" src={author.avatarUrl} />
             <div className="text" dangerouslySetInnerHTML={{__html: marked(this.props.children.toString(), {sanitize: true})}}></div>
             <p className="meta">
                <Timestamp dateTime={this.props.timestamp} />

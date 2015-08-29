@@ -127,24 +127,43 @@ function processCard(c) {
 
    card.commentCount = c.badges.comments;
    if (card.commentCount > 0)
-      card.comments = c.actions.map(a => {
-         var comment = {
-            author: {
-               username: a.memberCreator.username,
-               profilePageUrl: a.memberCreator.url
-            },
-            text: processMarkdown(a.data.text),
-            timestamp: a.date
-         };
-
-         var avatarHash = a.memberCreator.avatarHash
-         if (avatarHash)
-            comment.author.avatarUrl = `https://trello-avatars.s3.amazonaws.com/${avatarHash}/30.png`;
-
-         return comment;
-      });
+      card.comments = processCardComments(c.actions);
 
    return card;
+}
+
+function cardCommentPageIterator(cardId, pageSize, fromPage) {
+   return {
+      page: fromPage - 1,
+      next: function() {
+         return trelloAPI.getCardCommentPage(cardId, this.page++, pageSize)
+            .then(processCardComments)
+         ;
+      }
+   };
+}
+
+function processCardComments(comments) {
+   return comments.map((c,i) => {
+      var comment = {
+         text: processMarkdown(c.data.text),
+         timestamp: c.date
+      };
+
+      if (c.memberCreator) {
+         var author = {
+            username: c.memberCreator.username,
+            profilePageUrl: c.memberCreator.url
+         };
+         var avatarHash = c.memberCreator.avatarHash;
+         if (avatarHash)
+            author.avatarUrl = `https://trello-avatars.s3.amazonaws.com/${avatarHash}/30.png`;
+
+         comment.author = author;
+      }
+
+      return comment;
+   });
 }
 
 function findById(id, arr) {
@@ -164,5 +183,6 @@ function processMarkdown(md) {
 module.exports = {
    getHomeBoards: getHomeBoards,
    getBoard: getBoard,
-   getCard: getCard
+   getCard: getCard,
+   cardCommentPageIterator: cardCommentPageIterator
 };

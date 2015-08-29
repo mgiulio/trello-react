@@ -24646,7 +24646,7 @@ var CardPage = React.createClass({displayName: "CardPage",
 
             var comments;
             if (c.commentCount > 0)
-               comments = React.createElement(Comments, {data: c.comments});
+               comments = React.createElement(Comments, {length: c.commentCount, firstPage: c.comments, pageSize: "50", cardId: this.props.params.id});
 
             content = (
                React.createElement("div", {className: "wrap"}, 
@@ -24705,15 +24705,24 @@ var Comment = React.createClass({displayName: "Comment",
    mixins: mixins(),
 
    render: function() {
-      var
-         a = this.props.author,
-         avatarUrl = 'avatarUrl' in a ? a.avatarUrl : this.props.defaultAvatarUrl
-      ;
+      var author;
+      if (this.props.author) {
+         author = this.props.author;
+         if (!author.avatarUrl)
+            author.avatarUrl = this.props.defaultAvatarUrl;
+      }
+      else {
+         author = {
+            avatarUrl: this.props.defaultAvatarUrl,
+            profilePageUrl: null,
+            username: 'unknown user'
+         };
+      }
 
       return (
          React.createElement("li", {className: "item"}, 
-            React.createElement("h2", {className: "username"}, React.createElement("a", {href: a.profilePageUrl}, a.username)), 
-            React.createElement("img", {className: "avatar", src: avatarUrl}), 
+            React.createElement("h2", {className: "username"}, author.profilePageUrl ? React.createElement("a", {href: author.profilePageUrl}, author.username) : author.username), 
+            React.createElement("img", {className: "avatar", src: author.avatarUrl}), 
             React.createElement("div", {className: "text", dangerouslySetInnerHTML: {__html: marked(this.props.children.toString(), {sanitize: true})}}), 
             React.createElement("p", {className: "meta"}, 
                React.createElement(Timestamp, {dateTime: this.props.timestamp})
@@ -24730,40 +24739,93 @@ var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
    ,Comment = require('./Comment')
+   ,data = require('../../../data/data')
 ;
 
 var Comments = React.createClass({displayName: "Comments",
 
    mixins: mixins(),
 
+   /*
+   //defaultPrps?
+   length //   numComments
+   firstPage
+   pageSize
+   */
+
+   getInitialState: function() {
+      this.pageIterator = data.cardCommentPageIterator(this.props.cardId, this.props.pageSize, 2);
+
+      return {
+         items: this.props.firstPage
+      };
+   },
+
    render: function() {
-      var commentItems = this.props.data.map(function(c,i) 
+      var itemComponents = this.state.items.map(function(i, id) 
          {return React.createElement(Comment, {
-            key: i, 
-            author: c.author, 
-            timestamp: c.timestamp, 
+            key: id, 
+            author: i.author, 
+            timestamp: i.timestamp, 
             defaultAvatarUrl: "/img/avatar-placeholder.jpg"
          }, 
-            c.text
+            i.text
          );})
       ;
 
+      var moreBtn;
+      if (this.state.items.length < this.props.length)
+         moreBtn = React.createElement(MoreButton, {onClick: this.loadNextPage});
+
+
       return (
          React.createElement("div", {className: "comments"}, 
-            React.createElement("header", {className: "topbar"}, 
-               React.createElement("p", null, this.props.data.length, " Comments")
+            React.createElement("header", {className: "navbar"}, 
+               React.createElement("p", null, this.state.items.length, "/", this.props.length, " Comments")
             ), 
             React.createElement("ul", {className: "items"}, 
-               commentItems
-            )
+               itemComponents
+            ), 
+            React.createElement("p", {className: "more"}, moreBtn)
          )
       );
+   },
+
+   loadNextPage: function() {
+      this.pageIterator.next()
+         .then(
+            function(page)  {
+               this.setState({items: this.state.items.concat(page)});
+            }.bind(this),
+            function(reason)  {
+               console.log('cannot load comment page', reason);
+               //throw reason
+            }
+         )
+      ;
+   }
+
+});
+
+var MoreButton = React.createClass({displayName: "MoreButton",
+
+   render: function() {
+      return (
+         React.createElement("button", {className: "button", onClick: this.handleClick}, "More")
+      );
+   },
+
+   handleClick: function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      this.props.onClick();
    }
 
 });
 
 module.exports = Comments;
-},{"../../../mixins/mixins":221,"./Comment":209,"react":196}],211:[function(require,module,exports){
+},{"../../../data/data":216,"../../../mixins/mixins":221,"./Comment":209,"react":196}],211:[function(require,module,exports){
 var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
@@ -25121,24 +25183,43 @@ function processCard(c) {
 
    card.commentCount = c.badges.comments;
    if (card.commentCount > 0)
-      card.comments = c.actions.map(function(a)  {
-         var comment = {
-            author: {
-               username: a.memberCreator.username,
-               profilePageUrl: a.memberCreator.url
-            },
-            text: processMarkdown(a.data.text),
-            timestamp: a.date
-         };
-
-         var avatarHash = a.memberCreator.avatarHash
-         if (avatarHash)
-            comment.author.avatarUrl = ("https://trello-avatars.s3.amazonaws.com/" + avatarHash + "/30.png");
-
-         return comment;
-      });
+      card.comments = processCardComments(c.actions);
 
    return card;
+}
+
+function cardCommentPageIterator(cardId, pageSize, fromPage) {
+   return {
+      page: fromPage - 1,
+      next: function() {
+         return trelloAPI.getCardCommentPage(cardId, this.page++, pageSize)
+            .then(processCardComments)
+         ;
+      }
+   };
+}
+
+function processCardComments(comments) {
+   return comments.map(function(c,i)  {
+      var comment = {
+         text: processMarkdown(c.data.text),
+         timestamp: c.date
+      };
+
+      if (c.memberCreator) {
+         var author = {
+            username: c.memberCreator.username,
+            profilePageUrl: c.memberCreator.url
+         };
+         var avatarHash = c.memberCreator.avatarHash;
+         if (avatarHash)
+            author.avatarUrl = ("https://trello-avatars.s3.amazonaws.com/" + avatarHash + "/30.png");
+
+         comment.author = author;
+      }
+
+      return comment;
+   });
 }
 
 function findById(id, arr) {
@@ -25158,7 +25239,8 @@ function processMarkdown(md) {
 module.exports = {
    getHomeBoards: getHomeBoards,
    getBoard: getBoard,
-   getCard: getCard
+   getCard: getCard,
+   cardCommentPageIterator: cardCommentPageIterator
 };
 },{"../lib/util":220,"../settings":222,"./http":217,"./trelloAPI":218}],217:[function(require,module,exports){
 function get(url) {
@@ -25239,6 +25321,29 @@ function getCard(id) {
       });
 }
 
+function getCardCommentPage(cardId, page, pageSize) {
+   var
+      url = ("https://api.trello.com/1/cards/" + cardId + "/actions/?key=" + appKey + "&filter=commentCard&limit=" + pageSize + "&page=" + page + "&memberCreator_fields=username,avatarHash,url")
+   ;
+
+   return http.getJSON(url)
+      .catch(function(reason)  {
+         switch (reason.type) {
+            case 'http':
+               switch (reason.statusCode) {
+                  case 400:
+                     throw {type: 'resource not found'};
+                  break;
+                  default:
+                     throw reason;
+               }
+               break;
+            default:
+               throw reason;
+         }
+      });
+}
+
 function setAppKey(k) {
    appKey = k;
 }
@@ -25246,7 +25351,8 @@ function setAppKey(k) {
 module.exports = {
    setAppKey: setAppKey,
    getBoard: getBoard,
-   getCard: getCard
+   getCard: getCard,
+   getCardCommentPage: getCardCommentPage
 };
 },{"./http":217}],219:[function(require,module,exports){
 function formatDate(str) {
