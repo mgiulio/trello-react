@@ -1,7 +1,5 @@
 .card .page {
 
-   background-color: #f7f7f7;
-
    .toolbar {
       position: fixed;
       top: 0;
@@ -26,10 +24,6 @@
 
             .title {
                margin: 0 0 10px;
-
-               font-family: sans-serif;
-               font-weight: bold;
-               font-size: 24px;
             }
          }
 
@@ -42,17 +36,6 @@
 
          .description {
             margin-bottom: 80px;
-            line-height: 1.4;
-
-            h1, h2, h3, h4 {
-               font-family: serif;
-            }
-            h1 {
-               font-size: 20px;
-            }
-            h2 {
-               font-size: 18px;
-            }
          }
       }
 

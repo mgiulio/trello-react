@@ -2,6 +2,13 @@ body, .app {
    background: color(grey);
 }
 
+.toolbar {
+   background-color: color(fossil);
+   &.translucent {
+      background-color: rgba(50,50,50, 0.5);
+   }
+}
+
 .about {
    .page {
       background-color: lighten(color(grey), 5%);
@@ -41,9 +48,52 @@ body, .app {
    }
 }
 
-.toolbar {
-   background-color: color(fossil);
-   &.translucent {
-      background-color: rgba(50,50,50, 0.5);
+
+.card {
+   .page {
+      background-color: #f7f7f7;
+
+      .toolbar {
+         background-color: #555;
+      }
+
+      .wrap {
+         font-family: verdana;
+         color: #555;
+
+         h1, h2, h3, h4 {
+            font-family: sans-serif;
+         }
+
+         h1 {
+            font-size: 20px;
+            font-weight: normal;
+         }
+
+         h2 {
+            font-size: 18px;
+            font-weight: normal;
+         }
+
+         .main {
+            & > header {
+               .title {
+                  font-size: 24px;
+               }
+               .parent-list {
+                  .label {
+                     color: #aaa;
+                  }
+                  .icon {
+                     fill: #aaa;
+                     top: -2px;
+                  }
+               }
+            }
+            .description {
+               line-height: 1.4;
+            }
+         }
+      }
    }
 }
