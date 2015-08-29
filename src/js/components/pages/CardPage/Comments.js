@@ -1,9 +1,7 @@
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
-   ,util = require('../../../lib/util')
-   ,marked = require('marked')
-   ,Timestamp = require('../../Timestamp')
+   ,Comment = require('./Comment')
 ;
 
 var Comments = React.createClass({
@@ -11,16 +9,16 @@ var Comments = React.createClass({
    mixins: mixins(),
 
    render: function() {
-      var commentItems = this.props.data.map((c,i) => (
-         <li className="item" key={i}>
-            <h2 className="username"><a href={c.author.profilePageUrl}>{c.author.username}</a></h2>
-            <img className="avatar" src={ 'avatarUrl' in c.author ? c.author.avatarUrl : '/img/avatar-placeholder.jpg' } />
-            <div className="text" dangerouslySetInnerHTML={{__html: marked(c.text, {sanitize: true})}}></div>
-            <p className="meta">
-               <Timestamp dateTime={c.timestamp} />
-            </p>
-         </li>
-      ));
+      var commentItems = this.props.data.map((c,i) =>
+         <Comment
+            key={i}
+            author={c.author}
+            timestamp={c.timestamp}
+            defaultAvatarUrl="/img/avatar-placeholder.jpg"
+         >
+            {c.text}
+         </Comment>)
+      ;
 
       return (
          <div className="comments">

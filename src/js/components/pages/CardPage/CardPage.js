@@ -31,6 +31,7 @@ var CardPage = React.createClass({
             this.setState({state: 'card', card: card});
          })
          .catch(reason => {
+            console.log(reason);
             this.setState({state: 'failure', msg: reason.toString()});
          })
       ;
