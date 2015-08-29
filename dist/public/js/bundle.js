@@ -24619,7 +24619,7 @@ var CardPage = React.createClass({displayName: "CardPage",
             this.setState({state: 'card', card: card});
          }.bind(this))
          .catch(function(reason)  {
-            this.setState({state: 'failure'});
+            this.setState({state: 'failure', msg: reason.toString()});
          }.bind(this))
       ;
    },
@@ -24637,7 +24637,7 @@ var CardPage = React.createClass({displayName: "CardPage",
             content = React.createElement(ActivityIndicator, null);
             break;
          case 'failure':
-            content = React.createElement(Failure, {msg: "Loading failed", actionButton: {label: 'Retry', onClick: this.retry}});
+            content = React.createElement(Failure, {msg: ("Loading failed: " + this.state.msg), actionButton: {label: 'Retry', onClick: this.retry}});
             break;
          case 'card':
             var c = this.state.card;
@@ -24663,7 +24663,8 @@ var CardPage = React.createClass({displayName: "CardPage",
                   ), 
                   React.createElement("div", {className: "aux"}, 
                      React.createElement("div", {className: "votes"}, 
-                        c.votes, " votes"
+                        React.createElement(Icon, {which: "home"}), 
+                        React.createElement("span", {className: "number"}, c.votes)
                      ), 
                      React.createElement("p", null, React.createElement("a", {href: c.originalCardUrl}, "View this card on Trello")), 
                      React.createElement("div", {className: "attachments"}, 

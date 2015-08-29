@@ -30,7 +30,7 @@ var CardPage = React.createClass({
             this.setState({state: 'card', card: card});
          })
          .catch(reason => {
-            this.setState({state: 'failure'});
+            this.setState({state: 'failure', msg: reason.toString()});
          })
       ;
    },
@@ -48,7 +48,7 @@ var CardPage = React.createClass({
             content = <ActivityIndicator />;
             break;
          case 'failure':
-            content = <Failure msg="Loading failed" actionButton={{label: 'Retry', onClick: this.retry}} />;
+            content = <Failure msg={`Loading failed: ${this.state.msg}`} actionButton={{label: 'Retry', onClick: this.retry}} />;
             break;
          case 'card':
             var c = this.state.card;
@@ -74,7 +74,8 @@ var CardPage = React.createClass({
                   </div>
                   <div className="aux">
                      <div className="votes">
-                        {c.votes} votes
+                        <Icon which="home"/>
+                        <span className="number">{c.votes}</span>
                      </div>
                      <p><a href={c.originalCardUrl}>View this card on Trello</a></p>
                      <div className="attachments">
