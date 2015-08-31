@@ -11,6 +11,7 @@ var
    ,Failure = require('../../Failure')
    ,marked = require('marked')
    ,Icon = require('../../Icon')
+   ,Attachments = require('./Attachments')
 ;
 
 var CardPage = React.createClass({
@@ -59,6 +60,10 @@ var CardPage = React.createClass({
             if (c.commentCount > 0)
                comments = <Comments data={c.comments} />;
 
+            var attachments;
+            if (c.attachmentCount > 0)
+               attachments = <Attachments size={c.attachmentCount}/>;
+
             content = (
                <div className="wrap">
                   <div className="main">
@@ -82,9 +87,7 @@ var CardPage = React.createClass({
                      <p className="original-card">
                         <a href={c.originalCardUrl}>View this card on Trello</a>
                      </p>
-                     <div className="attachments">
-                        <h2>{c.attachmentCount} attachments</h2>
-                     </div>
+                     {attachments}
                   </div>
                </div>
             );

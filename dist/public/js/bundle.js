@@ -24123,7 +24123,7 @@ function docElemClasses(path) {
 
    document.documentElement.className = className;
 }
-},{"./components/Pages/AboutPage":202,"./components/Pages/BoardPage/BoardPage":204,"./components/Pages/CardPage/CardPage":208,"./components/Pages/HomePage/HomePage":211,"./components/Pages/NotFoundPage":213,"./data/trelloAPI":218,"./mixins/mixins":221,"./settings":222,"react":196,"react-router":27}],198:[function(require,module,exports){
+},{"./components/Pages/AboutPage":202,"./components/Pages/BoardPage/BoardPage":204,"./components/Pages/CardPage/CardPage":209,"./components/Pages/HomePage/HomePage":212,"./components/Pages/NotFoundPage":214,"./data/trelloAPI":219,"./mixins/mixins":222,"./settings":223,"react":196,"react-router":27}],198:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../mixins/mixins')
@@ -24151,7 +24151,7 @@ var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
 });
 
 module.exports = ActivityIndicator;
-},{"../mixins/mixins":221,"react":196}],199:[function(require,module,exports){
+},{"../mixins/mixins":222,"react":196}],199:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../mixins/mixins')
@@ -24184,7 +24184,7 @@ var Failure = React.createClass({displayName: "Failure",
 });
 
 module.exports = Failure;
-},{"../mixins/mixins":221,"react":196}],200:[function(require,module,exports){
+},{"../mixins/mixins":222,"react":196}],200:[function(require,module,exports){
 var
    React = require('react'),
    settings = require('../settings')
@@ -24207,7 +24207,7 @@ var Icon = React.createClass({displayName: "Icon",
 });
 
 module.exports = Icon;
-},{"../mixins/mixins":221,"../settings":222,"react":196}],201:[function(require,module,exports){
+},{"../mixins/mixins":222,"../settings":223,"react":196}],201:[function(require,module,exports){
 var
    React = require('react'),
    Icon = require('./Icon')
@@ -24234,7 +24234,7 @@ var MetaItem = React.createClass({displayName: "MetaItem",
 });
 
 module.exports = MetaItem;
-},{"../mixins/mixins":221,"./Icon":200,"react":196}],202:[function(require,module,exports){
+},{"../mixins/mixins":222,"./Icon":200,"react":196}],202:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -24273,7 +24273,7 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 });
 
 module.exports = AboutPage;
-},{"../../mixins/mixins":221,"../Icon":200,"react":196,"react-router":27}],203:[function(require,module,exports){
+},{"../../mixins/mixins":222,"../Icon":200,"react":196,"react-router":27}],203:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
@@ -24313,7 +24313,7 @@ var BoardInfo = React.createClass({displayName: "BoardInfo",
 ;
 
 module.exports = BoardInfo;
-},{"../../../mixins/mixins":221,"../../MetaItem":201,"react":196}],204:[function(require,module,exports){
+},{"../../../mixins/mixins":222,"../../MetaItem":201,"react":196}],204:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -24432,7 +24432,7 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 });
 
 module.exports = BoardPage;
-},{"../../../data/data":216,"../../../mixins/mixins":221,"../../../settings":222,"../../ActivityIndicator":198,"../../Failure":199,"../../Toolbar":215,"./BoardInfo":203,"./CardLists":207,"react":196}],205:[function(require,module,exports){
+},{"../../../data/data":217,"../../../mixins/mixins":222,"../../../settings":223,"../../ActivityIndicator":198,"../../Failure":199,"../../Toolbar":216,"./BoardInfo":203,"./CardLists":207,"react":196}],205:[function(require,module,exports){
 var
    React = require('react')
    ,MetaItem = require('../../MetaItem')
@@ -24480,7 +24480,7 @@ var Card = React.createClass({displayName: "Card",
 });
 
 module.exports = Card;
-},{"../../../mixins/mixins":221,"../../MetaItem":201,"../../Timestamp":214,"react":196,"react-router":27}],206:[function(require,module,exports){
+},{"../../../mixins/mixins":222,"../../MetaItem":201,"../../Timestamp":215,"react":196,"react-router":27}],206:[function(require,module,exports){
 var
    React = require('react'),
    Card = require('./Card')
@@ -24525,7 +24525,7 @@ var CardList = React.createClass({displayName: "CardList",
 });
 
 module.exports = CardList;
-},{"../../../mixins/mixins":221,"./Card":205,"react":196}],207:[function(require,module,exports){
+},{"../../../mixins/mixins":222,"./Card":205,"react":196}],207:[function(require,module,exports){
 var
    React = require('react'),
    CardList = require('./CardList'),
@@ -24586,7 +24586,25 @@ var CardLists = React.createClass({displayName: "CardLists",
 });
 
 module.exports = CardLists;
-},{"../../../lib/util":220,"../../../mixins/mixins":221,"./CardList":206,"react":196}],208:[function(require,module,exports){
+},{"../../../lib/util":221,"../../../mixins/mixins":222,"./CardList":206,"react":196}],208:[function(require,module,exports){
+var
+   React = require('react')
+;
+
+var Attachments = React.createClass({displayName: "Attachments",
+
+   render: function() {
+      return (
+         React.createElement("div", {className: "attachments"}, 
+            React.createElement("h2", {className: "title"}, "Attachments(", this.props.size, ")")
+         )
+      );
+   }
+
+});
+
+module.exports = Attachments;
+},{"react":196}],209:[function(require,module,exports){
 var
    React = require('react')
    ,settings = require('../../../settings')
@@ -24600,6 +24618,7 @@ var
    ,Failure = require('../../Failure')
    ,marked = require('marked')
    ,Icon = require('../../Icon')
+   ,Attachments = require('./Attachments')
 ;
 
 var CardPage = React.createClass({displayName: "CardPage",
@@ -24648,6 +24667,10 @@ var CardPage = React.createClass({displayName: "CardPage",
             if (c.commentCount > 0)
                comments = React.createElement(Comments, {data: c.comments});
 
+            var attachments;
+            if (c.attachmentCount > 0)
+               attachments = React.createElement(Attachments, {size: c.attachmentCount});
+
             content = (
                React.createElement("div", {className: "wrap"}, 
                   React.createElement("div", {className: "main"}, 
@@ -24671,9 +24694,7 @@ var CardPage = React.createClass({displayName: "CardPage",
                      React.createElement("p", {className: "original-card"}, 
                         React.createElement("a", {href: c.originalCardUrl}, "View this card on Trello")
                      ), 
-                     React.createElement("div", {className: "attachments"}, 
-                        React.createElement("h2", null, c.attachmentCount, " attachments")
-                     )
+                     attachments
                   )
                )
             );
@@ -24694,7 +24715,7 @@ var CardPage = React.createClass({displayName: "CardPage",
 });
 
 module.exports = CardPage;
-},{"../../../data/data":216,"../../../mixins/mixins":221,"../../../settings":222,"../../ActivityIndicator":198,"../../Failure":199,"../../Icon":200,"../../MetaItem":201,"../../Toolbar":215,"./Comments":210,"marked":2,"react":196}],209:[function(require,module,exports){
+},{"../../../data/data":217,"../../../mixins/mixins":222,"../../../settings":223,"../../ActivityIndicator":198,"../../Failure":199,"../../Icon":200,"../../MetaItem":201,"../../Toolbar":216,"./Attachments":208,"./Comments":211,"marked":2,"react":196}],210:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
@@ -24727,7 +24748,7 @@ var Comment = React.createClass({displayName: "Comment",
 });
 
 module.exports = Comment;
-},{"../../../mixins/mixins":221,"../../Timestamp":214,"marked":2,"react":196}],210:[function(require,module,exports){
+},{"../../../mixins/mixins":222,"../../Timestamp":215,"marked":2,"react":196}],211:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
@@ -24765,7 +24786,7 @@ var Comments = React.createClass({displayName: "Comments",
 });
 
 module.exports = Comments;
-},{"../../../mixins/mixins":221,"./Comment":209,"react":196}],211:[function(require,module,exports){
+},{"../../../mixins/mixins":222,"./Comment":210,"react":196}],212:[function(require,module,exports){
 var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
@@ -24789,7 +24810,7 @@ var HomePage = React.createClass({displayName: "HomePage",
 });
 
 module.exports = HomePage;
-},{"../../../mixins/mixins":221,"../../Toolbar":215,"./HomePageBoards":212,"react":196}],212:[function(require,module,exports){
+},{"../../../mixins/mixins":222,"../../Toolbar":216,"./HomePageBoards":213,"react":196}],213:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -24905,7 +24926,7 @@ var Board = React.createClass({displayName: "Board",
 });
 
 module.exports = HomePageBoards;
-},{"../../../data/data":216,"../../../mixins/mixins":221,"../../ActivityIndicator":198,"../../Failure":199,"react":196,"react-router":27}],213:[function(require,module,exports){
+},{"../../../data/data":217,"../../../mixins/mixins":222,"../../ActivityIndicator":198,"../../Failure":199,"react":196,"react-router":27}],214:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -24937,7 +24958,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 });
 
 module.exports = NotFoundPage;
-},{"../../mixins/mixins":221,"../Icon":200,"react":196,"react-router":27}],214:[function(require,module,exports){
+},{"../../mixins/mixins":222,"../Icon":200,"react":196,"react-router":27}],215:[function(require,module,exports){
 var
    React = require('react')
    ,datetime = require('../lib/datetime')
@@ -24960,7 +24981,7 @@ var Timestamp = React.createClass({displayName: "Timestamp",
 
 module.exports = Timestamp;
 
-},{"../lib/datetime":219,"react":196}],215:[function(require,module,exports){
+},{"../lib/datetime":220,"react":196}],216:[function(require,module,exports){
 var
    React = require('react'),
    Router = require('react-router'),
@@ -24993,7 +25014,7 @@ var Toolbar = React.createClass({displayName: "Toolbar",
 });
 
 module.exports = Toolbar;
-},{"../mixins/mixins":221,"react":196,"react-router":27}],216:[function(require,module,exports){
+},{"../mixins/mixins":222,"react":196,"react-router":27}],217:[function(require,module,exports){
 var
    http = require('./http'),
    trelloAPI = require('./trelloAPI'),
@@ -25162,7 +25183,7 @@ module.exports = {
    getBoard: getBoard,
    getCard: getCard
 };
-},{"../lib/util":220,"../settings":222,"./http":217,"./trelloAPI":218}],217:[function(require,module,exports){
+},{"../lib/util":221,"../settings":223,"./http":218,"./trelloAPI":219}],218:[function(require,module,exports){
 function get(url) {
    return fetch(url)
       .catch(function(reason)  { throw {type: 'network', message: reason.message}; })
@@ -25189,7 +25210,7 @@ module.exports = {
    get: get,
    getJSON: getJSON
 };
-},{}],218:[function(require,module,exports){
+},{}],219:[function(require,module,exports){
 var
    appKey,
    http = require('./http')
@@ -25250,7 +25271,7 @@ module.exports = {
    getBoard: getBoard,
    getCard: getCard
 };
-},{"./http":217}],219:[function(require,module,exports){
+},{"./http":218}],220:[function(require,module,exports){
 function formatDate(str) {
    var d = new Date(str);
 
@@ -25288,7 +25309,7 @@ module.exports = {
    formatDateTime: formatDateTime,
    formatDate: formatDate
 };
-},{}],220:[function(require,module,exports){
+},{}],221:[function(require,module,exports){
 var now = Date.now || function() { return new Date().getTime(); }
 
 function debounce(func, wait, immediate) {
@@ -25329,7 +25350,7 @@ module.exports = {
 	debounce: debounce,
 	now: now
 };
-},{}],221:[function(require,module,exports){
+},{}],222:[function(require,module,exports){
 var settings = require('../settings');
 
 function mixins(mixinArr) {
@@ -25358,7 +25379,7 @@ var lifeCycleLogger = [
    );
 
 module.exports = mixins;
-},{"../settings":222}],222:[function(require,module,exports){
+},{"../settings":223}],223:[function(require,module,exports){
 var settings = {
    'board background': false,
    'lifecycle logger': false
