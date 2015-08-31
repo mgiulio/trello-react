@@ -79,7 +79,9 @@ var CardPage = React.createClass({
                         <Icon which="digg"/>
                         <span className="number">{c.votes}</span>
                      </div>
-                     <p><a href={c.originalCardUrl}>View this card on Trello</a></p>
+                     <p className="original-card">
+                        <a href={c.originalCardUrl}>View this card on Trello</a>
+                     </p>
                      <div className="attachments">
                         <h2>{c.attachmentCount} attachments</h2>
                      </div>

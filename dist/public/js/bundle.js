@@ -24668,7 +24668,9 @@ var CardPage = React.createClass({displayName: "CardPage",
                         React.createElement(Icon, {which: "digg"}), 
                         React.createElement("span", {className: "number"}, c.votes)
                      ), 
-                     React.createElement("p", null, React.createElement("a", {href: c.originalCardUrl}, "View this card on Trello")), 
+                     React.createElement("p", {className: "original-card"}, 
+                        React.createElement("a", {href: c.originalCardUrl}, "View this card on Trello")
+                     ), 
                      React.createElement("div", {className: "attachments"}, 
                         React.createElement("h2", null, c.attachmentCount, " attachments")
                      )
