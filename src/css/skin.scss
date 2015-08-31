@@ -105,6 +105,18 @@ body, .app {
                }
                border-bottom: 1px solid;
             }
+            .original-card a {
+               color: #808080;
+               &:hover {
+                  color: #333;
+               }
+            }
+            .board-link a {
+               color: #808080;
+               &:hover {
+                  color: #333;
+               }
+            }
          }
       }
    }

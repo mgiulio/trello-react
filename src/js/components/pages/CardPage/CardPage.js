@@ -12,6 +12,8 @@ var
    ,marked = require('marked')
    ,Icon = require('../../Icon')
    ,Attachments = require('./Attachments')
+   ,Router = require('react-router')
+   ,Link = Router.Link
 ;
 
 var CardPage = React.createClass({
@@ -86,6 +88,9 @@ var CardPage = React.createClass({
                      </div>
                      <p className="original-card">
                         <a href={c.originalCardUrl}>View this card on Trello</a>
+                     </p>
+                     <p className="board-link">
+                        <Link to="board" params={{id: c.boardId}}>Back to the board</Link>
                      </p>
                      {attachments}
                   </div>

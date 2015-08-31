@@ -24619,6 +24619,8 @@ var
    ,marked = require('marked')
    ,Icon = require('../../Icon')
    ,Attachments = require('./Attachments')
+   ,Router = require('react-router')
+   ,Link = Router.Link
 ;
 
 var CardPage = React.createClass({displayName: "CardPage",
@@ -24694,6 +24696,9 @@ var CardPage = React.createClass({displayName: "CardPage",
                      React.createElement("p", {className: "original-card"}, 
                         React.createElement("a", {href: c.originalCardUrl}, "View this card on Trello")
                      ), 
+                     React.createElement("p", {className: "board-link"}, 
+                        React.createElement(Link, {to: "board", params: {id: c.boardId}}, "Back to the board")
+                     ), 
                      attachments
                   )
                )
@@ -24715,7 +24720,7 @@ var CardPage = React.createClass({displayName: "CardPage",
 });
 
 module.exports = CardPage;
-},{"../../../data/data":217,"../../../mixins/mixins":222,"../../../settings":223,"../../ActivityIndicator":198,"../../Failure":199,"../../Icon":200,"../../MetaItem":201,"../../Toolbar":216,"./Attachments":208,"./Comments":211,"marked":2,"react":196}],210:[function(require,module,exports){
+},{"../../../data/data":217,"../../../mixins/mixins":222,"../../../settings":223,"../../ActivityIndicator":198,"../../Failure":199,"../../Icon":200,"../../MetaItem":201,"../../Toolbar":216,"./Attachments":208,"./Comments":211,"marked":2,"react":196,"react-router":27}],210:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
@@ -25127,6 +25132,8 @@ function processCard(c) {
    card.parentList = {
       name: c.list.name
    };
+
+   card.boardId = c.idBoard;
 
    if (c.badges.description && c.desc)
       card.description = processMarkdown(c.desc);
