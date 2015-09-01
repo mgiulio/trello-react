@@ -1,45 +1,54 @@
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
-   ,Comment = require('./Comment')
    ,data = require('../../../data/data')
+   ,Comment = require('./Comment')
+   ,MoreButton = require('./MoreButton')
 ;
 
 var Comments = React.createClass({
 
    mixins: mixins(),
 
-   /*
-   //defaultPrps?
-   length //   numComments
-   firstPage
-   pageSize
-   */
-
    getInitialState: function() {
       this.pageIterator = data.cardCommentPageIterator(this.props.cardId, this.props.pageSize, 2);
 
       return {
-         items: this.props.firstPage
+         items: this.props.firstPage,
+         loading: false
       };
    },
 
    render: function() {
-      var itemComponents = this.state.items.map((i, id) =>
-         <Comment
-            key={id}
-            author={i.author}
-            timestamp={i.timestamp}
-            defaultAvatarUrl="/img/avatar-placeholder.jpg"
-         >
-            {i.text}
-         </Comment>)
+      var
+         itemComponents,
+         moreBtn,
+         btnProps = {
+            onClick: this.loadNextPage
+         }
       ;
 
-      var moreBtn;
-      if (this.state.items.length < this.props.length)
-         moreBtn = <MoreButton onClick={this.loadNextPage}/>;
+      if (this.state.loading) {
+         btnProps.spin = true;
+         moreBtn = <MoreButton {...btnProps} />;
 
+         itemComponents = this.itemComponents;
+      }
+      else {
+         itemComponents = this.itemComponents = this.state.items.map((i, id) =>
+            <Comment
+               key={id}
+               author={i.author}
+               timestamp={i.timestamp}
+               defaultAvatarUrl="/img/avatar-placeholder.jpg"
+            >
+               {i.text}
+            </Comment>)
+         ;
+
+         if (this.state.items.length < this.props.length)
+            moreBtn = <MoreButton {...btnProps} />;
+      }
 
       return (
          <div className="comments">
@@ -55,10 +64,15 @@ var Comments = React.createClass({
    },
 
    loadNextPage: function() {
+      this.setState({loading: true});
+
       this.pageIterator.next()
          .then(
             page => {
-               this.setState({items: this.state.items.concat(page)});
+               this.setState({
+                  items: this.state.items.concat(page),
+                  loading: false
+               });
             },
             (reason) => {
                console.log('cannot load comment page', reason);
@@ -66,23 +80,6 @@ var Comments = React.createClass({
             }
          )
       ;
-   }
-
-});
-
-var MoreButton = React.createClass({
-
-   render: function() {
-      return (
-         <button className="button" onClick={this.handleClick}>More</button>
-      );
-   },
-
-   handleClick: function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-
-      this.props.onClick();
    }
 
 });
