@@ -63,6 +63,16 @@
             padding-bottom: 10px;
             border-bottom: 1px solid;
          }
+         .original-card {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 0.8em;
+         }
+         .board-link {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 0.8em;
+         }
       }
 
       &::after {
@@ -74,3 +84,4 @@
 }
 
 @import 'comments';
+@import 'attachments';

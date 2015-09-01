@@ -11,6 +11,9 @@ var
    ,Failure = require('../../Failure')
    ,marked = require('marked')
    ,Icon = require('../../Icon')
+   ,Attachments = require('./Attachments')
+   ,Router = require('react-router')
+   ,Link = Router.Link
 ;
 
 var CardPage = React.createClass({
@@ -59,6 +62,10 @@ var CardPage = React.createClass({
             if (c.commentCount > 0)
                comments = <Comments length={c.commentCount} firstPage={c.comments} pageSize="50" cardId={this.props.params.id} />;
 
+            var attachments;
+            if (c.attachmentCount > 0)
+               attachments = <Attachments size={c.attachmentCount}/>;
+
             content = (
                <div className="wrap">
                   <div className="main">
@@ -79,10 +86,13 @@ var CardPage = React.createClass({
                         <Icon which="digg"/>
                         <span className="number">{c.votes}</span>
                      </div>
-                     <p><a href={c.originalCardUrl}>View this card on Trello</a></p>
-                     <div className="attachments">
-                        <h2>{c.attachmentCount} attachments</h2>
-                     </div>
+                     <p className="original-card">
+                        <a href={c.originalCardUrl}>View this card on Trello</a>
+                     </p>
+                     <p className="board-link">
+                        <Link to="board" params={{id: c.boardId}}>Back to the board</Link>
+                     </p>
+                     {attachments}
                   </div>
                </div>
             );

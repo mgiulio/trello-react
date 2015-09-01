@@ -111,6 +111,8 @@ function processCard(c) {
       name: c.list.name
    };
 
+   card.boardId = c.idBoard;
+
    if (c.badges.description && c.desc)
       card.description = processMarkdown(c.desc);
 

@@ -50,13 +50,16 @@ body, .app {
 
 
 .card {
-   .page {
+   body {
       background-color: #f7f7f7;
-
+   }
+   .app {
+      background: none;
+   }
+   .page {
       .toolbar {
          background-color: #555;
       }
-
       .wrap {
          font-family: verdana;
          color: #555;
@@ -104,6 +107,18 @@ body, .app {
                   font-family: georgia;
                }
                border-bottom: 1px solid;
+            }
+            .original-card a {
+               color: #808080;
+               &:hover {
+                  color: #333;
+               }
+            }
+            .board-link a {
+               color: #808080;
+               &:hover {
+                  color: #333;
+               }
             }
          }
       }
