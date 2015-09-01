@@ -50,13 +50,16 @@ body, .app {
 
 
 .card {
-   .page {
+   body {
       background-color: #f7f7f7;
-
+   }
+   .app {
+      background: none;
+   }
+   .page {
       .toolbar {
          background-color: #555;
       }
-
       .wrap {
          font-family: verdana;
          color: #555;
