@@ -14,10 +14,10 @@
       list-style: none;
 
       .item {
-         border-top: 1px solid gray;
          padding: 15px 0 15px 55px;
          position: relative;
 
+         border-top: 1px solid gray;
          &:last-child {
             border-bottom: 1px solid gray;
          }
@@ -28,14 +28,19 @@
             left: 0px;
             width: 40px;
             height: 40px;
+
             border-radius: 50%;
          }
 
          .username {
             margin: 0 0 15px;
-            font-family: sans-serif;
-            font-weight: normal;
-            font-size: 20px;
+
+            a {
+               font-family: sans-serif;
+               font-weight: normal;
+               font-size: 20px;
+               color: #a2c0cc;
+            }
          }
 
          .text {
@@ -49,10 +54,10 @@
 
          .meta {
             margin: 0;
+
             font-size: 14px;
 
             .timestamp {
-
             }
          }
       }
