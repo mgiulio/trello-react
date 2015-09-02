@@ -1,0 +1,23 @@
+@import 'holabars.scss';
+
+.more-button {
+   display: inline-block;
+
+   padding: 10px 20px;
+   margin: 0;
+
+   position: relative;
+}
+
+.more-button--spinning .more-button__label {
+   visibility: hidden;
+}
+
+.more-button .holabars {
+   position: absolute;
+   width: 60%;
+   height: 40%;//60%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}

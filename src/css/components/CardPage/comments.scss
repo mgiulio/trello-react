@@ -56,13 +56,10 @@
             }
          }
       }
-      .more {
-         text-align: center;
-         .btn {
-            
-         }
-      }
    }
-
-
+   .more {
+      text-align: center;
+   }
 }
+
+@import 'more-button.scss'

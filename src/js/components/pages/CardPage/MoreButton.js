@@ -1,18 +1,32 @@
 var
-   React = require('react')
+   React = require('react'),
+   HolaBars = require('./HolaBars')
 ;
 
 var MoreButton = React.createClass({
 
    render: function() {
-      var content = this.props.spin === true ? 'holabars' : 'more';
+      var
+         btnProps = {
+            className: 'more-button'
+         },
+         hbProps = {
+         }
+      ;
+
+      if (this.props.spin) {
+         hbProps.show = true;
+         btnProps.className += ' more-button--spinning';
+      }
+      else {
+         hbProps.show = false;
+         btnProps.onClick = this.handleClick;
+   }
 
       return (
-         <button
-            className="button"
-            onClick={this.handleClick}
-         >
-            {content}
+         <button {...btnProps}>
+            <span className="more-button__label">more</span>
+            <HolaBars {...hbProps} />
          </button>
       );
    },
