@@ -44,8 +44,11 @@
          }
 
          .text {
-            line-height: 1.4;
+            line-height: 1.6;
             margin-bottom: 20px;
+
+            font-size: 0.9em;
+            color: #9a9898;
 
             ul {
                list-style: disc;
@@ -55,7 +58,10 @@
          .meta {
             margin: 0;
 
-            font-size: 14px;
+            font-size: 0.7em;
+            color: #c1c1c1;
+            font-family: sans-serif;
+            font-style: italic;
 
             .timestamp {
             }
