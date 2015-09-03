@@ -24123,7 +24123,7 @@ function docElemClasses(path) {
 
    document.documentElement.className = className;
 }
-},{"./components/Pages/AboutPage":202,"./components/Pages/BoardPage/BoardPage":204,"./components/Pages/CardPage/CardPage":209,"./components/Pages/HomePage/HomePage":214,"./components/Pages/NotFoundPage":216,"./data/trelloAPI":221,"./mixins/mixins":224,"./settings":225,"react":196,"react-router":27}],198:[function(require,module,exports){
+},{"./components/Pages/AboutPage":202,"./components/Pages/BoardPage/BoardPage":204,"./components/Pages/CardPage/CardPage":209,"./components/Pages/HomePage/HomePage":215,"./components/Pages/NotFoundPage":217,"./data/trelloAPI":222,"./mixins/mixins":225,"./settings":226,"react":196,"react-router":27}],198:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../mixins/mixins')
@@ -24151,7 +24151,7 @@ var ActivityIndicator = React.createClass({displayName: "ActivityIndicator",
 });
 
 module.exports = ActivityIndicator;
-},{"../mixins/mixins":224,"react":196}],199:[function(require,module,exports){
+},{"../mixins/mixins":225,"react":196}],199:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../mixins/mixins')
@@ -24184,7 +24184,7 @@ var Failure = React.createClass({displayName: "Failure",
 });
 
 module.exports = Failure;
-},{"../mixins/mixins":224,"react":196}],200:[function(require,module,exports){
+},{"../mixins/mixins":225,"react":196}],200:[function(require,module,exports){
 var
    React = require('react'),
    settings = require('../settings')
@@ -24207,7 +24207,7 @@ var Icon = React.createClass({displayName: "Icon",
 });
 
 module.exports = Icon;
-},{"../mixins/mixins":224,"../settings":225,"react":196}],201:[function(require,module,exports){
+},{"../mixins/mixins":225,"../settings":226,"react":196}],201:[function(require,module,exports){
 var
    React = require('react'),
    Icon = require('./Icon')
@@ -24234,7 +24234,7 @@ var MetaItem = React.createClass({displayName: "MetaItem",
 });
 
 module.exports = MetaItem;
-},{"../mixins/mixins":224,"./Icon":200,"react":196}],202:[function(require,module,exports){
+},{"../mixins/mixins":225,"./Icon":200,"react":196}],202:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -24273,7 +24273,7 @@ var AboutPage = React.createClass({displayName: "AboutPage",
 });
 
 module.exports = AboutPage;
-},{"../../mixins/mixins":224,"../Icon":200,"react":196,"react-router":27}],203:[function(require,module,exports){
+},{"../../mixins/mixins":225,"../Icon":200,"react":196,"react-router":27}],203:[function(require,module,exports){
 var
    React = require('react'),
    MetaItem = require('../../MetaItem')
@@ -24313,7 +24313,7 @@ var BoardInfo = React.createClass({displayName: "BoardInfo",
 ;
 
 module.exports = BoardInfo;
-},{"../../../mixins/mixins":224,"../../MetaItem":201,"react":196}],204:[function(require,module,exports){
+},{"../../../mixins/mixins":225,"../../MetaItem":201,"react":196}],204:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -24432,7 +24432,7 @@ var BoardPage = React.createClass({displayName: "BoardPage",
 });
 
 module.exports = BoardPage;
-},{"../../../data/data":219,"../../../mixins/mixins":224,"../../../settings":225,"../../ActivityIndicator":198,"../../Failure":199,"../../Toolbar":218,"./BoardInfo":203,"./CardLists":207,"react":196}],205:[function(require,module,exports){
+},{"../../../data/data":220,"../../../mixins/mixins":225,"../../../settings":226,"../../ActivityIndicator":198,"../../Failure":199,"../../Toolbar":219,"./BoardInfo":203,"./CardLists":207,"react":196}],205:[function(require,module,exports){
 var
    React = require('react')
    ,MetaItem = require('../../MetaItem')
@@ -24480,7 +24480,7 @@ var Card = React.createClass({displayName: "Card",
 });
 
 module.exports = Card;
-},{"../../../mixins/mixins":224,"../../MetaItem":201,"../../Timestamp":217,"react":196,"react-router":27}],206:[function(require,module,exports){
+},{"../../../mixins/mixins":225,"../../MetaItem":201,"../../Timestamp":218,"react":196,"react-router":27}],206:[function(require,module,exports){
 var
    React = require('react'),
    Card = require('./Card')
@@ -24525,7 +24525,7 @@ var CardList = React.createClass({displayName: "CardList",
 });
 
 module.exports = CardList;
-},{"../../../mixins/mixins":224,"./Card":205,"react":196}],207:[function(require,module,exports){
+},{"../../../mixins/mixins":225,"./Card":205,"react":196}],207:[function(require,module,exports){
 var
    React = require('react'),
    CardList = require('./CardList'),
@@ -24586,7 +24586,7 @@ var CardLists = React.createClass({displayName: "CardLists",
 });
 
 module.exports = CardLists;
-},{"../../../lib/util":223,"../../../mixins/mixins":224,"./CardList":206,"react":196}],208:[function(require,module,exports){
+},{"../../../lib/util":224,"../../../mixins/mixins":225,"./CardList":206,"react":196}],208:[function(require,module,exports){
 var
    React = require('react')
 ;
@@ -24720,7 +24720,7 @@ var CardPage = React.createClass({displayName: "CardPage",
 });
 
 module.exports = CardPage;
-},{"../../../data/data":219,"../../../mixins/mixins":224,"../../../settings":225,"../../ActivityIndicator":198,"../../Failure":199,"../../Icon":200,"../../MetaItem":201,"../../Toolbar":218,"./Attachments":208,"./Comments":211,"marked":2,"react":196,"react-router":27}],210:[function(require,module,exports){
+},{"../../../data/data":220,"../../../mixins/mixins":225,"../../../settings":226,"../../ActivityIndicator":198,"../../Failure":199,"../../Icon":200,"../../MetaItem":201,"../../Toolbar":219,"./Attachments":208,"./Comments":211,"marked":2,"react":196,"react-router":27}],210:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
@@ -24762,27 +24762,19 @@ var Comment = React.createClass({displayName: "Comment",
 });
 
 module.exports = Comment;
-},{"../../../mixins/mixins":224,"../../Timestamp":217,"marked":2,"react":196}],211:[function(require,module,exports){
+},{"../../../mixins/mixins":225,"../../Timestamp":218,"marked":2,"react":196}],211:[function(require,module,exports){
 var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
    ,data = require('../../../data/data')
    ,Comment = require('./Comment')
    ,MoreButton = require('./MoreButton')
+   ,CommentsBar = require('./CommentsBar')
 ;
 
 var Comments = React.createClass({displayName: "Comments",
 
    mixins: mixins(),
-
-   getInitialState: function() {
-      this.pageIterator = data.cardCommentPageIterator(this.props.cardId, this.props.pageSize, 2);
-
-      return {
-         items: this.props.firstPage,
-         loading: false
-      };
-   },
 
    render: function() {
       var
@@ -24817,9 +24809,7 @@ var Comments = React.createClass({displayName: "Comments",
 
       return (
          React.createElement("div", {className: "comments"}, 
-            React.createElement("header", {className: "navbar"}, 
-               React.createElement("p", null, this.state.items.length, "/", this.props.length, " Comments")
-            ), 
+            React.createElement(CommentsBar, {totalComments: this.props.length, shownComments: this.state.items.length}), 
             React.createElement("ul", {className: "items"}, 
                itemComponents
             ), 
@@ -24827,6 +24817,16 @@ var Comments = React.createClass({displayName: "Comments",
          )
       );
    },
+
+   getInitialState: function() {
+      this.pageIterator = data.cardCommentPageIterator(this.props.cardId, this.props.pageSize, 2);
+
+      return {
+         items: this.props.firstPage,
+         loading: false
+      };
+   },
+
 
    loadNextPage: function() {
       this.setState({loading: true});
@@ -24850,7 +24850,28 @@ var Comments = React.createClass({displayName: "Comments",
 });
 
 module.exports = Comments;
-},{"../../../data/data":219,"../../../mixins/mixins":224,"./Comment":210,"./MoreButton":213,"react":196}],212:[function(require,module,exports){
+},{"../../../data/data":220,"../../../mixins/mixins":225,"./Comment":210,"./CommentsBar":212,"./MoreButton":214,"react":196}],212:[function(require,module,exports){
+var
+   React = require('react')
+;
+
+var CommentsBar = React.createClass({displayName: "CommentsBar",
+
+   render: function() {
+      return (
+         React.createElement("header", {className: "comments__bar"}, 
+            React.createElement("p", {className: "comments__bar__counters"}, 
+               React.createElement("span", {className: "comments__bar__counters__label"}, "Comments"), 
+               React.createElement("span", {className: "comments__bar__counters__value"}, this.props.shownComments, "/", this.props.totalComments)
+            )
+         )
+      );
+   }
+
+});
+
+module.exports = CommentsBar;
+},{"react":196}],213:[function(require,module,exports){
 var
    React = require('react')
 ;
@@ -24876,7 +24897,7 @@ var HolaBars = React.createClass({displayName: "HolaBars",
 });
 
 module.exports = HolaBars;
-},{"react":196}],213:[function(require,module,exports){
+},{"react":196}],214:[function(require,module,exports){
 var
    React = require('react'),
    HolaBars = require('./HolaBars')
@@ -24920,7 +24941,7 @@ var MoreButton = React.createClass({displayName: "MoreButton",
 });
 
 module.exports = MoreButton;
-},{"./HolaBars":212,"react":196}],214:[function(require,module,exports){
+},{"./HolaBars":213,"react":196}],215:[function(require,module,exports){
 var
    React = require('react'),
    Toolbar = require('../../Toolbar'),
@@ -24944,7 +24965,7 @@ var HomePage = React.createClass({displayName: "HomePage",
 });
 
 module.exports = HomePage;
-},{"../../../mixins/mixins":224,"../../Toolbar":218,"./HomePageBoards":215,"react":196}],215:[function(require,module,exports){
+},{"../../../mixins/mixins":225,"../../Toolbar":219,"./HomePageBoards":216,"react":196}],216:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -25060,7 +25081,7 @@ var Board = React.createClass({displayName: "Board",
 });
 
 module.exports = HomePageBoards;
-},{"../../../data/data":219,"../../../mixins/mixins":224,"../../ActivityIndicator":198,"../../Failure":199,"react":196,"react-router":27}],216:[function(require,module,exports){
+},{"../../../data/data":220,"../../../mixins/mixins":225,"../../ActivityIndicator":198,"../../Failure":199,"react":196,"react-router":27}],217:[function(require,module,exports){
 var
    React = require('react'),
 
@@ -25092,7 +25113,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 });
 
 module.exports = NotFoundPage;
-},{"../../mixins/mixins":224,"../Icon":200,"react":196,"react-router":27}],217:[function(require,module,exports){
+},{"../../mixins/mixins":225,"../Icon":200,"react":196,"react-router":27}],218:[function(require,module,exports){
 var
    React = require('react')
    ,datetime = require('../lib/datetime')
@@ -25115,7 +25136,7 @@ var Timestamp = React.createClass({displayName: "Timestamp",
 
 module.exports = Timestamp;
 
-},{"../lib/datetime":222,"react":196}],218:[function(require,module,exports){
+},{"../lib/datetime":223,"react":196}],219:[function(require,module,exports){
 var
    React = require('react'),
    Router = require('react-router'),
@@ -25148,7 +25169,7 @@ var Toolbar = React.createClass({displayName: "Toolbar",
 });
 
 module.exports = Toolbar;
-},{"../mixins/mixins":224,"react":196,"react-router":27}],219:[function(require,module,exports){
+},{"../mixins/mixins":225,"react":196,"react-router":27}],220:[function(require,module,exports){
 var
    http = require('./http'),
    trelloAPI = require('./trelloAPI'),
@@ -25339,7 +25360,7 @@ module.exports = {
    getCard: getCard,
    cardCommentPageIterator: cardCommentPageIterator
 };
-},{"../lib/util":223,"../settings":225,"./http":220,"./trelloAPI":221}],220:[function(require,module,exports){
+},{"../lib/util":224,"../settings":226,"./http":221,"./trelloAPI":222}],221:[function(require,module,exports){
 function get(url) {
    return fetch(url)
       .catch(function(reason)  { throw {type: 'network', message: reason.message}; })
@@ -25366,7 +25387,7 @@ module.exports = {
    get: get,
    getJSON: getJSON
 };
-},{}],221:[function(require,module,exports){
+},{}],222:[function(require,module,exports){
 var
    appKey,
    http = require('./http')
@@ -25451,7 +25472,7 @@ module.exports = {
    getCard: getCard,
    getCardCommentPage: getCardCommentPage
 };
-},{"./http":220}],222:[function(require,module,exports){
+},{"./http":221}],223:[function(require,module,exports){
 function formatDate(str) {
    var d = new Date(str);
 
@@ -25489,7 +25510,7 @@ module.exports = {
    formatDateTime: formatDateTime,
    formatDate: formatDate
 };
-},{}],223:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 var now = Date.now || function() { return new Date().getTime(); }
 
 function debounce(func, wait, immediate) {
@@ -25530,7 +25551,7 @@ module.exports = {
 	debounce: debounce,
 	now: now
 };
-},{}],224:[function(require,module,exports){
+},{}],225:[function(require,module,exports){
 var settings = require('../settings');
 
 function mixins(mixinArr) {
@@ -25559,7 +25580,7 @@ var lifeCycleLogger = [
    );
 
 module.exports = mixins;
-},{"../settings":225}],225:[function(require,module,exports){
+},{"../settings":226}],226:[function(require,module,exports){
 var settings = {
    'board background': false,
    enableLifeCycleSpy: false

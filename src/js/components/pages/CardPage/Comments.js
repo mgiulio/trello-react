@@ -4,20 +4,12 @@ var
    ,data = require('../../../data/data')
    ,Comment = require('./Comment')
    ,MoreButton = require('./MoreButton')
+   ,CommentsBar = require('./CommentsBar')
 ;
 
 var Comments = React.createClass({
 
    mixins: mixins(),
-
-   getInitialState: function() {
-      this.pageIterator = data.cardCommentPageIterator(this.props.cardId, this.props.pageSize, 2);
-
-      return {
-         items: this.props.firstPage,
-         loading: false
-      };
-   },
 
    render: function() {
       var
@@ -52,9 +44,7 @@ var Comments = React.createClass({
 
       return (
          <div className="comments">
-            <header className="navbar">
-               <p>{this.state.items.length}/{this.props.length} Comments</p>
-            </header>
+            <CommentsBar totalComments={this.props.length} shownComments={this.state.items.length} />
             <ul className="items">
                {itemComponents}
             </ul>
@@ -62,6 +52,16 @@ var Comments = React.createClass({
          </div>
       );
    },
+
+   getInitialState: function() {
+      this.pageIterator = data.cardCommentPageIterator(this.props.cardId, this.props.pageSize, 2);
+
+      return {
+         items: this.props.firstPage,
+         loading: false
+      };
+   },
+
 
    loadNextPage: function() {
       this.setState({loading: true});
