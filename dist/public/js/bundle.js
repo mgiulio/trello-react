@@ -24807,13 +24807,17 @@ var Comments = React.createClass({displayName: "Comments",
             moreBtn = React.createElement(MoreButton, React.__spread({},  btnProps));
       }
 
+      var moreSection;
+      if (moreBtn)
+         moreSection = React.createElement("p", {className: "more"}, moreBtn);
+
       return (
          React.createElement("div", {className: "comments"}, 
             React.createElement(CommentsBar, {totalComments: this.props.length, shownComments: this.state.items.length}), 
             React.createElement("ul", {className: "items"}, 
                itemComponents
             ), 
-            React.createElement("p", {className: "more"}, moreBtn)
+            moreSection
          )
       );
    },

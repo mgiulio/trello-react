@@ -42,13 +42,17 @@ var Comments = React.createClass({
             moreBtn = <MoreButton {...btnProps} />;
       }
 
+      var moreSection;
+      if (moreBtn)
+         moreSection = <p className="more">{moreBtn}</p>;
+
       return (
          <div className="comments">
             <CommentsBar totalComments={this.props.length} shownComments={this.state.items.length} />
             <ul className="items">
                {itemComponents}
             </ul>
-            <p className="more">{moreBtn}</p>
+            {moreSection}
          </div>
       );
    },
