@@ -52,7 +52,9 @@ var Comments = React.createClass({
             <ul className="items">
                {itemComponents}
             </ul>
-            {moreSection}
+            <footer className="comments__footer">
+               {moreSection}
+            </footer>
          </div>
       );
    },

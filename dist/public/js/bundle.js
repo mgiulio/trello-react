@@ -24817,7 +24817,9 @@ var Comments = React.createClass({displayName: "Comments",
             React.createElement("ul", {className: "items"}, 
                itemComponents
             ), 
-            moreSection
+            React.createElement("footer", {className: "comments__footer"}, 
+               moreSection
+            )
          )
       );
    },
