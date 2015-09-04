@@ -2,9 +2,9 @@ var
    React = require('react')
    ,mixins = require('../../../mixins/mixins')
    ,data = require('../../../data/data')
-   ,Comment = require('./Comment')
    ,MoreButton = require('./MoreButton')
    ,CommentsBar = require('./CommentsBar')
+   ,CommentList = require('./CommentList')
 ;
 
 var Comments = React.createClass({
@@ -13,7 +13,6 @@ var Comments = React.createClass({
 
    render: function() {
       var
-         itemComponents,
          moreBtn,
          btnProps = {
             onClick: this.loadNextPage
@@ -23,21 +22,8 @@ var Comments = React.createClass({
       if (this.state.loading) {
          btnProps.spin = true;
          moreBtn = <MoreButton {...btnProps} />;
-
-         itemComponents = this.itemComponents;
       }
       else {
-         itemComponents = this.itemComponents = this.state.items.map((i, id) =>
-            <Comment
-               key={id}
-               author={i.author}
-               timestamp={i.timestamp}
-               defaultAvatarUrl="/img/avatar-placeholder.jpg"
-            >
-               {i.text}
-            </Comment>)
-         ;
-
          if (this.state.items.length < this.props.length)
             moreBtn = <MoreButton {...btnProps} />;
       }
@@ -49,9 +35,7 @@ var Comments = React.createClass({
       return (
          <div className="comments">
             <CommentsBar totalComments={this.props.length} shownComments={this.state.items.length} />
-            <ul className="items">
-               {itemComponents}
-            </ul>
+            <CommentList comments={this.state.items} />
             <footer className="comments__footer">
                {moreSection}
             </footer>
