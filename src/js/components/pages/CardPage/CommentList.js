@@ -26,7 +26,7 @@ var CommentList = React.createClass({
    },
 
    componentDidMount: function() {
-      this.interval = setInterval(() => { this.setState({now: new Date()}); }, 60000);
+      this.interval = setInterval(() => { this.setState({now: new Date()}); }, this.timeagoRefreshPeriod);
    },
 
    componentWillUnmount: function() {
@@ -48,6 +48,8 @@ var CommentList = React.createClass({
    },
 
    getInitialState: function() {
+      this.timeagoRefreshPeriod = 5 * 60 * 1000;
+
       return {
          now: new Date()
       };

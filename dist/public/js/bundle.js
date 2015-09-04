@@ -27988,7 +27988,7 @@ var CommentList = React.createClass({displayName: "CommentList",
    },
 
    componentDidMount: function() {
-      this.interval = setInterval(function()  { this.setState({now: new Date()}); }.bind(this), 60000);
+      this.interval = setInterval(function()  { this.setState({now: new Date()}); }.bind(this), this.timeagoRefreshPeriod);
    },
 
    componentWillUnmount: function() {
@@ -28010,6 +28010,8 @@ var CommentList = React.createClass({displayName: "CommentList",
    },
 
    getInitialState: function() {
+      this.timeagoRefreshPeriod = 5 * 60 * 1000;
+
       return {
          now: new Date()
       };
