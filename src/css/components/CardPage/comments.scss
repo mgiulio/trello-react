@@ -88,6 +88,14 @@
             font-style: italic;
 
             .timestamp {
+               .icon {
+                  width: 18px;
+                  height: 18px;
+                  fill: #aaa;
+                  vertical-align: middle;
+                  margin-right: 2px;
+
+               }
             }
          }
       }

@@ -28366,6 +28366,7 @@ var
    React = require('react')
    ,datetime = require('../lib/datetime')
    ,moment = require('moment')
+   ,Icon = require('./Icon')
 ;
 
 var Timestamp = React.createClass({displayName: "Timestamp",
@@ -28377,13 +28378,14 @@ var Timestamp = React.createClass({displayName: "Timestamp",
 
       var relativeTime = moment(this.props.dateTime).from(this.props.now);
       var absTime = moment(this.props.dateTime).format('dddd, MMMM Do YYYY, h:mm:ss a');
-      
+
       return (
          React.createElement("time", {
             className: "timestamp", 
             dateTime: dt, 
             title: absTime
          }, 
+            React.createElement(Icon, {which: "clock"}), 
             relativeTime
          )
       );
@@ -28393,7 +28395,7 @@ var Timestamp = React.createClass({displayName: "Timestamp",
 
 module.exports = Timestamp;
 
-},{"../lib/datetime":225,"moment":3,"react":197}],221:[function(require,module,exports){
+},{"../lib/datetime":225,"./Icon":201,"moment":3,"react":197}],221:[function(require,module,exports){
 var
    React = require('react'),
    Router = require('react-router'),
