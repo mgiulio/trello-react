@@ -21,7 +21,8 @@ var CardPage = React.createClass({
    mixins: mixins(),
 
    getInitialState: function() {
-      this.loadCard(this.props.params.id);
+      this.cardId = this.props.params.id;
+      this.loadCard(this.cardId);
 
       return {
          state: 'loading'
@@ -41,7 +42,7 @@ var CardPage = React.createClass({
    },
 
    retry: function() {
-      this.loadCard(this.props.params.id);
+      this.loadCard(this.cardId);
       this.setState({state: 'loading'});
    },
 
@@ -60,7 +61,7 @@ var CardPage = React.createClass({
 
             var comments;
             if (c.commentCount > 0)
-               comments = <Comments length={c.commentCount} firstPage={c.comments} pageSize="50" cardId={this.props.params.id} />;
+               comments = <Comments length={c.commentCount} firstPage={c.comments} pageSize="50" cardId={this.cardId} />;
 
             var attachments;
             if (c.attachmentCount > 0)
