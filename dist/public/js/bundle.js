@@ -28372,17 +28372,19 @@ var Timestamp = React.createClass({displayName: "Timestamp",
 
    render: function() {
       var
-         dt = this.props.dateTime//,
-         //formattedDt = this.props.onlyDate ? datetime.formatDate(dt) : datetime.formatDateTime(dt)
+         dt = this.props.dateTime
       ;
 
-      var content = moment(this.props.dateTime).from(this.props.now);
+      var relativeTime = moment(this.props.dateTime).from(this.props.now);
+      var absTime = moment(this.props.dateTime).format('dddd, MMMM Do YYYY, h:mm:ss a');
       
       return (
          React.createElement("time", {
             className: "timestamp", 
-            dateTime: dt}, 
-               content
+            dateTime: dt, 
+            title: absTime
+         }, 
+            relativeTime
          )
       );
    }
