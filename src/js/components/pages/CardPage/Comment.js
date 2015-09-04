@@ -30,7 +30,7 @@ var Comment = React.createClass({
             <img className="avatar" src={author.avatarUrl} />
             <div className="text" dangerouslySetInnerHTML={{__html: marked(this.props.children.toString(), {sanitize: true})}}></div>
             <p className="meta">
-               <Timestamp dateTime={this.props.timestamp} />
+               <Timestamp dateTime={this.props.timestamp} now={this.props.now} />
             </p>
          </li>
       );

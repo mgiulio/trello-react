@@ -14,7 +14,7 @@ var CommentList = React.createClass({
    },
 
    shouldComponentUpdate(nextProps, nextState) {
-      if (nextProps.comments.length === this.props.comments.length)
+      if (nextProps.comments.length === this.props.comments.length && nextState.now === this.state.now)
          return false;
 
       this.commentComponents = this.generateCommentsComponents(nextProps.comments);
@@ -25,6 +25,14 @@ var CommentList = React.createClass({
       this.commentComponents = this.generateCommentsComponents(this.props.comments);
    },
 
+   componentDidMount: function() {
+      this.interval = setInterval(() => { this.setState({now: new Date()}); }, 60000);
+   },
+
+   componentWillUnmount: function() {
+      clearInterval(this.interval);
+   },
+
    generateCommentsComponents: function(comments) {
       return comments.map((c, i) =>
          <Comment
@@ -32,10 +40,17 @@ var CommentList = React.createClass({
             author={c.author}
             timestamp={c.timestamp}
             defaultAvatarUrl="/img/avatar-placeholder.jpg"
+            now={this.state.now}
          >
             {c.text}
          </Comment>)
       ;
+   },
+
+   getInitialState: function() {
+      return {
+         now: new Date()
+      };
    }
 
 });
