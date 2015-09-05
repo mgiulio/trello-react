@@ -1,19 +1,22 @@
 var
    React = require('react')
-   ,datetime = require('../lib/datetime')
    ,moment = require('moment')
-   ,Icon = require('./Icon')
 ;
 
 var Timestamp = React.createClass({
 
    render: function() {
       var
-         dt = this.props.dateTime
+         dt = this.props.dateTime,
+         mdt = moment(dt)
       ;
 
-      var relativeTime = moment(this.props.dateTime).from(this.props.now);
-      var absTime = moment(this.props.dateTime).format('dddd, MMMM Do YYYY, h:mm:ss a');
+      var content = typeof this.props.format === 'object' ?
+         mdt.from(this.props.format) :
+         mdt.format(this.props.format)
+      ;
+
+      var absTime = mdt.format('dddd, MMMM Do YYYY, h:mm:ss a');
 
       return (
          <time
@@ -21,7 +24,7 @@ var Timestamp = React.createClass({
             dateTime={dt}
             title={absTime}
          >
-            {relativeTime}
+            {content}
          </time>
       );
    }

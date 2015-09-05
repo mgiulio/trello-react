@@ -32,7 +32,7 @@ var Comment = React.createClass({
             <div className="text" dangerouslySetInnerHTML={{__html: marked(this.props.children.toString(), {sanitize: true})}}></div>
             <p className="meta">
                <MetaItem className="comment__timestamp" icon="clock">
-                  <Timestamp dateTime={this.props.timestamp} now={this.props.now} />
+                  <Timestamp dateTime={this.props.timestamp} format={this.props.now} />
                </MetaItem>
             </p>
          </li>
