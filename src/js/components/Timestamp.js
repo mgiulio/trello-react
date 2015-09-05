@@ -21,7 +21,6 @@ var Timestamp = React.createClass({
             dateTime={dt}
             title={absTime}
          >
-            <Icon which="clock" />
             {relativeTime}
          </time>
       );

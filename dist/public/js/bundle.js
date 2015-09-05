@@ -27449,7 +27449,7 @@ var AboutPage = React.createClass({displayName: "AboutPage",
       return (
          React.createElement("div", {className: "page"}, 
             React.createElement("header", null, 
-               React.createElement("h1", {className: "title"}, "ReactTrello", React.createElement("span", {className: "version"}, "0.4")), 
+               React.createElement("h1", {className: "title"}, "ReactTrello", React.createElement("span", {className: "version"}, "0.6")), 
                React.createElement("h2", {className: "subtitle"}, "A ", React.createElement("a", {href: "http://trello.com"}, "Trello"), " client ", React.createElement("em", null, "Thinked in ", React.createElement("a", {href: "https://facebook.github.io/react/index.html"}, "React")))
             ), 
 
@@ -27923,6 +27923,7 @@ var
    ,mixins = require('../../../mixins/mixins')
    ,marked = require('marked')
    ,Timestamp = require('../../Timestamp')
+   ,MetaItem = require('../../MetaItem')
 ;
 
 var Comment = React.createClass({displayName: "Comment",
@@ -27950,7 +27951,9 @@ var Comment = React.createClass({displayName: "Comment",
             React.createElement("img", {className: "avatar", src: author.avatarUrl}), 
             React.createElement("div", {className: "text", dangerouslySetInnerHTML: {__html: marked(this.props.children.toString(), {sanitize: true})}}), 
             React.createElement("p", {className: "meta"}, 
-               React.createElement(Timestamp, {dateTime: this.props.timestamp, now: this.props.now})
+               React.createElement(MetaItem, {className: "comment__timestamp", icon: "clock"}, 
+                  React.createElement(Timestamp, {dateTime: this.props.timestamp, now: this.props.now})
+               )
             )
          )
       );
@@ -27959,7 +27962,7 @@ var Comment = React.createClass({displayName: "Comment",
 });
 
 module.exports = Comment;
-},{"../../../mixins/mixins":227,"../../Timestamp":220,"marked":2,"react":197}],212:[function(require,module,exports){
+},{"../../../mixins/mixins":227,"../../MetaItem":202,"../../Timestamp":220,"marked":2,"react":197}],212:[function(require,module,exports){
 var
    React = require("react")
    ,Comment = require('./Comment')
@@ -28385,7 +28388,6 @@ var Timestamp = React.createClass({displayName: "Timestamp",
             dateTime: dt, 
             title: absTime
          }, 
-            React.createElement(Icon, {which: "clock"}), 
             relativeTime
          )
       );

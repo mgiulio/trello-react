@@ -3,6 +3,7 @@ var
    ,mixins = require('../../../mixins/mixins')
    ,marked = require('marked')
    ,Timestamp = require('../../Timestamp')
+   ,MetaItem = require('../../MetaItem')
 ;
 
 var Comment = React.createClass({
@@ -30,7 +31,9 @@ var Comment = React.createClass({
             <img className="avatar" src={author.avatarUrl} />
             <div className="text" dangerouslySetInnerHTML={{__html: marked(this.props.children.toString(), {sanitize: true})}}></div>
             <p className="meta">
-               <Timestamp dateTime={this.props.timestamp} now={this.props.now} />
+               <MetaItem className="comment__timestamp" icon="clock">
+                  <Timestamp dateTime={this.props.timestamp} now={this.props.now} />
+               </MetaItem>
             </p>
          </li>
       );
